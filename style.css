@@ -4,14 +4,22 @@ li {display: inline;}
 a {text-decoration: none; color: white;}
 /* 헤더부분 */
 header {width: 100%; background: gray; position: relative;}
-nav {width: 100%; height: 63px; background: black; position: absolute; 
-    display: flex;}
-#logo_w_blue {height: 35px; padding: 13px; background: chartreuse;}
-nav > ul > li > a {padding: 0 40px 0 40px; font-size: 13pt; background: chocolate;}
+nav {position: fixed; width: 100%; height: 63px; background-color: rgba( 0,0,0, 0.6); position: absolute;
+    border-bottom: 2px solid #353437;}
+nav > ul {display: flex; align-items: center; width: 1200px;}
+#logo_w_blue {height: 35px; padding: 13px;}
+nav > ul > li > a {padding: 0 40px 0 40px; font-size: 13pt;}
 nav > ul > li > img {height: 20px; padding: 0 10px 0 10px;}
 
 /* 배너부분 */
-#banner {}
+#banner {overflow: hidden; display: flex; justify-content: center;}
+#banner > img {height: 100vh;}
+
+#arrow {background: chocolate; position: absolute; top: 50%;}
+#arrow > img:first-child {left: 5%; background: darkred;}
+#arrow > img:last-child {position: absolute; right: 5%;}
+
+#scroll {background: darkgoldenrod;}
 
 /* 예매부분 */
 #movie {background: lightcoral;}
