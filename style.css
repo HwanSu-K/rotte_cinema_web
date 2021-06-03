@@ -4,7 +4,7 @@ li {display: inline;}
 a {text-decoration: none; color: white;}
 /* 헤더부분 */
 header {width: 100%; background: gray; position: relative;}
-nav {position: fixed; width: 100%; height: 63px; background-color: rgba( 0,0,0, 0.6); position: absolute;
+nav {position: fixed; width: 100%; height: 63px; background-color: rgba(0,0,0, 0.6); position: absolute;
     border-bottom: 2px solid #353437;}
 nav > ul {display: flex; align-items: center; width: 1200px;}
 #logo_w_blue {height: 35px; padding: 13px;}
@@ -12,18 +12,37 @@ nav > ul > li > a {padding: 0 40px 0 40px; font-size: 13pt;}
 nav > ul > li > img {height: 20px; padding: 0 10px 0 10px;}
 
 /* 배너부분 */
-#banner {overflow: hidden; display: flex; justify-content: center;}
+#banner {width:100%; overflow: hidden; display: flex; justify-content: center;}
 #banner > img {height: 100vh;}
+/* 배너-> 화살표 영역 */
+#arrow {display: flex; width:100%; position: absolute; top: 50%;}
+/* 배너-> 스크롤 영역 */
+#scroll {right:15%; position: absolute; bottom:5%;}
 
-#arrow {background: chocolate; position: absolute; top: 50%;}
-#arrow > img:first-child {left: 5%; background: darkred;}
-#arrow > img:last-child {position: absolute; right: 5%;}
+/* ------------------------------------------------------------------ */
 
-#scroll {background: darkgoldenrod;}
+#reserv {background: #07072b; height : 100vh; padding-top: 120px;
+    background-image:url('images/BG/transparent-bg.png');}
 
-/* 예매부분 */
-#movie {background: lightcoral;}
+/* section 01 예매부분 */
+#section1 {overflow: hidden; display: flex; width: 1200px; height:72px; background: black;}
+#section1 > span {display: flex; color: #c5c5c5; align-items: center; justify-content: center;}
+#section1 > span > span {margin: 10px;}
+#section1 > span:nth-child(2), #movie > span:nth-child(4) {margin: 0;}
+
+#section1 > span i {font-size: 40px;}               /* font awesome 아이콘 사이즈 */
+#section1 > span > span > div {justify-content: center; display: flex;}
+#section1 > span div:nth-child(1) {color: #838383; font-size: 10pt;}
+#section1 > span div:nth-child(2) {color: white; font-size: 13pt;}
+
+/* section 02 포스트 슬라이드 부분 */
+#section2 {height: 495px; width: 1200px; margin-top: 50px;}
+#post img {height: 320px; margin: 0 10px 0 10px; align-items: center; justify-content: center;}
+#post img:nth-child(1), #post img:nth-child(6) {height: 48px;}
+
 /* 큐레이션 부분 */
 #q_lation {background: lightslategray;}
+
+
 /* 풋터부분 */
 footer {background: black; color: white;}

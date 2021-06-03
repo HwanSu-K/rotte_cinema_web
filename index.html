@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rotte Cinema에 오신것을 환영합니다.</title>
     <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
 </head>
 <body>
     <header>
@@ -25,11 +26,16 @@
         </nav>
     </header>
 
+    <!-- ul>li*5 :: li 5개 생성시 -->
+    <!-- alt키 누르고 클릭시 다중커서영역 생김 -->
+
+
     <div id="banner">           <!-- 배너영역 -->
         <img src="images/BANNER_IMG/banner01.jpg">
-    
+        
         <div id="arrow">        <!-- 화살표 아이콘  < >  -->
             <img src="images/Icon/banner_arrow_icon01.png">
+            <img src="images/Icon/play_icon.png">                   <!--play 아이콘-->
             <img src="images/Icon/banner_arrow_icon02.png">
         </div>
         <div id="scroll">        <!--스크롤 아이콘  ●○○○○  -->
@@ -42,9 +48,55 @@
 
     </div>
     
+<!-- ------------------------------------------------------------------------------------ -->
 
+    <div id="reserv">
+        <section id="section1">        <!-- section 01 영역 -->
+            <span>
+                <span><i class="fas fa-film"></i></span>            <!--1번 아이콘부분-->
+                <span>
+                    <div>Movie</div>
+                    <div>전체영화</div>
+                </span>
+            </span>
+            <span><img src="/images/Icon/section2_line.png"></span>     <!--Line 아이콘부분-->
 
-    <section id="movie">예매부분</section>
+            <span>
+                <span><i class="far fa-calendar-alt"></i></span>            <!--2번 아이콘부분-->
+                <span>
+                    <div>Timetable</div>
+                    <div>상영시간표</div>
+                </span>
+            </span>
+
+            <span><img src="/images/Icon/section2_line.png"></span>     <!--Line 아이콘부분-->
+
+            <span>
+                <span><i class="fas fa-ticket-alt"></i></span>            <!--3번 아이콘부분-->
+                <span>
+                    <div>Ticketing</div>
+                    <div>빠른예매</div>
+                </span>
+            </span>
+        </section>
+        
+        <section id="section2">        <!-- section 02 포스트 슬라이드 영역 -->
+            
+            <div id="post">
+                <img src="images/Icon/section2_arrow01.png">                <!-- 화살표 아이콘 -->
+                <img src="images/POST_IMG/movie01_kruella.jpg">
+                <img src="images/POST_IMG/movie02_ultimate.jpg">
+                <img src="images/POST_IMG/movie03_pipeline.jpg">
+                <img src="images/POST_IMG/movie04_luca.jpg">
+                <!-- <img src="images/POST_IMG/movie05_cashtruck.jpg"> -->            <!-- 5번째 포스트 이미지 -->
+                <img src="images/Icon/section2_arrow02.png">                <!-- 화살표 아이콘 -->
+            </div>
+        </section>
+    
+    </div>
+
+<!-- ------------------------------------------------------------------------------------ -->
+
     <section id="q_ration">큐레이션부분</section>
     <footer>풋터</footer>
 </body>
