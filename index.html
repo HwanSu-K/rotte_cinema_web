@@ -16,7 +16,7 @@
                 <li><img src="images/Icon/search_icon.png"></li>
                 <li><a href="">영화</a></li>
                 <li><a href="">예매</a></li>
-                <li><img id="logo_w_blue" src="images/Icon/RT_Logo_W_Blue.png"></li>
+                <li><img class="logo_w_blue" src="images/Icon/RT_Logo_W_Blue.png"></li>
                 <li><a href="">이벤트</a></li>
                 <li><a href="">시설안내</a></li>
                 <li><img src="images/Icon/calendar_icon.png"></li>
@@ -30,15 +30,15 @@
     <!-- alt키 누르고 클릭시 다중커서영역 생김 -->
 
 
-    <div id="banner">           <!-- 배너영역 -->
+    <section class="banner">           <!-- 배너영역 -->
         <img src="images/BANNER_IMG/banner01.jpg">
         
-        <div id="arrow">        <!-- 화살표 아이콘  < >  -->
+        <div>        <!-- 화살표 아이콘  < >  -->
             <img src="images/Icon/banner_arrow_icon01.png">
             <img src="images/Icon/play_icon.png">                   <!--play 아이콘-->
             <img src="images/Icon/banner_arrow_icon02.png">
         </div>
-        <div id="scroll">        <!--스크롤 아이콘  ●○○○○  -->
+        <div>        <!--스크롤 아이콘  ●○○○○  -->
             <img src="images/Icon/banner_scroll_icon01.png">
             <img src="images/Icon/banner_scroll_icon02.png">
             <img src="images/Icon/banner_scroll_icon02.png">
@@ -46,12 +46,12 @@
             <img src="images/Icon/banner_scroll_icon02.png">
         </div>
 
-    </div>
+    </section>
     
 <!-- ------------------------------------------------------------------------------------ -->
 
-    <div id="reserv">
-        <section id="section1">        <!-- section 01 영역 -->
+    <section class="reserv">
+        <div>        <!-- section 01 영역 -->
             <span>
                 <span><i class="fas fa-film"></i></span>            <!--1번 아이콘부분-->
                 <span>
@@ -78,26 +78,37 @@
                     <div>빠른예매</div>
                 </span>
             </span>
-        </section>
-        
-        <section id="section2">        <!-- section 02 포스트 슬라이드 영역 -->
-            
-            <div id="post">
-                <img src="images/Icon/section2_arrow01.png">                <!-- 화살표 아이콘 -->
-                <img src="images/POST_IMG/movie01_kruella.jpg">
-                <img src="images/POST_IMG/movie02_ultimate.jpg">
-                <img src="images/POST_IMG/movie03_pipeline.jpg">
-                <img src="images/POST_IMG/movie04_luca.jpg">
-                <!-- <img src="images/POST_IMG/movie05_cashtruck.jpg"> -->            <!-- 5번째 포스트 이미지 -->
-                <img src="images/Icon/section2_arrow02.png">                <!-- 화살표 아이콘 -->
+        </div>
+        <div>        <!-- section 02 포스트 슬라이드 영역 -->
+            <div>
+                <span>박스오피스</span>
             </div>
-        </section>
-    
-    </div>
+            <div>
+            <img src="images/Icon/section2_arrow01.png">                <!-- 화살표 아이콘 -->
+            <span>
+                <div><img src="images/POST_IMG/movie01_kruella.jpg"></div>
+                <div><input type="button" value="예메"></div>
+            </span>
+            <span>
+                <div><img src="images/POST_IMG/movie02_ultimate.jpg"></div>
+                <div><input type="button" value="예메"></div>
+            </span>
+            <span>
+                <div><img src="images/POST_IMG/movie03_pipeline.jpg"></div>
+                <div><input type="button" value="예메"></div>
+            </span>
+            <span>
+                <div><img src="images/POST_IMG/movie04_luca.jpg"></div>
+                <div><input type="button" value="예메"></div>
+            </span>
+            <img src="images/Icon/section2_arrow02.png">    
+        </div>            <!-- 화살표 아이콘 -->
+        </div>
+    </section>
 
 <!-- ------------------------------------------------------------------------------------ -->
 
-    <section id="q_ration">큐레이션부분</section>
+    <section class="qration">큐레이션부분</section>
     <footer>풋터</footer>
 </body>
 </html>
