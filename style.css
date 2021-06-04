@@ -25,7 +25,7 @@ nav > ul > li > img {height: 20px; padding: 0 10px 0 10px;}
     background-image:url('images/BG/transparent-bg.png');}
 
 /* section 01 예매부분 */
-#section1 {overflow: hidden; display: flex; width: 1200px; height:72px; background: black;}
+#section1 {overflow: hidden; display: flex; width: 1100px; height:72px; background: black;}
 #section1 > span {display: flex; color: #c5c5c5; align-items: center; justify-content: center;}
 #section1 > span > span {margin: 10px;}
 #section1 > span:nth-child(2), #movie > span:nth-child(4) {margin: 0;}
@@ -36,9 +36,10 @@ nav > ul > li > img {height: 20px; padding: 0 10px 0 10px;}
 #section1 > span div:nth-child(2) {color: white; font-size: 13pt;}
 
 /* section 02 포스트 슬라이드 부분 */
-#section2 {height: 495px; width: 1200px; margin-top: 50px;}
+#section2 {height: 495px; margin-top: 50px; height: 100vh;}
+#section2 > #post {width: 100%; text-align: center; position: relative;}
 #post img {height: 320px; margin: 0 10px 0 10px; align-items: center; justify-content: center;}
-#post img:nth-child(1), #post img:nth-child(6) {height: 48px;}
+#post img:nth-child(1), #post img:nth-child(6) {height: 48px; position: absolute; top: 50%; margin: 0 auto; }
 
 /* 큐레이션 부분 */
 #q_lation {background: lightslategray;}
