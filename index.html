@@ -1,3 +1,9 @@
+
+    <!-- ul>li*5 :: li 5개 생성시 -->
+    <!-- alt키 누르고 클릭시 다중커서영역 생김 -->
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,9 +32,6 @@
         </nav>
     </header>
 
-    <!-- ul>li*5 :: li 5개 생성시 -->
-    <!-- alt키 누르고 클릭시 다중커서영역 생김 -->
-
 
     <section class="banner">           <!-- 배너영역 -->
         <img src="images/BANNER_IMG/banner01.jpg">
@@ -51,7 +54,7 @@
 <!-- ------------------------------------------------------------------------------------ -->
 
     <section class="reserv">
-        <div>        <!-- section 01 영역 -->
+        <div>        <!-- reserv클래스 안의 section 01 영역 -->
             <span>
                 <span><i class="fas fa-film"></i></span>            <!--1번 아이콘부분-->
                 <span>
@@ -79,36 +82,75 @@
                 </span>
             </span>
         </div>
-        <div>        <!-- section 02 포스트 슬라이드 영역 -->
-            <div>
-                <span>박스오피스</span>
-            </div>
+
+
+
+        <div>        <!-- reserv클래스 안의 section 02 포스트 슬라이드 영역 -->
             <div>
             <img src="images/Icon/section2_arrow01.png">                <!-- 화살표 아이콘 -->
             <span>
                 <div><img src="images/POST_IMG/movie01_kruella.jpg"></div>
-                <div><input type="button" value="예메"></div>
+                <div id="Post_InfoBox">                   <!-- 1포스트 영화 정보 박스 -->
+                    <span>크루엘라</span>
+                    <span>예매율 34.9%</span>
+                    <span>|</span>
+                    <span><img src="images/POST_IMG/Post_InfoBox_Icon.png"></span>
+                    <span>9.2</span>
+                </div>
+                <div><input type="button" value="예매"></div>
             </span>
             <span>
                 <div><img src="images/POST_IMG/movie02_ultimate.jpg"></div>
-                <div><input type="button" value="예메"></div>
+                <div id="Post_InfoBox">                   <!-- 2포스트 영화 정보 박스 -->
+                    <span>분노의 질주:더 얼티메이트</span>
+                    <span>예매율 19.0%</span>
+                    <span>|</span>
+                    <span><img src="images/POST_IMG/Post_InfoBox_Icon.png"></span>
+                    <span>8.5</span>
+                </div>
+                <div><input type="button" value="예매"></div>
             </span>
             <span>
                 <div><img src="images/POST_IMG/movie03_pipeline.jpg"></div>
-                <div><input type="button" value="예메"></div>
+                <div id="Post_InfoBox">                   <!-- 3포스트 영화 정보 박스 -->
+                    <span>파이프라인</span>
+                    <span>예매율 15.3%</span>
+                    <span>|</span>
+                    <span><img src="images/POST_IMG/Post_InfoBox_Icon.png"></span>
+                    <span>7.6</span>
+                </div>
+                <div><input type="button" value="예매"></div>
             </span>
             <span>
                 <div><img src="images/POST_IMG/movie04_luca.jpg"></div>
-                <div><input type="button" value="예메"></div>
+                <div id="Post_InfoBox">                   <!-- 4포스트 영화 정보 박스 -->
+                    <span>루카</span>
+                    <span>예매율 10.0%</span>
+                    <span>|</span>
+                    <span><img src="images/POST_IMG/Post_InfoBox_Icon.png"></span>
+                    <span>6.7</span>
+                </div>
+                <div><input type="button" value="예매"></div>
             </span>
-            <img src="images/Icon/section2_arrow02.png">    
-        </div>            <!-- 화살표 아이콘 -->
+            <img src="images/Icon/section2_arrow02.png">
+            </div>                                                      <!-- 화살표 아이콘 -->
         </div>
     </section>
 
 <!-- ------------------------------------------------------------------------------------ -->
 
-    <section class="qration">큐레이션부분</section>
+    <section class="qration">
+        <span>
+            <div>큐레이션</div>
+            <div><img src="/images/Qration_IMG/Qration_IMG_01.jpg"></div>       <!-- 큰 포스트 -->
+            <div>
+                <input type="button" value="상세정보">
+                <input type="button" value="예매">
+            </div>
+        </span>
+        
+        
+    </section>
     <footer>풋터</footer>
 </body>
 </html>
