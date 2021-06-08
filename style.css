@@ -51,7 +51,7 @@ nav > ul > li > img {height: 20px; padding: 0 10px 0 10px;}
     display: flex; flex-direction: column; justify-content: center; line-height: 150%;}
 .reserv > .reserv_section2 > span > .Post_InfoBox > div:nth-child(1) {font-size: 13pt; font-weight: bold;}
 .reserv > .reserv_section2 > span > .Post_InfoBox > span {display: flex; align-items: center; justify-content: center; color: #c5c5c5;} 
-
+.reserv > .reserv_section2 > span > .Post_InfoBox > span > span {margin-left: 10px; margin-right: 10px;}
 .reserv > .reserv_section2 > span > div > input         /* 예매버튼 */
     {width: 180px; height: 45px; border-radius: 5px; margin-top: 25px; box-shadow: 2px 2px 4px #07072e;
     background-color: #2b3380; color: white; font-size: 12pt; cursor: pointer; border-style: hidden;}
