@@ -36,9 +36,9 @@ nav > ul > li > img {height: 20px; padding: 0 10px 0 10px;}
 .reserv > .reserv_section1 > span div:nth-child(2) {color: #ffffff; font-size: 13pt;}
 .reserv > .reserv_section1 > span div:nth-child(2):hover {color: #f3d409; cursor: pointer;}
 
-.reserv > .reserv_more {width: 1150px; margin-top:130px; position: relative; padding-bottom: 15px;}
-.reserv > .reserv_more > span:nth-child(1) > {display: inline-block; position: absolute; right: 0; margin: 0; color: #c5c5c5;}
-.reserv > .reserv_more > span:nth-child(2) > img {padding: 5px 0 0 10px;}
+.reserv > .reserv_more {width: 1150px; margin-top:130px; padding-bottom: 15px;}
+.reserv > .reserv_more > span {display: flex; align-items: center; justify-content: center; float: right;  color: #c5c5c5;} 
+.reserv > .reserv_more > span > img {margin-left: 10px;} 
 
 /* section 02 포스트 슬라이드 부분 (div:nth-child(2)) */
 .reserv > .reserv_section2 {width: 1300px; height: 550px; display: flex; justify-content: center; align-items: center; color: #2b3380;}
