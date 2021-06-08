@@ -1,12 +1,12 @@
 /* 초기화 스타일 */
 * {margin: 0 auto;}
 li {display: inline;}
-a {text-decoration: none; color: white;}
+a {text-decoration: none; color: #ffffff;}
 /* 헤더부분 */
-header {background: gray; position: sticky; top: 0;}
+header {background: #838383; position: sticky; top: 0;}
 nav {width: 100%; height: 63px; background-color: rgba(0,0,0, 0.6); position: absolute; border-bottom: 2px solid #353437;}
 nav > ul {display: flex; align-items: center; width: 1200px;}
-nav > ul .logo_w_blue {height: 35px; padding: 13px;}
+nav > ul .logo_w_blue {padding: 13px; height: 100%;}
 nav > ul > li > a:hover {text-decoration: underline;}
 nav > ul > li > a {padding: 0 40px 0 40px; font-size: 13pt;}
 nav > ul > li > img {height: 20px; padding: 0 10px 0 10px;}
@@ -21,50 +21,52 @@ nav > ul > li > img {height: 20px; padding: 0 10px 0 10px;}
 
 /* ------------------------------------------------------------------ */
 
-.reserv {height : 100vh; padding-top: 150px; background: #07072b; background-image:url('images/BG/transparent-bg.png');}
+.reserv {height : 100vh; padding-top: 150px; background: #07072b; background-image:url('images/BG/transparent-bg.png'); display: flex; flex-direction: column;}
 
 /* 첫번째 section 예매부분 (div:nth-child(1)) */
-.reserv > div:nth-child(1) {overflow: hidden; display: flex; width: 1100px; height:72px; background: black;}
-.reserv > div:nth-child(1) > span {display: flex; color: #c5c5c5; align-items: center; justify-content: center;}
-.reserv > div:nth-child(1) > span > span {margin: 10px;}
-.reserv > div:nth-child(1) > span:nth-child(2), .reserv > div:nth-child(1) > span:nth-child(4) {margin: 0;}
+.reserv > .reserv_section1 {overflow: hidden; display: flex; width: 1100px; height:72px; background: black;}
+.reserv > .reserv_section1 > span {display: flex; color: #c5c5c5; align-items: center; justify-content: center;}
+.reserv > .reserv_section1 > span > span {margin: 10px;}
+.reserv > .reserv_section1 > span:nth-child(2), .reserv > div:nth-child(1) > span:nth-child(4) {margin: 0;}
 
-.reserv > div:nth-child(1) > span i {font-size: 40px;}               /* font awesome 아이콘 사이즈 */
-.reserv > div:nth-child(1) > span > span > div {justify-content: center; display: flex;}
-.reserv > div:nth-child(1) > span div:nth-child(1) {color: #838383; font-size: 10pt;}       /* movie,Timetable,Ticketing */
-.reserv > div:nth-child(1) > span div:nth-child(2) {color: white; font-size: 13pt;}
-.reserv > div:nth-child(1) > span div:nth-child(2):hover {color: #f3d409; cursor: pointer;}
+.reserv > .reserv_section1 > span i {font-size: 40px;}               /* font awesome 아이콘 사이즈 */
+.reserv > .reserv_section1 > span > span > div {justify-content: center; display: flex;}
+.reserv > .reserv_section1 > span div:nth-child(1) {color: #838383; font-size: 10pt;}       /* movie,Timetable,Ticketing */
+.reserv > .reserv_section1 > span div:nth-child(2) {color: #ffffff; font-size: 13pt;}
+.reserv > .reserv_section1 > span div:nth-child(2):hover {color: #f3d409; cursor: pointer;}
+
+.reserv > .reserv_more {width: 1150px; margin-top:130px; display: flex; justify-content: space-between;}
+.reserv > .reserv_more > span {margin: 0; color: #c5c5c5;}
+.reserv > .reserv_more > span > img {padding-left: 10px;}
 
 /* section 02 포스트 슬라이드 부분 (div:nth-child(2)) */
-.reserv > div:nth-child(2) {display: flex; flex-direction: column; margin-top: 80px; color: #2b3380;}
-.reserv > div:nth-child(2) > div:nth-child(1) {width: 1300px; height: 495px; margin-top: 50px; display: flex; justify-content: center; align-items: center;}
-.reserv > div:nth-child(2) > div:nth-child(1) > img {margin: 0px;}                      /* 화살표 아이콘 */
-.reserv > div:nth-child(2) > div:nth-child(1) > span > div {display: flex;}             /* 포스트 이미지 영역 */
-.reserv > div:nth-child(2) > div:nth-child(1) > span > div > img {height: 310px; width: 270px;}
+.reserv > .reserv_section2 {width: 1300px; height: 495px; display: flex; justify-content: center; align-items: center; color: #2b3380;}
+.reserv > .reserv_section2 > img {margin: 0px;}                      /* 화살표 아이콘 */
+.reserv > .reserv_section2 > span > div {display: flex;}             /* 포스트 이미지 영역 */
+.reserv > .reserv_section2 > span > div > img {width: 270px;}
 
-.reserv > div:nth-child(2) > div:nth-child(1) > span > #Post_InfoBox {height: 90px; background-color: white;}
-.reserv > div:nth-child(2) > div:nth-child(1) > span > #Post_InfoBox:nth-child(1) {font-size: 15pt;}
+.reserv > .reserv_section2 > span > .Post_InfoBox {height: 70px; background-color: white; display: flex; flex-direction: column; justify-content: center;}
+.reserv > .reserv_section2 > span > .Post_InfoBox:nth-child(1) {font-size: 15pt;}
 /* .reserv > div:nth-child(2) > div:nth-child(1) > span > #Post_InfoBox:nth-child(1) ~ #Post_InfoBox:nth-child(2) {color: #636363;} */
 
 
-.reserv > div:nth-child(2) > div:nth-child(1) > span > div > input         /* 예매버튼 */
+.reserv > .reserv_section2 > span > div > input         /* 예매버튼 */
     {width: 180px; height: 45px; border-radius: 5px; margin-top: 25px; box-shadow: 2px 2px 4px #07072e;
-    background-color: #2b3380; color: white; font-size: 12pt; cursor: pointer;}
-.reserv > div:nth-child(2) > div:nth-child(1) > span > div > input:hover {text-decoration: underline;}   /* 예매버튼 */
-.reserv > div:nth-child(2) > div:nth-child(1) > span > div > input:focus {outline: none;}
+    background-color: #2b3380; color: white; font-size: 12pt; cursor: pointer; border-style: hidden;}
+.reserv > .reserv_section2 > span > div > input:hover {text-decoration: underline;}   /* 예매버튼 */
 
 /* ------------------------------------------------------------------ */
 
 /* 큐레이션 부분 */
 .qration {height : 100vh; padding-top: 120px; background: #2e2e63; display: flex; justify-content: center;}
-.qration > span > div:nth-child(1) {font-size: 21pt; color: white; padding-bottom: 35px;}         /* Title : 큐레이션 */
-.qration > span > div:nth-child(2) > img {height: 430px; border: 5px solid white; border-radius: 10px;}
+.qration > span > div:nth-child(1) {font-size: 21pt; color: #ffffff; padding-bottom: 35px;}         /* Title : 큐레이션 */
+.qration > span > div:nth-child(2) > img {height: 430px; border: 5px solid #ffffff; border-radius: 10px;}
 .qration > span > div:nth-child(3) > input {margin: 20px 5px 0 5px; justify-content: center;}         /* 버튼 */
 .qration > span > div:nth-child(3) > input:nth-child(1) {width: 145px; height: 45px; border-radius: 5px; background-color: none;}
 .qration > span > div:nth-child(3) > input:nth-child(2)
-{width: 145px; height: 45px; border-radius: 5px; background-color: #2065f2; color: white;}
+{width: 145px; height: 45px; border-radius: 5px; background-color: #2065f2; color: #ffffff;}
 
 
 
 /* 풋터부분 */
-footer {background: black; color: white;}
+footer {background: black; color: #ffffff;}
