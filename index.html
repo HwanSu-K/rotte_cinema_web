@@ -13,6 +13,10 @@
     <title>Rotte Cinema에 오신것을 환영합니다.</title>
     <link rel="stylesheet" href="style.css"/>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="javascript.js"></script>
+
 </head>
 <body>
     <header>
@@ -32,7 +36,7 @@
         </nav>
     </header>
 
-
+<div class="content">
     <section class="banner">           <!-- 배너영역 -->
         <img src="images/BANNER_IMG/banner01.jpg">
         
@@ -137,7 +141,7 @@
 <!-- ------------------------------------------------------------------------------------ -->
 
     <section class="qration">
-        <span>
+        <span class="title">
             <div>큐레이션</div>
             <div><img src="/images/Qration_IMG/Qration_IMG_01.jpg"></div>       <!-- 큰 포스트 -->
             <div>
@@ -145,9 +149,47 @@
                 <input type="button" value="예매">
             </div>
         </span>
-        
+        <div class="q_more">
+            <a href="">
+                <span>
+                    <span>큐레이션 더보기</span>
+                    <img src="/images/Icon/plus_icon.png">
+                </span>
+            </a>
+        </div>
+        <span class="sub_title">
+            <div>#클래식소사이어티</div>      <!-- #adb4f8 -->
+            <div>2021 빈 필하모닉 여름음악회</div>
+            <div>
+                스크린으로 만나는 세계 최대 클래식 여름 축제!<br>
+                2021 빈 필하모닉 여름음악회<br><br>
+
+                [상영정보]<br>
+                - 상영일시 : 2021년 6월 19일(토) 20:00 *딜레이중계<br>
+                - 예매오픈 : 2021년 5월 24일(월) 15:00<br>
+                - 공연시간 : 약 90분 (인터미션 없음)<br>
+            </div>
+
+        </span>
         
     </section>
-    <footer>풋터</footer>
+</div>
+
+<!-- ------------------------------------------------------------------------------------ -->
+
+    <footer>
+        <div>
+            회원약관  |  개인정보처리방침  |  이메일무단수집거부  |  영상정보처리기기 운영 및 관리방침
+        </div>
+        <div>
+            <span>
+                대구광역시 동구 용계로1234  |  고객센터 1588-7777<br>
+                대표이사. 김환수 이민주 박은지  |  사업자등록번호 123-45-6789  |  통신판매업신고번호 제1234호<br>
+                COPYRIGHTⓒ ROTTE CINEMA ALL RIGHT RESERVED.
+            </span>            
+            <span><img src="/images/Icon/RT_Logo_W_Black.png.png"></span>
+        </div>
+    </footer>
+
 </body>
 </html>
