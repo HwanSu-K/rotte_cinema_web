@@ -5,10 +5,11 @@ a {text-decoration: none; color: #ffffff;}
 /* 헤더부분 */
 header {background: #838383; position: sticky; top: 0;}
 nav {width: 100%; height: 63px; background-color: rgba(0,0,0, 0.6); position: absolute; border-bottom: 2px solid #353437;}
-nav > ul {display: flex; align-items: center; width: 1200px;}
-nav > ul .logo_w_blue {padding: 13px; height: 100%;}
-nav > ul > li > a:hover {text-decoration: underline;}
-nav > ul > li > a {padding: 0 40px 0 40px; font-size: 13pt;}
+nav > ul {display: flex; width: 1200px; height: 100%; justify-content: center; }
+nav > ul .logo_w_blue {padding: 13px; height: 30px;}
+nav > ul > li { height: 100%; display: flex; align-items: center;}
+nav > ul > .ov {width: 80px;}
+nav > ul > .ov:hover {border-bottom: 2px solid #FF1744;}
 nav > ul > li > img {height: 20px; padding: 0 10px 0 10px;}
 
 /* 배너부분 */
@@ -35,12 +36,12 @@ nav > ul > li > img {height: 20px; padding: 0 10px 0 10px;}
 .reserv > .reserv_section1 > span div:nth-child(2) {color: #ffffff; font-size: 13pt;}
 .reserv > .reserv_section1 > span div:nth-child(2):hover {color: #f3d409; cursor: pointer;}
 
-.reserv > .reserv_more {width: 1150px; margin-top:130px; display: flex; justify-content: space-between;}
-.reserv > .reserv_more > span {margin: 0; color: #c5c5c5;}
-.reserv > .reserv_more > span > img {padding-left: 10px;}
+.reserv > .reserv_more {width: 1150px; margin-top:130px; position: relative; padding-bottom: 15px;}
+.reserv > .reserv_more > span:nth-child(1) > {display: inline-block; position: absolute; right: 0; margin: 0; color: #c5c5c5;}
+.reserv > .reserv_more > span:nth-child(2) > img {padding: 5px 0 0 10px;}
 
 /* section 02 포스트 슬라이드 부분 (div:nth-child(2)) */
-.reserv > .reserv_section2 {width: 1300px; height: 495px; display: flex; justify-content: center; align-items: center; color: #2b3380;}
+.reserv > .reserv_section2 {width: 1300px; height: 550px; display: flex; justify-content: center; align-items: center; color: #2b3380;}
 .reserv > .reserv_section2 > img {margin: 0px;}                      /* 화살표 아이콘 */
 .reserv > .reserv_section2 > span > div {display: flex;}             /* 포스트 이미지 영역 */
 .reserv > .reserv_section2 > span > div > img {width: 270px;}
