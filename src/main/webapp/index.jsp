@@ -15,10 +15,13 @@
 <body>
 <jsp:include page="./include/header.jsp"/>
 
+
+
+
 <div id="content">
 	<div class="section">           <!-- 배너영역 -->
         <section class="banner">
-            <div class="banner_img"><img src="./images/banner_img/banner01.jpg"></div>
+            <div class="banner_img"><img src="./images/banner_img/banner02.jpg"></div>
             <div class="banner_icon">        <!-- 화살표 아이콘  < >  -->
                 <img src="./images/icon/banner_arrow_icon01.png">
                 <img src="./images/icon/play_icon.png">                   <!--play 아이콘-->
@@ -114,6 +117,10 @@
     </section>
     </div>
 
+
+<!-- -------------------------------------------------------------------- -->
+
+
 	<div class="section">
         <section class="qration">
         <div class="qration_info">
@@ -124,6 +131,7 @@
                     <img src="./images/icon/plus_icon.png">
                 </span>
             </div>
+
             <div class="qration_content">
                 <div class="qration_main">
                     <div>

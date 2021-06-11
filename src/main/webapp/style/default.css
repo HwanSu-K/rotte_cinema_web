@@ -29,5 +29,5 @@ footer {grid-area: footer; height: 120px;
     grid-template-columns: 1fr 1200px 1fr;
     background:linear-gradient(to top, #000 80% , #fff 20%);
 }
-footer > .footer_link {grid-area: footer_link; color: #404040;}
+footer > .footer_link {grid-area: footer_link; color: #404040; padding: 2px;}
 footer > .footer_info {grid-area: footer_info; color: #c5c5c5; display: flex; justify-content: space-between; align-items: center;}
