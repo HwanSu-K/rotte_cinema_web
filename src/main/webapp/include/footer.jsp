@@ -18,6 +18,6 @@
             <div>대표이사. 김환수 이민주 박은지  |  사업자등록번호 123-45-6789  |  통신판매업신고번호 제1234호</div>
             <div>COPYRIGHTⓒ ROTTE CINEMA ALL RIGHT RESERVED.</div>
         </div>
-        <div><img src="/images/icon/rt_logo_w_black.png"></div>
+        <div><img src="./images/icon/rt_logo_w_black.png"></div>
     </div>      
 </footer>
