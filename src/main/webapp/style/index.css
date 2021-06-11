@@ -1,5 +1,4 @@
 /* 초기화 스타일 */
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
 @media (min-height: 1024px) {
 
 }
@@ -8,43 +7,18 @@
 
 }
 
-* {margin: 0; padding: 0; font-family: 'Noto Sans KR', sans-serif;}
-li {display: inline;}
-a {text-decoration: none; color: #ffffff;}
-
-body{
-    display: grid; 
-    grid-template-areas: 
-                "header header header"
-                "content content content"
-                "footer footer footer";
-
-}
-
-/* 헤더부분 */
-header {background: #838383; position: sticky; top: 0; grid-area: header; margin: 0;}
-nav {width: 100%; height: 60px; background-color: rgba(0,0,0, 0.6); position: absolute; border-bottom: 2px solid #353437;}
-nav > ul {display: flex; width: 100%; height: 100%; justify-content: center; }
-nav > ul > .ov {width: 80px;}
-nav > ul > .ov:hover {border-bottom: 3px solid #fff;}
-nav > ul > li { height: 100%; display: flex; justify-content: center; align-items: center; flex-basis: 100px;} /* 항목들의 넓이가 최소 100px은 유지 되도록 */
-nav > ul > li > img {height: 20px; padding: 0 10px 0 10px;} /* 아이콘 */
-nav > ul > li > .logo_w_blue {height: 40px;} /* 중앙 로고만 크기 조절 */
-
-
 .content {grid-area: content;}
 
 /* 배너부분 */
-.banner {width:100%; height: 100vh;}
-.banner > img {width:100%; height: 100%; object-fit:cover;} /* 배너 이미지 가운데 정렬 양쪽끝 남는부분 제거 */
-/* 배너-> 화살표 영역 */
-.banner > .banner_icon {display: flex; justify-content: space-around; width:100%; position: absolute; top: 50%;}
+.banner {width: 100%; height: 100%;} 
+.banner > .banner_img {width: 100%; height: 100%;} /* 배너를 담는 div 크기를 최대로 지정. */
+.banner > .banner_img > img {width:100%; height: 100%; object-fit:cover;} /* 배너안 이미지 크기를 최대로 지정 */
+.banner > .banner_icon {display: flex; justify-content: space-around; width:100%; position: absolute; top: 50%;} /* 배너-> 화살표 영역 */
 
-
-
+/* 예약부분 */
 .reserv {
+
     display: grid;
-    /* grid-template-columns: 17fr minmax(0, 66fr) 17fr; */
     grid-template-areas: 
     ". . ."
     ". section1 ."
@@ -52,51 +26,45 @@ nav > ul > li > .logo_w_blue {height: 40px;} /* 중앙 로고만 크기 조절 *
     ". section2 ."
     ". . .";
     grid-template-columns: 1fr 1200px 1fr;
-    grid-template-rows: 1.5fr 70px 0.7fr auto 1fr;
-    height : 100vh;
+    grid-template-rows: 85px 85px 1fr 50px 550px 1fr;
+    width: 100%;
+    height: 100%;
     background: #07072b; 
-    background-image:url('images/BG/transparent-bg.png');
+    background-image:url('./images/bg/transparent-bg.png');
 }
-/* 첫번째 section 예매 부분 */
-.reserv > .reserv_section1 {display: flex; justify-content:space-evenly; background: black;}
+
+/* 첫번째 section 예매부분 */
+.reserv > .reserv_section1 {grid-area: section1; display: flex; justify-content:space-evenly; background: black; border-radius: 10px;}
 .reserv > .reserv_section1 > span {display: flex; color: #c5c5c5; align-items: center; justify-content: center;}
 .reserv > .reserv_section1 > span:hover {cursor: pointer;}
 .reserv > .reserv_section1 > span i {font-size: 40px; margin: 10px;}               /* font awesome 아이콘 사이즈 */
 .reserv > .reserv_section1 > span div {justify-content: center; display: flex;}     /* 글꼴 설정 */
 .reserv > .reserv_section1 > span div:nth-child(1) {color: #838383; font-size: 10pt;}       /* movie,Timetable,Ticketing */
 .reserv > .reserv_section1 > span div:nth-child(2) {color: #ffffff; font-size: 13pt;}
-.reserv > .reserv_section1 > span div:nth-child(2):hover {color: #fff; cursor: pointer;}        /* 마우스 오버시 텍스트 under-line */
 
-.reserv > .reserv_section1 {grid-area: section1;}
-
-/* 두번째 section 포스트 슬라이드 부분*/
 .reserv > .reserv_section2 { grid-area: section2; display: flex; flex-direction: column; color: black;}
-.reserv > .reserv_section2 > .reserv_more {display: flex; flex-direction: row-reverse; margin-bottom: 10px;}   /* 더많은 영화 보기 */
-.reserv > .arrow {display: flex; flex-direction: row;}
-.reserv > .reserv_section2 > .reserv_list {display: flex; justify-content: space-between;}
+.reserv > .reserv_section2 > .reserv_more {display: flex; justify-content: flex-end; margin-bottom: 5px;} /* 더많은 영화 보기 */
+.reserv > .reserv_section2 > .reserv_list {display: flex; justify-content: center; align-items: center;}
 .reserv > .reserv_section2 > .reserv_list > span {margin: 0 10px 0 10px;}
 .reserv > .reserv_section2 > .reserv_list > span > div > img {width: 270px;}
-.reserv > .reserv_section2 > .reserv_list .post_info 
-    {height: 70px; background-color: #ffffff; display: flex; flex-direction: column; justify-content: center; }
+.reserv > .reserv_section2 > .reserv_list .post_info {height: 70px; background-color: #ffffff; display: flex; flex-direction: column; justify-content: center;}
 .reserv > .reserv_section2 > .reserv_list .post_info > div {font-size: 12.5pt; font-weight: bold; text-align: center;}
-.reserv > .reserv_section2 > .reserv_list .post_info > span {text-align: center; margin: 0 3px 0 3px; color: #797979;} 
+.reserv > .reserv_section2 > .reserv_list .post_info > span {text-align: center; color: #797979;} 
 .reserv > .reserv_section2 > .reserv_list > span > div {display: flex; justify-content: center;}
 .reserv > .reserv_section2 > .reserv_list > span > div > input         /* 예매버튼 */
     { width: 180px; height: 45px; border-radius: 5px; margin-top: 25px; box-shadow: 2px 2px 4px #07072e;
     background-color: #2b3380; color: #ffffff; font-size: 12pt; cursor: pointer; border-style: hidden;}
-.reserv > .reserv_section2 > .reserv_list > span > div > input:hover {text-decoration: underline;}   /* 예매버튼 */
-
-
 
 .qration {
     display: grid;
     grid-template-areas: 
     ". . ."
     ". qration_info ."
-    ". . .";
+    "footer footer footer";
     grid-template-columns: 1fr 1000px 1fr;
-    grid-template-rows: 85px 550px 1fr;
-    height : 85vh; 
+    grid-template-rows: 85px 1fr 120px;
+    width: 100%;
+    height: 100%;
     background:linear-gradient(#2b3380 50%, #252451 50%);
 }
 .qration > .qration_info {grid-area: qration_info;}
@@ -117,17 +85,3 @@ nav > ul > li > .logo_w_blue {height: 40px;} /* 중앙 로고만 크기 조절 *
 .qration > .qration_info > .qration_content > .qration_sub > .qration_post > div > div {text-align: center;}
 .qration > .qration_info > .qration_content > .qration_sub > .qration_post > div > .icon {width: 40px; position:absolute; margin-top: -10px; margin-left: 5px;}
 .qration > .qration_info > .qration_content > .qration_sub > .qration_post > div > img {width: 150px; border-radius: 10px;}
-
-
-
-/* 풋터부분 */
-footer {grid-area: footer; height: 15vh;
-    display: grid;
-    grid-template-areas: 
-    ". footer_link ."
-    ". footer_info .";
-    grid-template-columns: 1fr 1200px 1fr;
-    background:linear-gradient(to top, #000 80% , #fff 20%);
-}
-footer > .footer_link {grid-area: footer_link; color: #404040;}
-footer > .footer_info {grid-area: footer_info; color: #c5c5c5; display: flex; justify-content: space-between;}
