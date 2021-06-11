@@ -5,12 +5,13 @@
 <head>
     <meta charset="UTF-8">
     <title>rotte_cinema</title>
-    <link rel="stylesheet" type="text/css" href="./style/default.css" />
-    <link rel="stylesheet" type="text/css" href="./style/index.css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="./plugin/jquery.fullPage.css" />
+    <link rel="stylesheet" type="text/css" href="./style/default.css" />
+    <link rel="stylesheet" type="text/css" href="./style/index.css" />
     <script src="./plugin/jquery.min.js"></script>
     <script src="./plugin/jquery-ui.min.js"></script>
+    <script src="./js/default.js"></script>
 </head>
 <body>
 <jsp:include page="./include/header.jsp"/>
