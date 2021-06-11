@@ -12,8 +12,8 @@ body{
 }
 
 /* 헤더부분 */
-header {background: #838383; position: fixed; top: 0; grid-area: header; z-index: 999; width: 100%; height: 60px; background-color: rgba(0,0,0, 0.6);}
-nav {width: 100%; height: 60px;  position: absolute; border-bottom: 2px solid #353437;}
+header {grid-area: header; position: relative; top: 60px; margin-top: -60px; z-index: 1; width: 100%; height: 60px; background-color: rgba(0,0,0, 0.6);}
+nav {width: 100%; height: 60px;  position: absolute; border-bottom: 1px solid #353437;}
 nav > ul {display: flex; width: 100%; height: 100%; justify-content: center; }
 nav > ul > li { height: 100%; display: flex; justify-content: center; align-items: center; flex-basis: 100px;} /* 항목들의 넓이가 최소 100px은 유지 되도록 */
 nav > ul > li > img {height: 20px; padding: 0 10px 0 10px;} /* 아이콘 */
@@ -21,12 +21,14 @@ nav > ul > li > .logo_w_blue {height: 40px;} /* 중앙 로고만 크기 조절 *
 
 
 /* 풋터부분 */
-footer {grid-area: footer; height: 120px;
+footer {
+    grid-area: footer;
     display: grid;
     grid-template-areas: 
     ". footer_link ."
     ". footer_info .";
     grid-template-columns: 1fr 1200px 1fr;
+    height: 100%;
     background:linear-gradient(to top, #000 80% , #fff 20%);
 }
 footer > .footer_link {grid-area: footer_link; color: #404040; padding: 2px;}

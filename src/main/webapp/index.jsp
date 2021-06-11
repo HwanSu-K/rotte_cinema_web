@@ -124,15 +124,15 @@
 	<div class="section">
         <section class="qration">
         <div class="qration_info">
-            <div class="qration_title">
-                <span class="title">큐레이션</span>
-                <span class="more">
-                    <span>큐레이션 더보기</span>
-                    <img src="./images/icon/plus_icon.png">
-                </span>
-            </div>
-
             <div class="qration_content">
+                <div class="qration_title">
+                    <span class="title">큐레이션</span>
+                    <span class="more">
+                        <span>큐레이션 더보기</span>
+                        <img src="./images/icon/plus_icon.png">
+                    </span>
+                </div>
+
                 <div class="qration_main">
                     <div>
                         <img src="./images/qration_img/qration_img_01.jpg">
@@ -143,42 +143,40 @@
                     </div>
                 </div>
 
-                <div class="qration_sub">
-                        <div class="qration_sub_info">
-                            <div class="tag">#클래식소사이어티</div>      <!-- #adb4f8 -->
-                            <div class="title">2021 빈 필하모닉 여름음악회</div>
-                            <div>
-                                스크린으로 만나는 세계 최대 클래식 여름 축제!<br>
-                                2021 빈 필하모닉 여름음악회<br><br>
-                
-                                [상영정보]<br>
-                                - 상영일시 : 2021년 6월 19일(토) 20:00 *딜레이중계<br>
-                                - 예매오픈 : 2021년 5월 24일(월) 15:00<br>
-                                - 공연시간 : 약 90분 (인터미션 없음)<br>
-                            </div>
-                        </div>
-                        <div class="qration_post">
-                            <div>
-                                <img class="icon" src="./images/icon/qration_c_icon.png">
-                                <img src="./images/qration_img/qration_img_01.jpg">
-                                <div>2021 빈 필하모닉 여름음악회</div>
-                            </div>
-                            <div>
-                                <img class="icon" src="./images/icon/qration_c_icon.png">
-                                <img src="./images/qration_img/qration_img_02.jpg">
-                                <div>낫아웃</div>
-                            </div>
-                            <div>
-                                <img class="icon" src="./images/icon/qration_c_icon.png">
-                                <img src="./images/qration_img/qration_img_03.jpg">
-                                <div>학교가는길</div>
-                            </div>
-                            <div>
-                                <img class="icon" src="./images/icon/qration_f_icon.png">
-                                <img src="./images/qration_img/qration_img_04.jpg">
-                                <div>인트로덕션</div>
-                            </div>
-                        </div>
+                <div class="qration_sub_info">
+                    <div class="tag">#클래식소사이어티</div>      <!-- #adb4f8 -->
+                    <div class="title">2021 빈 필하모닉 여름음악회</div>
+                    <div>
+                        스크린으로 만나는 세계 최대 클래식 여름 축제!<br>
+                        2021 빈 필하모닉 여름음악회<br><br>
+        
+                        [상영정보]<br>
+                        - 상영일시 : 2021년 6월 19일(토) 20:00 *딜레이중계<br>
+                        - 예매오픈 : 2021년 5월 24일(월) 15:00<br>
+                        - 공연시간 : 약 90분 (인터미션 없음)<br>
+                    </div>
+                </div>
+                <div class="qration_post">
+                    <div>
+                        <img class="icon" src="./images/icon/qration_c_icon.png">
+                        <img src="./images/qration_img/qration_img_01.jpg">
+                        <div>2021 빈 필하모닉 여름음악회</div>
+                    </div>
+                    <div>
+                        <img class="icon" src="./images/icon/qration_c_icon.png">
+                        <img src="./images/qration_img/qration_img_02.jpg">
+                        <div>낫아웃</div>
+                    </div>
+                    <div>
+                        <img class="icon" src="./images/icon/qration_c_icon.png">
+                        <img src="./images/qration_img/qration_img_03.jpg">
+                        <div>학교가는길</div>
+                    </div>
+                    <div>
+                        <img class="icon" src="./images/icon/qration_f_icon.png">
+                        <img src="./images/qration_img/qration_img_04.jpg">
+                        <div>인트로덕션</div>
+                    </div>
                 </div>
             </div>   
         </div>     
