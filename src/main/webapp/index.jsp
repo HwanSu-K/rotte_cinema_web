@@ -143,7 +143,7 @@
                     <input type="button" value="예매">
                     </div>
                 </div>
-
+                
                 <div class="qration_sub_info">
                     <div class="tag">#클래식소사이어티</div>      <!-- #adb4f8 -->
                     <div class="title">2021 빈 필하모닉 여름음악회</div>
