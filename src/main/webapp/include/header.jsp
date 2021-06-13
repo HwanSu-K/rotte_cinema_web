@@ -3,8 +3,8 @@
 <header>
     <nav>
         <ul>
-            <li><img src="images/icon/menu_icon.png"></li>
-            <li><img src="images/icon/search_icon.png"></li>
+            <li><img src="images/icon/menu_icon.png">
+                <img src="images/icon/search_icon.png"></li>
             <li class="nav-over"><a href="">영화</a>
                 <ul>
                     <li>전체영화</li>
@@ -30,11 +30,20 @@
                     <li>오시는 길</li>
                 </ul>
             </li>
-            <li><img src="images/icon/calendar_icon.png"></li>
-            <li><img src="images/icon/user_icon.png"></li>
+            <li><img src="images/icon/calendar_icon.png">
+            <img src="images/icon/user_icon.png"></li>
             
         </ul>
         <div class="nav-bg"></div>
     </nav>
 </header>
 
+<script>
+    $(document).ready(function(){
+    $('.nav-over').mouseenter(function() {
+        $('.nav-bg').addClass('active');});
+
+    $('.nav-over').mouseleave(function() {
+        $('.nav-bg').removeClass('active');});
+});
+</script>

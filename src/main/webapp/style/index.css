@@ -22,7 +22,10 @@
 @media only screen and (max-width: 767px) {
 
 }
-
+header {background-color: rgba(0,0,0,0.6);}
+nav > .nav-bg.active {
+    background-color: rgba(0,0,0,0.6);
+}
 .content {grid-area: content;}
 
 /* 배너부분 */
