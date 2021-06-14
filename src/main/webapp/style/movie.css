@@ -1,39 +1,39 @@
-#content {grid-area: content; margin: 0 auto; margin-top: 60px; height: 2400px; width: 1200px;}
-.location {height: 40px; display: flex; align-items: center;}
-.location > span {padding-right: 5px;}
-.reserv_choice {display: flex; justify-content: space-between; width: 100%; border: 3px solid #000000; border-radius: 10px; margin-top: 80px; box-sizing: border-box}
-.reserv_choice > .reserv_type {flex-basis: 150px;}
-.reserv_choice > .reserv_type > div {height: 175px; display: flex; flex-direction: column; justify-content: center; align-items: center; font-size: 24px; border-right: 1px solid #000000; background-color: #ebebeb;}
-.reserv_choice > .reserv_type > div:last-child {border-top: 1px solid #000000;}
-.reserv_choice > .reserv_type > div > div > i {font-size: 60px; padding-bottom: 5px;}
-.reserv_choice > .reserv_content {flex-basis: 800px; padding: 30px}
-.reserv_choice > .reserv_content > .reserv_content_title {margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px solid #000000;}
-.reserv_choice > .reserv_content > .reserv_content_list {display: flex; flex-wrap: wrap;}
-.reserv_choice > .reserv_content > .reserv_content_list > div {width: 33.3%; padding: 5px 0;}
-.reserv_choice > .reserv_post {flex-basis: 250px; height: 350px;}
-.reserv_choice > .reserv_post > img {width: 100%; height: 100%; object-fit: cover;}
-.reserv_info > .reserv_info_title {margin-top: 30px; font-size: 32px;}
-.reserv_info > .reserv_info_date {margin-top: 20px; padding: 10px 0; display: flex; justify-content: space-between; border-top: 1px solid #dbdbdb; border-bottom: 1px solid #dbdbdb;}
-.reserv_info > .reserv_info_date > div {display: flex; justify-content: center; align-items: center;}
-.reserv_info > .reserv_info_date > div > i {font-size: 24px;}
-.reserv_info > .reserv_info_date > div > div {font-size: 18px;}
-.reserv_info > .reserv_info_date > div:nth-child(1) {flex-basis: 50px;}
-.reserv_info > .reserv_info_date > div:nth-child(2) {display: flex; justify-content: space-evenly; flex-basis: 1040px;}
-.reserv_info > .reserv_info_date > div:nth-child(2) > div {padding: 0 10px; display: flex; justify-content: center; align-items: center; flex-direction: column;}
-.reserv_info > .reserv_info_date > div:nth-child(3) {flex-basis: 50px;}
-.reserv_info > .reserv_info_date > div:nth-child(4) {flex-basis: 60px; border-left: 1px solid #dbdbdb; box-sizing: border-box;}
-.reserv_info > .reserv_info_age {display: flex; margin-top: 30px; font-size: 18px;}
-.reserv_info > .reserv_info_age > div {display: flex; align-items: center; margin-right: 20px;}
-.reserv_info > .reserv_info_age > div > img {padding-right: 5px; width: 24px;}
-.reserv_info > .reserv_info_movie {margin-top: 15px; height: 40px; display: flex; align-items: center; justify-content: space-between; font-size: 20px; background-color: #ebebeb; padding: 10px 15px;}
-.reserv_info > .reserv_info_movie > div {display: flex;}
-.reserv_info > .reserv_info_movie > div > img {width: 24px; padding-right: 5px;}
-.reserv_info > .reserv_info_local {display: flex; margin-top: 15px; border-collapse: collapse;}
-.reserv_info > .reserv_info_local > div { padding: 5px 50px; border: 1px solid #797979; margin-left: -1px;}
-.reserv_info > div:last-child > div:first-child {margin: 10px 0; font-size: 24px;}
-.reserv_info > div:last-child > div:last-child {display: flex; height: 100px; align-items: center; padding: 10px 0; border-top: 1px solid #797979; border-bottom: 1px solid #797979;}
-.reserv_info > div:last-child > div > div {flex-basis: 100px; display: flex; margin: 0 10px; align-items: center; justify-content: center; flex-direction: column; border:1px solid #797979; height: 80px;}
-.reserv_info > div:last-child > div > div:first-child {flex-basis: 300px;  border-style: none; align-items: start; justify-content: start;}
-
-
-
+#content {grid-area: content; margin: 60px auto; width: 1200px;}
+.location {height: 40px; display: flex; align-items: center;} /* 현재 페이지 위치 */
+.location > span {padding-right: 5px;} /* 현재 페이지 위치 여백*/
+.reserv_choice {display: flex; justify-content: space-between; width: 100%; border: 3px solid #000000; border-radius: 10px; margin-top: 80px; box-sizing: border-box} /* 영화 선택 */
+.reserv_choice > .reserv_type {flex-basis: 150px;} /* 영화 타입 넓이 */
+.reserv_choice > .reserv_type > div {height: 175px; display: flex; flex-direction: column; justify-content: center; align-items: center; font-size: 24px; border-right: 1px solid #000000; background-color: #ebebeb;} /* 영화 타입 높이 */
+.reserv_choice > .reserv_type > div:last-child {border-top: 1px solid #000000;} /* 타입별 텍스트 */
+.reserv_choice > .reserv_type > div > div > i {font-size: 60px; padding-bottom: 5px;} /* 타입별 아이콘 */
+.reserv_choice > .reserv_content {flex-basis: 800px; padding: 30px} /* 영화목록 전체크기 */
+.reserv_choice > .reserv_content > .reserv_content_title {margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px solid #000000;} /* 영화목록 타이틀 */
+.reserv_choice > .reserv_content > .reserv_content_list {display: flex; flex-wrap: wrap;} /* 영화목록 정렬방식 */
+.reserv_choice > .reserv_content > .reserv_content_list > div {width: 33.3%; padding: 5px 0;} /* 영화목록 크기 */
+.reserv_choice > .reserv_post {flex-basis: 250px; height: 350px;}/* 영화목록 포스터 */
+.reserv_choice > .reserv_post > img {width: 100%; height: 100%; object-fit: cover;} /* 영화목록 포스터 이미지 크기 */
+.reserv_info > .reserv_info_title {margin-top: 30px; font-size: 32px;} /* 선택영화 큰 타이틀 */
+.reserv_info > .reserv_info_date {margin-top: 20px; padding: 10px 0; display: flex; justify-content: space-between; border-top: 1px solid #dbdbdb; border-bottom: 1px solid #dbdbdb;} /* 날짜 관련 */
+.reserv_info > .reserv_info_date > div {display: flex; justify-content: center; align-items: center;} /* 날짜 아이콘 정렬 */
+.reserv_info > .reserv_info_date > div > i {font-size: 24px;} /*날짜 아이콘 크기 */
+.reserv_info > .reserv_info_date > div:nth-child(1) {flex-basis: 50px;} /* 좌측 화살표 */
+.reserv_info > .reserv_info_date > div:nth-child(2) {display: flex; justify-content: space-evenly; flex-basis: 1040px; font-size: 18px;} /* 날짜 */
+.reserv_info > .reserv_info_date > div:nth-child(2) > div {padding: 0 10px; display: flex; justify-content: center; align-items: center; flex-direction: column;} /* 날짜 내부 */
+.reserv_info > .reserv_info_date > div:nth-child(3) {flex-basis: 50px;} /* 우측화살표 */
+.reserv_info > .reserv_info_date > div:nth-child(4) {flex-basis: 60px; border-left: 1px solid #dbdbdb; box-sizing: border-box;} /* 달력 */
+.reserv_info > .reserv_info_age {display: flex; margin-top: 30px; font-size: 18px;} /* 등급정보 */
+.reserv_info > .reserv_info_age > div {display: flex; align-items: center; margin-right: 20px;} /* 등급정보 내용 */
+.reserv_info > .reserv_info_age > div > img {padding-right: 5px; width: 24px;} /* 등급 정보 이미지 */
+.reserv_info > .reserv_info_movie {margin-top: 15px; height: 40px; display: flex; align-items: center; justify-content: space-between; font-size: 20px; background-color: #ebebeb; padding: 10px 15px;} /* 선택영화 타이틀 */
+.reserv_info > .reserv_info_movie > div {display: flex;} /* 선택영화 타이틀및 상영정보 */
+.reserv_info > .reserv_info_movie > div > img {width: 24px; padding-right: 5px;} /* 선택 영화 타이틀 등급 이미지 */
+.reserv_info > .reserv_info_local {display: flex; margin-top: 15px;} /* 지역 */
+.reserv_info > .reserv_info_local > div { padding: 5px 50px; border: 1px solid #797979; margin-right: -1px;} /* 지역 버튼 */
+.reserv_info > .reserv_info_list > div:first-child {margin-top: 10px; height: 50px; font-size: 24px; border-style: none;} /* 극장 지역명 */
+.reserv_info > .reserv_info_list > div {display: flex; height: 100px; align-items: center; padding: 10px 0; border-bottom: 1px solid #797979;} /* 상영관 */
+.reserv_info > .reserv_info_list > div:nth-child(2) {border-top: 1px solid #797979;} /* 첫번째 상영관*/
+.reserv_info > .reserv_info_list > div > div {flex-basis: 100px; display: flex; margin-right: -1px; align-items: center; justify-content: center; flex-direction: column; border:1px solid #797979; height: 80px;} /* 상영시간 및 좌석 */
+.reserv_info > .reserv_info_list > div > div:first-child {flex-basis: 200px;  border-style: none; align-items: start; justify-content: start;} /* 상영관 이름 */
+.reserv_info > .reserv_info_list > div > div:nth-child(2) {background-color: #dbdbdb; border-style: none; margin: 0 10px;} /* 2D영상 */
+.reserv_info > .reserv_info_list > div > div > span {color: #578cbe;} /* 상영관 좌석 글꼴색 */
+.reserv_warning {border:1px solid #797979; margin-top: 50px; padding: 15px;}
