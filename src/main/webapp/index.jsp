@@ -124,7 +124,6 @@
 
 	<div class="section">
         <section class="qration">
-        <div class="qration_info">
             <div class="qration_content">
                 <div class="qration_title">
                     <span class="title">큐레이션</span>
@@ -179,8 +178,7 @@
                         <div>인트로덕션</div>
                     </div>
                 </div>
-            </div>   
-        </div>     
+            </div>
         <jsp:include page="./include/footer.jsp"/>
         </section>
     </div>

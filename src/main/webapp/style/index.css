@@ -95,42 +95,42 @@ nav > .nav-bg.active {
     height: 100%;
     background:linear-gradient(to top, #252451 55%, #2b3380 45% );
 }
-.qration > .qration_info {grid-area: qration_info;}
-.qration > .qration_info > .qration_content {
+.qration > .qration_content {
+    grid-area: qration_info;
     display: grid;
     grid-template-areas:
     "title title title"
     "content . info"
-    "content . ."
     "content . post";
-    grid-template-rows: 70px 270px 0.2fr 400px;
+    grid-template-columns: 300px 1fr auto;
+    grid-template-rows: 70px 300px 300px;
     height: 100%;
     color: black;} 
 
-.qration > .qration_info > .qration_content {color: #fff;}
-.qration > .qration_info > .qration_content > .qration_title 
+.qration > .qration_content {color: #fff;}
+.qration > .qration_content > .qration_title 
     {grid-area: title; width: 100%; display: flex; justify-content: space-between;}
-.qration > .qration_info > .qration_content > .qration_title > .title {font-size: 25px; font-weight: 500; margin-left: 0; color: #dbdbdb;}
-.qration > .qration_info > .qration_content > .qration_title > .more {color: #dbdbdb;}
-
-.qration > .qration_info > .qration_content > .qration_main > div {justify-content: space-around;}
-.qration > .qration_info > .qration_content > .qration_main > div > img {width: 300px; border-radius: 10px;} 
-.qration > .qration_info > .qration_content > .qration_main > div > input
+.qration > .qration_content > .qration_title > .title {font-size: 25px; font-weight: 500; margin-left: 0; color: #dbdbdb;}
+.qration > .qration_content > .qration_title > .more {color: #dbdbdb;}
+.qration > .qration_content > .qration_main {grid-area: content;}
+.qration > .qration_content > .qration_main > div {display: flex; justify-content: space-evenly;}
+.qration > .qration_content > .qration_main > div > img {width: 300px; border-radius: 10px;} 
+.qration > .qration_content > .qration_main > div > input
     {border-radius: 5px; width: 30%; height: 40px; color: #ffffff; margin-top: 10px; }
-.qration > .qration_info > .qration_content > .qration_main > div > input:nth-child(1) 
-    {background-color:rgba(0,0,0 ,0); border: 2px solid white;}
-.qration > .qration_info > .qration_content > .qration_main > div > input:nth-child(2) 
-    {background-color: #2065f2; border-style: hidden;} 
+.qration > .qration_content > .qration_main > div > input:nth-child(1) 
+    {background-color:rgba(0,0,0 ,0); border: 2px solid white; width: 45%;}
+.qration > .qration_content > .qration_main > div > input:nth-child(2) 
+    {background-color: #2065f2; border-style: hidden; width: 45%;}
 
-.qration > .qration_info > .qration_content > .qration_sub_info 
+.qration > .qration_content > .qration_sub_info 
     { grid-area: info; font-size: 14px; font-weight: 300;}
-.qration > .qration_info > .qration_content > .qration_sub_info > .tag {font-size: 15px; color: #adb4f8; line-height: 1.5;}
-.qration > .qration_info > .qration_content > .qration_sub_info > .title 
+.qration > .qration_content > .qration_sub_info > .tag {font-size: 15px; color: #adb4f8; line-height: 1.5;}
+.qration > .qration_content > .qration_sub_info > .title 
     {font-size: 24px; font-weight: 700; border-bottom: 1px solid #5d64ab; line-height: 2.5;}
-.qration > .qration_info > .qration_content > .qration_sub_info > div:nth-child(3) {line-height: 1.5;}
-.qration > .qration_info > .qration_content > .qration_post
-    { grid-area: post; flex-direction: row; align-items: center; font-size: 12px; margin-top: 10px;}
-.qration > .qration_info > .qration_content > .qration_post > div {display: flex; flex-direction: column; margin-top: 10px; margin-right: 20px;}
-.qration > .qration_info > .qration_content > .qration_post > div > div {text-align: center; line-height: 1.5;}
-.qration > .qration_info > .qration_content > .qration_post > div > .icon {width: 40px; position:absolute; margin-top: -10px; margin-left: 5px;}
-.qration > .qration_info > .qration_content > .qration_post > div > img {width: 170px; border-radius: 10px;}
+.qration > .qration_content > .qration_sub_info > div:nth-child(3) {line-height: 1.5;}
+.qration > .qration_content > .qration_post
+    { grid-area: post; display: flex; flex-direction: row; align-items: center; font-size: 12px;}
+.qration > .qration_content > .qration_post > div {display: flex; flex-direction: column; margin-top: 10px; margin-right: 20px;}
+.qration > .qration_content > .qration_post > div > div {text-align: center; line-height: 1.5;}
+.qration > .qration_content > .qration_post > div > .icon {width: 40px; position:absolute; margin-top: -10px; margin-left: 5px;}
+.qration > .qration_content > .qration_post > div > img {width: 170px; border-radius: 10px;}

@@ -126,6 +126,57 @@
             <div><i class="fas fa-chevron-right"></i></div>
             <div><i class="far fa-calendar-alt"></i></div>
         </div>
+        <div class="reserv_info_age">
+            <div>
+                <img src="images/icon/age_0.png">
+                <span>전체 관람</span>
+            </div>
+            <div>
+                <img src="images/icon/age_12.png">
+                <span>만 12세 이상</span>
+            </div>
+            <div>
+                <img src="images/icon/age_15.png">
+                <span>만 15세 이상</span>
+            </div>
+            <div>
+                <img src="images/icon/age_19.png">
+                <span>청소년 관람불가(만 18세 이상)</span>
+            </div>
+        </div>
+        <div class="reserv_info_movie">
+            <div>
+                <img src="images/icon/age_12.png">
+                <span>크루엘라</span>
+            </div>
+            <div>
+                <span>상영중</span>
+                <span>/상영시간134분</span>
+            </div>
+        </div>
+        <div class="reserv_info_local">
+            <div>서울</div>
+            <div>대구</div>
+        </div>
+        <div class=reserv_info_list">
+            <div class="reserv_info_list_title">
+                강남
+            </div>
+            <div>
+                <div>
+                    <div>1관</div>
+                    <div>총 232석</div>
+                </div>
+                <div>
+                    <div>2D(자막)</div>
+                </div>
+                <div>
+                    <div>17:50</div>
+                    <div>140석</div>
+                </div>
+            </div>
+        </div>
+
     </section>
 
 </div>
