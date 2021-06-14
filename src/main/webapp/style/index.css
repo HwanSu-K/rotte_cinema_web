@@ -129,8 +129,8 @@ nav > .nav-bg.active {
     {font-size: 24px; font-weight: 700; border-bottom: 1px solid #5d64ab; line-height: 2.5;}
 .qration > .qration_content > .qration_sub_info > div:nth-child(3) {line-height: 1.5;}
 .qration > .qration_content > .qration_post
-    { grid-area: post; display: flex; flex-direction: row; align-items: center; font-size: 12px;}
-.qration > .qration_content > .qration_post > div {display: flex; flex-direction: column; margin-top: 10px; margin-right: 20px;}
+    { grid-area: post; display: flex; justify-content: space-between; align-items: center; font-size: 12px;}
+.qration > .qration_content > .qration_post > div {display: flex; flex-direction: column; margin-top: 10px;}
 .qration > .qration_content > .qration_post > div > div {text-align: center; line-height: 1.5;}
 .qration > .qration_content > .qration_post > div > .icon {width: 40px; position:absolute; margin-top: -10px; margin-left: 5px;}
 .qration > .qration_content > .qration_post > div > img {width: 170px; border-radius: 10px;}
