@@ -101,3 +101,6 @@ local.properties
 ### Eclipse Patch ###
 # Spring Boot Tooling
 .sts4-cache/
+
+### MAC ###
+.DS_Store
