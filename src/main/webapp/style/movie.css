@@ -1,4 +1,4 @@
-#content {grid-area: content; margin: 0 auto; margin-top: 60px; height: 2400px; width: 1200px;}
+#content {grid-area: content; margin: 60px auto; width: 1200px;}
 .location {height: 40px; display: flex; align-items: center;} /* 현재 페이지 위치 */
 .location > span {padding-right: 5px;} /* 현재 페이지 위치 여백*/
 .reserv_choice {display: flex; justify-content: space-between; width: 100%; border: 3px solid #000000; border-radius: 10px; margin-top: 80px; box-sizing: border-box} /* 영화 선택 */
@@ -31,9 +31,9 @@
 .reserv_info > .reserv_info_local > div { padding: 5px 50px; border: 1px solid #797979; margin-left: -1px;} /* 지역 버튼 */
 .reserv_info > .reserv_info_list > div:first-child {margin-top: 10px; height: 50px; font-size: 24px; border-style: none;} /* 극장 지역명 */
 .reserv_info > .reserv_info_list > div {display: flex; height: 100px; align-items: center; padding: 10px 0; border-bottom: 1px solid #797979;} /* 상영관 */
-.reserv_info > .reserv_info_list > div:nth-child(2) {border-top: 1px solid #7979;} /* 첫번째 상영관*/
-.reserv_info > .reserv_info_list > div > div {flex-basis: 100px; display: flex; margin: 0 10px; align-items: center; justify-content: center; flex-direction: column; border:1px solid #7979; height: 80px;} /* 상영시간 및 좌석 */
+.reserv_info > .reserv_info_list > div:nth-child(2) {border-top: 1px solid #797979;} /* 첫번째 상영관*/
+.reserv_info > .reserv_info_list > div > div {flex-basis: 100px; display: flex; margin-right: -1px; align-items: center; justify-content: center; flex-direction: column; border:1px solid #797979; height: 80px;} /* 상영시간 및 좌석 */
 .reserv_info > .reserv_info_list > div > div:first-child {flex-basis: 200px;  border-style: none; align-items: start; justify-content: start;} /* 상영관 이름 */
-.reserv_info > .reserv_info_list > div > div:nth-child(2) {background-color: #dbdbdb; border-style: none;} /* 2D영상 */
+.reserv_info > .reserv_info_list > div > div:nth-child(2) {background-color: #dbdbdb; border-style: none; margin: 0 10px;} /* 2D영상 */
 .reserv_info > .reserv_info_list > div > div > span {color: #578cbe;} /* 상영관 좌석 글꼴색 */
 .reserv_warning {border:1px solid #797979; margin-top: 50px; padding: 15px;}
