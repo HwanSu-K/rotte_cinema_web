@@ -32,7 +32,8 @@ nav > .nav-bg.active {
 .banner {width: 100%; height: 100%;} 
 .banner > .banner_img {width: 100%; height: 100%; display: flex;} /* 배너를 담는 div 크기를 최대로 지정. */
 .banner > .banner_img > img {width:100%; height: 100%; object-fit:cover;} /* 배너안 이미지 크기를 최대로 지정 */
-.banner > .banner_icon {display: flex; justify-content: space-around; width: 100%; position: absolute; top: 50%;} /* 배너-> 화살표 영역 */
+.banner > .banner_icon {display: flex; justify-content:space-between; width: 90%; position: absolute; 
+    top: 50%; margin-left: 5%; align-items: center;}
 .banner > .dots {display: flex; justify-content: center; bottom: 10%; width: 100%; position: absolute; }
 .dots .dot {
     height: 15px;
@@ -104,7 +105,7 @@ nav > .nav-bg.active {
     ". qration_info ."
     "footer footer footer";
     grid-template-columns: 1fr 1200px 1fr;
-    grid-template-rows: 135px 1fr 190px;
+    grid-template-rows: 100px auto 190px;
     width: 100%;
     height: 100%;
     background:linear-gradient(to top, #252451 55%, #2b3380 45% );
@@ -117,7 +118,7 @@ nav > .nav-bg.active {
     "content . info"
     "content . post";
     grid-template-columns: 300px auto 800px;
-    grid-template-rows: 70px 300px 320px;
+    grid-template-rows: 60px 300px 320px;
     height: 100%;
     color: black;} 
 
