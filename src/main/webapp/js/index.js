@@ -46,7 +46,7 @@ function showSlides() {
     if (slideIndex > slides.length) {slideIndex = 1}    
     if (slideIndex <= 0) {slideIndex = slides.length}  
     $('.dot').removeClass('active');
-    $('.banner_img').animate({ marginLeft : -(slideIndex-1) * 1920 });
+    $('.banner_img').animate({ marginLeft : -(slideIndex-1) * $('.banner_img').width() });
     $('.dot:nth-child(' + slideIndex +')').addClass('active');
     
     setTimeout(showSlides, 7000); // Change image every 2 seconds
