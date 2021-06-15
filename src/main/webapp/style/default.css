@@ -22,22 +22,15 @@ nav > ul > li:last-child{flex-basis: 150px}
 nav > ul > li:nth-child(4){flex-basis: 450px}
 nav > ul > li > img {height: 20px; padding: 0 10px 0 10px;} /* 아이콘 */
 nav > ul > li > .logo_w_blue {height: 40px;} /* 중앙 로고만 크기 조절 */
-nav > ul > .nav-over > ul {
-    position: absolute; padding-top: 100px; display: none;
-        color:#fff;
-    
-}
-
-nav > ul > .nav-over:hover ul {
-    display: inline;
-}
-
+nav > ul > .nav-over > ul {position: absolute; padding-top: 100px; display: none; color:#fff;}
+nav > ul > .nav-over:hover ul {display: inline;}
 nav > ul > .nav-over > ul > li {padding: 0 10px 0 10px;}
+nav > .nav-bg.active {background-color: #9d79e6; height: 40px; }
 
-nav > .nav-bg.active {
-    background-color: #9d79e6;
-    height: 40px;
-}
+/* 로케이션 */
+.location {height: 40px; display: flex; align-items: center;} /* 현재 페이지 위치 */
+.location > span {padding-right: 5px;} /* 현재 페이지 위치 여백*/
+
 
 /* 풋터부분 */
 footer {

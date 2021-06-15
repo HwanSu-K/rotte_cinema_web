@@ -1,0 +1,16 @@
+.content {grid-area: content; margin: 60px auto; width: 1200px;}
+.movie > .movie_title {font-size: 32px;}    /* 상단 타이틀 */
+.movie > .movie_tab {display: flex; margin-top: 30px; border-bottom: 1px solid #2b3380;}  /* 목록 탭 */
+.movie > .movie_tab > div {padding: 10px 20px; border: 1px solid #ededed; margin-left: -1px;}   /* 목록탭 버튼 */
+.movie > .movie_list {display: flex; margin-top: 30px; flex-wrap: wrap;}   /* 영화 목록리스ㅌ */
+.movie > .movie_list > div {width: 20%; margin:20px 2.5%;}
+.movie > .movie_list > div > :nth-child(1) {width: 100%;} /* 이미지 크기 */
+.movie > .movie_list > div > :nth-child(2) {display: flex; align-items: center;}    /* 영화제목 */
+.movie > .movie_list > div > :nth-child(2) > span {font-size: 20px; white-space:nowrap; text-overflow: ellipsis; overflow:hidden;}    /* 영화제목 */
+.movie > .movie_list > div > :nth-child(2) > img {margin-right: 5px;}   /* 상영등급 */
+.movie > .movie_list > div > :nth-child(3) > span {font-size: 16px;}    /* 예매정보 */
+.movie > .movie_list > div > :nth-child(4) {display: flex; justify-content: space-around; margin-top: 10px;}  /* 버튼 정렬 */
+.movie > .movie_list > div > :nth-child(4) > div {height: 40px; border-radius: 10px; display: flex; justify-content: center; align-items:center;}   /* 버튼 설정 */
+.movie > .movie_list > div > :nth-child(4) > div > i {margin-right: 5px; color: #000;}  /* 좋아요 아이콘 */
+.movie > .movie_list > div > :nth-child(4) > div:nth-child(1) {width: 80px; border: 1px solid #ededed; color: #2b3380;} /* 좋아요 버튼 */
+.movie > .movie_list > div > :nth-child(4) > div:nth-child(2) {width: 120px; background-color: #2b3380; border-style: none; color: #fff;}   /* 예매 버튼 */
