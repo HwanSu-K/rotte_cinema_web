@@ -86,12 +86,22 @@ nav > .nav-bg.active {
 {grid-area: more; display: flex; justify-content: flex-end; margin-bottom: 5px; color: #dbdbdb;} /* 더많은 영화 보기 */
 .reserv > .reserv_section2 > .reserv_arrow_left {grid-area: left; display: flex; align-items: center; justify-content: flex-end; margin-right: 15px;}
 .reserv > .reserv_section2 > .reserv_arrow_right {grid-area: right; display: flex; align-items: center; justify-content: flex-start; margin-left: 15px;}
-.reserv > .reserv_section2 > .reserv_list {grid-area: list; display: flex; justify-content: space-between; align-items: center;}
-.reserv > .reserv_section2 > .reserv_list .post_info {height: 70px; background-color: #ffffff; display: flex; flex-direction: column; justify-content: center;}
-.reserv > .reserv_section2 > .reserv_list .post_info > div {font-size: 12.5pt; font-weight: bold; text-align: center;}
-.reserv > .reserv_section2 > .reserv_list .post_info > span {text-align: center; color: #797979;} 
+
+.reserv > .reserv_section2 > .reserv_list {grid-area: list; display: flex; justify-content: space-between; align-items: center; overflow: hidden;}
+.reserv > .reserv_section2 > .reserv_list > div > div {width: 280px; margin: 0 10px;}
+.reserv > .reserv_section2 > .reserv_list > div > :nth-child(1) {position: relative;}
+.reserv > .reserv_section2 > .reserv_list > div > :nth-child(1) > img:first-child {width: 100%; margin-bottom: -5px;} /* 이미지 크기 */
+.reserv > .reserv_section2 > .reserv_list > div > :nth-child(1) > img:last-child {position: absolute; top: 8px; right: 8px;}   /* 상영등급 */
+.reserv > .reserv_section2 > .reserv_list > div >  :nth-child(2) {background-color: #fff; padding-top: 10px;}
+.reserv > .reserv_section2 > .reserv_list > div >  :nth-child(2) > span {display: flex; justify-content: center; font-size: 14px; font-weight: bold; white-space:nowrap; text-overflow: ellipsis; overflow:hidden;}    /* 영화제목 */
+.reserv > .reserv_section2 > .reserv_list > div >  :nth-child(3) {background-color: #fff; padding-bottom: 10px;}
+.reserv > .reserv_section2 > .reserv_list > div >  :nth-child(3) {font-size: 14px; display: flex; justify-content: center; align-items: center;}    /* 예매정보 */
+.reserv > .reserv_section2 > .reserv_list > div >  :nth-child(3) > span:nth-child(2) {padding: 0 5px;}
+.reserv > .reserv_section2 > .reserv_list > div >  :nth-child(4) {display: flex; justify-content: center; margin-top: 10px;}  /* 버튼 정렬 */
+.reserv > .reserv_section2 > .reserv_list > div >  :nth-child(4) > div {width: 95%; background-color: #2b3380; border-style: none; color: #fff; height: 40px; border-radius: 10px; display: flex; justify-content: center; align-items:center;}   /* 버튼 설정 */
+
 .reserv > .reserv_section2 > .reserv_list > span {margin: 0 0 0 0;}
-.reserv > .reserv_section2 > .reserv_list > span > div > img {width: 270px;}
+.reserv > .reserv_section2 > .reserv_list > span > img {width: 270px;}
 .reserv > .reserv_section2 > .reserv_list > span > div {display: flex; justify-content: center;}
 .reserv > .reserv_section2 > .reserv_list > span > div > input         /* 예매버튼 */
     { width: 180px; height: 45px; border-radius: 5px; margin-top: 25px; box-shadow: 2px 2px 4px #07072e;
@@ -105,7 +115,7 @@ nav > .nav-bg.active {
     ". qration_info ."
     "footer footer footer";
     grid-template-columns: 1fr 1200px 1fr;
-    grid-template-rows: 100px auto 190px;
+    grid-template-rows: 100px auto 150px;
     width: 100%;
     height: 100%;
     background:linear-gradient(to top, #252451 55%, #2b3380 45% );
@@ -114,11 +124,12 @@ nav > .nav-bg.active {
     grid-area: qration_info;
     display: grid;
     grid-template-areas:
+    ". . ."
     "title title title"
     "content . info"
     "content . post";
     grid-template-columns: 300px auto 800px;
-    grid-template-rows: 60px 300px 320px;
+    grid-template-rows: 30px 60px auto 1fr;
     height: 100%;
     color: black;} 
 

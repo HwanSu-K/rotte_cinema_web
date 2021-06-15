@@ -15,20 +15,20 @@ $(document).ready(function(){
     }});
     
     $('.banner_icon > div:first-child').click(function(){
-        nextSlide(-1);
+        userSlide(-1);
     })
 
     $('.banner_icon > div:last-child').click(function(){
-        nextSlide(1);
+        userSlide(1);
     })
 
-    showSlides();
+    autoSlides();
     init();
 
 });
 
 var slideIndex = 0;
-
+var slidebool = true;
 function init() {
     var slides = $('.banner_img > img');
     for (var i = 0; i < slides.length; i++) {
@@ -40,24 +40,28 @@ function init() {
     }
     
 }
-function showSlides() {
-    var slides = $('.banner_img > img');
+function autoSlides() {
+    if(slidebool == true){
     slideIndex++;
+    slide();
+    }
+    else{
+        slidebool = true;
+    }
+    setTimeout(autoSlides, 5000); // Change image every 2 seconds
+}
+
+function userSlide(vector) {
+    slidebool = false;
+    slideIndex += vector;
+    slide();
+}
+
+function slide(){
+    var slides = $('.banner_img > img');
     if (slideIndex > slides.length) {slideIndex = 1}    
     if (slideIndex <= 0) {slideIndex = slides.length}  
     $('.dot').removeClass('active');
     $('.banner_img').animate({ marginLeft : -(slideIndex-1) * $('.banner_img').width() });
-    $('.dot:nth-child(' + slideIndex +')').addClass('active');
-    
-    setTimeout(showSlides, 7000); // Change image every 2 seconds
-}
-
-function nextSlide(vector) {
-    var slides = $('.banner_img > img');
-    slideIndex += vector;
-    if (slideIndex > slides.length) {slideIndex = 1}    
-    if (slideIndex <= 0) {slideIndex = slides.length}  
-    $('.dot').removeClass('active');
-    $('.banner_img').animate({ marginLeft : -(slideIndex-1) * 1920 });
     $('.dot:nth-child(' + slideIndex +')').addClass('active');
 }
