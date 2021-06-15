@@ -9,7 +9,7 @@ body{
                 "header header header"
                 "content content content"
                 "footer footer footer";
-    grid-template-rows: 0px 1fr 180px;
+    grid-template-rows: 0px 1fr 300px;
 }
 
 /* 헤더부분 */
@@ -47,7 +47,7 @@ footer {
     ". footer_link ."
     ". footer_info .";
     grid-template-columns: 1fr 1200px 1fr;
-    grid-template-rows: 46px 300px;
+    grid-template-rows: 46px 180px;
     height: 100%;
     background:linear-gradient(to top, #000 75% , #fff 25%);
 }

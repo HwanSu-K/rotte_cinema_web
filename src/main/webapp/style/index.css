@@ -30,9 +30,23 @@ nav > .nav-bg.active {
 
 /* 배너부분 */
 .banner {width: 100%; height: 100%;} 
-.banner > .banner_img {width: 100%; height: 100%;} /* 배너를 담는 div 크기를 최대로 지정. */
+.banner > .banner_img {width: 100%; height: 100%; display: flex;} /* 배너를 담는 div 크기를 최대로 지정. */
 .banner > .banner_img > img {width:100%; height: 100%; object-fit:cover;} /* 배너안 이미지 크기를 최대로 지정 */
-.banner > .banner_icon {display: flex; justify-content: space-around; width:100%; position: absolute; top: 50%;} /* 배너-> 화살표 영역 */
+.banner > .banner_icon {display: flex; justify-content: space-around; width: 100%; position: absolute; top: 50%;} /* 배너-> 화살표 영역 */
+.banner > .dots {display: flex; justify-content: center; bottom: 10%; width: 100%; position: absolute; }
+.dots .dot {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.dots .dot.active {
+    background-color: #717171;
+}
 
 /* 예약부분 */
 .reserv {

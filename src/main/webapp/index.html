@@ -4,24 +4,33 @@
     <meta charset="UTF-8">
     <title>rotte_cinema</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="./plugin/jquery.fullPage.css" />
-    <link rel="stylesheet" type="text/css" href="./style/default.css" />
-    <link rel="stylesheet" type="text/css" href="./style/index.css" />
+    <link rel="stylesheet" href="./plugin/jquery.fullPage.css" />
+    <link rel="stylesheet" href="./style/default.css" />
+    <link rel="stylesheet" href="./style/index.css" />
     <script src="./plugin/jquery.min.js"></script>
     <script src="./plugin/jquery-ui.min.js"></script>
+    <script src="./plugin/jquery.fullPage.js"></script>
+    <script src="./plugin/jquery.touchSwipe.min.js"></script>
     <script src="./js/default.js"></script>
 </head>
 <body>
 <header></header>
-
 <div id="content">
 	<div class="section">           <!-- 배너영역 -->
         <section class="banner">
-            <div class="banner_img"><img src="./images/banner_img/banner02.jpg"></div>
+            <div class="banner_img">
+                <img src="./images/banner_img/banner01.jpg">
+                <img src="./images/banner_img/banner02.jpg">
+                <img src="./images/banner_img/banner03.jpg">
+                <img src="./images/banner_img/banner04.jpg">
+            </div>
             <div class="banner_icon">        <!-- 화살표 아이콘  < >  -->
-                <img src="./images/icon/banner_arrow_icon01.png">
-                <img src="./images/icon/play_icon.png">                   <!--play 아이콘-->
-                <img src="./images/icon/banner_arrow_icon02.png">
+                <div><img src="./images/icon/banner_arrow_icon01.png"></div>
+                <div><img src="./images/icon/play_icon.png"></div>                   <!--play 아이콘-->
+                <div><img src="./images/icon/banner_arrow_icon02.png"></div>
+            </div>
+            <div class="dots">
+
             </div>
         </section>
     </div>
@@ -179,12 +188,14 @@
     </div>
 </div>
 
-<script type="text/javascript" src="./plugin/jquery.fullPage.js"></script>
+<script type="text/javascript" src="./js/index.js"></script>
+
+<!-- HTML 인크루드 -->
 <script type="text/javascript">
-    $(document).ready(function() {
-        $('#content').fullpage({});
+    $(document).ready(function(){
+        $("header").load("./include/header.html")
+        $("footer").load("./include/footer.html")
     });
 </script>
-
 </body>
 </html>
