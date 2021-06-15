@@ -14,7 +14,7 @@ body{
 
 /* 헤더부분 */
 header {grid-area: header; position: relative; top: 60px; margin-top: -60px; z-index: 1; width: 100%; height: 60px; background-color: #07072b}
-nav {width: 100%; height: 60px;  position: absolute; border-bottom: 1px solid #353437;}
+nav {width: 100%; height: 60px;  position: absolute; border-bottom: 1px solid rgba(149,149,149,0.6);}
 nav > ul {display: flex; width: 100%; height: 100%; justify-content: center; }
 nav > ul > li { height: 100%; display: flex; justify-content: center; align-items: center; flex-basis: 130px;} /* 항목들의 넓이가 최소 100px은 유지 되도록 */
 nav > ul > li:first-child,
@@ -37,6 +37,7 @@ nav > ul > .nav-over > ul > li {padding: 0 10px 0 10px;}
 nav > .nav-bg.active {
     background-color: #9d79e6;
     height: 40px;
+    margin-top: 1px;
 }
 
 /* 풋터부분 */
@@ -47,9 +48,9 @@ footer {
     ". footer_link ."
     ". footer_info .";
     grid-template-columns: 1fr 1200px 1fr;
-    grid-template-rows: 46px 180px;
+    grid-template-rows: 38px 150px;
     height: 100%;
-    background:linear-gradient(to top, #000 75% , #fff 25%);
+    background:linear-gradient(to top, #000 80% , #fff 20%);
 }
-footer > .footer_link {grid-area: footer_link; color: #404040; padding: 2px;}
-footer > .footer_info {grid-area: footer_info; color: #c5c5c5; display: flex; justify-content: space-between; align-items: center;}
+footer > .footer_link {grid-area: footer_link; color: #545454; display: flex; align-items: center; font-size: 10pt;}
+footer > .footer_info {grid-area: footer_info; color: #afafaf; display: flex; justify-content: space-between; align-items: center; font-size: 10pt;}
