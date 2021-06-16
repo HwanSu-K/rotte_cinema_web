@@ -1,4 +1,6 @@
-.content {grid-area: content; margin: 60px auto; width: 1000px;}
+.content {grid-area: content; margin: 60px auto; width: 100%; background-color: #f8f8fa; height: 40px; }
+.content > .location > span {color: #6f6f6f; margin: 0 3px; font-size: 10pt;}
+
 .reserv_choice {display: flex; justify-content: space-between; width: 100%; height: 350px; border: 3px solid #000000; border-radius: 10px; margin-top: 80px;} /* 영화 선택 */
 .reserv_choice > .reserv_type {flex-basis: 150px; height: 350px; box-sizing: border-box;} /* 영화 타입 넓이 */
 .reserv_choice > .reserv_type > div {height: 175px; display: flex; flex-direction: column; justify-content: center; align-items: center; font-size: 24px; border-right: 1px solid #000000; background-color: #ebebeb;} /* 영화 타입 높이 */
@@ -12,8 +14,8 @@
 .reserv_choice > .reserv_type > div.active:last-child > div:first-child {width: 60px; height: 53px;background: url('../images/icon/sub2_choice2_theater_wh.png');}
 .reserv_choice > .reserv_content {flex-basis: 800px; padding: 30px} /* 영화목록 전체크기 */
 .reserv_choice > .reserv_content > .reserv_content_title {margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px solid #000000;} /* 영화목록 타이틀 */
-.reserv_choice > .reserv_content > .reserv_content_list {display: flex; flex-wrap: wrap;} /* 영화목록 정렬방식 */
-.reserv_choice > .reserv_content > .reserv_content_list > div {width: 33.3%; padding: 5px 0;} /* 영화목록 크기 */
+.reserv_choice > .reserv_content > .reserv_content_list {display: flex; flex-wrap: wrap;}                           /* 영화목록 정렬방식 */
+.reserv_choice > .reserv_content > .reserv_content_list > div {width: 33.3%; padding: 5px 0; font-size: 11pt;}      /* 영화목록 크기 */
 .reserv_choice > .reserv_post {flex-basis: 250px; height: 350px;}/* 영화목록 포스터 */
 .reserv_choice > .reserv_post > img {width: 100%; height: 100%; object-fit: cover;} /* 영화목록 포스터 이미지 크기 */
 .reserv_info > .reserv_info_title {margin-top: 30px; font-size: 32px;} /* 선택영화 큰 타이틀 */

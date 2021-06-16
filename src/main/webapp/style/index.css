@@ -67,11 +67,11 @@ nav > .nav-bg.active {
 }
 
 /* 첫번째 section 예매부분 */
-.reserv > .reserv_section1 {grid-area: section1; display: flex; justify-content:space-evenly; background: black; border-radius: 10px;}
+.reserv > .reserv_section1 {grid-area: section1; display: flex; justify-content:space-evenly; background: black;}
 .reserv > .reserv_section1 > span {display: flex; color: #c5c5c5; align-items: center; justify-content: center;}
 .reserv > .reserv_section1 > span:hover {cursor: pointer;}
-.reserv > .reserv_section1 > span i {font-size: 40px; margin: 10px;}               /* font awesome 아이콘 사이즈 */
-.reserv > .reserv_section1 > span div {justify-content: center; display: flex;}     /* 글꼴 설정 */
+.reserv > .reserv_section1 > span i {font-size: 35px; margin-right: 25px;}               /* font awesome 아이콘 사이즈 */
+.reserv > .reserv_section1 > span div {justify-content: center; display: flex;}               /* 글꼴 설정 */
 .reserv > .reserv_section1 > span div:nth-child(1) {color: #838383; font-size: 10pt;}       /* movie,Timetable,Ticketing */
 .reserv > .reserv_section1 > span div:nth-child(2) {color: #ffffff; font-size: 13pt;}
 
@@ -83,22 +83,25 @@ nav > .nav-bg.active {
     grid-template-columns: 1fr 1200px 1fr;
     color: black;} 
 .reserv > .reserv_section2 > .reserv_more 
-{grid-area: more; display: flex; justify-content: flex-end; margin-bottom: 5px; color: #dbdbdb;} /* 더많은 영화 보기 */
-.reserv > .reserv_section2 > .reserv_arrow_left {grid-area: left; display: flex; align-items: center; justify-content: flex-end; margin-right: 15px;}
-.reserv > .reserv_section2 > .reserv_arrow_right {grid-area: right; display: flex; align-items: center; justify-content: flex-start; margin-left: 15px;}
+{grid-area: more; display: flex; justify-content: flex-end; margin-bottom: 15px; color: #dbdbdb;} /* 더많은 영화 보기 */
+.reserv > .reserv_section2 > .reserv_arrow_left {grid-area: left; display: flex; align-items: center; justify-content: flex-end; margin-right: 30px;}
+.reserv > .reserv_section2 > .reserv_arrow_right {grid-area: right; display: flex; align-items: center; justify-content: flex-start; margin-left: 30px;}
 
 .reserv > .reserv_section2 > .reserv_list {grid-area: list; display: flex; justify-content: space-between; align-items: center; overflow: hidden;}
-.reserv > .reserv_section2 > .reserv_list > div > div {width: 280px; margin: 0 10px;}
-.reserv > .reserv_section2 > .reserv_list > div > :nth-child(1) {position: relative;}
-.reserv > .reserv_section2 > .reserv_list > div > :nth-child(1) > img:first-child {width: 100%; margin-bottom: -5px;} /* 이미지 크기 */
+.reserv > .reserv_section2 > .reserv_list > div > div {width: 270px;}       /* 포스트 이미지 */
+.reserv > .reserv_section2 > .reserv_list > div > :nth-child(1) {display: flex; justify-content: space-between;}
+.reserv > .reserv_section2 > .reserv_list > div > :nth-child(1) > img:first-child {width: 100%; margin-bottom: -5px;}          /* 포스트박스 크기 */
 .reserv > .reserv_section2 > .reserv_list > div > :nth-child(1) > img:last-child {position: absolute; top: 8px; right: 8px;}   /* 상영등급 */
-.reserv > .reserv_section2 > .reserv_list > div >  :nth-child(2) {background-color: #fff; padding-top: 10px;}
-.reserv > .reserv_section2 > .reserv_list > div >  :nth-child(2) > span {display: flex; justify-content: center; font-size: 14px; font-weight: bold; white-space:nowrap; text-overflow: ellipsis; overflow:hidden;}    /* 영화제목 */
-.reserv > .reserv_section2 > .reserv_list > div >  :nth-child(3) {background-color: #fff; padding-bottom: 10px;}
-.reserv > .reserv_section2 > .reserv_list > div >  :nth-child(3) {font-size: 14px; display: flex; justify-content: center; align-items: center;}    /* 예매정보 */
-.reserv > .reserv_section2 > .reserv_list > div >  :nth-child(3) > span:nth-child(2) {padding: 0 5px;}
-.reserv > .reserv_section2 > .reserv_list > div >  :nth-child(4) {display: flex; justify-content: center; margin-top: 10px;}  /* 버튼 정렬 */
-.reserv > .reserv_section2 > .reserv_list > div >  :nth-child(4) > div {width: 95%; background-color: #2b3380; border-style: none; color: #fff; height: 40px; border-radius: 10px; display: flex; justify-content: center; align-items:center;}   /* 버튼 설정 */
+.reserv > .reserv_section2 > .reserv_list > div > :nth-child(2)
+    {background-color: #fff; padding-top: 15px;}                    /* 영화 제목 타이틀 */
+.reserv > .reserv_section2 > .reserv_list > div > :nth-child(2) > span 
+    {display: flex; justify-content: center; font-size: 13pt; color: #181717; font-weight: bold; white-space:nowrap; text-overflow: ellipsis; overflow:hidden;}    /* 영화제목 */
+.reserv > .reserv_section2 > .reserv_list > div > :nth-child(3)       /* 영화 서브 타이틀 */
+    {background-color: #fff; padding: 5px 0 15px 0; font-size: 10pt; color: #636363; display: flex; justify-content: center; align-items: center;}
+.reserv > .reserv_section2 > .reserv_list > div > :nth-child(3) > span:nth-child(2) {padding: 0 5px;}           /* | */
+.reserv > .reserv_section2 > .reserv_list > div > :nth-child(4) {display: flex; justify-content: center; margin-top: 20px;}     /* 4번째 DIV(예매버튼) 정렬 */
+.reserv > .reserv_section2 > .reserv_list > div > :nth-child(4) > div 
+    {width: 70%; background-color: #2b3380; border-style: none; color: #fff; height: 45px; border-radius: 5px; display: flex; justify-content: center; align-items:center;}   /* 버튼 설정 */
 
 .reserv > .reserv_section2 > .reserv_list > span {margin: 0 0 0 0;}
 .reserv > .reserv_section2 > .reserv_list > span > img {width: 270px;}
