@@ -9,6 +9,7 @@
     <script src="./plugin/jquery.min.js"></script>
     <script src="./plugin/jquery-ui.min.js"></script>
     <script src="./js/default.js"></script>
+    <script src="./js/schedule.js"></script>
 </head>
 <body>
 <header></header>
@@ -22,12 +23,12 @@
     </section>
     <section class="reserv_choice">
         <div class="reserv_type">
-            <div class="reserv_type_movie">
-                <div><i class="fas fa-film"></i></div>
+            <div class="reserv_type_movie active">
+                <div> </div>
                 <div>영화별</div>
             </div>
             <div class="reserv_type_theater">
-                <div><i class="fas fa-camera"></i></div>
+                <div></div>
                 <div>극장별</div>
             </div>
         </div>
@@ -64,7 +65,7 @@
         <div class="reserv_info_date">
             <div><i class="fas fa-chevron-left"></i></div>
             <div>
-                <div>
+                <div class="active">
                     <div>9</div>
                     <div>오늘</div>
                 </div>
@@ -76,11 +77,11 @@
                     <div>11</div>
                     <div>금</div>
                 </div>
-                <div>
+                <div class="b">
                     <div>12</div>
                     <div>토</div>
                 </div>
-                <div>
+                <div class="r">
                     <div>13</div>
                     <div>일</div>
                 </div>
@@ -104,11 +105,11 @@
                     <div>18</div>
                     <div>금</div>
                 </div>
-                <div>
+                <div class="b">
                     <div>19</div>
                     <div>토</div>
                 </div>
-                <div>
+                <div class="r">
                     <div>20</div>
                     <div>일</div>
                 </div>
@@ -124,6 +125,7 @@
             <div><i class="fas fa-chevron-right"></i></div>
             <div><i class="far fa-calendar-alt"></i></div>
         </div>
+
         <div class="reserv_info_age">
             <div>
                 <img src="images/icon/age_0.png">
@@ -142,6 +144,7 @@
                 <span>청소년 관람불가(만 18세 이상)</span>
             </div>
         </div>
+
         <div class="reserv_info_movie">
             <div>
                 <img src="images/icon/age_12.png">
@@ -153,72 +156,75 @@
             </div>
         </div>
         <div class="reserv_info_local">
-            <div>서울</div>
+            <div class="active">서울</div>
             <div>대구</div>
         </div>
         <div class="reserv_info_list">
             <div class="reserv_info_list_title">
                 강남
             </div>
-            <div>
+            <div class="reserv_info_list_theater">
                 <div>
-                    <div>1관</div>
-                    <div>총 232석</div>
+                    <div>
+                        <div>1관</div>
+                        <div>총 232석</div>
+                    </div>
+                    <div>
+                        <div>2D(자막)</div>
+                    </div>
+                    <div>
+                        <div>17:50</div>
+                        <span>140석</span>
+                    </div>
                 </div>
                 <div>
-                    <div>2D(자막)</div>
+                    <div>
+                        <div>4관</div>
+                        <div>총 103석</div>
+                    </div>
+                    <div>
+                        <div>2D(자막)</div>
+                    </div>
+                    <div>
+                        <div>13:40</div>
+                        <span>65석</span>
+                    </div>
+                    <div>
+                        <div>21:10</div>
+                        <span>66석</span>
+                    </div>
                 </div>
                 <div>
-                    <div>17:50</div>
-                    <span>140석</span>
+                    <div>
+                        <div>6관</div>
+                        <div>총 103석</div>
+                    </div>
+                    <div>
+                        <div>2D(자막)</div>
+                    </div>
+                    <div>
+                        <div>12:30</div>
+                        <span>63석</span>
+                    </div>
+                    <div>
+                        <div>14:50</div>
+                        <span>65석</span>
+                    </div>
+                    <div>
+                        <div>17:10</div>
+                        <span>62석</span>
+                    </div>
+                    <div>
+                        <div>19:30</div>
+                        <span>43석</span>
+                    </div>
+                    <div>
+                        <div>21:50</div>
+                        <span>63석</span>
+                    </div>
                 </div>
             </div>
-            <div>
-                <div>
-                    <div>4관</div>
-                    <div>총 103석</div>
-                </div>
-                <div>
-                    <div>2D(자막)</div>
-                </div>
-                <div>
-                    <div>13:40</div>
-                    <span>65석</span>
-                </div>
-                <div>
-                    <div>21:10</div>
-                    <span>66석</span>
-                </div>
-            </div>
-            <div>
-                <div>
-                    <div>6관</div>
-                    <div>총 103석</div>
-                </div>
-                <div>
-                    <div>2D(자막)</div>
-                </div>
-                <div>
-                    <div>12:30</div>
-                    <span>63석</span>
-                </div>
-                <div>
-                    <div>14:50</div>
-                    <span>65석</span>
-                </div>
-                <div>
-                    <div>17:10</div>
-                    <span>62석</span>
-                </div>
-                <div>
-                    <div>19:30</div>
-                    <span>43석</span>
-                </div>
-                <div>
-                    <div>21:50</div>
-                    <span>63석</span>
-                </div>
-            </div>
+            
         </div>
 
     </section>
