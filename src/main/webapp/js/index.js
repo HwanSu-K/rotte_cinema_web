@@ -1,38 +1,25 @@
-// 원페이지 스크롤 호출
-$(document).ready(function() {
-    $('#content').fullpage({});
-});
+// // 원페이지 스크롤 호출
+// $(document).ready(function() {
+//     $('#content').fullpage({});
+// });
+
 
 // 자동 슬라이드 부분
 $(document).ready(function(){
     $('.banner').swipe({
         swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
             if( direction == "left" ){
-                nextSlide(1);
+                $('.banner > .banner_icon > div').eq(1).click();
             }else if( direction == "right" ){
-                nextSlide(-1);
+                $('.banner > .banner_icon > div').eq(0).click();
         }
     }});
-    
-    $('.banner_icon > div:first-child').click(function(){
-        userSlide(-1);
-    })
 
-    $('.banner_icon > div:last-child').click(function(){
-        userSlide(1);
-    })
-
-    autoSlides();
-    init();
-
-});
-
-var slideIndex = 0;
-var slidebool = true;
-function init() {
-    var slides = $('.banner_img > img');
+    var slidebool = true;
+    function init() {
+    var slides = $('.banner_img > div');
     for (var i = 0; i < slides.length; i++) {
-        var div = $("<div></div>").addClass('dot');
+        var div = $("<div></div>");
         if(i == 0) {
             div.addClass('active');    
         }
@@ -40,28 +27,68 @@ function init() {
     }
     
 }
-function autoSlides() {
-    if(slidebool == true){
-    slideIndex++;
-    slide();
-    }
-    else{
-        slidebool = true;
-    }
-    setTimeout(autoSlides, 5000); // Change image every 2 seconds
-}
 
-function userSlide(vector) {
-    slidebool = false;
-    slideIndex += vector;
-    slide();
-}
+    init();
 
-function slide(){
-    var slides = $('.banner_img > img');
-    if (slideIndex > slides.length) {slideIndex = 1}    
-    if (slideIndex <= 0) {slideIndex = slides.length}  
-    $('.dot').removeClass('active');
-    $('.banner_img').animate({ marginLeft : -(slideIndex-1) * $('.banner_img').width() });
-    $('.dot:nth-child(' + slideIndex +')').addClass('active');
-}
+    // 기존 버튼형 슬라이더
+    $('.banner > .dots > div').click(function(){
+        slidebool = false;
+
+        var $this = $(this);
+        var index = $this.index();
+        
+        $this.addClass('active');
+        $this.siblings('.active').removeClass('active');
+        
+        var $slider = $this.parent().parent();
+        
+        var $current = $slider.find(' > .banner_img > div.active');
+        
+        var $post = $slider.find(' > .banner_img > div').eq(index);
+        
+        $current.removeClass('active');
+        $post.addClass('active');
+    });
+
+    // 좌/우 버튼 추가 슬라이더
+    $('.banner > .banner_icon > div').click(function(){
+        slidebool = false;
+
+        var $this = $(this);
+        var $slider = $this.closest('.banner');
+        
+        var index = $this.index();
+        var isLeft = index == 0;
+        
+        var $current = $slider.find(' > .dots > div.active');
+        var $post;
+        
+        if ( isLeft ){
+            $post = $current.prev();
+        }
+        else {
+            $post = $current.next();
+        };
+        
+        if ( $post.length == 0 ){
+            if ( isLeft ){
+                $post = $slider.find(' > .dots > div:last-child');
+            }
+            else {
+                $post = $slider.find(' > .dots > div:first-child');
+            }
+        };
+        
+        $post.click();
+    });
+
+    setInterval(function(){
+        if(slidebool == true) {
+            $('.banner > .banner_icon > div').eq(1).click();
+        }
+        else{
+            slidebool = true;
+        }
+    }, 5000);
+
+});

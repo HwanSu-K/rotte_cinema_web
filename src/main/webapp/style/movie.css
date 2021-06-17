@@ -1,5 +1,4 @@
-.content {grid-area: content; margin: 60px auto; width: 1000px;}
-.movie > .movie_tab {display: flex; margin-top: 30px; border-bottom: 1px solid #2b3380;}  /* 목록 탭 */
+.movie > .movie_tab {display: flex; border-bottom: 1px solid #2b3380;}  /* 목록 탭 */
 .movie > .movie_tab > div {width: 300px; height: 60px; display: flex; justify-content: center; align-items: center; border: 1px solid #ededed; margin-left: -1px; font-size: 20px;}   /* 목록탭 버튼 */
 .movie > .movie_tab > div.active {background-color: #dddddd; border-bottom: 2px solid #2b3380;}
 .movie > .movie_list {display: flex; margin-top: 30px; flex-wrap: wrap;}   /* 영화 목록리스ㅌ */
