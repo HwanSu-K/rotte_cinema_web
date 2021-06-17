@@ -1,41 +1,65 @@
-.reserv_choice {display: flex; justify-content: space-between; width: 100%; height: 350px; border: 3px solid #000000; border-radius: 10px;} /* 영화 선택 */
-.reserv_choice > .reserv_type {flex-basis: 150px; height: 350px; box-sizing: border-box;} /* 영화 타입 넓이 */
-.reserv_choice > .reserv_type > div {height: 175px; display: flex; flex-direction: column; justify-content: center; align-items: center; font-size: 24px; border-right: 1px solid #000000; background-color: #ebebeb;} /* 영화 타입 높이 */
+.reserv_choice {display: flex; justify-content: space-between; width: 100%; height: 305px; border: 3px solid #000000; border-radius: 10px;} /* 영화 선택 */
+.reserv_choice > .reserv_type {flex-basis: 150px; height: 350px; box-sizing: border-box;}       /* 영화 타입 넓이 */
+.reserv_choice > .reserv_type > div {height: 152px; width: 147px; display: flex; flex-direction: column; justify-content: center; align-items: center; 
+    border-right: 1px solid #000000; background-color: #ebebeb;}           /* 영화 타입 높이 */
 .reserv_choice > .reserv_type > div:first-child {border-radius: 5px 0 0 0;}
-.reserv_choice > .reserv_type > div.active {background-color: #07072b; color:#fff}
-.reserv_choice > .reserv_type > div:last-child {border-radius: 0 0 0 5px; border-top: 1px solid #000000; box-sizing: border-box;} /* 타입별 텍스트 */
-.reserv_choice > .reserv_type > div > div > img {padding-bottom: 5px;} /* 타입별 아이콘 */
-.reserv_choice > .reserv_type > div:first-child > div:first-child {width: 60px; height: 53px;background: url('../images/icon/sub2_choice1_movie.png'); background-repeat: no-repeat;}
-.reserv_choice > .reserv_type > div:last-child > div:first-child {width: 60px; height: 53px;background: url('../images/icon/sub2_choice2_theater.png'); background-repeat: no-repeat;}
+.reserv_choice > .reserv_type > div.active {background-color: #07072b; color:#fff;}
+.reserv_choice > .reserv_type > div:last-child 
+    {border-radius: 0 0 0 5px; border-top: 1px solid #000000; box-sizing: border-box; font-size: 13pt;}      /* 타입별 텍스트 */
+
+.reserv_choice > .reserv_type > div > div > img {padding-bottom: 5px;}      /* 타입별 아이콘 */
+.reserv_choice > .reserv_type > div:first-child > div:first-child
+    {width: 60px; height: 53px; background: url('../images/icon/sub2_choice1_movie.png'); background-repeat: no-repeat; margin-bottom: 20px;}
+.reserv_choice > .reserv_type > div:last-child > div:first-child
+    {width: 60px; height: 53px; background: url('../images/icon/sub2_choice2_theater.png'); background-repeat: no-repeat; margin-bottom: 20px;}
 .reserv_choice > .reserv_type > div.active:first-child > div:first-child {width: 60px; height: 53px;background: url('../images/icon/sub2_choice1_movie_wh.png'); background-repeat: no-repeat;}
 .reserv_choice > .reserv_type > div.active:last-child > div:first-child {width: 60px; height: 53px;background: url('../images/icon/sub2_choice2_theater_wh.png'); background-repeat: no-repeat;}
-.reserv_choice > .reserv_content {flex-basis: 800px; padding: 30px} /* 영화목록 전체크기 */
-.reserv_choice > .reserv_content > .reserv_content_title {margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px solid #000000;} /* 영화목록 타이틀 */
+.reserv_choice > .reserv_content {flex-basis: 700px; height: 250px; display: flex; flex-direction: column; padding-top: 25px;}   /* 영화목록 전체크기 */
+.reserv_choice > .reserv_content > .reserv_content_title
+    {margin-bottom: 20px; padding: 0 0 10px 0px; border-bottom: 1px solid #e6e7e8;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   }         /* 영화목록 타이틀 */
+.reserv_choice > .reserv_content > .reserv_content_title > span {padding-left: 10px;}         /* 클릭시 underline : 2px #6e6e6e */
+.reserv_choice > .reserv_content > .reserv_content_title > span.click {padding: 0 0 10px 0px; border-bottom: 2px solid #6e6e6e;}
+
 .reserv_choice > .reserv_content > .reserv_content_list {display: flex; flex-wrap: wrap;}                           /* 영화목록 정렬방식 */
-.reserv_choice > .reserv_content > .reserv_content_list > div {width: 33.3%; padding: 5px 0; font-size: 11pt;}      /* 영화목록 크기 */
-.reserv_choice > .reserv_post {flex-basis: 250px; height: 350px;}/* 영화목록 포스터 */
-.reserv_choice > .reserv_post > img {width: 100%; height: 100%; object-fit: cover;} /* 영화목록 포스터 이미지 크기 */
-.reserv_info > .reserv_info_title {margin-top: 30px; font-size: 32px;} /* 선택영화 큰 타이틀 */
-.reserv_info > .reserv_info_date {margin-top: 20px; display: flex; justify-content: space-between; } /* 날짜 관련 */
-.reserv_info > .reserv_info_date > div {display: flex; justify-content: center; align-items: center; border-top: 1px solid #dbdbdb; border-bottom: 1px solid #dbdbdb; box-sizing: border-box;} /* 날짜 아이콘 정렬 */
-.reserv_info > .reserv_info_date > div > i {font-size: 24px;} /*날짜 아이콘 크기 */
-.reserv_info > .reserv_info_date > div:nth-child(1) {flex-basis: 50px;} /* 좌측 화살표 */
-.reserv_info > .reserv_info_date > div:nth-child(2) {display: flex; justify-content: space-evenly; flex-basis: 1040px; font-size: 18px; height: 70px;} /* 날짜 */
-.reserv_info > .reserv_info_date > div:nth-child(2) > div {width: 60px; height: 100%; display: flex; justify-content: center; align-items: center; flex-direction: column; position: relative;} /* 날짜 내부 */
-.reserv_info > .reserv_info_date > div:nth-child(2) > div.active {border-bottom: 3px solid #2b3380;}
-.reserv_info > .reserv_info_date > div:nth-child(2) > div.hover {border-bottom: 3px solid #2b3380;}
+.reserv_choice > .reserv_content > .reserv_content_list > div {width: 30.1%; padding: 5px 10px; font-size: 11pt; 
+    text-overflow: ellipsis; white-space: nowrap; overflow: hidden;}      /* 영화목록 크기 */
+.reserv_choice > .reserv_content > .reserv_content_list > div.action {background: black; color: white;}
+
+.reserv_choice > .reserv_post {flex-basis: 200px;}                           /* 영화목록 포스터 */
+.reserv_choice > .reserv_post > img {width: 100%; height: 100%; object-fit: cover;}         /* 영화목록 포스터 이미지 크기 */
+.reserv_info > .reserv_info_title {margin: 50px 0 30px 0; font-size: 19pt; font-weight: bold;}                      /* 선택영화 큰 타이틀 */
+.reserv_info > .reserv_info_title > span:first-child {color: #2b3380;}
+
+.reserv_info > .reserv_info_date {margin-top: 20px; display: flex; justify-content: space-between; }        /* 날짜 관련 */
+.reserv_info > .reserv_info_date > div 
+    {display: flex; justify-content: center; align-items: center; 
+    border-top: 1px solid #d8d9db; border-bottom: 1px solid #d8d9db; box-sizing: border-box;}           /* 날짜 아이콘 정렬 */
+.reserv_info > .reserv_info_date > div > i {color: #888888;}                                                /*날짜 아이콘 크기 */
+.reserv_info > .reserv_info_date > div:nth-child(1) {flex-basis: 40px; font-size: 14px; }                     /* ★좌측 화살표 */
+.reserv_info > .reserv_info_date > div:nth-child(2)
+    {display: flex; justify-content: space-evenly; flex-basis: 1050px; font-size: 18px; height: 75px;}      /* 날짜 */
+.reserv_info > .reserv_info_date > div:nth-child(2) > div 
+    {width: 70px; height: 100%; display: flex; justify-content: center; align-items: center; flex-direction: column; position: relative;}   /* 날짜 내부 */
+.reserv_info > .reserv_info_date > div:nth-child(2) > div.active {border-bottom: 4px solid #2b3380; background: #f7f8f9;}
+.reserv_info > .reserv_info_date > div:nth-child(2) > div.hover {border-bottom: 4px solid #2b3380 ;}
 .reserv_info > .reserv_info_date > div:nth-child(2) > div.b {color:blue;}
 .reserv_info > .reserv_info_date > div:nth-child(2) > div.r {color:red;}
-.reserv_info > .reserv_info_date > div:nth-child(2) > div:first-child::after {content: "2021.06"; position: absolute; top:-10px; font-size: 12px; border: 1px solid #000; border-radius: 20px; padding: 2px 7px; background-color: #fff;}
-.reserv_info > .reserv_info_date > div:nth-child(3) {flex-basis: 50px;} /* 우측화살표 */
-.reserv_info > .reserv_info_date > div:nth-child(4) {flex-basis: 60px; border-left: 1px solid #dbdbdb; box-sizing: border-box;} /* 달력 */
-.reserv_info > .reserv_info_age {display: flex; margin-top: 30px; font-size: 18px;} /* 등급정보 */
-.reserv_info > .reserv_info_age > div {display: flex; align-items: center; margin-right: 20px;} /* 등급정보 내용 */
-.reserv_info > .reserv_info_age > div > img {padding-right: 5px; width: 24px;} /* 등급 정보 이미지 */
-.reserv_info > .reserv_info_movie {margin-top: 15px; height: 40px; display: flex; align-items: center; justify-content: space-between; font-size: 20px; background-color: #ebebeb; padding: 10px 15px;} /* 선택영화 타이틀 */
-.reserv_info > .reserv_info_movie > div {display: flex; align-items: center;} /* 선택영화 타이틀및 상영정보 */
-.reserv_info > .reserv_info_movie > div > img {width: 24px; height: 24px; padding-right: 5px;} /* 선택 영화 타이틀 등급 이미지 */
-.reserv_info > .reserv_info_local {display: flex; margin-top: 15px;} /* 지역 */
+.reserv_info > .reserv_info_date > div:nth-child(2) > div.g {color:#b2b2b2;}
+
+.reserv_info > .reserv_info_date > div:nth-child(2) > div:first-child::after 
+    {height: 28px; width: 70px; content: "2021.06"; position: absolute; text-align: center; top:-15px; font-size: 10pt; border: 1px solid #d8d9db; 
+    border-radius: 20px; background-color: #fff;}
+.reserv_info > .reserv_info_date > div:nth-child(3) {flex-basis: 40px; font-size: 14px; }                     /* ★우측화살표 */
+.reserv_info > .reserv_info_date > div:nth-child(4) {flex-basis: 70px;box-sizing: border-box; font-size: 23px;}     /* ★달력 아이콘 */
+.reserv_info > .reserv_info_date > div:nth-child(4) > i {height: 48px; width: 100%; display: flex; justify-content: center; align-items: center; border-left: 1px solid #d8d9db; }
+.reserv_info > .reserv_info_age {display: flex; margin: 30px 20px;}                                 /* 관람등급정보 */
+.reserv_info > .reserv_info_age > div {display: flex; align-items: center; margin-right: 27px; font-size: 11pt; color: #666666;}     /* 관람등급 내용 */
+.reserv_info > .reserv_info_age > div > img {padding-right: 10px; width: 24px;}                                       /* 관람등급 아이콘 */
+.reserv_info > .reserv_info_movie {height: 40px; display: flex; align-items: center; justify-content: space-between; 
+    font-size: 12pt; background-color: #f7f8f9; padding: 0px 20px; border: 1px solid #ededed;} /* 선택영화 타이틀 */
+.reserv_info > .reserv_info_movie > div {display: flex; align-items: center;}                       /* 선택영화 타이틀및 상영정보 */
+.reserv_info > .reserv_info_movie > div > img {width: 24px; height: 24px; padding-right: 5px;}      /* 선택 영화 타이틀 등급 이미지 */
+.reserv_info > .reserv_info_local {display: flex; margin-top: 15px;}                                /* 지역 */
 .reserv_info > .reserv_info_local > div { padding: 5px 50px; border: 1px solid #797979; margin-right: -1px;} /* 지역 버튼 */
 .reserv_info > .reserv_info_local > div.active {background-color: #525252; color:#fff; border-style: none;}
 
