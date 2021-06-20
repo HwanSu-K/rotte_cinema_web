@@ -58,6 +58,7 @@
 .reserv_info > .reserv_info_movie {height: 45px; display: flex; align-items: center; justify-content: space-between; 
     font-size: 12pt; background-color: #f7f8f9; padding: 0px 20px; border: 1px solid #ededed;} /* 선택영화 타이틀 */
 .reserv_info > .reserv_info_movie > div {display: flex; align-items: center;}                       /* 선택영화 타이틀및 상영정보 */
+.reserv_info > .reserv_info_movie > div > span:nth-child(1) {color: #0173a9;}
 .reserv_info > .reserv_info_movie > div > img {width: 24px; height: 24px; padding-right: 5px;}      /* 선택 영화 타이틀 등급 이미지 */
 .reserv_info > .reserv_info_local {display: flex; margin-top: 30px;}                                /* 지역 */
 .reserv_info > .reserv_info_local > div { padding: 8px 45px; border: 1px solid #d8d9db; margin-right: -1px; color: #555555;}    /* 지역 버튼 */
