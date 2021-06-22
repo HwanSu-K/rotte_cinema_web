@@ -60,7 +60,7 @@ nav > .nav_map > div > ul > li > div {/*border-top: 1px solid #848484;*/ border-
 nav > .nav_map > div > ul > li > ul {display: flex; justify-content: center; flex-direction: column; padding-bottom: 25px;}
 nav > .nav_map > div > ul > li > ul > li {font-size: 13pt; color: #bcb8b4; padding: 25px 0;}
 
-nav > .nav_search.active {display: block;  }
+nav > .nav_search.active {display: block;}
 /* border-bottom: 1px solid rgba(149,149,149,0.6); */
 nav > .nav_search {width: 100%; height: 380px; background-color:#351f67; padding: 65px 0; z-index: 900; position: absolute; display: none;}
 nav > .nav_search > div {width: var(--default--width); height: 100%; margin: 0 auto; 
