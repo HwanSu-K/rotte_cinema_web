@@ -14,4 +14,4 @@
 .movie > .movie_list > div > :nth-child(4) > div {height: 40px; border-radius: 10px; display: flex; justify-content: center; align-items:center;}   /* 버튼 설정 */
 .movie > .movie_list > div > :nth-child(4) > div > i {margin-right: 5px; color: #000;}  /* 좋아요 아이콘 */
 .movie > .movie_list > div > :nth-child(4) > div:nth-child(1) {width: 70px; border: 1px solid #ededed; color: #2b3380;} /* 좋아요 버튼 */
-.movie > .movie_list > div > :nth-child(4) > div:nth-child(2) {width: 110px; background-color: #2b3380; border-style: none; color: #fff;}   /* 예매 버튼 */
+.movie > .movie_list > div > :nth-child(4) > div:nth-child(2) {width: 150px; background-color: #2b3380; border-style: none; color: #fff;}   /* 예매 버튼 */

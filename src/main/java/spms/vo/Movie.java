@@ -1,7 +1,5 @@
 package spms.vo;
 
-import org.springframework.web.multipart.MultipartFile;
-
 public class Movie {
 	protected int index;
 	protected String title;
@@ -15,6 +13,9 @@ public class Movie {
 	protected String poster;
 	protected String info;
 	protected String tags;
+	protected int state;
+	protected int like;
+	protected double rating;
 	
 	public int getIndex() {
 		return index;
@@ -88,4 +89,23 @@ public class Movie {
 	public void setTags(String tags) {
 		this.tags = tags;
 	}
+	public int getState() {
+		return state;
+	}
+	public void setState(int state) {
+		this.state = state;
+	}
+	public int getLike() {
+		return like;
+	}
+	public void setLike(int like) {
+		this.like = like;
+	}
+	public double getRating() {
+		return rating;
+	}
+	public void setRating(double rating) {
+		this.rating = rating;
+	}
+	
 }

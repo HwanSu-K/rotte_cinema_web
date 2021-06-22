@@ -11,21 +11,20 @@ import spms.dao.MovieDao;
 
 //@RequestParam 적용
 @Controller
-public class MovieListController {
+public class MovieController {
 	MovieDao movieDao;
 
 	@Autowired
-	public MovieListController setMemberDao(MovieDao movieDao) {
+	public MovieController setMemberDao(MovieDao movieDao) {
 		this.movieDao = movieDao;
 		return this;
 	}
 
-	@RequestMapping("/cms/movie/list.do")
-	public String execute(String orderCond, Map<String, Object> model) throws Exception {
+	@RequestMapping("/movie.do")
+	public String execute(String view, Map<String, Object> model) throws Exception {
 		HashMap<String, Object> paramMap = new HashMap<String, Object>();
-		paramMap.put("orderCond", orderCond);
-
+		paramMap.put("view", view);
 		model.put("movies", movieDao.selectList(paramMap));
-		return "/cms/MovieListForm.jsp";
+		return "/cinema/page/MovieForm.jsp";
 	}
 }

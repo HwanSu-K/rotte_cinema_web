@@ -35,12 +35,12 @@ label {
 				name='actor' size='50'></li>
 			<li><label for='genre'>장르 </label> <input id='genre' type='text'
 				name='genre' size='50'></li>
-			<li><label for="limitAge">상태</label> <select id="limitAge"
+			<li><label for="limitAge">연령 </label> <select id="limitAge"
 			name="limitAge">
 				<option value="0">전체 </option>
 				<option value="12">12세 </option>
 				<option value="15">15세 </option>
-				<option value="19">19세 </option>
+				<option value="18">청불 </option>
 			</select></li>
 			<li><label for='runningTime'>상영시간 </label> <input id='runningTime' type='number'
 				name='runningTime' size='50'></li>

@@ -24,6 +24,7 @@ public class MySqlMovieDao implements MovieDao {
 	public List<Movie> selectList(HashMap<String, Object> paramMap) throws Exception {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		try {
+			System.out.println(paramMap.get("view"));
 			return sqlSession.selectList("spms.dao.MovieDao.selectList", paramMap);
 		} finally {
 			sqlSession.close();
@@ -101,8 +102,11 @@ public class MySqlMovieDao implements MovieDao {
 			if (!movie.getTags().equals(original.getTags())) {
 				paramMap.put("tags", movie.getTags());
 			}
+			
+			if (movie.getState() != original.getState()) {
+				paramMap.put("state", movie.getState());
+			}
 	
-
 			if (paramMap.size() > 0) {
 				paramMap.put("index", movie.getIndex());
 				int count = sqlSession.update("spms.dao.MovieDao.update", paramMap);

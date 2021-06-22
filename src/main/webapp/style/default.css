@@ -5,8 +5,6 @@
     /* color */
     --color--white:#ffffff;
     --color--accent:#2b3380;
-
-
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
@@ -42,6 +40,7 @@ nav > ul > li > .header_calendar {width: 20px; height: 20px; background: url('..
 nav > ul > li > .header_calendar.active{background: url('../images/icon/close_icon.png'); background-size: contain; background-repeat: no-repeat;}
 nav > ul > li > .header_user {width: 20px; height: 20px; background: url('../images/icon/user_icon.png'); background-size: contain; background-repeat: no-repeat;}
 nav > ul > li > .header_user.active{background: url('../images/icon/close_icon.png'); background-size: contain; background-repeat: no-repeat;}
+nav > ul > li > .header_logo {width: 200px; height: 40px; background: url('../images/icon/rt_logo_w_blue.png'); background-size: contain; background-repeat: no-repeat;}
 
 nav > ul > li > div {height: 20px; padding: 0 10px 0 10px;}     /* 아이콘 */
 nav > ul > li > .logo_w_blue {height: 40px;}                    /* 중앙 로고만 크기 조절 */

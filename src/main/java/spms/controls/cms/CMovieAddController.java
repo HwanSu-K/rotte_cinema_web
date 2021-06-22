@@ -1,4 +1,4 @@
-package spms.controls;
+package spms.controls.cms;
 
 import java.io.File;
 
@@ -15,11 +15,11 @@ import spms.vo.Movie;
 
 //@RequestParam 적용
 @Controller
-public class MovieAddController {
+public class CMovieAddController {
 	MovieDao movieDao;
 
 	@Autowired
-	public MovieAddController setMemberDao(MovieDao movieDao) {
+	public CMovieAddController setMemberDao(MovieDao movieDao) {
 		this.movieDao = movieDao;
 		return this;
 	}

@@ -8,23 +8,41 @@
 <title>Rotte Cinema CMS</title>
 </head>
 <body>
-<h1>movie list</h1>
+<h1>영화 목록 </h1>
 <p>
-		<a href='add.do'>movie add</a>
+		<a href='add.do'>영화 등록 </a>
 </p>
 <table border="1">
 	<tr>
-		<th>no </th>
-		<th>title </th>
-		<th>limitAge </th>
+		<th>인덱스 </th>
+		<th>제목 </th>
+		<th>감독 </th>
+		<th>출연자 </th>
+		<th>장르 </th>
+		<th>연령 </th>
+		<th>상영시간 </th>
+		<th>개봉일 </th>
+		<th>종영일 </th>
+		<th>포스터 </th>
+		<th>태그 </th>
+		<th>상태 </th>
 		<th></th>
 	</tr>
 <c:forEach var="movie" items="${movies}">
 	<tr>
 		<td>${movie.index }</td>
 		<td>${movie.title }</td>
+		<td>${movie.director }</td>
+		<td>${movie.actor }</td>
+		<td>${movie.genre }</td>
 		<td>${movie.limitAge }</td>
-		<td><a href="update.do?no=${movie.index }">수정</a></td>
+		<td>${movie.runningTime }</td>
+		<td>${movie.openDate }</td>
+		<td>${movie.endDate }</td>
+		<td>${movie.poster }</td>
+		<td>${movie.tags  }</td>
+		<td>${movie.state  }</td>
+		<td><a href="update.do?no=${movie.index }">수정 </a></td>
 	</tr>
 </c:forEach>
 </table>
