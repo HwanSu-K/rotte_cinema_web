@@ -24,7 +24,6 @@ public class MySqlMovieDao implements MovieDao {
 	public List<Movie> selectList(HashMap<String, Object> paramMap) throws Exception {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		try {
-			System.out.println(paramMap.get("view"));
 			return sqlSession.selectList("spms.dao.MovieDao.selectList", paramMap);
 		} finally {
 			sqlSession.close();

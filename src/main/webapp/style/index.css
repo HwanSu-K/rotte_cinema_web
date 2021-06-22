@@ -40,7 +40,7 @@ nav.active {background-color: rgba(0,0,0,0.9);}
 }
 
 .banner > .banner_icon {display: flex; justify-content:space-between; width: 90%; position: absolute; 
-    top: 50%; margin-left: 5%; align-items: center;}
+    top: 50%; margin-left: 5%; align-items: center; cursor:pointer;}
 
 .banner > .banner_icon > div > img {height: 50px;}
 /* 슬라이더 1 - 페이지 버튼 */
@@ -84,9 +84,9 @@ nav.active {background-color: rgba(0,0,0,0.9);}
 
 .reserv > .reserv_section2 {width: var(--default--width); margin: 0 auto; position: relative;} 
 .reserv > .reserv_section2 > .reserv_more 
-{display: flex; justify-content: flex-end; margin-bottom: 15px; color: #dbdbdb;} /* 더많은 영화 보기 */
-.reserv > .reserv_section2 > .reserv_arrow_left {position: absolute; top:40%; left: -80px;}
-.reserv > .reserv_section2 > .reserv_arrow_right {position: absolute; top:40%; right: -80px}
+{display: flex; justify-content: flex-end; margin-bottom: 15px; color: #dbdbdb; cursor:pointer} /* 더많은 영화 보기 */
+.reserv > .reserv_section2 > .reserv_arrow_left {position: absolute; top:40%; left: -80px; cursor:pointer}
+.reserv > .reserv_section2 > .reserv_arrow_right {position: absolute; top:40%; right: -80px; cursor:pointer}
 
 /* .reserv > .reserv_section2 .reserv_list {display: flex; justify-content: space-between; align-items: center; overflow: hidden;}
 .reserv > .reserv_section2 .reserv_list > div > div {width: 270px;} */

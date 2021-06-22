@@ -27,11 +27,12 @@ header {grid-area: header; position: absolute; width: 100%; height: 60px; positi
     background-color: #252451; z-index: 999; color: #fff;}
 nav {width: 100%; height: 100%; border-bottom: 1px solid rgba(149,149,149,0.6);}
 nav > ul {display: flex; width: 100%; height: 100%; justify-content: center; }
-nav > ul > li { height: 100%; display: flex; justify-content: center; align-items: center; flex-basis: 130px; cursor:pointer;} /* 항목들의 넓이가 최소 100px은 유지 되도록 */
+nav > ul > li { height: 100%; display: flex; justify-content: center; align-items: center; flex-basis: 130px;} /* 항목들의 넓이가 최소 100px은 유지 되도록 */
 .header_search_txb {position: absolute; height: 30px; margin-left: 150px;}
 nav > ul > li:first-child,
 nav > ul > li:last-child{flex-basis: 150px;}
 nav > ul > li:nth-child(4){flex-basis: 450px}
+nav > ul > li > div {cursor: pointer;}
 nav > ul > li > .header_menu {width: 20px; height: 20px; background: url('../images/icon/menu_icon.png'); background-size: contain; background-repeat: no-repeat;}
 nav > ul > li > .header_menu.active{background: url('../images/icon/close_icon.png'); background-size: contain; background-repeat: no-repeat;}
 nav > ul > li > .header_search {width: 20px; height: 20px; background: url('../images/icon/search_icon.png'); background-size: contain; background-repeat: no-repeat;}
@@ -43,7 +44,7 @@ nav > ul > li > .header_user.active{background: url('../images/icon/close_icon.p
 nav > ul > li > .header_logo {width: 200px; height: 40px; background: url('../images/icon/rt_logo_w_blue.png'); background-size: contain; background-repeat: no-repeat;}
 
 nav > ul > li > div {height: 20px; padding: 0 10px 0 10px;}     /* 아이콘 */
-nav > ul > li > .logo_w_blue {height: 40px;}                    /* 중앙 로고만 크기 조절 */
+nav > ul > li > .logo_w_blue {height: 40px; cursor:point;}                    /* 중앙 로고만 크기 조절 */
 nav > ul > .nav_over > ul {position: absolute; padding-top: 73px; visibility: hidden; color:#fff; top:0; margin: auto 0;}
 nav > ul > .nav_over:hover ul {visibility: inherit;}
 nav > ul > .nav_over > ul > li {padding: 0 10px 0 10px;}
@@ -60,7 +61,7 @@ nav > .nav_map > div > ul > li > div {/*border-top: 1px solid #848484;*/ border-
     margin: 10px 0; padding: 10px 70px; font-size: 15pt;  color: #fff; }
 nav > .nav_map > div > ul > li > ul {display: flex; justify-content: center; flex-direction: column; padding-bottom: 25px;}
 nav > .nav_map > div > ul > li > ul > li {font-size: 13pt; padding: 25px 0;}
-nav > .nav_map > div > ul > li > ul > li > a{color: #bcb8b4; }
+nav > .nav_map > div > ul > li > ul > li > a {color: #bcb8b4; }
 
 nav > .nav_search.active {display: block;}
 /* border-bottom: 1px solid rgba(149,149,149,0.6); */
