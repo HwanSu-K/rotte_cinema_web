@@ -91,4 +91,13 @@ $(document).ready(function(){
         }
     }, 5000);
 
+    $(".reserv_list").lightSlider({
+        loop:false,
+        item: 5,
+        pager:false,
+        controls: false,
+        keyPress: false,
+        slideMargin:30
+
+    });
 });
