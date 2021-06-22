@@ -45,7 +45,6 @@ nav > ul > li > .header_user.active{background: url('../images/icon/close_icon.p
 
 nav > ul > li > div {height: 20px; padding: 0 10px 0 10px;}     /* 아이콘 */
 nav > ul > li > .logo_w_blue {height: 40px;}                    /* 중앙 로고만 크기 조절 */
-nav > ul > .nav_over{display: flex; align-items: center; justify-content: center;}
 nav > ul > .nav_over > ul {position: absolute; padding-top: 73px; visibility: hidden; color:#fff; top:0; margin: auto 0;}
 nav > ul > .nav_over:hover ul {visibility: inherit;}
 nav > ul > .nav_over > ul > li {padding: 0 10px 0 10px;}
