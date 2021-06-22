@@ -15,7 +15,7 @@ public class LocationController {
 	MovieDao movieDao;
 
 	@Autowired
-	public LocationController setMemberDao(MovieDao movieDao) {
+	public LocationController setMovieDao(MovieDao movieDao) {
 		this.movieDao = movieDao;
 		return this;
 	}

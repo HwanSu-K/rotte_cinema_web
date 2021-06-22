@@ -15,7 +15,7 @@ public class EventController {
 	MovieDao movieDao;
 
 	@Autowired
-	public EventController setMemberDao(MovieDao movieDao) {
+	public EventController setMovieDao(MovieDao movieDao) {
 		this.movieDao = movieDao;
 		return this;
 	}

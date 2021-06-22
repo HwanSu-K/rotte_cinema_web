@@ -19,14 +19,21 @@
 <div class="content">  
     <section class="banner">  <!-- 배너영역 -->
         <div class="banner_img">
-            <div class="active" style="background-image:url(./images/banner_img/banner01.jpg);"></div>
-            <div style="background-image:url(./images/banner_img/banner02.jpg);"></div>
-            <div style="background-image:url(./images/banner_img/banner03.jpg);"></div>
-            <div style="background-image:url(./images/banner_img/banner04.jpg);"></div>
+        	<c:forEach var="banner" items="${banners}" varStatus="status">
+        	<div class="${status.index == 0 ? 'active':'' }" style="background-image:url(${path }/images/banner/${banner.imagePath });"></div>
+			</c:forEach>
         </div> 
+        <div class="video">
+            <div>
+	            <c:forEach var="banner" items="${banners}">
+	            <video loop><source src="${path }/images/banner/${banner.videoPath }"></video>
+				</c:forEach>
+            </div>
+            <div class="mask"></div>
+        </div>
         <div class="banner_icon">        <!-- 화살표 아이콘  < >  -->
             <div><img src="./images/icon/banner_arrow_icon01.png"></div>
-            <span><img src="./images/icon/play_icon.png"></span>                   <!--play 아이콘-->
+            <span class="banner_play"><img src="./images/icon/play_icon.png"></span>                   <!--play 아이콘-->
             <div><img src="./images/icon/banner_arrow_icon02.png"></div>
         </div>
         <div class="dots">

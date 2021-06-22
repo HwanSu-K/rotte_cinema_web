@@ -15,7 +15,7 @@ public class TicketingController {
 	MovieDao movieDao;
 
 	@Autowired
-	public TicketingController setMemberDao(MovieDao movieDao) {
+	public TicketingController setMovieDao(MovieDao movieDao) {
 		this.movieDao = movieDao;
 		return this;
 	}

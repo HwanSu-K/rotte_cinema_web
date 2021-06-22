@@ -15,7 +15,7 @@ public class ScheduleController {
 	MovieDao movieDao;
 
 	@Autowired
-	public ScheduleController setMemberDao(MovieDao movieDao) {
+	public ScheduleController setMovieDao(MovieDao movieDao) {
 		this.movieDao = movieDao;
 		return this;
 	}

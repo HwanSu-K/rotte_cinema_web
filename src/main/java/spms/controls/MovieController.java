@@ -15,7 +15,7 @@ public class MovieController {
 	MovieDao movieDao;
 
 	@Autowired
-	public MovieController setMemberDao(MovieDao movieDao) {
+	public MovieController setMovieDao(MovieDao movieDao) {
 		this.movieDao = movieDao;
 		return this;
 	}

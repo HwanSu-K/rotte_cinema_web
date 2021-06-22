@@ -15,7 +15,7 @@ public class QrationController {
 	MovieDao movieDao;
 
 	@Autowired
-	public QrationController setMemberDao(MovieDao movieDao) {
+	public QrationController setMovieDao(MovieDao movieDao) {
 		this.movieDao = movieDao;
 		return this;
 	}

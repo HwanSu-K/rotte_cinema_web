@@ -15,7 +15,7 @@ public class AboutController {
 	MovieDao movieDao;
 
 	@Autowired
-	public AboutController setMemberDao(MovieDao movieDao) {
+	public AboutController setMovieDao(MovieDao movieDao) {
 		this.movieDao = movieDao;
 		return this;
 	}

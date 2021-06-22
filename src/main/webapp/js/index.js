@@ -26,7 +26,7 @@ $(document).ready(function(){
         $('.dots').append(div);
     }
     
-}
+    }
 
     init();
 
@@ -82,6 +82,7 @@ $(document).ready(function(){
         $post.click();
     });
 
+    // 자동 슬라이드
     setInterval(function(){
         if(slidebool == true) {
             $('.banner > .banner_icon > div').eq(1).click();
@@ -91,6 +92,7 @@ $(document).ready(function(){
         }
     }, 5000);
 
+    // 포스터 슬라이드
     $(".reserv_list").lightSlider({
         loop:false,
         item: 5,
@@ -99,5 +101,30 @@ $(document).ready(function(){
         keyPress: false,
         slideMargin:30
 
+    });
+
+    // 배너 동영상
+    var banners = $(".banner_img > div");
+    var videos = $(".video > div > video");
+    console.log(videos);
+    $(".banner_play").on("click",function(){
+        
+        $.each(banners,function(index, item){
+            if($(item).hasClass('active'))
+            {
+                videos.get(index).play(); 
+                $(videos.get(index)).css('display','block');
+                $(".video").css('visibility','inherit');
+                return;
+            }
+        });
+    });
+
+    $("video").on("click",function(){
+        $.each(banners,function(index, item){
+            videos.get(index).load(); 
+            $(videos.get(index)).css('display','none');
+            $(".video").css('visibility','hidden');
+        });
     });
 });
