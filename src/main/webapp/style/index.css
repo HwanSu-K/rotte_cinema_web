@@ -93,7 +93,7 @@ nav.active {background-color: rgba(0,0,0,0.9);}
 /* .reserv > .reserv_section2 .reserv_list {display: flex; justify-content: space-between; align-items: center; overflow: hidden;}
 .reserv > .reserv_section2 .reserv_list > div > div {width: 270px;} */
 .reserv > .reserv_section2 .reserv_list > div > :nth-child(1) {display: flex; justify-content: space-between; position: relative;}
-.reserv > .reserv_section2 .reserv_list > div > :nth-child(1) > img:first-child {width: 100%; margin-bottom: -5px;}          /* 포스트박스 크기 */
+.reserv > .reserv_section2 .reserv_list > div > :nth-child(1) > img:first-child {width: 100%; margin-bottom: -5px; border-radius: 10px;}          /* 포스트박스 크기 */
 .reserv > .reserv_section2 .reserv_list > div > :nth-child(1) > img:last-child {position: absolute; top: 8px; right: 8px; display: none;}   /* 상영등급 */
 .reserv > .reserv_section2 .reserv_list > div > :nth-child(2)
     {background-color: rgba(0,0,0,0.0); padding-top: 15px;}                    /* 영화 제목 타이틀 */
@@ -101,13 +101,12 @@ nav.active {background-color: rgba(0,0,0,0.9);}
     {display: flex; justify-content: center; font-size: 13pt; color: #fff; font-weight: bold; white-space:nowrap; text-overflow: ellipsis; overflow:hidden;}    /* 영화제목 */
 .reserv > .reserv_section2 .reserv_list > div > :nth-child(3)       /* 영화 서브 타이틀 */
     {background-color: rgba(0,0,0,0.0); padding: 5px 0 15px 0; font-size: 10pt; color: #fff; display: flex; justify-content: center; align-items: center;}
-.reserv > .reserv_section2 .reserv_list > div > :nth-child(3) > span:nth-child(2) {padding: 0 5px;}           /* | */
-.reserv > .reserv_section2 .reserv_list > div > :nth-child(4) {display: flex; justify-content: space-between;}     /* 4번째 DIV(예매버튼) 정렬 */
-.reserv > .reserv_section2 .reserv_list > div > :nth-child(4) > div:nth-child(1) {background-color: #2b338095; width: 70px;}
-.reserv > .reserv_section2 .reserv_list > div > :nth-child(4) > div:nth-child(1) > i {padding-right: 5px; color: #fff;} /* 좋아요 여백 */
-.reserv > .reserv_section2 .reserv_list > div > :nth-child(4) > div:nth-child(2) {background-color: #2b3380; width: 140px;}
+.reserv > .reserv_section2 .reserv_list > div > :nth-child(3) > span:nth-child(2) {padding: 0 5px;}                 /* | */
+.reserv > .reserv_section2 .reserv_list > div > :nth-child(4) {display: flex; justify-content: center; ;}      /* 4번째 DIV(예매버튼) 정렬 */
+
+.reserv > .reserv_section2 .reserv_list > div > :nth-child(4) > div:nth-child(1) {background-color: #2b3380; width: 140px;}
 .reserv > .reserv_section2 .reserv_list > div > :nth-child(4) > div 
-    {border-style: none; color: #fff; height: 35px; border-radius: 5px; display: flex; justify-content: center; align-items:center;}   /* 버튼 설정 */
+    {border-style: none; color: #fff; height: 35px; border-radius: 0px; display: flex; justify-content: center; align-items:center;}   /* 버튼 설정 */
 
 .reserv > .reserv_section2 .reserv_list > span {margin: 0 0 0 0;}
 .reserv > .reserv_section2 .reserv_list > span > img {width: 270px;}
