@@ -104,7 +104,8 @@ nav.active {background-color: rgba(0,0,0,0.9);}
 .reserv > .reserv_section2 .reserv_list > div > :nth-child(3) > span:nth-child(2) {padding: 0 5px;}                 /* | */
 .reserv > .reserv_section2 .reserv_list > div > :nth-child(4) {display: flex; justify-content: center; ;}      /* 4번째 DIV(예매버튼) 정렬 */
 
-.reserv > .reserv_section2 .reserv_list > div > :nth-child(4) > div:nth-child(1) {background-color: #2b3380; width: 140px;}
+.reserv > .reserv_section2 .reserv_list > div > :nth-child(4) > div:nth-child(1) 
+    {background-color: #2b3380; width: 75%;  border-radius: 7px;}
 .reserv > .reserv_section2 .reserv_list > div > :nth-child(4) > div 
     {border-style: none; color: #fff; height: 35px; border-radius: 0px; display: flex; justify-content: center; align-items:center;}   /* 버튼 설정 */
 
@@ -114,7 +115,6 @@ nav.active {background-color: rgba(0,0,0,0.9);}
 .reserv > .reserv_section2 .reserv_list > span > div > input         /* 예매버튼 */
     { width: 180px; height: 45px; border-radius: 5px; margin-top: 25px; box-shadow: 2px 2px 4px #07072e;
     background-color: #2b3380; color: #ffffff; font-size: 12pt; cursor: pointer; border-style: hidden;}
-
 
 .qration {
     padding: 60px 0;
