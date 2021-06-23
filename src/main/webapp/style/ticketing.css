@@ -3,7 +3,7 @@
 .reserv > .reserv_tab > div {width: 33.3%; height: 65px; display: flex; justify-content: center; align-items: center; 
     border: 1px solid #e0e0e0; font-size: 13pt; flex-direction: column;}   /* 목록탭 버튼 */
 .reserv > .reserv_tab > div > span:first-child {font-size: 10pt; color: #a6a6a6;}
-.reserv > .reserv_tab > div.active {background-color: #f3f3f3; border-bottom: 5px solid #2b3380; box-sizing: border-box;}
+.reserv > .reserv_tab > div.active {background-color: #f3f3f3; border-bottom: 4px solid #2b3380; height: 62px; }
 .reserv > .reserv_info_age {display: flex; align-items: center; margin-top: 30px; margin-right: 27px; font-size: 11pt; color: #666666;}
 .reserv > .reserv_info_age > div {display: flex; align-items: center; padding-right: 20px;}
 
