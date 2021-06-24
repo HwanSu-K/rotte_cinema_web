@@ -27,7 +27,9 @@ header {grid-area: header; position: absolute; width: 100%; height: 60px; positi
     background-color: #252451; z-index: 999; color: #fff;}
 nav {width: 100%; height: 100%; border-bottom: 1px solid rgba(149,149,149,0.6);}
 nav > ul {display: flex; width: 100%; height: 100%; justify-content: center; }
-nav > ul > li { height: 100%; display: flex; justify-content: center; align-items: center; flex-basis: 130px;} /* 항목들의 넓이가 최소 100px은 유지 되도록 */
+nav > ul > li {height: 100%; display: flex; justify-content: center; align-items: center; flex-basis: 130px;} /* 항목들의 넓이가 최소 100px은 유지 되도록 */
+nav > ul > li:hover{cursor: pointer; color: #ffd630;}
+
 .header_search_txb {position: absolute; height: 30px; margin-left: 150px;}
 nav > ul > li:first-child,
 nav > ul > li:last-child{flex-basis: 150px;}
@@ -45,9 +47,11 @@ nav > ul > li > .header_logo {width: 200px; height: 40px; background: url('../im
 
 nav > ul > li > div {height: 20px; padding: 0 10px 0 10px;}     /* 아이콘 */
 nav > ul > li > .logo_w_blue {height: 40px; cursor:point;}                    /* 중앙 로고만 크기 조절 */
-nav > ul > .nav_over > ul {position: absolute; padding-top: 73px; visibility: hidden; color:#fff; top:0; margin: auto 0;}
+nav > ul > .nav_over > ul {position: absolute; padding-top: 70px; visibility: hidden; color:#fff; top:0; margin: auto 0;}
 nav > ul > .nav_over:hover ul {visibility: inherit;}
 nav > ul > .nav_over > ul > li {padding: 0 10px 0 10px;}
+nav > ul > .nav_over > ul > li:hover {text-decoration: underline;}
+
 nav > .nav_bg.active {background-color: rgba(0,0,0);
     /*border-bottom: 1px solid rgba(149,149,149,0.6);*/ height: 40px; margin-top: 1px;}
 nav > .nav_map.active {display: block;}
@@ -62,6 +66,7 @@ nav > .nav_map > div > ul > li > div {border-bottom: 1px solid rgba(255,255,255,
 nav > .nav_map > div > ul > li > ul {display: flex; justify-content: center; flex-direction: column;}
 nav > .nav_map > div > ul > li > ul > li {font-size: 11pt; padding: 25px 0;}
 nav > .nav_map > div > ul > li > ul > li > a {color: #fff; }
+nav > .nav_map > div > ul > li > ul > li > a:hover {text-decoration: underline; cursor: pointer;}
 
 nav > .nav_search.active {display: block;}
 /* border-bottom: 1px solid rgba(149,149,149,0.6); */
