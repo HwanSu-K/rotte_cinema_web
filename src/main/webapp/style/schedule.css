@@ -35,22 +35,26 @@
     {display: flex; justify-content: center; align-items: center; 
     border-top: 1px solid #d8d9db; border-bottom: 1px solid #d8d9db; box-sizing: border-box;}           /* 날짜 아이콘 정렬 */
 .reserv_info > .reserv_info_date > div > i {color: #888888;}                                                /*날짜 아이콘 크기 */
-.reserv_info > .reserv_info_date > div:nth-child(1) {flex-basis: 40px; font-size: 14px; }                     /* ★좌측 화살표 */
+.reserv_info > .reserv_info_date > div:nth-child(1) {width: 40px; font-size: 14px; }                     /* ★좌측 화살표 */
 .reserv_info > .reserv_info_date > div:nth-child(2)
-    {display: flex; justify-content: space-evenly; flex-basis: 1050px; font-size: 18px; height: 85px;}      /* 날짜 */
+    {display: flex; justify-content: flex-start; width: 1050px; font-size: 18px; height: 60px; flex-wrap: nowrap; overflow:scroll; }      /* 날짜 */
 .reserv_info > .reserv_info_date > div:nth-child(2) > div 
-    {width: 70px; height: 100%; display: flex; justify-content: center; align-items: center; flex-direction: column; position: relative;}   /* 날짜 내부 */
+    {flex: 0 0 auto; width: 70px; height: 100%; display: flex; justify-content: center; align-items: center; flex-direction: column; position: relative;}   /* 날짜 내부 */
 .reserv_info > .reserv_info_date > div:nth-child(2) > div.active {border-bottom: 4px solid #2b3380; background: #f7f8f9;}
 .reserv_info > .reserv_info_date > div:nth-child(2) > div.hover {border-bottom: 4px solid #2b3380 ;}
+.reserv_info > .reserv_info_date > div:nth-child(2) > div.m {color:#fff; background-color: #d8d9db;}
 .reserv_info > .reserv_info_date > div:nth-child(2) > div.b {color:blue;}
 .reserv_info > .reserv_info_date > div:nth-child(2) > div.r {color:red;}
 .reserv_info > .reserv_info_date > div:nth-child(2) > div.g {color:#b2b2b2;}
-
+.reserv_info > .reserv_info_date > div:nth-child(2) > div > div:nth-child(1) {
+    height: 15px; font-size: 12px; margin-bottom: 5px; margin-top: -15px;
+}
+.reserv_info > .reserv_info_date > div:nth-child(2) > div > div:nth-child(2) > div:nth-child(1) {margin-right: 1px;}
 .reserv_info > .reserv_info_date > div:nth-child(2) > div:first-child::after 
-    {height: 28px; width: 70px; content: "2021.06"; position: absolute; text-align: center; top:-15px; font-size: 10pt; border: 1px solid #d8d9db; 
-    border-radius: 20px; background-color: #fff;}
-.reserv_info > .reserv_info_date > div:nth-child(3) {flex-basis: 40px; font-size: 14px; }                     /* ★우측화살표 */
-.reserv_info > .reserv_info_date > div:nth-child(4) {flex-basis: 70px;box-sizing: border-box; font-size: 23px;}     /* ★달력 아이콘 */
+    {height: 25px; width: 70px; position: absolute; text-align: center; top:-10px; font-size: 10pt; border: 1px solid #d8d9db; 
+    border-radius: 20px; background-color: #fff; display: flex; justify-content: center; align-items: center;}
+.reserv_info > .reserv_info_date > div:nth-child(3) {width: 40px; font-size: 14px; }                     /* ★우측화살표 */
+.reserv_info > .reserv_info_date > div:nth-child(4) {width: 70px;box-sizing: border-box; font-size: 23px;}     /* ★달력 아이콘 */
 .reserv_info > .reserv_info_date > div:nth-child(4) > i {height: 48px; width: 100%; display: flex; justify-content: center; align-items: center; border-left: 1px solid #d8d9db; }
 .reserv_info > .reserv_info_age {display: flex; margin: 30px 20px;}                                 /* 관람등급정보 */
 .reserv_info > .reserv_info_age > div {display: flex; align-items: center; margin-right: 27px; font-size: 11pt; color: #666666;}     /* 관람등급 내용 */
