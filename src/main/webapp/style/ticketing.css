@@ -4,17 +4,18 @@
     border: 1px solid #e0e0e0; font-size: 13pt; flex-direction: column;}   /* 목록탭 버튼 */
 .reserv > .reserv_tab > div > span:first-child {font-size: 10pt; color: #a6a6a6;}
 .reserv > .reserv_tab > div.active {background-color: #f3f3f3; border-bottom: 4px solid #2b3380; height: 62px; }
+
 .reserv > .reserv_info_age {display: flex; align-items: center; margin-top: 30px; margin-right: 27px; font-size: 11pt; color: #666666;}
 .reserv > .reserv_info_age > div {display: flex; align-items: center; padding-right: 20px;}
-
 .reserv > .reserv_info_age > div > img {margin-right: 5px;}
+
 .reserv > article {display: none;}
 .reserv > article.active {display: block}
 .reserv > .movie_choice > .reserv_movie_tab {display: flex; margin-top: 30px; border-bottom: 1px solid #d8d9db; }
-.reserv > .movie_choice > .reserv_movie_tab > div {padding: 10px 20px; margin: 0 20px;  color: #555555;}
-.reserv > .movie_choice > .reserv_movie_tab > div.active {border-bottom: 3px solid #2b3380; }
+.reserv > .movie_choice > .reserv_movie_tab > div {padding: 10px 20px; margin: 0 20px;  color: #555555;  cursor: pointer;}
+.reserv > .movie_choice > .reserv_movie_tab > div.active {border-bottom: 3px solid #2b3380;}
 .reserv > .movie_choice > .reserv_movie_list {display: flex; margin-top: 30px; flex-wrap: wrap;}   /* 영화 목록리스트 */
-.reserv > .movie_choice > .reserv_movie_list > div {width: 20%; margin:30px 2.5%;}
+.reserv > .movie_choice > .reserv_movie_list > div {width: 20%; margin:20px 2.5%;}
 .reserv > .movie_choice > .reserv_movie_list > div > :nth-child(1) {position: relative;}
 .reserv > .movie_choice > .reserv_movie_list > div > :nth-child(1) > img:first-child {width: 100%; border-radius: 10px;}            /* 이미지 크기 */
 .reserv > .movie_choice > .reserv_movie_list > div > :nth-child(1) > img:last-child {position: absolute; top: 8px; right: 8px;}     /* 상영등급 */
@@ -25,7 +26,8 @@
 .reserv > .movie_choice > .reserv_movie_list > div > :nth-child(3) > span:nth-child(2) {padding: 0 8px;}
 .reserv > .movie_choice > .reserv_movie_list > div > :nth-child(4) {display: flex; justify-content: center;}  /* 버튼 정렬 */
 .reserv > .movie_choice > .reserv_movie_list > div > :nth-child(4) > div 
-    {width: 85%; background-color: #2b3380; border-style: none; color: #fff; height: 40px; border-radius: 7px; display: flex; justify-content: center; align-items:center;}   /* 버튼 설정 */
+    {width: 85%; background-color: #2b3380; border-style: none; color: #fff; height: 40px; 
+    border-radius: 7px; display: flex; justify-content: center; align-items:center;}   /* 버튼 설정 */
 
 .reserv > .theater_choice > div:first-child {margin-top: 30px; border-bottom: 1px solid #ededed;}
 .reserv > .theater_choice > div:nth-child(2) {display: flex; justify-content: space-between; margin-top: 40px;}
