@@ -57,7 +57,7 @@ nav > .nav_map > div > div {font-size: 16pt; font-weight: bold; margin-bottom: 3
 nav > .nav_map > div > div > span {border-bottom: 2px solid #fff;}
 nav > .nav_map > div > ul {display: flex; justify-content: space-between; margin: 0 50px;}
 nav > .nav_map > div > ul > li {text-align: center;}
-nav > .nav_map > div > ul > li > div {/*border-top: 1px solid #848484;*/ border-bottom: 1px solid #454c86; 
+nav > .nav_map > div > ul > li > div {border-bottom: 1px solid rgba(255,255,255,0.4) ; 
     margin: 10px 0; padding: 10px 70px; font-size: 13pt;  color: #fff; }
 nav > .nav_map > div > ul > li > ul {display: flex; justify-content: center; flex-direction: column;}
 nav > .nav_map > div > ul > li > ul > li {font-size: 11pt; padding: 25px 0;}
@@ -72,7 +72,10 @@ nav > .nav_search > div > div:first-child {display: flex; justify-content: cente
 nav > .nav_search > div > div:first-child > div:first-child > img {width: 180px; margin-right: 50px;}
 nav > .nav_search > div > div:first-child > div:last-child {display: flex; justify-content: space-evenly; align-items: flex-start; flex-direction: column;}
 nav > .nav_search > div > div:first-child > div:last-child > div > span:first-child {font-size: 15pt; font-style: italic; font-weight: bold; padding: 0 20px;}
-nav > .nav_search > div > div:first-child > div > div > span:last-child {font-size: 13pt;}
+
+nav > .nav_search > div > div:first-child > div:last-child > div > span:last-child:hover {text-decoration: underline; cursor: pointer;}
+
+nav > .nav_search > div > div:first-child > div > div > span:last-child {font-size: 13pt; color: #fff;}
 nav > .nav_search > div > div:last-child > input
     { width: 300px; padding: 0px 30px 15px 15px; margin-left: 200px; color:#fff; border-style: none;  
     background-color: rgba(0,0,0,0); border-bottom: 1px solid #ebebeb; font-size: 13pt;}
