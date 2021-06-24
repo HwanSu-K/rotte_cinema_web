@@ -2,7 +2,7 @@
 .movie > .movie_tab > div {width: 33.3%; height: 65px; display: flex; justify-content: center; align-items: center; border: 1px solid #e0e0e0; 
     margin-left: -1px; font-size: 13pt; }                                        /* 목록탭 버튼 */
 .movie > .movie_tab > div.active {background-color: #f3f3f3; border-bottom: 4px solid #2b3380; height: 62px; color: black;}
-.movie > .movie_tab > div:nth-child(2) , div:nth-child(3) {color: #898989;}
+.movie > .movie_tab > div:nth-child(2), .movie > .movie_tab > div:nth-child(3) {color: #898989;}
 
 .movie > .reserv_info_age {display: flex; align-items: center; margin-top: 30px; margin-right: 27px; font-size: 11pt; color: #666666;}
 .movie > .reserv_info_age > div {display: flex; align-items: center; padding-right: 20px;}

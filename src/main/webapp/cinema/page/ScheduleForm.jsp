@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<jsp:useBean id="now" class="java.util.Date" />
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
@@ -10,7 +11,7 @@
     <script src="./js/schedule.js"></script>
 </head>
 <body>
-	<%@ include file="../include/IncludeHeader.jsp" %>
+	<c:import url="/include/header.do"/>
 	<section class="location">      <!-- background-color: #f8f8fa; -->
 		<div>
 			<span><i class="fas fa-home"></i></span>
@@ -21,6 +22,9 @@
 		</div>
 	</section>
 	<div class="content">
+		<c:forEach var="date" items="${dates}" varStatus="status">
+						<div>${date}</div>
+		</c:forEach>
 	    <section class="reserv_choice">
 	        <div class="reserv_type">
 	            <div class="reserv_type_movie active">
@@ -57,11 +61,11 @@
 	            <div><i class="fas fa-chevron-left"></i></div>      <!-- div 1 폰트 어썸 화살표 아이콘-->
 	            <div>
 	                <div class="active">
-	                    <div>9</div>
+	                    <div><fmt:formatDate value="${now}" pattern="dd"/></div>
 	                    <div>오늘</div>
 	                </div>
 	                <div>
-	                    <div>10</div>
+	                    <div><fmt:formatDate value="${now}" pattern="dd"/></div>
 	                    <div>내일</div>
 	                </div>
 	                <div>
@@ -224,6 +228,6 @@
 	            <div>・ 쾌적한 관람 환경을 위해 상영시간 이전에 입장 부탁드립니다.</div>
 	    </section>
 	</div>
-	<%@ include file="../include/IncludeFooter.jsp" %>
+	<c:import url="/include/footer.do"/>
 </body>
 </html>

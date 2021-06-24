@@ -55,10 +55,15 @@ label {
 				name='info' rows='5' cols='40'>${movie.info }</textarea></li>
 			<li><label for='tags'>태그 </label> <input id='tags' type='text'
 				name='tags' size='50' value='${movie.tags }'></li>
+			<li><label for="type">유형 </label> <select id="type"
+			name="type">
+				<option value="0" ${movie.type == 0 ? 'selected' : ''}>일반 </option>
+				<option value="1" ${movie.type == 1 ? 'selected' : ''}>큐레이션 </option>
+			</select></li>
 			<li><label for='state'>상태 </label> <select id='state'
 				name='state'>
-				<option value='1' ${movie.state == 1 ? 'selected' : ''}>정상 </option>
 				<option value='0' ${movie.state == 0 ? 'selected' : ''}>중지 </option>
+				<option value='1' ${movie.state == 1 ? 'selected' : ''}>정상 </option>
 			</select></li>
 		</ul>
 		<input type='submit' value='변경'> <input type='reset'

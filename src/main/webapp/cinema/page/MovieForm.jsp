@@ -12,7 +12,7 @@
 <body>
 	<c:set var="path" value="<%=request.getContextPath() %>"/>
 	
-    <%@ include file="../include/IncludeHeader.jsp" %>
+    <c:import url="/include/header.do"/>
     <section class="location">      <!-- background-color: #f8f8fa; -->
         <div>
             <span><i class="fas fa-home"></i></span>
@@ -25,8 +25,9 @@
     <div class="content">
         <section class="movie">
             <div class="movie_tab">
-                <div class="${param.view == null ? 'active' : ''}" OnClick="location.href ='movie.do'">현재 상영작</div>
-                <div class="${param.view == 'comingsoon' ? 'active' : ''}" OnClick="location.href ='movie.do?view=comingsoon'">상영 예정작</div>
+                <div class="${param.tab == null ? 'active' : ''}" OnClick="location.href ='movie.do'">현재상영작</div>
+                <div class="${param.tab == '1' ? 'active' : ''}" OnClick="location.href ='movie.do?tab=1'">상영예정작</div>
+                <div class="${param.tab == '2' ? 'active' : ''}" OnClick="location.href ='movie.do?tab=2'">큐레이션</div>
             </div>
             <div class="movie_list">
             <c:forEach var="movie" items="${movies}">
@@ -39,7 +40,7 @@
                         <span>${movie.title }</span>
                     </div>
                     <div>
-                        <span>예매율 0.0%</span>
+                        <span>예매율 ${movie.reservRating }%</span>
                         <span>|</span>
                         <img src="./images/icon/post_infobox_icon.png"> 
                         <span>${movie.rating }</span>
@@ -56,6 +57,6 @@
             </div>
         </section>
     </div>
-    <%@ include file="../include/IncludeFooter.jsp" %>
+    <c:import url="/include/footer.do"/>
 </body>
 </html>

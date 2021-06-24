@@ -10,7 +10,7 @@
 </head>
 <body>
 <c:set var="path" value="<%=request.getContextPath() %>"/>
-	<%@ include file="../include/IncludeHeader.jsp"%>
+	<c:import url="/include/header.do"/>
 	<section class="location">
 		<!-- background-color: #f8f8fa; -->
 		<div>
@@ -50,9 +50,9 @@
 
 			<article class="movie_choice active">
 				<div class="reserv_movie_tab">
-					<div class="active">예매순</div>
-					<div>예정작</div>
-					<div>평점순</div>
+					<div class="${param.tab == null ? 'active' : ''}" OnClick="location.href ='ticketing.do'">예매순</div>
+					<div class="${param.tab == '1' ? 'active' : ''}" OnClick="location.href ='ticketing.do?tab=1'">예정작</div>
+					<div class="${param.tab == '2' ? 'active' : ''}" OnClick="location.href ='ticketing.do?tab=2'">평점순</div>
 				</div>
 
 			<div class="reserv_movie_list">
@@ -67,7 +67,7 @@
 						<span>${movie.title }</span>
 					</div>
 					<div>
-                        <span>예매율 0.0%</span>
+                        <span>예매율 ${movie.reservRating }%</span>
                         <span>|</span>
                         <img src="./images/icon/post_infobox_icon.png"> 
                         <span>${movie.rating }</span>
@@ -180,6 +180,6 @@
 
 		</section>
 	</div>
-	<%@ include file="../include/IncludeFooter.jsp"%>
+	<c:import url="/include/footer.do"/>
 </body>
 </html>

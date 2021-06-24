@@ -7,7 +7,7 @@
 	<%@ include file="../include/IncludeDefault.jsp" %>    
 </head>
 <body>
-    <%@ include file="../include/IncludeHeader.jsp" %>
+    <c:import url="/include/header.do"/>
     <div class="content">
     <c:if test="${empty sessionScope.customer or empty sessionScope.customer.email}">
 		<h2>사용자 로그인</h2>
@@ -28,6 +28,6 @@
 			</c:if>
 	</c:if>
     </div>
-    <%@ include file="../include/IncludeFooter.jsp" %>
+    <c:import url="/include/footer.do"/>
 </body>
 </html>

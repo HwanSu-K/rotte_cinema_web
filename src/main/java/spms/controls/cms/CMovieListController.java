@@ -24,6 +24,7 @@ public class CMovieListController {
 	public String execute(Map<String, Object> model) throws Exception {
 		HashMap<String, Object> paramMap = new HashMap<String, Object>();
 		paramMap.put("view", "all");
+		paramMap.put("order", "desc");
 		model.put("movies", movieDao.selectList(paramMap));
 		return "/cms/MovieListForm.jsp";
 	}

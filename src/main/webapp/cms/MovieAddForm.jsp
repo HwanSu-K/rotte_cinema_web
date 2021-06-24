@@ -53,6 +53,11 @@ label {
 				name='info' rows='5' cols='40'></textarea></li>
 			<li><label for='tags'>태그 </label> <input id='tags' type='text'
 				name='tags' size='50'></li>
+			<li><label for="type">유형 </label> <select id="type"
+			name="type">
+				<option value="0">일반 </option>
+				<option value="1">큐레이션 </option>
+			</select></li>
 		</ul>
 		<input type='submit' value='등록'> <input type='reset'
 			value='취소' onclick='history.back(-1)'>

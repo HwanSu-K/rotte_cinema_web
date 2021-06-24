@@ -14,8 +14,8 @@
 </head>
 <body>
 	<c:set var="path" value="<%=request.getContextPath() %>"/>
-	
-    <%@ include file="../include/IncludeHeader.jsp" %>
+	<c:import url="/include/header.do"/>
+    
 <div class="content">  
     <section class="banner">  <!-- 배너영역 -->
         <div class="banner_img">
@@ -96,7 +96,7 @@
                         <span>${movie.title }</span>
                     </div>
                     <div>
-                        <span>예매율 0.0%</span>
+                        <span>예매율 ${movie.reservRating }%</span>
                         <span>|</span>
                         <img src="./images/icon/post_infobox_icon.png">
                         <span>${movie.rating }</span>
@@ -119,7 +119,7 @@
             <div class="qration_title">
                 <span class="title">큐레이션</span>
                 <span class="more">
-                    <span>큐레이션 더보기</span>
+                    <span OnClick="location.href ='movie.do?tab=2'">큐레이션 더보기</span>
                     <img src="./images/icon/plus_icon.png">
                 </span>
             </div>
@@ -148,31 +148,18 @@
                 </div>
             </div>
             <div class="qration_post">
-                <div>
+            <c:forEach var="qration" items="${qrations}" end="3">
+            	<div>
                     <img class="icon" src="./images/icon/qration_c_icon.png">
-                    <img src="./images/qration_img/qration_img_01.jpg">
-                    <div>2021 빈 필하모닉 여름음악회</div>
+                    <img src="${path }/images/poster/${qration.poster }">
+                    <div>${qration.title }</div>
                 </div>
-                <div>
-                    <img class="icon" src="./images/icon/qration_c_icon.png">
-                    <img src="./images/qration_img/qration_img_02.jpg">
-                    <div>낫아웃</div>
-                </div>
-                <div>
-                    <img class="icon" src="./images/icon/qration_c_icon.png">
-                    <img src="./images/qration_img/qration_img_03.jpg">
-                    <div>학교가는길</div>
-                </div>
-                <div>
-                    <img class="icon" src="./images/icon/qration_f_icon.png">
-                    <img src="./images/qration_img/qration_img_04.jpg">
-                    <div>인트로덕션</div>
-                </div>
+            </c:forEach>
             </div>
         </div>
     </section>
     
 </div>
-    <%@ include file="../include/IncludeFooter.jsp" %>
+    <c:import url="/include/footer.do"/>
 </body>
 </html>
