@@ -4,20 +4,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Rotte Cinema CMS</title>
+	<%@ include file="../cinema/include/IncludeCMS.jsp" %>	
 </head>
+<style>
+
+</style>
 <body>
+<a href='../list.do'>콘텐츠 관리 시스템</a>
 <h1>영화 목록 </h1>
 <p>
-		<a href='add.do'>영화 등록 </a>
+	<a href='add.do'>영화 등록 </a>
 </p>
 <table border="1">
 	<tr>
 		<th>인덱스 </th>
 		<th>제목 </th>
 		<th>감독 </th>
-		<th>출연자 </th>
+		<!-- <th>출연자 </th> -->
 		<th>장르 </th>
 		<th>연령 </th>
 		<th>상영시간 </th>
@@ -33,7 +36,7 @@
 		<td>${movie.index }</td>
 		<td>${movie.title }</td>
 		<td>${movie.director }</td>
-		<td>${movie.actor }</td>
+		<%-- <td>${movie.actor }</td> --%>
 		<td>${movie.genre }</td>
 		<td>${movie.limitAge }</td>
 		<td>${movie.runningTime }</td>

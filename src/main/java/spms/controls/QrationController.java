@@ -1,6 +1,5 @@
 package spms.controls;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import spms.dao.MovieDao;
 
-//@RequestParam 적용
 @Controller
 public class QrationController {
 	MovieDao movieDao;

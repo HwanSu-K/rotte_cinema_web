@@ -8,41 +8,37 @@
 		<id column="BANNER_INDEX" property="index" />
 		<result column="BANNER_IMAGE" property="imagePath" />
 		<result column="BANNER_VIDEO" property="videoPath" />
+		<result column="BANNER_STATE" property="state" />
 	</resultMap>
 
 	<select id="selectList" parameterType="map"
 		resultMap="bannerResultMap">
-		SELECT BANNER_INDEX,BANNER_IMAGE,BANNER_VIDEO FROM BANNER WHERE BANNER_STATE = 1;
+		SELECT BANNER_INDEX,BANNER_IMAGE,BANNER_VIDEO,BANNER_STATE FROM BANNER
+		<choose>
+			<when test="view == 'all'"></when>
+			<otherwise>WHERE BANNER_STATE = 1;</otherwise>
+		</choose>
 	</select>
 	
 	<insert id="insert" parameterType="movie">
-		INSERT INTO MOVIE (MOVIE_TITLE,MOVIE_DIRECTOR,MOVIE_ACTOR,MOVIE_GENRE,MOVIE_LIMIT_AGE,MOVIE_RUNNING_TIME,MOVIE_OPEN_DATE,MOVIE_END_DATE,MOVIE_POSTER,MOVIE_INFO,MOVIE_TAGS,MOVIE_STATE)
-		VALUES(#{title},#{director},#{actor},#{genre},#{limitAge},#{runningTime},#{openDate},#{endDate},#{poster},#{info},#{tags},1)
+		INSERT INTO BANNER (BANNER_IMAGE,BANNER_VIDEO,BANNER_STATE)
+		VALUES(#{imagePath},#{videoPath},1)
 	</insert>
 	
 	<select id="selectOne" parameterType="int"
 		resultMap="bannerResultMap">
-		SELECT MOVIE_INDEX,MOVIE_TITLE,MOVIE_DIRECTOR,MOVIE_ACTOR,MOVIE_GENRE,MOVIE_LIMIT_AGE,MOVIE_RUNNING_TIME,MOVIE_OPEN_DATE,MOVIE_END_DATE,MOVIE_POSTER,MOVIE_INFO,MOVIE_TAGS,MOVIE_STATE
-		FROM MOVIE
-		WHERE MOVIE_INDEX=#{value}
+		SELECT BANNER_INDEX,BANNER_IMAGE,BANNER_VIDEO,BANNER_STATE
+		FROM BANNER
+		WHERE BANNER_INDEX=#{value}
 	</select>
 	
 	<update id="update" parameterType="map">
-		UPDATE MOVIE
+		UPDATE BANNER
 		<set>
-			<if test="title != null">MOVIE_TITLE=#{title},</if>
-			<if test="director != null">MOVIE_DIRECTOR=#{director},</if>
-			<if test="actor != null">MOVIE_ACTOR=#{actor},</if>
-			<if test="genre != null">MOVIE_GENRE=#{genre},</if>
-			<if test="limitAge != null">MOVIE_LIMIT_AGE=#{limitAge},</if>
-			<if test="genre != null">MOVIE_RUNNING_TIME=#{genre},</if>
-			<if test="openDate != null">MOVIE_OPEN_DATE=#{openDate},</if>
-			<if test="endDate != null">MOVIE_END_DATE=#{endDate},</if>
-			<if test="poster != null">MOVIE_POSTER=#{poster},</if>
-			<if test="info != null">MOVIE_INFO=#{info},</if>
-			<if test="tags != null">MOVIE_TAGS=#{tags},</if>
-			<if test="state != null">MOVIE_STATE=#{state},</if>
+			<if test="imagePath != null">BANNER_IMAGE=#{imagePath},</if>
+			<if test="videoPath != null">BANNER_VIDEO=#{videoPath},</if>
+			<if test="state != null">BANNER_STATE=#{state},</if>
 		</set>
-		WHERE MOVIE_INDEX=#{index}
+		WHERE BANNER_INDEX=#{index}
 	</update>
 </mapper>

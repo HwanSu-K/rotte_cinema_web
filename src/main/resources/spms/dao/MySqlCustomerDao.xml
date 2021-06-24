@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 2. 동적 SQL 적용 -->
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="spms.dao.CustomerDao">
+	<resultMap type="customer" id="customerResultMap">
+		<id column="CUSTOMER_INDEX" property="index" />
+		<result column="CUSTOMER_EMAIL" property="email" />
+		<result column="CUSTOMER_PASSWORD" property="password" />
+		<result column="CUSTOMER_NAME" property="name" />
+		<result column="CUSTOMER_BIRTH" property="birth" />
+		<result column="CUSTOMER_PHONENUM" property="phonenum" />
+		<result column="CUSTOMER_ACCESS" property="access" />
+	</resultMap>
+
+	<select id="selectList" parameterType="map"
+		resultMap="customerResultMap">
+		SELECT CUSTOMER_INDEX,CUSTOMER_EMAIL,CUSTOMER_PASSWORD,CUSTOMER_NAME,CUSTOMER_BIRTH,CUSTOMER_PHONENUM,CUSTOMER_ACCESS
+		FROM CUSTOMER
+	</select>
+	
+	<insert id="insert" parameterType="movie">
+		INSERT INTO BANNER (CUSTOMER_EMAIL,CUSTOMER_PASSWORD,CUSTOMER_NAME,CUSTOMER_BIRTH,CUSTOMER_PHONENUM,CUSTOMER_ACCESS)
+		VALUES(#{id},#{pw},#{name},#{birth},#{phonenum},1)
+	</insert>
+	
+	<select id="selectOne" parameterType="int"
+		resultMap="customerResultMap">
+		SELECT CUSTOMER_INDEX,CUSTOMER_EMAIL,CUSTOMER_PASSWORD,CUSTOMER_NAME,CUSTOMER_BIRTH,CUSTOMER_PHONENUM,CUSTOMER_ACCESS
+		FROM CUSTOMER
+		WHERE BANNER_INDEX=#{value}
+	</select>
+	
+	<update id="update" parameterType="map">
+		UPDATE CUSTOMER
+		<set>
+			<if test="email != null">CUSTOMER_EMAIL=#{email},</if>
+			<if test="password != null">CUSTOMER_PASSWORD=#{password},</if>
+			<if test="name != null">CUSTOMER_NAME=#{name},</if>
+			<if test="birth != null">CUSTOMER_BIRTH=#{birth},</if>
+			<if test="phonenum != null">CUSTOMER_PHONENUM=#{phonenum},</if>
+			<if test="access != null">CUSTOMER_ACCESS=#{access},</if>
+		</set>
+		WHERE CUSTOMER_INDEX=#{index}
+	</update>
+	
+	<select id="exist" parameterType="map"
+		resultMap="customerResultMap">
+		SELECT CUSTOMER_INDEX,CUSTOMER_EMAIL,CUSTOMER_PASSWORD,CUSTOMER_NAME,CUSTOMER_BIRTH,CUSTOMER_PHONENUM,CUSTOMER_ACCESS 
+		FROM CUSTOMER
+		WHERE CUSTOMER_EMAIL=#{email} and CUSTOMER_PASSWORD=#{password}
+	</select>
+</mapper>

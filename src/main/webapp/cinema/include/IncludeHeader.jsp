@@ -35,8 +35,8 @@
             </ul>
         </li>
         <li>
-            <div class="header_calendar"></div>
-            <div class="header_user"></div>
+            <div onclick="location.href='./ticketing.do';" class="header_calendar"></div>
+            <div onclick="location.href='./login.do';" class="header_user"></div>
         </li>
         
     </ul>

@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import spms.dao.MovieDao;
 
-//@RequestParam 적용
 @Controller
 public class ScheduleController {
 	MovieDao movieDao;
@@ -22,9 +21,9 @@ public class ScheduleController {
 
 	@RequestMapping("/schedule.do")
 	public String execute(Map<String, Object> model) throws Exception {
-		//HashMap<String, Object> paramMap = new HashMap<String, Object>();
-		//paramMap.put("view", view);
-		//model.put("movies", movieDao.selectList(paramMap));
-		return "/cinema/page/WaringForm.jsp";
+		HashMap<String, Object> paramMap = new HashMap<String, Object>();
+		paramMap.put("view","all");
+		model.put("movies", movieDao.selectList(paramMap));
+		return "/cinema/page/ScheduleForm.jsp";
 	}
 }

@@ -36,13 +36,13 @@ public class CMovieUpdateController {
 	@RequestMapping(value = "/cms/movie/update.do", method = RequestMethod.POST)
 	public String update(MultipartHttpServletRequest request, Movie movie) throws Exception {
 
-		MultipartFile file = request.getFile("file");
+		MultipartFile imageFile = request.getFile("image");
 
 		String realPath = request.getSession().getServletContext().getRealPath("/images/poster/");
-		String fileName = file.getOriginalFilename();
+		String fileName = imageFile.getOriginalFilename();
 
 		// 업로드 된 경우에만 객체에 삽입
-		if (file.getSize() > 0) {
+		if (imageFile.getSize() > 0) {
 			movie.setPoster(fileName);
 
 			File target = new File(realPath, fileName);
@@ -53,7 +53,7 @@ public class CMovieUpdateController {
 			}
 			// 파일 복사
 			try {
-				FileCopyUtils.copy(file.getBytes(), target);
+				FileCopyUtils.copy(imageFile.getBytes(), target);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

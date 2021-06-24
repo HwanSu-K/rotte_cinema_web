@@ -59,9 +59,17 @@ public class MySqlBannerDao implements BannerDao {
 			Banner original = sqlSession.selectOne("spms.dao.BannerDao.selectOne", banner.getIndex());
 
 			Hashtable<String, Object> paramMap = new Hashtable<String, Object>();
-//			if (!movie.getTitle().equals(original.getTitle())) {
-//				paramMap.put("title", movie.getTitle());
-//			}
+			if (banner.getImagePath() != null) {
+				paramMap.put("imagePath", banner.getImagePath());
+			}
+			
+			if (banner.getVideoPath() != null) {
+				paramMap.put("videoPath", banner.getVideoPath());
+			}
+			
+			if (banner.getState() != original.getState()) {
+				paramMap.put("state", banner.getState());
+			}
 	
 			if (paramMap.size() > 0) {
 				paramMap.put("index", banner.getIndex());

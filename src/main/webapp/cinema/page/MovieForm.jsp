@@ -39,7 +39,7 @@
                         <span>${movie.title }</span>
                     </div>
                     <div>
-                        <span>예매율 31.4%</span>
+                        <span>예매율 0.0%</span>
                         <span>|</span>
                         <img src="./images/icon/post_infobox_icon.png"> 
                         <span>${movie.rating }</span>

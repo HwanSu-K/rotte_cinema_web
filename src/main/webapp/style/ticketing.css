@@ -18,7 +18,7 @@
 .reserv > .movie_choice > .reserv_movie_list > div > :nth-child(1) {position: relative;}
 .reserv > .movie_choice > .reserv_movie_list > div > :nth-child(1) > img:first-child {width: 100%; border-radius: 10px;}            /* 이미지 크기 */
 .reserv > .movie_choice > .reserv_movie_list > div > :nth-child(1) > img:last-child {position: absolute; top: 8px; right: 8px;}     /* 상영등급 */
-.reserv > .movie_choice > .reserv_movie_list > div > :nth-child(2) > span {display: flex; justify-content: center; font-size: 12.5pt; font-weight: bold; 
+.reserv > .movie_choice > .reserv_movie_list > div > :nth-child(2) > span {display: block; text-align: center; font-size: 12.5pt; font-weight: bold; 
     white-space:nowrap; text-overflow: ellipsis; overflow:hidden; margin: 15px 0 5px 0; font-weight: bold; color: #181717;}    /* 영화제목 */
 .reserv > .movie_choice > .reserv_movie_list > div > :nth-child(3) 
     {font-size: 10.5pt; color: #636363; display: flex; justify-content: center; align-items: center; margin-bottom: 15px;}    /* 예매정보 */

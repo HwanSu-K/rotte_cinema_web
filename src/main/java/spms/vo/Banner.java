@@ -4,6 +4,7 @@ public class Banner {
 	protected int index;
 	protected String imagePath;
 	protected String videoPath;
+	protected int state;
 	
 	public int getIndex() {
 		return index;
@@ -23,6 +24,10 @@ public class Banner {
 	public void setVideoPath(String videoPath) {
 		this.videoPath = videoPath;
 	}
-	
-	
+	public int getState() {
+		return state;
+	}
+	public void setState(int state) {
+		this.state = state;
+	}
 }

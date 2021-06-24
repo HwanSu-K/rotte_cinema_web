@@ -78,8 +78,8 @@ public class MySqlMovieDao implements MovieDao {
 				paramMap.put("limitAge", movie.getLimitAge());
 			}
 			
-			if (!movie.getGenre().equals(original.getGenre())) {
-				paramMap.put("genre", movie.getGenre());
+			if (!movie.getRunningTime().equals(original.getRunningTime())) {
+				paramMap.put("runningTime", movie.getRunningTime());
 			}
 			
 			if (!movie.getOpenDate().equals(original.getOpenDate())) {

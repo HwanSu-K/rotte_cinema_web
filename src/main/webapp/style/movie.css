@@ -4,11 +4,12 @@
 .movie > .movie_list {display: flex; margin-top: 30px; flex-wrap: wrap;}   /* 영화 목록리스ㅌ */
 .movie > .movie_list > div {width: 20%; margin:20px 2.5%;}
 .movie > .movie_list > div > :nth-child(1) {position: relative;}
-.movie > .movie_list > div > :nth-child(1) > img:first-child {width: 100%;} /* 이미지 크기 */
+.movie > .movie_list > div > :nth-child(1) > img:first-child {width: 100%; border-radius: 10px;} /* 이미지 크기 */
 .movie > .movie_list > div > :nth-child(1) > img:last-child {position: absolute; top: 8px; right: 8px;}   /* 상영등급 */
-.movie > .movie_list > div > :nth-child(2) > span {display: flex; justify-content: center; font-size: 14px; font-weight: bold; white-space:nowrap; text-overflow: ellipsis; overflow:hidden;}    /* 영화제목 */
+.movie > .movie_list > div > :nth-child(2) > span {display: block; text-align: center; font-size: 12.5pt;
+    white-space:nowrap; text-overflow: ellipsis; overflow:hidden; margin: 15px 0 5px 0; font-weight: bold; color: #181717;}    /* 영화제목 */
 
-.movie > .movie_list > div > :nth-child(3) {font-size: 14px; display: flex; justify-content: center; align-items: center;}    /* 예매정보 */
+.movie > .movie_list > div > :nth-child(3) {font-size: 10.5pt; color: #636363; display: flex; justify-content: center; align-items: center; margin-bottom: 15px;}    /* 예매정보 */
 .movie > .movie_list > div > :nth-child(3) > span:nth-child(2) {padding: 0 5px;}
 .movie > .movie_list > div > :nth-child(4) {display: flex; justify-content: space-between; margin-top: 10px;}  /* 버튼 정렬 */
 .movie > .movie_list > div > :nth-child(4) > div {height: 40px; border-radius: 10px; display: flex; justify-content: center; align-items:center;}   /* 버튼 설정 */

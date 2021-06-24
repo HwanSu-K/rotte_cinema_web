@@ -4,8 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset='UTF-8'>
-<title>Rotte Cinema CMS</title>
+	<%@ include file="../cinema/include/IncludeCMS.jsp" %>
 <style>
 ul {
 	padding: 0;
@@ -50,8 +49,8 @@ label {
 				name='openDate' size='50' value='${movie.openDate }'></li>
 			<li><label for='endDate'>종영일 </label> <input id='endDate' type='date'
 				name='endDate' size='50' value='${movie.endDate }'></li>
-			<li><label for='file'>포스터 </label> <input id='file' type='file'
-				name='file' size='50' accept='image/*' value='${movie.poster }'></li>
+			<li><label for='image'>포스터 </label> <input id='image' type='file'
+				name='image' size='50' accept='image/*' value='${movie.poster }'></li>
 			<li><label for='info'>정보 </label> <textarea id='info'
 				name='info' rows='5' cols='40'>${movie.info }</textarea></li>
 			<li><label for='tags'>태그 </label> <input id='tags' type='text'

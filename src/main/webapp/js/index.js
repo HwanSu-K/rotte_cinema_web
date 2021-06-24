@@ -16,19 +16,6 @@ $(document).ready(function(){
     }});
 
     var slidebool = true;
-    function init() {
-    var slides = $('.banner_img > div');
-    for (var i = 0; i < slides.length; i++) {
-        var div = $("<div></div>");
-        if(i == 0) {
-            div.addClass('active');    
-        }
-        $('.dots').append(div);
-    }
-    
-    }
-
-    init();
 
     // 기존 버튼형 슬라이더
     $('.banner > .dots > div').click(function(){

@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import spms.dao.BannerDao;
 import spms.dao.MovieDao;
 
-//@RequestParam 적용
 @Controller
 public class MainController {
 	MovieDao movieDao;

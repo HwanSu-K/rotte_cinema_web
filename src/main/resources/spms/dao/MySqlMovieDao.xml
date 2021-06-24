@@ -28,8 +28,9 @@
 		,(SELECT COUNT(*) FROM MOVIE_LIKE B WHERE B.MOVIE_INDEX = A.MOVIE_INDEX) AS 'MOVIE_LIKE',(SELECT ROUND(IFNULL(AVG(REVIEW_RATING),0),2) FROM MOVIE_REVIEW C WHERE C.MOVIE_INDEX = A.MOVIE_INDEX ) AS 'MOVIE_RATING'
 		FROM MOVIE A
 		<choose>
-			<when test="view == 'comingsoon'">WHERE MOVIE_OPEN_DATE > NOW()</when>
-			<otherwise>WHERE MOVIE_OPEN_DATE <![CDATA[<=]]> NOW()</otherwise>
+			<when test="view == 'all'">ORDER BY MOVIE_INDEX DESC</when>
+			<when test="view == 'comingsoon'">WHERE MOVIE_STATE = 1 AND MOVIE_OPEN_DATE > NOW()</when>
+			<otherwise>WHERE MOVIE_STATE = 1 AND MOVIE_OPEN_DATE <![CDATA[<=]]> NOW()</otherwise>
 		</choose>
 
 	</select>
@@ -54,7 +55,7 @@
 			<if test="actor != null">MOVIE_ACTOR=#{actor},</if>
 			<if test="genre != null">MOVIE_GENRE=#{genre},</if>
 			<if test="limitAge != null">MOVIE_LIMIT_AGE=#{limitAge},</if>
-			<if test="genre != null">MOVIE_RUNNING_TIME=#{genre},</if>
+			<if test="runningTime != null">MOVIE_RUNNING_TIME=#{runningTime},</if>
 			<if test="openDate != null">MOVIE_OPEN_DATE=#{openDate},</if>
 			<if test="endDate != null">MOVIE_END_DATE=#{endDate},</if>
 			<if test="poster != null">MOVIE_POSTER=#{poster},</if>
