@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:set var="path" value="<%=request.getContextPath() %>"/>
 <header>
 <nav>
     <ul>
@@ -10,13 +12,13 @@
         <li class="nav_over">영화
             <ul>
                 <li><a href="./movie.do">전체영화</a></li>
-                <li><a href="./qration.do">큐레이션</a></li>
+                <li><a href="./movie.do?tab=2">큐레이션</a></li>
             </ul>
         </li>
         <li class="nav_over">예매
             <ul>
                 <li><a href="./ticketing.do">빠른예매</a></li>
-                <li><a href="./schedule.do">상영 시간표</a></li>
+                <li><a href="./schedule.do">상영시간표</a></li>
             </ul>
         </li>
         <li>
@@ -24,14 +26,14 @@
         </li>
         <li class="nav_over">이벤트
             <ul>
-                <li><a href="./event.do">전체 이벤트</a></li>
-                <li><a href="./event.do">진행 이벤트</a></li>
+                <li><a href="./event.do">전체이벤트</a></li>
+                <li><a href="./event.do">진행이벤트</a></li>
             </ul>
         </li>
         <li class="nav_over">시설안내
             <ul>
-                <li><a href="./about.do">회사 소개</a></li>
-                <li><a href="./location.do">오시는 길</a></li>
+                <li><a href="./about.do">회사소개</a></li>
+                <li><a href="./location.do">오시는길</a></li>
             </ul>
         </li>
         <li>
@@ -48,25 +50,25 @@
                 <li><div>영화</div>
                     <ul>
                         <li><a href="./movie.do">전체영화</a></li>
-                        <li><a href="./qration.do">큐레이션</a></li>
+                        <li><a href="./movie.do?tab=2">큐레이션</a></li>
                     </ul>
                 </li>
                 <li><div>예매</div>
                     <ul>
                         <li><a href="./ticketing.do">빠른예매</a></li>
-                        <li><a href="./schedule.do">상영 시간표</a></li>
+                        <li><a href="./schedule.do">상영시간표</a></li>
                     </ul>
                 </li>
                 <li><div>이벤트</div>
                     <ul>
-                        <li><a href="./event.do">전체 이벤트</a></li>
-                        <li><a href="./evnet.do">진행 이벤트</a></li>
+                        <li><a href="./event.do">전체이벤트</a></li>
+                        <li><a href="./evnet.do">진행이벤트</a></li>
                     </ul>
                 </li>
                 <li><div>시설안내</div>
                     <ul>
-                        <li><a href="./about.do">회사 소개</a></li>
-                        <li><a href="./location.do">오시는 길</a></li>
+                        <li><a href="./about.do">회사소개</a></li>
+                        <li><a href="./location.do">오시는길</a></li>
                     </ul>
                 </li>
             </ul>
@@ -75,28 +77,16 @@
     <div class="nav_search">
         <div>
             <div>
-                <div><img src="./images/post_img/movie01_kruella.jpg"></div>
+            	<c:forEach var="movie" items="${sMovies}" end="0">
+                <div><img src="${path }/images/poster/${movie.poster }"></div>
+                </c:forEach>
                 <div>
-                    <div>
-                        <span>1</span>
-                        <span>루카</span>
+	                <c:forEach var="movie" items="${sMovies}" varStatus="status" end="4">
+	                <div>
+                        <span>${status.count}</span>
+                        <span>${movie.title}</span>
                     </div>
-                    <div>
-                        <span>2</span>
-                        <span>킬러의 보디가드2</span>
-                    </div>
-                    <div>
-                        <span>3</span>
-                        <span>발신제한</span>
-                    </div>
-                    <div>
-                        <span>4</span>
-                        <span>콰이어트 플레이스2</span>
-                    </div>
-                    <div>
-                        <span>5</span>
-                        <span>여고괴담 여섯번째 이야기:모교</span>
-                    </div>
+	                </c:forEach>
                 </div>
             </div>
             <div><input type="text" placeholder="영화를 검색하세요">

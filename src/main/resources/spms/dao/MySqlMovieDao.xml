@@ -17,32 +17,48 @@
 		<result column="MOVIE_POSTER" property="poster"/>
 		<result column="MOVIE_INFO" property="info"/>
 		<result column="MOVIE_TAGS" property="tags"/>
+		<result column="MOVIE_TYPE" property="type"/>
 		<result column="MOVIE_STATE" property="state"/>
 		<result column="MOVIE_LIKE" property="like"/>
 		<result column="MOVIE_RATING" property="rating"/>
+		<result column="MOVIE_RESERVRATING" property="reservRating"/>
 	</resultMap>
 
 	<select id="selectList" parameterType="map"
 		resultMap="movieResultMap">
-		SELECT MOVIE_INDEX,MOVIE_TITLE,MOVIE_DIRECTOR,MOVIE_ACTOR,MOVIE_GENRE,MOVIE_LIMIT_AGE,MOVIE_RUNNING_TIME,MOVIE_OPEN_DATE,MOVIE_END_DATE,MOVIE_POSTER,MOVIE_INFO,MOVIE_TAGS,MOVIE_STATE
-		,(SELECT COUNT(*) FROM MOVIE_LIKE B WHERE B.MOVIE_INDEX = A.MOVIE_INDEX) AS 'MOVIE_LIKE',(SELECT ROUND(IFNULL(AVG(REVIEW_RATING),0),2) FROM MOVIE_REVIEW C WHERE C.MOVIE_INDEX = A.MOVIE_INDEX ) AS 'MOVIE_RATING'
+		SELECT MOVIE_INDEX,MOVIE_TITLE,MOVIE_DIRECTOR,MOVIE_ACTOR,MOVIE_GENRE,MOVIE_LIMIT_AGE,MOVIE_RUNNING_TIME,MOVIE_OPEN_DATE,MOVIE_END_DATE,MOVIE_POSTER,MOVIE_INFO,MOVIE_TAGS,MOVIE_TYPE,MOVIE_STATE,
+		(SELECT COUNT(*) FROM MOVIE_LIKE B WHERE B.MOVIE_INDEX = A.MOVIE_INDEX) AS 'MOVIE_LIKE',
+		(SELECT ROUND(IFNULL(AVG(REVIEW_RATING),0),2) FROM MOVIE_REVIEW C WHERE C.MOVIE_INDEX = A.MOVIE_INDEX ) AS 'MOVIE_RATING',
+		(SELECT ROUND(COUNT(*)/(SELECT COUNT(*) FROM MOVIE_SHOWING B INNER JOIN  MOVIE_RESERV C ON B.SHOWING_INDEX = C.SHOWING_INDEX WHERE YEARWEEK(B.SHOW_DATE) = YEARWEEK(NOW())) * 100 ,1)
+			FROM MOVIE_SHOWING B INNER JOIN  MOVIE_RESERV C ON B.SHOWING_INDEX = C.SHOWING_INDEX WHERE YEARWEEK(B.SHOW_DATE) = YEARWEEK(NOW()) AND B.MOVIE_INDEX = A.MOVIE_INDEX GROUP BY B.MOVIE_INDEX) AS 'MOVIE_RESERVRATING'
 		FROM MOVIE A
 		<choose>
-			<when test="view == 'all'">ORDER BY MOVIE_INDEX DESC</when>
-			<when test="view == 'comingsoon'">WHERE MOVIE_STATE = 1 AND MOVIE_OPEN_DATE > NOW()</when>
-			<otherwise>WHERE MOVIE_STATE = 1 AND MOVIE_OPEN_DATE <![CDATA[<=]]> NOW()</otherwise>
+			<when test="view == 'all'"></when><!-- CMS 관리 -->
+			<when test="view == 'soon'">WHERE MOVIE_STATE = 1 AND MOVIE_OPEN_DATE > NOW() AND MOVIE_END_DATE >= NOW()</when><!--상영예정 -->
+			<when test="view == 'qration'">WHERE MOVIE_STATE = 1 AND MOVIE_OPEN_DATE <![CDATA[<=]]> NOW() AND MOVIE_END_DATE >= NOW() AND MOVIE_TYPE = 1</when><!--큐레이션 -->
+			<otherwise>WHERE MOVIE_STATE = 1 AND MOVIE_OPEN_DATE <![CDATA[<=]]> NOW() AND MOVIE_END_DATE >= NOW()</otherwise><!-- 상영중 -->
+		</choose>
+		
+		ORDER BY
+		
+		<choose>
+			<when test="order == 'asc'">MOVIE_INDEX ASC</when><!-- 기본정렬 -->
+			<when test="order == 'desc'">MOVIE_INDEX DESC</when><!-- 역정렬 -->
+			<when test="order == 'rating'">MOVIE_RATING DESC</when><!-- 평점 -->
+			<when test="order == 'open'">MOVIE_OPEN_DATE ASC</when><!-- 날짜별 -->
+			<otherwise>MOVIE_RESERVRATING DESC</otherwise><!-- 예매율 정 -->
 		</choose>
 
 	</select>
 	
 	<insert id="insert" parameterType="movie">
-		INSERT INTO MOVIE (MOVIE_TITLE,MOVIE_DIRECTOR,MOVIE_ACTOR,MOVIE_GENRE,MOVIE_LIMIT_AGE,MOVIE_RUNNING_TIME,MOVIE_OPEN_DATE,MOVIE_END_DATE,MOVIE_POSTER,MOVIE_INFO,MOVIE_TAGS,MOVIE_STATE)
-		VALUES(#{title},#{director},#{actor},#{genre},#{limitAge},#{runningTime},#{openDate},#{endDate},#{poster},#{info},#{tags},1)
+		INSERT INTO MOVIE (MOVIE_TITLE,MOVIE_DIRECTOR,MOVIE_ACTOR,MOVIE_GENRE,MOVIE_LIMIT_AGE,MOVIE_RUNNING_TIME,MOVIE_OPEN_DATE,MOVIE_END_DATE,MOVIE_POSTER,MOVIE_INFO,MOVIE_TAGS,MOVIE_TYPE,MOVIE_STATE)
+		VALUES(#{title},#{director},#{actor},#{genre},#{limitAge},#{runningTime},#{openDate},#{endDate},#{poster},#{info},#{tags},#{type},1)
 	</insert>
 	
 	<select id="selectOne" parameterType="int"
 		resultMap="movieResultMap">
-		SELECT MOVIE_INDEX,MOVIE_TITLE,MOVIE_DIRECTOR,MOVIE_ACTOR,MOVIE_GENRE,MOVIE_LIMIT_AGE,MOVIE_RUNNING_TIME,MOVIE_OPEN_DATE,MOVIE_END_DATE,MOVIE_POSTER,MOVIE_INFO,MOVIE_TAGS,MOVIE_STATE
+		SELECT MOVIE_INDEX,MOVIE_TITLE,MOVIE_DIRECTOR,MOVIE_ACTOR,MOVIE_GENRE,MOVIE_LIMIT_AGE,MOVIE_RUNNING_TIME,MOVIE_OPEN_DATE,MOVIE_END_DATE,MOVIE_POSTER,MOVIE_INFO,MOVIE_TAGS,MOVIE_TYPE,MOVIE_STATE
 		FROM MOVIE
 		WHERE MOVIE_INDEX=#{value}
 	</select>
@@ -61,6 +77,7 @@
 			<if test="poster != null">MOVIE_POSTER=#{poster},</if>
 			<if test="info != null">MOVIE_INFO=#{info},</if>
 			<if test="tags != null">MOVIE_TAGS=#{tags},</if>
+			<if test="type != null">MOVIE_TYPE=#{type},</if>
 			<if test="state != null">MOVIE_STATE=#{state},</if>
 		</set>
 		WHERE MOVIE_INDEX=#{index}

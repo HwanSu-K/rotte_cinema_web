@@ -13,9 +13,11 @@ public class Movie {
 	protected String poster;
 	protected String info;
 	protected String tags;
+	protected int type;
 	protected int state;
 	protected int like;
 	protected double rating;
+	protected double reservRating;
 	
 	public int getIndex() {
 		return index;
@@ -89,6 +91,12 @@ public class Movie {
 	public void setTags(String tags) {
 		this.tags = tags;
 	}
+	public int getType() {
+		return type;
+	}
+	public void setType(int type) {
+		this.type = type;
+	}
 	public int getState() {
 		return state;
 	}
@@ -106,6 +114,12 @@ public class Movie {
 	}
 	public void setRating(double rating) {
 		this.rating = rating;
+	}
+	public double getReservRating() {
+		return reservRating;
+	}
+	public void setReservRating(double reservRating) {
+		this.reservRating = reservRating;
 	}
 	
 }

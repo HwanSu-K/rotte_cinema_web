@@ -10,22 +10,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import spms.dao.MovieDao;
 
 @Controller
-public class ScheduleController {
+public class HeaderController {
 	MovieDao movieDao;
 
 	@Autowired
-	public ScheduleController setMovieDao(MovieDao movieDao) {
+	public HeaderController setMovieDao(MovieDao movieDao) {
 		this.movieDao = movieDao;
 		return this;
 	}
 
-	@RequestMapping("/schedule.do")
-	public String execute(Map<String, Object> model) throws Exception {
+	@RequestMapping("/include/header.do")
+	public String execute(String tab, Map<String, Object> model) throws Exception {
 		HashMap<String, Object> paramMap = new HashMap<String, Object>();
-		paramMap.put("view","reserv");
-		int[] a = new int[] {0,1,2,3,4,5,6,7,8,9};
-		model.put("dates", a);
-		model.put("movies", movieDao.selectList(paramMap));
-		return "/cinema/page/ScheduleForm.jsp";
+		
+		model.put("sMovies", movieDao.selectList(paramMap));
+		return "/cinema/include/IncludeHeader.jsp";
 	}
 }

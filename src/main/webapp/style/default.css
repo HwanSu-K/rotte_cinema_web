@@ -80,7 +80,7 @@ nav > .nav_search > div > div:first-child > div:last-child > div > span:first-ch
 
 nav > .nav_search > div > div:first-child > div:last-child > div > span:last-child:hover {text-decoration: underline; cursor: pointer;}
 
-nav > .nav_search > div > div:first-child > div > div > span:last-child {font-size: 13pt; color: #fff;}
+nav > .nav_search > div > div:first-child > div > div > span:last-child {font-size: 13pt;}
 nav > .nav_search > div > div:last-child > input
     { width: 300px; padding: 0px 30px 15px 15px; margin-left: 200px; color:#fff; border-style: none;  
     background-color: rgba(0,0,0,0); border-bottom: 1px solid #ebebeb; font-size: 13pt;}

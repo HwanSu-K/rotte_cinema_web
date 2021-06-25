@@ -102,6 +102,10 @@ public class MySqlMovieDao implements MovieDao {
 				paramMap.put("tags", movie.getTags());
 			}
 			
+			if (movie.getType() != original.getType()) {
+				paramMap.put("type", movie.getType());
+			}
+			
 			if (movie.getState() != original.getState()) {
 				paramMap.put("state", movie.getState());
 			}
