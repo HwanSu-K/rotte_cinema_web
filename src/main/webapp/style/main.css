@@ -6,7 +6,7 @@
 
 /* Mobile 가로모드*/
 @media only screen and (min-width: 768px) and (max-width: 1279px) {
-
+	.banner {height: 600px}
 }
 
 /* Mobile 세로모드*/
@@ -93,7 +93,7 @@ nav.active {background-color: rgba(0,0,0,0.9);}
 /* .reserv > .reserv_section2 .reserv_list {display: flex; justify-content: space-between; align-items: center; overflow: hidden;}
 .reserv > .reserv_section2 .reserv_list > div > div {width: 270px;} */
 .reserv > .reserv_section2 .reserv_list > div > :nth-child(1) {display: flex; justify-content: space-between; position: relative;}
-.reserv > .reserv_section2 .reserv_list > div > :nth-child(1) > img:first-child {width: 100%; margin-bottom: -5px; border-radius: 10px;}          /* 포스트박스 크기 */
+.reserv > .reserv_section2 .reserv_list > div > :nth-child(1) > img:first-child {width: 100%; margin-bottom: -5px; border-radius: 10px; cursor:porinter;}          /* 포스트박스 크기 */
 .reserv > .reserv_section2 .reserv_list > div > :nth-child(1) > img:last-child {position: absolute; top: 8px; right: 8px; display: none;}   /* 상영등급 */
 .reserv > .reserv_section2 .reserv_list > div > :nth-child(2)
     {background-color: rgba(0,0,0,0.0); padding-top: 15px;}                    /* 영화 제목 타이틀 */
@@ -136,7 +136,7 @@ nav.active {background-color: rgba(0,0,0,0.9);}
 .qration > .qration_content > .qration_title 
     {grid-area: title; width: 100%; display: flex; justify-content: space-between;}
 .qration > .qration_content > .qration_title > .title {display: flex; align-items: center; font-size: 25px; font-weight: 500; color: #dbdbdb;}
-.qration > .qration_content > .qration_title > .more {color: #dbdbdb;}
+.qration > .qration_content > .qration_title > .more {color: #dbdbdb; cursor: pointer;}
 .qration > .qration_content > .qration_main {grid-area: content;}
 .qration > .qration_content > .qration_main > div {display: flex; justify-content: space-between;}
 .qration > .qration_content > .qration_main > div > img {width: 300px; border-radius: 10px;} 

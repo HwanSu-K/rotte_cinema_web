@@ -4,7 +4,7 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="spms.dao.BannerDao">
-	<resultMap type="banner" id="bannerResultMap">
+	<resultMap type="banner" id="ResultMap">
 		<id column="BANNER_INDEX" property="index" />
 		<result column="BANNER_IMAGE" property="imagePath" />
 		<result column="BANNER_VIDEO" property="videoPath" />
@@ -12,7 +12,7 @@
 	</resultMap>
 
 	<select id="selectList" parameterType="map"
-		resultMap="bannerResultMap">
+		resultMap="ResultMap">
 		SELECT BANNER_INDEX,BANNER_IMAGE,BANNER_VIDEO,BANNER_STATE FROM BANNER
 		<choose>
 			<when test="view == 'all'"></when>
@@ -26,7 +26,7 @@
 	</insert>
 	
 	<select id="selectOne" parameterType="int"
-		resultMap="bannerResultMap">
+		resultMap="ResultMap">
 		SELECT BANNER_INDEX,BANNER_IMAGE,BANNER_VIDEO,BANNER_STATE
 		FROM BANNER
 		WHERE BANNER_INDEX=#{value}

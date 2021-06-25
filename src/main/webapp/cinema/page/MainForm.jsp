@@ -6,14 +6,13 @@
 <head>
 	<%@ include file="../include/IncludeDefault.jsp" %>
 
-    <link rel="stylesheet" href="./style/index.css" />
+    <link rel="stylesheet" href="./style/main.css" />
     <script src="./js/index.js"></script>
     <script src="./plugin/jquery.touchSwipe.min.js"></script>
     <link rel="stylesheet" href="./plugin/lightslider.css" />
     <script src="./plugin/lightslider.js"></script>
 </head>
 <body>
-	<c:set var="path" value="<%=request.getContextPath() %>"/>
 	<c:import url="/include/header.do"/>
     
 <div class="content">  
@@ -45,7 +44,7 @@
 
     <section class="reserv">
         <div class="reserv_section1">        <!-- reserv클래스 안의 section 01 영역 -->
-            <span OnClick="location.href ='movie.do'">
+            <span onClick="location.href ='movie.do'">
                 <span><i class="fas fa-film"></i></span>            <!--1번 아이콘부분-->
                 <span>
                     <div>Movie</div>
@@ -54,7 +53,7 @@
             </span>
             <span><img src="./images/icon/section2_line.png"></span>     <!--Line 아이콘부분-->
 
-            <span OnClick="location.href ='schedule.do'">
+            <span onClick="location.href ='schedule.do'">
                 <span><i class="far fa-calendar-alt"></i></span>            <!--2번 아이콘부분-->
                 <span>
                     <div>Timetable</div>
@@ -64,7 +63,7 @@
 
             <span><img src="./images/icon/section2_line.png"></span>     <!--Line 아이콘부분-->
 
-            <span OnClick="location.href ='ticketing.do'">
+            <span onClick="location.href ='ticketing.do'">
                 <span><i class="fas fa-ticket-alt"></i></span>            <!--3번 아이콘부분-->
                 <span>
                     <div>Ticketing</div>
@@ -74,7 +73,7 @@
         </div>        
         <div class="reserv_section2">        <!-- reserv클래스 안의 section 02 포스트 슬라이드 영역 -->
             <div class="reserv_more">
-	            <span OnClick="location.href ='movie.do'">
+	            <span onClick="location.href ='movie.do'">
 	                <span>더 많은 영화보기</span>
 	                <img src="./images/icon/plus_icon.png">
 	            </span>
@@ -88,7 +87,7 @@
             <div class="reserv_list">
             <c:forEach var="movie" items="${movies}">
                 <div>
-                    <div>
+                    <div onClick="location.href ='moviedetail.do?no=${movie.index}'">
                         <img src="${path }/images/poster/${movie.poster }">
                         <img src="./images/icon/age_${movie.limitAge }.png">
                     </div>
@@ -119,7 +118,7 @@
             <div class="qration_title">
                 <span class="title">큐레이션</span>
                 <span class="more">
-                    <span OnClick="location.href ='movie.do?tab=2'">큐레이션 더보기</span>
+                    <span onClick="location.href ='movie.do?tab=2'">큐레이션 더보기</span>
                     <img src="./images/icon/plus_icon.png">
                 </span>
             </div>

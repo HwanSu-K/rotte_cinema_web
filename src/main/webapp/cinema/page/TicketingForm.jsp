@@ -9,7 +9,6 @@
 <link rel="stylesheet" href="./style/ticketing.css" />
 </head>
 <body>
-<c:set var="path" value="<%=request.getContextPath() %>"/>
 	<c:import url="/include/header.do"/>
 	<section class="location">
 		<!-- background-color: #f8f8fa; -->
@@ -21,13 +20,13 @@
 	<div class="content">
 		<section class="reserv">
 			<div class="reserv_tab">
-				<div class="active">
+				<div class="${reserv == null && param.no == null ? 'active' : ''}">
 					<span>STEP 1</span> <span>영화선택</span>
 				</div>
-				<div>
+				<div class="${reserv == null && param.no != null ? 'active' : ''}">
 					<span>STEP 2</span> <span>영화관 선택</span>
 				</div>
-				<div>
+				<div class="${reserv != null ? 'active' : ''}">
 					<span>STEP 3</span> <span>시간 선택</span>
 				</div>
 			</div>
@@ -48,7 +47,7 @@
 				</div>
 			</div>
 
-			<article class="movie_choice active">
+			<article class="movie_choice ${reserv == null && param.no == null ? 'active' : ''}">
 				<div class="reserv_movie_tab">
 					<div class="${param.tab == null ? 'active' : ''}" OnClick="location.href ='ticketing.do'">예매순</div>
 					<div class="${param.tab == '1' ? 'active' : ''}" OnClick="location.href ='ticketing.do?tab=1'">예정작</div>
@@ -58,8 +57,7 @@
 			<div class="reserv_movie_list">
 			<c:forEach var="movie" items="${movies}">
 				<div>
-				
-					<div>
+					<div onClick="location.href ='moviedetail.do?no=${movie.index}'">
 						<img src="${path }/images/poster/${movie.poster }">
                         <img src="./images/icon/age_${movie.limitAge }.png">
 					</div>
@@ -73,40 +71,39 @@
                         <span>${movie.rating }</span>
                     </div>
 					<div>
-						<div>예매</div>
+						<div onClick="location.href ='ticketing.do?no=${movie.index}'">예매</div>
 					</div>
 				</div>
 			</c:forEach>
 			</div>
 			</article>
 
-			<article class="theater_choice">
-				<div></div>
+			<article class="theater_choice ${reserv == null && param.no != null ? 'active' : ''}">
 				<div>
 					<div class="theater_movie">
-						<img src="./images/post_img/movie01_kruella.jpg">
+						<img src="${path }/images/poster/${movie.poster }">
+						<img src="./images/icon/age_${movie.limitAge }.png">
 					</div>
 					<div class="theater_list">
 						<div class="theater_list_title">
-							<div class="active">서울</div>
-							<div>|</div>
-							<div>대구</div>
+						<c:forEach var="local" items="${locals}" varStatus="status">
+						<div id="${local.localClass }" class="${status.index == 0 ? 'active':'' }">${local.localName }</div>
+						<c:if test="${status.last == false}">
+						<div>|</div>
+						</c:if>
+						</c:forEach>
 						</div>
 
 						<div class="theater_list_tab">
-							<div class="active">강남</div>
-							<div>강남대로(시티)</div>
-							<div>강동</div>
-							<div>군자</div>
-							<div>동대문</div>
-							<div>마곡</div>
-							<div>목동</div>
+							<c:forEach var="cinema" items="${cinemas}" varStatus="status">
+							<div class="${cinema.localClass }">${cinema.title }</div>
+							</c:forEach>
 						</div>
 					</div>
 				</div>
 			</article>
 
-			<article class="datetime_choice">
+			<article class="datetime_choice ${reserv != null ? 'active' : ''}">
 				<div></div>
 				<div>
 					<div class="datetime_movie">

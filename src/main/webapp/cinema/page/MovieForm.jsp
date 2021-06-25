@@ -7,11 +7,8 @@
 	<%@ include file="../include/IncludeDefault.jsp" %>
 
     <link rel="stylesheet" href="./style/movie.css" />
-    <script src="./js/movie.js"></script>    
 </head>
-<body>
-	<c:set var="path" value="<%=request.getContextPath() %>"/>
-	
+<body>	
     <c:import url="/include/header.do"/>
     <section class="location">      <!-- background-color: #f8f8fa; -->
         <div>
@@ -25,14 +22,14 @@
     <div class="content">
         <section class="movie">
             <div class="movie_tab">
-                <div class="${param.tab == null ? 'active' : ''}" OnClick="location.href ='movie.do'">현재상영작</div>
-                <div class="${param.tab == '1' ? 'active' : ''}" OnClick="location.href ='movie.do?tab=1'">상영예정작</div>
-                <div class="${param.tab == '2' ? 'active' : ''}" OnClick="location.href ='movie.do?tab=2'">큐레이션</div>
+                <div class="${param.tab == null ? 'active' : ''}" onClick="location.href ='movie.do'">현재상영작</div>
+                <div class="${param.tab == '1' ? 'active' : ''}" onClick="location.href ='movie.do?tab=1'">상영예정작</div>
+                <div class="${param.tab == '2' ? 'active' : ''}" onClick="location.href ='movie.do?tab=2'">큐레이션</div>
             </div>
             <div class="movie_list">
             <c:forEach var="movie" items="${movies}">
 				<div>
-                    <div>
+                    <div onClick="location.href ='moviedetail.do?no=${movie.index}'">
                         <img src="${path }/images/poster/${movie.poster }">
                         <img src="./images/icon/age_${movie.limitAge }.png">
                     </div>

@@ -20,7 +20,8 @@ public class MySqlMovieDao implements MovieDao {
 	public void setSqlSessionFactory(SqlSessionFactory sqlSessionFactory) {
 		this.sqlSessionFactory = sqlSessionFactory;
 	}
-
+	
+	@Override
 	public List<Movie> selectList(HashMap<String, Object> paramMap) throws Exception {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		try {
@@ -29,7 +30,7 @@ public class MySqlMovieDao implements MovieDao {
 			sqlSession.close();
 		}
 	}
-	
+	@Override
 	public int insert(Movie movie) throws Exception {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		try {

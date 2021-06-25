@@ -22,6 +22,7 @@ public class MySqlBannerDao implements BannerDao {
 		this.sqlSessionFactory = sqlSessionFactory;
 	}
 
+	@Override
 	public List<Banner> selectList(HashMap<String, Object> paramMap) throws Exception {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		try {
@@ -31,6 +32,7 @@ public class MySqlBannerDao implements BannerDao {
 		}
 	}
 	
+	@Override
 	public int insert(Banner banner) throws Exception {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		try {

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<c:set var="path" value="<%=request.getContextPath() %>"/>
+<c:set var="path" value="<%=request.getContextPath() %>" scope="application"/>
 <header>
 <nav>
     <ul>
@@ -9,13 +9,13 @@
             <div class="header_menu"></div>
             <div class="header_search"></div>
         </li>
-        <li class="nav_over">영화
+        <li class="nav_over" onclick="location.href='./movie.do';">영화
             <ul>
                 <li><a href="./movie.do">전체영화</a></li>
                 <li><a href="./movie.do?tab=2">큐레이션</a></li>
             </ul>
         </li>
-        <li class="nav_over">예매
+        <li class="nav_over" onclick="location.href='./ticketing.do';">예매
             <ul>
                 <li><a href="./ticketing.do">빠른예매</a></li>
                 <li><a href="./schedule.do">상영시간표</a></li>
@@ -24,15 +24,15 @@
         <li>
  	        <div class="header_logo" onclick="location.href='./main.do';"></div>
         </li>
-        <li class="nav_over">이벤트
+        <li class="nav_over" onclick="location.href='./event.do';">이벤트
             <ul>
                 <li><a href="./event.do">전체이벤트</a></li>
                 <li><a href="./event.do">진행이벤트</a></li>
             </ul>
         </li>
-        <li class="nav_over">시설안내
+        <li class="nav_over" onclick="location.href='./about.do';">시설안내
             <ul>
-                <li><a href="./about.do">회사소개</a></li>
+                <li><a href="./about.do">극장안내</a></li>
                 <li><a href="./location.do">오시는길</a></li>
             </ul>
         </li>
@@ -67,7 +67,7 @@
                 </li>
                 <li><div>시설안내</div>
                     <ul>
-                        <li><a href="./about.do">회사소개</a></li>
+                        <li><a href="./about.do">극장안내</a></li>
                         <li><a href="./location.do">오시는길</a></li>
                     </ul>
                 </li>
@@ -78,19 +78,23 @@
         <div>
             <div>
             	<c:forEach var="movie" items="${sMovies}" end="0">
-                <div><img src="${path }/images/poster/${movie.poster }"></div>
+                <div onClick="location.href ='moviedetail.do?no=${movie.index}'"><img src="${path }/images/poster/${movie.poster }"></div>
                 </c:forEach>
                 <div>
 	                <c:forEach var="movie" items="${sMovies}" varStatus="status" end="4">
-	                <div>
+	                <div onClick="location.href ='moviedetail.do?no=${movie.index}'">
                         <span>${status.count}</span>
                         <span>${movie.title}</span>
                     </div>
 	                </c:forEach>
                 </div>
             </div>
-            <div><input type="text" placeholder="영화를 검색하세요">
-                <i class="fas fa-search"></i></div>
+            <div>
+            	<form action="movie.do" method="get" id="search">
+				<input type="text" name="search" placeholder="영화를 검색하세요">
+				<i class="fas fa-search" onclick="document.getElementById('search').submit();"></i>
+				</form>
+            </div>
         </div>
     </div>
 </nav>

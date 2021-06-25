@@ -20,7 +20,7 @@ public class MovieController {
 	}
 
 	@RequestMapping("/movie.do")
-	public String execute(String tab, Map<String, Object> model) throws Exception {
+	public String execute(String tab, String search, Map<String, Object> model) throws Exception {
 		HashMap<String, Object> paramMap = new HashMap<String, Object>();
 		if(tab == null) {
 
@@ -31,6 +31,7 @@ public class MovieController {
 			paramMap.put("view", "qration");
 		}
 		
+		paramMap.put("search", search);
 		model.put("movies", movieDao.selectList(paramMap));
 		return "/cinema/page/MovieForm.jsp";
 	}

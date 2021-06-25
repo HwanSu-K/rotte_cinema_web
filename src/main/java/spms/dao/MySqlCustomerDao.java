@@ -22,6 +22,7 @@ public class MySqlCustomerDao implements CustomerDao {
 		this.sqlSessionFactory = sqlSessionFactory;
 	}
 
+	@Override
 	public List<Customer> selectList(HashMap<String, Object> paramMap) throws Exception {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		try {
@@ -31,6 +32,7 @@ public class MySqlCustomerDao implements CustomerDao {
 		}
 	}
 	
+	@Override
 	public int insert(Customer customer) throws Exception {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		try {

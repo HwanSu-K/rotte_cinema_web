@@ -22,13 +22,13 @@
 		</div>
 	</section>
 	<div class="content">
-		<c:forEach var="date" items="${dates}" varStatus="status">
+		<c:forEach var="date" items="${dates}">
 						<div>${date}</div>
 		</c:forEach>
 	    <section class="reserv_choice">
 	        <div class="reserv_type">
 	            <div class="reserv_type_movie active">
-	                <div> </div>
+	                <div></div>
 	                <div>영화별</div>
 	            </div>
 	            <div class="reserv_type_theater">
@@ -38,85 +38,159 @@
 	        </div>
 	        <div class="reserv_content">
 	            <div class="reserv_content_title">
-	                <span class="click">전체영화</span>
-	                <span>큐레이션</span>
+	                <span class="${param.tab == null ? 'active' : ''}" onClick="location.href ='schedule.do'">전체영화</span>
+	                <span class="${param.tab == '1' ? 'active' : ''}" onClick="location.href ='schedule.do?tab=1'">큐레이션</span>
 	            </div>
 	            <div class="reserv_content_list">    
 					<c:forEach var="movie" items="${movies}" varStatus="status">
-						<div class="${status.index == 0 ? 'active':'' }">${movie.title }</div>
+						<div class="${param.no == movie.index ? 'active':'' }" onClick="location.href ='schedule.do?${param.tab != null ? 'tab=1&' : ''}no=${movie.index}'">${movie.title }</div>
 					</c:forEach>
 	            </div>
 	            
 	        </div>
 	        <div class="reserv_post">
-	            <img src="./images/post_img/movie01_kruella.jpg">
+	            <img src="${path }/images/poster/${movie.poster }" onerror="this.src='${path }/images/icon/no_img.png';">
 	        </div>
 	    </section>
-	    <section class="reserv_info">
+	    <section class="reserv_info" style="${param.no == null ? 'display: none;':'' }">
 	        <div class="reserv_info_title">
-	            <span>크루엘라</span>
+	            <span>${movie.title }</span>
 	            <span>상영시간표</span>
 	        </div>
 	        <div class="reserv_info_date">
 	            <div><i class="fas fa-chevron-left"></i></div>      <!-- div 1 폰트 어썸 화살표 아이콘-->
-	            <div>
-	                <div class="active">
-	                    <div><fmt:formatDate value="${now}" pattern="dd"/></div>
-	                    <div>오늘</div>
-	                </div>
-	                <div>
-	                    <div><fmt:formatDate value="${now}" pattern="dd"/></div>
-	                    <div>내일</div>
-	                </div>
-	                <div>
-	                    <div>11</div>
-	                    <div>금</div>
-	                </div>
-	                <div class="b">
-	                    <div>12</div>
-	                    <div>토</div>
-	                </div>
-	                <div class="r">
-	                    <div>13</div>
-	                    <div>일</div>
-	                </div>
-	                <div>
-	                    <div>14</div>
-	                    <div>월</div>
-	                </div>
-	                <div>
-	                    <div>15</div>
-	                    <div>화</div>
-	                </div>
-	                <div class="g">
-	                    <div>16</div>
-	                    <div>수</div>
-	                </div>
-	                <div class="g">
-	                    <div>17</div>
-	                    <div>목</div>
-	                </div>
-	                <div class="g">
-	                    <div>18</div>
-	                    <div>금</div>
-	                </div>
-	                <div class="g">
-	                    <div>19</div>
-	                    <div>토</div>
-	                </div>
-	                <div class="g">
-	                    <div>20</div>
-	                    <div>일</div>
-	                </div>
-	                <div class="g">
-	                    <div>21</div>
-	                    <div>월</div>
-	                </div>
-	                <div class="g">
-	                    <div>22</div>
-	                    <div>화</div>
-	                </div>
-	            </div>
+	            <div class="dates">
+					<div class="active">
+						<div>2021.06</div>
+						<div>9.오늘</div>
+						<div></div>
+					</div>
+					<div>
+						<div></div>
+						<div>10.내일</div>
+						<div></div>
+					</div>
+					<div>
+						<div></div>
+						<div>11.금</div>
+						<div></div>
+					</div>
+					<div class="b">
+						<div></div>
+						<div>12.토</div>
+						<div></div>
+					</div>
+					<div class="r">
+						<div></div>
+						<div>13.일</div>
+						<div></div>
+					</div>
+					<div>
+						<div></div>
+						<div>14.월</div>
+						<div></div>
+					</div>
+					<div>
+						<div></div>
+						<div>15.화</div>
+						<div></div>
+					</div>
+					<div class="g">
+						<div></div>
+						<div>16.수</div>
+						<div></div>
+					</div>
+					<div class="g">
+						<div></div>
+						<div>17.수</div>
+						<div></div>
+					</div>
+					<div class="g">
+						<div></div>
+						<div>18.수</div>
+						<div></div>
+					</div>
+					<div class="g">
+						<div></div>
+						<div>19.수</div>
+						<div></div>
+					</div>
+					<div class="g">
+						<div></div>
+						<div>20.수</div>
+						<div></div>
+					</div>
+					<div class="g">
+						<div></div>
+						<div>21.수</div>
+						<div></div>
+					</div>
+					<div class="g">
+						<div></div>
+						<div>22.수</div>
+						<div></div>
+					</div>
+					<div class="g">
+						<div></div>
+						<div>23.수</div>
+						<div></div>
+					</div>
+					<div class="g">
+						<div></div>
+						<div>24.수</div>
+						<div></div>
+					</div>
+					<div class="g">
+						<div></div>
+						<div>25.수</div>
+						<div></div>
+					</div>
+					<div class="g">
+						<div></div>
+						<div>26.수</div>
+						<div></div>
+					</div>
+					<div class="g">
+						<div></div>
+						<div>27.수</div>
+						<div></div>
+					</div>
+					<div class="g">
+						<div></div>
+						<div>28.수</div>
+						<div></div>
+					</div>
+					<div class="g">
+						<div></div>
+						<div>29.수</div>
+						<div></div>
+					</div>
+					<div class="g">
+						<div></div>
+						<div>30.수</div>
+						<div></div>
+					</div>
+					<div class="g">
+						<div></div>
+						<div>31.수</div>
+						<div></div>
+					</div>
+					<div class="g">
+						<div>2021.07</div>
+						<div>1.수</div>
+						<div></div>
+					</div>
+					<div class="g">
+						<div></div>
+						<div>2.수</div>
+						<div></div>
+					</div>
+					<div class="g">
+						<div></div>
+						<div>16.수</div>
+						<div></div>
+					</div>
+				</div>
 	            <div><i class="fas fa-chevron-right"></i></div>         <!--  3 폰트어썸 화살표 아이콘  -->
 	            <div><i class="far fa-calendar-alt"></i></div>
 	        </div>
@@ -142,12 +216,12 @@
 	
 	        <div class="reserv_info_movie">
 	            <div>
-	                <img src="images/icon/age_12.png">
-	                <span>크루엘라</span>
+	                <img src="./images/icon/age_${movie.limitAge }.png">
+	                <span>${movie.title }</span>
 	            </div>
 	            <div>
 	                <span>상영중</span>
-	                <span>/상영시간 134분</span>
+	                <span>/상영시간 ${movie.runningTime }분</span>
 	            </div>
 	        </div>
 	        <div class="reserv_info_local">
@@ -222,11 +296,12 @@
 	            
 	        </div>
 	
-	    </section>
-	    <section class="reserv_warning">
+			<div class="reserv_warning">
 	            <div>・ 지연입장에 의한 관람불편을 최소화하고자 본 영화는 약 10분 후 시작됩니다.</div>
 	            <div>・ 쾌적한 관람 환경을 위해 상영시간 이전에 입장 부탁드립니다.</div>
+		    </div>
 	    </section>
+	    
 	</div>
 	<c:import url="/include/footer.do"/>
 </body>

@@ -4,7 +4,7 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="spms.dao.CustomerDao">
-	<resultMap type="customer" id="customerResultMap">
+	<resultMap type="customer" id="ResultMap">
 		<id column="CUSTOMER_INDEX" property="index" />
 		<result column="CUSTOMER_EMAIL" property="email" />
 		<result column="CUSTOMER_PASSWORD" property="password" />
@@ -15,7 +15,7 @@
 	</resultMap>
 
 	<select id="selectList" parameterType="map"
-		resultMap="customerResultMap">
+		resultMap="ResultMap">
 		SELECT CUSTOMER_INDEX,CUSTOMER_EMAIL,CUSTOMER_PASSWORD,CUSTOMER_NAME,CUSTOMER_BIRTH,CUSTOMER_PHONENUM,CUSTOMER_ACCESS
 		FROM CUSTOMER
 	</select>
@@ -26,7 +26,7 @@
 	</insert>
 	
 	<select id="selectOne" parameterType="int"
-		resultMap="customerResultMap">
+		resultMap="ResultMap">
 		SELECT CUSTOMER_INDEX,CUSTOMER_EMAIL,CUSTOMER_PASSWORD,CUSTOMER_NAME,CUSTOMER_BIRTH,CUSTOMER_PHONENUM,CUSTOMER_ACCESS
 		FROM CUSTOMER
 		WHERE BANNER_INDEX=#{value}
@@ -46,7 +46,7 @@
 	</update>
 	
 	<select id="exist" parameterType="map"
-		resultMap="customerResultMap">
+		resultMap="ResultMap">
 		SELECT CUSTOMER_INDEX,CUSTOMER_EMAIL,CUSTOMER_PASSWORD,CUSTOMER_NAME,CUSTOMER_BIRTH,CUSTOMER_PHONENUM,CUSTOMER_ACCESS 
 		FROM CUSTOMER
 		WHERE CUSTOMER_EMAIL=#{email} and CUSTOMER_PASSWORD=#{password}

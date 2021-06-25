@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 2. 동적 SQL 적용 -->
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="spms.dao.CinemaDao">
+	<resultMap type="Cinema" id="ResultMap">
+		<id column="CINEMA_INDEX" property="index" />
+		<result column="CINEMA_TITLE" property="title" />
+		<result column="CINEMA_ADDRESS" property="addr" />
+		<result column="CINEMA_INFO" property="info" />
+		<result column="LOCAL_NAME" property="localName" />
+		<result column="LOCAL_CLASS" property="localClass" />
+	</resultMap>
+
+	<select id="selectList" parameterType="map"
+		resultMap="ResultMap">
+		SELECT A.CINEMA_INDEX,A.CINEMA_TITLE,A.CINEMA_ADDRESS,A.CINEMA_INFO,B.LOCAL_NAME,B.LOCAL_CLASS 
+		FROM CINEMA A INNER JOIN CATEGORY_LOCAL B ON A.LOCAL_INDEX = B.LOCAL_INDEX
+	</select>
+	
+	<select id="selectListGroup" parameterType="map"
+		resultMap="ResultMap">
+		SELECT LOCAL_NAME,LOCAL_CLASS 
+		FROM CATEGORY_LOCAL
+	</select>
+</mapper>
