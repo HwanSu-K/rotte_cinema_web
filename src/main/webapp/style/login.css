@@ -7,27 +7,38 @@
 
 .member_login > .welcom {display: flex; justify-content: center; margin: 70px 0 30px 0; font-size: 13pt; color: #727272;}
 
-.member_login > .login_box              /* 로그인 박스 설정 */
-    {margin: 0 auto; width: 800px; height: 330px; background-color: #f9f9f9; padding-top: 55px; margin-bottom: 90px;}
-.member_login > .login_box > .chkbox > label { padding-right: 35px; color: #5a5a5a; }
-.member_login > .login_box > .chkbox > label:first-child {margin-left: 110px;}
-.member_login > .login_box > .chkbox > label > input {margin: 3px 5px 0px 5px;}
-.member_login > .login_box > .chkbox > label:first-child {margin-left: 110px;}
+.member_login > .login_form              /* 로그인 박스 설정 */
+    {display: flex;justify-content: center; margin: 0 auto;
+    width: 800px; height: 330px; background-color: #f9f9f9; margin-bottom: 100px;}
+.member_login > .login_form > .login_box {display: flex; justify-content: center; flex-direction: column;}
+.member_login > .login_form > .login_box > .chkbox {display: flex; justify-content: flex-start; margin-bottom: 20px;}
+.member_login > .login_form > .login_box > .chkbox > label {color: #777777; font-size: 12pt; padding-right: 35px;}
+.member_login > .login_form > .login_box > .chkbox > label > input {margin: 3px 5px 0px 5px;}
 
 
-.member_login > .login_box > .login_area > div:first-child {align-items: center; padding-left:120px;}
-.member_login > .login_box > .login_area > div:first-child > input                    /* 이메일, 비번 입력 박스 */
-    {padding-right: 120px; width: 370px; height: 40px; padding: 0 18px; font-size: 11pt; 
-    box-sizing: border-box; border: 1px solid #DDD; margin-top: 15px; margin-left: -5                       px;}
-.member_login > .login_box > .login_area > div:first-child > input + input {margin-top: 12px; }       /* 비번입력 */
-.member_login > .login_box > .login_area > div:first-child > button                   /* 로그인 버튼 */
-    {font-size: 13pt; width: 100px; height: 95px; color: #fff; background-color: #252451;}
+.member_login > .login_form > .login_box > .login_area {display: flex; }
+.member_login > .login_form > .login_box > .login_area > div:first-child > input          /* 이메일, 비번 입력 박스 */
+    {width: 365px; height: 40px; font-size: 11pt; margin: 0 10px 10px 0px; padding-left: 10px;
+    box-sizing: border-box; border: 1px solid #ddd;} 
+.member_login > .login_form > .login_box > .login_area > div:first-child > input::placeholder {color: rgb(184, 184, 184);}      /*인풋박스 폰트 컬러*/
+
+.member_login > .login_form > .login_box > .login_area > div:first-child > input:first-child 
+    {display: flex; flex-direction: column; justify-content: space-between;}
+
+.member_login > .login_form > .login_box > .login_area > div:last-child                   /* 로그인 버튼 */
+    {display: flex; justify-content: center; align-items: center; font-size: 13pt; width: 100px; height: 90px; 
+    color: #fff; background-color: #252451;}
 
 
-
-    .member_login > .login_box > .login_area > .save {color: #898989;}
-
-
-.member_login > .login_box > .click {}
+.member_login > .login_form > .login_box > .save {color: #5a5a5a; margin: 3px 5px 0px 5px;}       /* 아이디 저장 인풋박스 */
+.member_login > .login_form > .login_box > .save > label {color: #777777;}
 
 
+.member_login > .login_form > .login_box > .click {display: flex;}              /* 회원가입 아이디찾기 비번찾기 */
+.member_login > .login_form > .login_box > .click > div
+    {display: flex; border: 1px; justify-content: center; align-items: center;
+    margin-right: 10px; margin-top: 35px;}
+.member_login > .login_form > .login_box > .click > div:first-child
+    {background-color: #252451; color: #fff; width: 100px; height: 38px; font-size: 12pt;}
+.member_login > .login_form > .login_box > .click > div
+    {background-color: #2b3380; color: #fff; font-size: 13pt; width: 130px;}

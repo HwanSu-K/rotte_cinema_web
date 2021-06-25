@@ -23,50 +23,49 @@
     </section>
 
     <div class="content">
-        <section class="member_login">
+        <div class="member_login">
             <div class="login_tab">
                 <div class="active">회원 로그인</div>
                 <div>비회원 로그인 (예매확인)</div>
             </div>
-            
 
-            <div class="welcom">롯데시네마 회원이 되시면 회원만을 위한 다양한 서비스와 혜택을 받으실 수 있습니다.</div>
+            <div class="welcom">
+                롯데시네마 회원이 되시면 회원만을 위한 다양한 서비스와 혜택을 받으실 수 있습니다.
+            </div>
 
-            <div class="login_box">
-                <div class="chkbox">
-                    <label><input type="radio" name="chkbox" value="member">회원</label>
-                    <label><input type="radio" name="chkbox" value="n_member">비회원(예매확인)</label>
-                </div>
-                <div class="login_area">
-                    <div>
-                        <input type="text" id="userId" maxlength="50" placeholder="이메일을 입력해 주세요." title="입력태그">
-                        <input type="password" id="userPassword" maxlength="15" placeholder="비밀번호를 입력해 주세요." title="입력태그">
-                        <input type="hidden" name="hidLoginType" id="hidLoginType" value="">
-                        <button type="button" class="btn_login">로그인</button>
+            <div class="login_form">
+                <div class="login_box">
+                    <div class="chkbox">
+                        <label><input type="radio" name="chkbox" value="member">회원</label>
+                        <label><input type="radio" name="chkbox" value="n_member">비회원(예매확인)</label>
                     </div>
+
+                    <div class="login_area">
+                        <div>
+                            <input type="text" id="userId" maxlength="50" placeholder="이메일을 입력해 주세요." title="입력태그">
+                            <input type="password" id="userPassword" maxlength="15" placeholder="비밀번호를 입력해 주세요." title="입력태그">
+                        </div>
+                        <div>로그인</div>
+                    </div>
+
                     <div class="save">
                         <input type="checkbox" name="loginCheck" id="checkSavedID">
                         <label for="checkSavedID">아이디 저장</label>
                     </div>
-                </div>
-                <!-- 
-                <div class="save">
-                    <label><input type="checkbox" name="save" value="save1">아이디 저장</label>
-                </div>
-                -->
 
-                <div class="click">
-                    <div>회원가입</div>
-                    <div>아이디 찾기</div>
-                    <div>비밀번호 찾기</div>
+                    <div class="click">
+                        <div>회원가입</div>
+                        <div>아이디 찾기</div>
+                        <div>비밀번호 찾기</div>
+                    </div>
                 </div>
-
             </div>
+        </div>
 
 
 
-        </section>
-    </div>
+
+    </div>   <!--컨텐츠 div-->
 
 <footer></footer>
 </body>
