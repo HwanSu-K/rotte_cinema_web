@@ -19,10 +19,8 @@ public class FooterController {
 	}
 
 	@RequestMapping("/include/footer.do")
-	public String execute(String tab, Map<String, Object> model) throws Exception {
-//		HashMap<String, Object> paramMap = new HashMap<String, Object>();
-//		
-//		model.put("sMovies", movieDao.selectList(paramMap));
+	public String execute(Map<String, Object> model) throws Exception {
+
 		return "/cinema/include/IncludeFooter.jsp";
 	}
 }

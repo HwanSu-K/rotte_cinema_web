@@ -93,7 +93,6 @@ $(document).ready(function(){
     // 배너 동영상
     var banners = $(".banner_img > div");
     var videos = $(".video > div > video");
-    console.log(videos);
     $(".banner_play").on("click",function(){
         
         $.each(banners,function(index, item){

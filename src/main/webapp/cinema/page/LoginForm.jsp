@@ -40,7 +40,8 @@
                     <div class="login_area">
                         <div>
                             <input type="text" name="email" maxlength="50" placeholder="이메일을 입력해 주세요." value="${email}">
-                            <input type="password" name="password" maxlength="15" placeholder="비밀번호를 입력해 주세요.">
+                            <input type="password" name="password" maxlength="15" placeholder="비밀번호를 입력해 주세요."
+                             onKeypress="javascript:if(event.keyCode==13) {document.getElementById('login').submit();}">
                         </div>
                         <div onclick="document.getElementById('login').submit();">로그인</div>
                     </div>
@@ -52,7 +53,7 @@
                     </form>
 
                     <div class="click">
-                        <div>회원가입</div>
+                        <div onclick="location.href='registration.do'">회원가입</div>
                         <div>아이디 찾기</div>
                         <div>비밀번호 찾기</div>
                     </div>
@@ -63,10 +64,10 @@
 		
     <c:if test="${!empty sessionScope.customer and !empty sessionScope.customer.email}">
 			${sessionScope.customer.name}<br>
-			<a style="color: #000" href="<%=request.getContextPath()%>/logout.do">로그아웃</a>
+			<a style="color: #000" href="./logout.do">로그아웃</a>
 			<c:if test="${sessionScope.customer.access == 0}">
 			<br>
-			<a style="color: #000" href="<%=request.getContextPath()%>/cms/list.do">컨텐츠 관리 시스템</a><br>
+			<a style="color: #000" href="./cms/list.do">컨텐츠 관리 시스템</a><br>
 			</c:if>
 	</c:if>
     </div>

@@ -30,6 +30,18 @@ public class MySqlMovieDao implements MovieDao {
 			sqlSession.close();
 		}
 	}
+	
+
+	@Override
+	public List<Movie> selectListTitle(HashMap<String, Object> paramMap) throws Exception {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		try {
+			return sqlSession.selectList("spms.dao.MovieDao.selectListTitle", paramMap);
+		} finally {
+			sqlSession.close();
+		}
+	}
+	
 	@Override
 	public int insert(Movie movie) throws Exception {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
@@ -52,6 +64,16 @@ public class MySqlMovieDao implements MovieDao {
 		}
 	}
 
+	@Override
+	public Movie selectOneDefault(int no) throws Exception {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		try {
+			return sqlSession.selectOne("spms.dao.MovieDao.selectOneDefault", no);
+		} finally {
+			sqlSession.close();
+		}
+	}
+	
 	@Override
 	public int update(Movie movie) throws Exception {
 		SqlSession sqlSession = sqlSessionFactory.openSession();

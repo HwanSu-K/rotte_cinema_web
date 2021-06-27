@@ -69,20 +69,23 @@ nav > .nav_search.active {display: block;}
 nav > .nav_search {width: 100%; height: 350px; background-color:#2b3380; padding: 60px 0; z-index: 900; position: absolute; display: none;}
 nav > .nav_search > div {width: var(--default--width); height: 100%; margin: 0 auto; 
     display: flex; justify-content: center; align-items: center;}
-nav > .nav_search > div > div:first-child {display: flex; justify-content: center; margin-right: 60px;}
-nav > .nav_search > div > div:first-child > div:first-child > img {width: 180px; margin-right: 50px; cursor:pointer;}
-nav > .nav_search > div > div:first-child > div:last-child {display: flex; justify-content: space-evenly; align-items: flex-start; flex-direction: column;}
-nav > .nav_search > div > div:first-child > div:last-child > div > span:first-child {font-size: 15pt; font-style: italic; font-weight: bold; padding: 0 20px;}
+nav > .nav_search > div > div:nth-child(1) {display: flex; justify-content: center; margin-right: 60px;}
+nav > .nav_search > div > div:nth-child(1) > div:first-child > img {width: 180px; margin-right: 50px; cursor:pointer;}
+nav > .nav_search > div > div:nth-child(1) > div:last-child {display: flex; justify-content: space-evenly; align-items: flex-start; flex-direction: column;}
+nav > .nav_search > div > div:nth-child(1) > div:last-child > div > span:first-child {font-size: 15pt; font-style: italic; font-weight: bold; padding: 0 20px;}
 
-nav > .nav_search > div > div:first-child > div:last-child > div > span:last-child:hover {text-decoration: underline; cursor: pointer;}
+nav > .nav_search > div > div:nth-child(1) > div:last-child > div > span:last-child:hover {text-decoration: underline; cursor: pointer;}
 
-nav > .nav_search > div > div:first-child > div > div > span:last-child {font-size: 13pt;}
-nav > .nav_search > div > div:last-child input
-    { width: 300px; padding: 0px 30px 15px 15px; margin-left: 200px; color:#fff; border-style: none;  
+nav > .nav_search > div > div:nth-child(1) > div > div > span:last-child {font-size: 13pt;}
+nav > .nav_search > div > div:nth-child(2) {display: flex; flex-direction: column; width: 350px; margin-left:100px;}
+nav > .nav_search > div > div:nth-child(2) > div {height: 150px; display: flex;padding: 10px; flex-wrap: wrap; align-content: flex-start;}
+nav > .nav_search > div > div:nth-child(2) > div > div {margin: 5px; padding: 5px 8px; border-radius: 8px; background-color: #161d5f; cursor:pointer;}
+nav > .nav_search > div > div:nth-child(2) input
+    { width: 300px; padding: 0px 30px 15px 15px;color:#fff; border-style: none;  
     background-color: rgba(0,0,0,0); border-bottom: 1px solid #ebebeb; font-size: 13pt;}
-nav > .nav_search > div > div:last-child > form > input::placeholder {color: white;}
-nav > .nav_search > div > div:last-child > form > input:focus {outline: none;}
-nav > .nav_search > div > div:last-child > form > i {margin-left: -35px; font-size: 20px; cursor:pointer;}
+nav > .nav_search > div > div:nth-child(2) > form > input::placeholder {color: white;}
+nav > .nav_search > div > div:nth-child(2) > form > input:focus {outline: none;}
+nav > .nav_search > div > div:nth-child(2) > form > i {margin-left: -35px; font-size: 20px; cursor:pointer;}
 
 
 /* 로케이션 */

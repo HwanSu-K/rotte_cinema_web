@@ -22,9 +22,6 @@
 		</div>
 	</section>
 	<div class="content">
-		<c:forEach var="date" items="${dates}">
-						<div>${date}</div>
-		</c:forEach>
 	    <section class="reserv_choice">
 	        <div class="reserv_type">
 	            <div class="reserv_type_movie active">
@@ -38,23 +35,23 @@
 	        </div>
 	        <div class="reserv_content">
 	            <div class="reserv_content_title">
-	                <span class="${param.tab == null ? 'active' : ''}" onClick="location.href ='schedule.do'">전체영화</span>
-	                <span class="${param.tab == '1' ? 'active' : ''}" onClick="location.href ='schedule.do?tab=1'">큐레이션</span>
+	                <span class="active" data-tab-type="default">전체영화</span>
+	                <span data-tab-type="qration">큐레이션</span>
 	            </div>
-	            <div class="reserv_content_list">    
-					<c:forEach var="movie" items="${movies}" varStatus="status">
-						<div class="${param.no == movie.index ? 'active':'' }" onClick="location.href ='schedule.do?${param.tab != null ? 'tab=1&' : ''}no=${movie.index}'">${movie.title }</div>
-					</c:forEach>
+	            <div class="reserv_content_list">   
+	            <c:forEach var="movie" items="${movies}" varStatus="status">
+						<div data-movie-index="${movie.index }" data-movie-type=${movie.type == 1 ? "qration":"default" }>${movie.title }</div>
+				</c:forEach> 
 	            </div>
 	            
 	        </div>
 	        <div class="reserv_post">
-	            <img src="${path }/images/poster/${movie.poster }" onerror="this.src='${path }/images/icon/no_img.png';">
+	            <img id="moviePoster">
 	        </div>
 	    </section>
-	    <section class="reserv_info" style="${param.no == null ? 'display: none;':'' }">
+	    <section class="reserv_info">
 	        <div class="reserv_info_title">
-	            <span>${movie.title }</span>
+	            <span id="movieTitle"></span>
 	            <span>상영시간표</span>
 	        </div>
 	        <div class="reserv_info_date">
@@ -216,12 +213,12 @@
 	
 	        <div class="reserv_info_movie">
 	            <div>
-	                <img src="./images/icon/age_${movie.limitAge }.png">
-	                <span>${movie.title }</span>
+	                <img id="movieAge">
+	                <span id="movieSubTitle"></span>
 	            </div>
 	            <div>
 	                <span>상영중</span>
-	                <span>/상영시간 ${movie.runningTime }분</span>
+	                <span id="movieRunningTime"></span>
 	            </div>
 	        </div>
 	        <div class="reserv_info_local">

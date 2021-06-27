@@ -19,7 +19,7 @@
 		FROM CINEMA A INNER JOIN CATEGORY_LOCAL B ON A.LOCAL_INDEX = B.LOCAL_INDEX
 	</select>
 	
-	<select id="selectListGroup" parameterType="map"
+	<select id="selectListLocal" parameterType="map"
 		resultMap="ResultMap">
 		SELECT LOCAL_NAME,LOCAL_CLASS 
 		FROM CATEGORY_LOCAL

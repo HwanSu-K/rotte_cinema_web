@@ -1,5 +1,6 @@
 package spms.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -7,11 +8,11 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import spms.vo.Cinema;
+import spms.vo.Review;
 
 //@Repository 애노테이션으로 변경
 @Repository
-public class MySqlCinemaDao implements CinemaDao {
+public class MySqlReviewDao implements ReviewDao {
 	SqlSessionFactory sqlSessionFactory;
 
 	@Autowired
@@ -20,20 +21,22 @@ public class MySqlCinemaDao implements CinemaDao {
 	}
 
 	@Override
-	public List<Cinema> selectList() throws Exception {
+	public List<Review> selectList(HashMap<String, Object> paramMap) throws Exception {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		try {
-			return sqlSession.selectList("spms.dao.CinemaDao.selectList");
+			return sqlSession.selectList("spms.dao.ReviewDao.selectList", paramMap);
 		} finally {
 			sqlSession.close();
 		}
 	}
-
+	
 	@Override
-	public List<Cinema> selectListLocal() throws Exception {
+	public int insert(Review review) throws Exception {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		try {
-			return sqlSession.selectList("spms.dao.CinemaDao.selectListLocal");
+			int count = sqlSession.insert("spms.dao.ReviewDao.insert", review);
+			sqlSession.commit();
+			return count;
 		} finally {
 			sqlSession.close();
 		}

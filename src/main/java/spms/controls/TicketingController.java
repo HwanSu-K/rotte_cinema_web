@@ -16,54 +16,33 @@ import spms.vo.Reserv;
 @Controller
 public class TicketingController {
 	MovieDao movieDao;
-	CinemaDao localDao;
+	CinemaDao cinemaDao;
 
 	@Autowired
 	public TicketingController setMovieDao(MovieDao movieDao) {
 		this.movieDao = movieDao;
 		return this;
 	}
-	
+
 	@Autowired
-	public TicketingController setLocalDao(CinemaDao localDao) {
-		this.localDao = localDao;
+	public TicketingController setLocalDao(CinemaDao cinemaDao) {
+		this.cinemaDao = cinemaDao;
 		return this;
 	}
 
 	@RequestMapping(value = "/ticketing.do", method = RequestMethod.GET)
-	public String movieLoad(String tab, String no, Map<String, Object> model) throws Exception {
+	public String movieLoad(String type, String index, Map<String, Object> model) throws Exception {
 		HashMap<String, Object> paramMap = new HashMap<String, Object>();
-
-		if (no == null) {
-
-			if (tab == null) {
-
-			} else if (tab.equals("1")) {
-				paramMap.put("view", "soon");
-				paramMap.put("order", "open");
-			} else if (tab.equals("2")) {
-				paramMap.put("order", "rating");
-			}
-			
+		if (index == null) {
+			paramMap.put("type", type);
 			model.put("movies", movieDao.selectList(paramMap));
-		}
-		else
-		{
-			
-			model.put("cinemas", localDao.selectList());
-			model.put("locals", localDao.selectListGroup());
-			Movie detailInfo = movieDao.selectOne(Integer.parseInt(no));
+		} else {
+			Movie detailInfo = movieDao.selectOneDefault(Integer.parseInt(index));
 			model.put("movie", detailInfo);
+			model.put("locals", cinemaDao.selectListLocal());
+			model.put("cinemas", cinemaDao.selectList());
 		}
-		
-		return "/cinema/page/TicketingForm.jsp";
-	}
 
-	@RequestMapping(value = "/ticketing.do", method = RequestMethod.POST)
-	public String theaterLoad(Reserv reserv, Map<String, Object> model) throws Exception {
-		HashMap<String, Object> paramMap = new HashMap<String, Object>();
-		System.out.println("선택영화" + reserv);
-		// model.put("movies", movieDao.selectList(paramMap));
 		return "/cinema/page/TicketingForm.jsp";
 	}
 }

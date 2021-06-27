@@ -1,6 +1,5 @@
 package spms.controls;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,9 +20,9 @@ public class MovieDetailController {
 	}
 
 	@RequestMapping("/moviedetail.do")
-	public String execute(int no, Map<String, Object> model) throws Exception {
-		
-		Movie detailInfo = movieDao.selectOne(no);
+	public String execute(int index, Map<String, Object> model) throws Exception {
+
+		Movie detailInfo = movieDao.selectOne(index);
 		model.put("movie", detailInfo);
 		return "/cinema/page/MovieDetailForm.jsp";
 	}

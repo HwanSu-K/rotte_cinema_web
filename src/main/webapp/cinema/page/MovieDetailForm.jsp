@@ -6,8 +6,10 @@
 <head>
 	<%@ include file="../include/IncludeDefault.jsp" %>
 
+	<link rel="stylesheet" href="./style/moviedetail.css" />    
+	<script src="./js/moviedetail.js"></script>
 </head>
-<body>	
+<body>
     <c:import url="/include/header.do"/>
     <section class="location">      <!-- background-color: #f8f8fa; -->
         <div>
@@ -20,7 +22,7 @@
     </section>
     <div class="content">
 
-		<img src="${path }/images/poster/${movie.poster }">
+		<img src="./images/poster/${movie.poster }">
 		<img src="./images/icon/age_${movie.limitAge }.png">
 		<br>
 		<div>제목 ${movie.title }</div>
@@ -45,6 +47,18 @@
 		<br> 
 		<div>좋아요 ${movie.like }</div>
 		
+		<div>
+		
+        
+			<div>
+				<form id="reviewInput" method="post" id="review">
+	                <input type="text" name="rating" maxlength="50" placeholder="평점을 입력하세요." ${empty sessionScope.customer ? 'disabled':'' }>
+	                <input type="text" name="text" maxlength="15" placeholder="리뷰내용을 입력하세요." ${empty sessionScope.customer ? 'disabled':'' }>
+	            <div id="reviewButton" class="${empty sessionScope.customer ? 'disabled':'' }" >리뷰작성</div>
+        		</form>		
+			</div>
+			<div id=reviewList></div>
+		</div>
                         
 	</div>
     <c:import url="/include/footer.do"/>

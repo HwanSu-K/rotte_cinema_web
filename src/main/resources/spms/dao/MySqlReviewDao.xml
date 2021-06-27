@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 2. 동적 SQL 적용 -->
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="spms.dao.ReviewDao">
+	<resultMap type="review" id="ResultMap">
+		<id column="REVIEW_INDEX" property="index" />
+		<result column="REVIEW_RATING" property="rating" />
+		<result column="REVIEW_TEXT" property="text" />
+		<result column="REVIEW_DATE" property="date" />
+		<result column="CUSTOMER_NAME" property="name"/>
+	</resultMap>
+
+	<select id="selectList" parameterType="map"
+		resultMap="ResultMap">
+		SELECT A.REVIEW_INDEX,A.REVIEW_RATING,A.REVIEW_TEXT,A.REVIEW_DATE,B.CUSTOMER_NAME
+		FROM MOVIE_REVIEW A INNER JOIN CUSTOMER B ON A.CUSTOMER_INDEX = B.CUSTOMER_INDEX
+		WHERE A.MOVIE_INDEX = ${index} ORDER BY A.REVIEW_INDEX DESC
+		
+		
+	</select>
+	
+	<insert id="insert" parameterType="movie">
+		INSERT INTO MOVIE_REVIEW (MOVIE_INDEX,CUSTOMER_INDEX,REVIEW_RATING,REVIEW_TEXT,REVIEW_DATE)
+		VALUES(#{indexMovie},#{indexCustomer},#{rating},#{text},#{date})
+	</insert>
+</mapper>

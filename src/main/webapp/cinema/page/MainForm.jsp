@@ -8,6 +8,7 @@
 
     <link rel="stylesheet" href="./style/main.css" />
     <script src="./js/index.js"></script>
+    
     <script src="./plugin/jquery.touchSwipe.min.js"></script>
     <link rel="stylesheet" href="./plugin/lightslider.css" />
     <script src="./plugin/lightslider.js"></script>
@@ -19,13 +20,13 @@
     <section class="banner">  <!-- 배너영역 -->
         <div class="banner_img">
         	<c:forEach var="banner" items="${banners}" varStatus="status">
-        	<div class="${status.index == 0 ? 'active':'' }" style="background-image:url(${path }/images/banner/${banner.imagePath });"></div>
+        	<div class="${status.index == 0 ? 'active':'' }" style="background-image:url(./images/banner/${banner.imagePath });"></div>
 			</c:forEach>
         </div> 
         <div class="video">
             <div>
 	            <c:forEach var="banner" items="${banners}">
-	            <video loop><source src="${path }/images/banner/${banner.videoPath }"></video>
+	            <video loop><source src="./images/banner/${banner.videoPath }"></video>
 				</c:forEach>
             </div>
             <div class="mask"></div>
@@ -87,8 +88,8 @@
             <div class="reserv_list">
             <c:forEach var="movie" items="${movies}">
                 <div>
-                    <div onClick="location.href ='moviedetail.do?no=${movie.index}'">
-                        <img src="${path }/images/poster/${movie.poster }">
+                    <div onClick="location.href ='moviedetail.do?index=${movie.index}'">
+                        <img src="./images/poster/${movie.poster }">
                         <img src="./images/icon/age_${movie.limitAge }.png">
                     </div>
                     <div>
@@ -150,7 +151,7 @@
             <c:forEach var="qration" items="${qrations}" end="3">
             	<div>
                     <img class="icon" src="./images/icon/qration_c_icon.png">
-                    <img src="${path }/images/poster/${qration.poster }">
+                    <img src="./images/poster/${qration.poster }">
                     <div>${qration.title }</div>
                 </div>
             </c:forEach>

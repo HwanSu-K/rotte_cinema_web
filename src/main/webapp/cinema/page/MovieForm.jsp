@@ -22,15 +22,15 @@
     <div class="content">
         <section class="movie">
             <div class="movie_tab">
-                <div class="${param.tab == null ? 'active' : ''}" onClick="location.href ='movie.do'">현재상영작</div>
-                <div class="${param.tab == '1' ? 'active' : ''}" onClick="location.href ='movie.do?tab=1'">상영예정작</div>
-                <div class="${param.tab == '2' ? 'active' : ''}" onClick="location.href ='movie.do?tab=2'">큐레이션</div>
+                <div class="${param.type == null ? 'active' : ''}" onClick="location.href ='movie.do'">현재상영작</div>
+                <div class="${param.type == 'soon' ? 'active' : ''}" onClick="location.href ='movie.do?type=soon'">상영예정작</div>
+                <div class="${param.type == 'qration' ? 'active' : ''}" onClick="location.href ='movie.do?type=qration'">큐레이션</div>
             </div>
             <div class="movie_list">
             <c:forEach var="movie" items="${movies}">
 				<div>
-                    <div onClick="location.href ='moviedetail.do?no=${movie.index}'">
-                        <img src="${path }/images/poster/${movie.poster }">
+                    <div onClick="location.href ='moviedetail.do?index=${movie.index}'">
+                        <img src="./images/poster/${movie.poster }">
                         <img src="./images/icon/age_${movie.limitAge }.png">
                     </div>
                     <div>

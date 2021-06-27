@@ -20,13 +20,13 @@
 	<div class="content">
 		<section class="reserv">
 			<div class="reserv_tab">
-				<div class="${reserv == null && param.no == null ? 'active' : ''}">
+				<div class="${param.index == null ? 'active' : ''}" onclick="location.href='ticketing.do'">
 					<span>STEP 1</span> <span>영화선택</span>
 				</div>
-				<div class="${reserv == null && param.no != null ? 'active' : ''}">
+				<div class="${param.index != null ? 'active' : ''}">
 					<span>STEP 2</span> <span>영화관 선택</span>
 				</div>
-				<div class="${reserv != null ? 'active' : ''}">
+				<div>
 					<span>STEP 3</span> <span>시간 선택</span>
 				</div>
 			</div>
@@ -42,23 +42,22 @@
 					<img src="images/icon/age_15.png"> <span>만 15세 이상</span>
 				</div>
 				<div>
-					<img src="images/icon/age_18.png"> <span>청소년 관람불가(만
-						18세 이상)</span>
+					<img src="images/icon/age_18.png"> <span>청소년 관람불가(만 18세 이상)</span>
 				</div>
 			</div>
 
-			<article class="movie_choice ${reserv == null && param.no == null ? 'active' : ''}">
+			<article class="movie_choice ${param.index == null ? 'active' : ''}">
 				<div class="reserv_movie_tab">
-					<div class="${param.tab == null ? 'active' : ''}" OnClick="location.href ='ticketing.do'">예매순</div>
-					<div class="${param.tab == '1' ? 'active' : ''}" OnClick="location.href ='ticketing.do?tab=1'">예정작</div>
-					<div class="${param.tab == '2' ? 'active' : ''}" OnClick="location.href ='ticketing.do?tab=2'">평점순</div>
+					<div class="${param.type == null ? 'active' : ''}" OnClick="location.href ='ticketing.do'">예매순</div>
+					<div class="${param.type == 'soon' ? 'active' : ''}" OnClick="location.href ='ticketing.do?type=soon'">예정작</div>
+					<div class="${param.type == 'rating' ? 'active' : ''}" OnClick="location.href ='ticketing.do?type=rating'">평점순</div>
 				</div>
 
 			<div class="reserv_movie_list">
 			<c:forEach var="movie" items="${movies}">
 				<div>
-					<div onClick="location.href ='moviedetail.do?no=${movie.index}'">
-						<img src="${path }/images/poster/${movie.poster }">
+					<div onClick="location.href ='moviedetail.do?index=${movie.index}'">
+						<img src="./images/poster/${movie.poster }">
                         <img src="./images/icon/age_${movie.limitAge }.png">
 					</div>
 					<div>
@@ -71,23 +70,25 @@
                         <span>${movie.rating }</span>
                     </div>
 					<div>
-						<div onClick="location.href ='ticketing.do?no=${movie.index}'">예매</div>
+						<div onClick="location.href ='ticketing.do?index=${movie.index}'">예매</div>
 					</div>
 				</div>
 			</c:forEach>
 			</div>
 			</article>
 
-			<article class="theater_choice ${reserv == null && param.no != null ? 'active' : ''}">
+			<article class="theater_choice ${param.index != null ? 'active' : ''}">
 				<div>
 					<div class="theater_movie">
-						<img src="${path }/images/poster/${movie.poster }">
-						<img src="./images/icon/age_${movie.limitAge }.png">
+					<c:if test="${movie != null}">
+						<img src="./images/poster/${movie.poster }">
+                        <img src="./images/icon/age_${movie.limitAge }.png">
+					</c:if>
 					</div>
 					<div class="theater_list">
 						<div class="theater_list_title">
 						<c:forEach var="local" items="${locals}" varStatus="status">
-						<div id="${local.localClass }" class="${status.index == 0 ? 'active':'' }">${local.localName }</div>
+						<div class="locals" data-local-class="${local.localClass }">${local.localName }</div>
 						<c:if test="${status.last == false}">
 						<div>|</div>
 						</c:if>
@@ -96,7 +97,7 @@
 
 						<div class="theater_list_tab">
 							<c:forEach var="cinema" items="${cinemas}" varStatus="status">
-							<div class="${cinema.localClass }">${cinema.title }</div>
+							<div data-local-class="${cinema.localClass }">${cinema.title }</div>
 							</c:forEach>
 						</div>
 					</div>
