@@ -47,7 +47,7 @@
                             <i class="far fa-heart"></i>
                             <span>${movie.like }</span>
                         </div>
-                        <div>예매</div>
+                        <div onClick="location.href ='ticketing.do?index=${movie.index}'">예매</div>
                     </div>
                 </div>
 			</c:forEach>

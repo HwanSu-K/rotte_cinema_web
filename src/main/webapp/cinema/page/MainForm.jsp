@@ -102,7 +102,7 @@
                         <span>${movie.rating }</span>
                     </div>
                     <div>
-                        <div>예매</div>
+                        <div onClick="location.href ='ticketing.do?index=${movie.index}'">예매</div>
                     </div>
                 </div>
 			</c:forEach>

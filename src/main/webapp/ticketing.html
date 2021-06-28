@@ -25,7 +25,7 @@
     <div class="content">
         <section class="reserv">
             <div class="reserv_tab">
-                <div class="active">
+                <div>
                     <span>STEP 1</span>
                     <span>영화선택</span>
                 </div>
@@ -33,7 +33,7 @@
                     <span>STEP 2</span>
                     <span>영화관 선택</span>
                 </div>
-                <div>
+                <div class="active">
                     <span>STEP 3</span>
                     <span>시간 선택</span>
                 </div>
@@ -58,7 +58,7 @@
                 </div>
             </div>
 
-            <article class="movie_choice active">
+            <article class="movie_choice">
                 <div class="reserv_movie_tab">
                     <div class="active">예매순</div>
                     <div>예정작</div>
@@ -176,99 +176,86 @@
                 </div>
             </article>
             
-            <article class="theater_choice">
+            <article class="theater_choice active">
                 <div>
                     <div class="theater_movie">
                         <img src="./images/post_img/movie01_kruella.jpg">
+                        <img src="./images/icon/age_15.png">
                     </div>
                     <div class="theater_list">
                         <div class="theater_list_title">
-                            <div class="active">서울</div>
-                            <div>|</div>
-                            <div>대구</div>
+                            <div class="locals active" data-local-class="seoul">서울</div>
+							<span>|</span>
+							<div class="locals" data-local-class="daegu">대구</div>
                         </div>
     
                         <div class="theater_list_tab">
-                            <div class="active">강남</div>
-                            <div>강남대로(시티)</div>
-                            <div>강동</div>
-                            <div>군자</div>
-                            <div>동대문</div>
-                            <div>마곡</div>
-                            <div>목동</div>
+							<div data-cinema-index="1" data-local-class="seoul" class="" style="display: flex;">강남</div>
+							<div data-cinema-index="2" data-local-class="seoul" class="disabled" style="display: flex;">강변</div>
+							<div data-cinema-index="3" data-local-class="seoul" class="disabled" style="display: flex;">구로</div>
+							<div data-cinema-index="4" data-local-class="seoul" class="disabled" style="display: flex;">대학로</div>
+							<div data-cinema-index="6" data-local-class="seoul" class="disabled" style="display: flex;">명동</div>
+							<div data-cinema-index="7" data-local-class="seoul" class="disabled" style="display: flex;">목동</div>
+							<div data-cinema-index="8" data-local-class="seoul" class="disabled" style="display: flex;">미아</div>
+							<div data-cinema-index="9" data-local-class="seoul" class="disabled" style="display: flex;">상봉</div>
+							<div data-cinema-index="10" data-local-class="seoul" class="disabled" style="display: flex;">송파</div>
+							<div data-cinema-index="11" data-local-class="seoul" class="disabled" style="display: flex;">수유</div>
+							<div data-cinema-index="12" data-local-class="seoul" class="disabled" style="display: flex;">압구정</div>
+							<div data-cinema-index="13" data-local-class="seoul" class="disabled" style="display: flex;">여의도</div>
+							<div data-cinema-index="14" data-local-class="seoul" class="disabled" style="display: flex;">영등포</div>
+							<div data-cinema-index="15" data-local-class="seoul" class="disabled" style="display: flex;">왕십리</div>
+							<div data-cinema-index="16" data-local-class="seoul" class="disabled" style="display: flex;">홍대</div>
+							<div data-cinema-index="17" data-local-class="daegu" class="disabled" style="display: none;">대구</div>
+							<div data-cinema-index="18" data-local-class="daegu" class="" style="display: none;">수성</div>
+							<div data-cinema-index="19" data-local-class="daegu" class="disabled" style="display: none;">스타디움</div>
+							<div data-cinema-index="20" data-local-class="daegu" class="disabled" style="display: none;">아카데미</div>
+							<div data-cinema-index="21" data-local-class="daegu" class="disabled" style="display: none;">월성</div>
+							<div data-cinema-index="22" data-local-class="daegu" class="disabled" style="display: none;">이시아</div>
+							<div data-cinema-index="23" data-local-class="daegu" class="" style="display: none;">칠곡</div>
+							<div data-cinema-index="24" data-local-class="daegu" class="disabled" style="display: none;">한일</div>
+							<div data-cinema-index="25" data-local-class="daegu" class="disabled" style="display: none;">현대</div>
                         </div>
                     </div>
                 </div>
             </article>
 
-            <article class="datetime_choice">
-                <div></div>
+            <article class="datetime_choice active">
                 <div>
                     <div class="datetime_movie">
                         <img src="./images/post_img/movie01_kruella.jpg">
+                        <img src="./images/icon/age_15.png">
                     </div>
                     <div class="datetime_list">
-                        <div class="datetime_list_title">
-                            강남
-                        </div>
-                        
-                        <div>
+                        <div class="datetime_list_title">강남</div>
+                        <div class="datetime_list_tab">
                             <div>
-                                <div>1관</div>
-                                <div>총 232석</div>
-                            </div>
-                            <div>
-                                <div>2D(자막)</div>
-                            </div>
-                            <div>
-                                <div>17:50</div>
-                                <span>140석</span>
-                            </div>
-                        </div>
-                        <div>
-                            <div>
-                                <div>4관</div>
-                                <div>총 103석</div>
-                            </div>
-                            <div>
-                                <div>2D(자막)</div>
-                            </div>
-                            <div>
-                                <div>13:40</div>
-                                <span>65석</span>
-                            </div>
-                            <div>
-                                <div>21:10</div>
-                                <span>66석</span>
-                            </div>
-                        </div>
-                        <div>
-                            <div>
-                                <div>6관</div>
-                                <div>총 103석</div>
-                            </div>
-                            <div>
-                                <div>2D(자막)</div>
-                            </div>
-                            <div>
-                                <div>12:30</div>
-                                <span>63석</span>
-                            </div>
-                            <div>
-                                <div>14:50</div>
-                                <span>65석</span>
-                            </div>
-                            <div>
-                                <div>17:10</div>
-                                <span>62석</span>
-                            </div>
-                            <div>
-                                <div>19:30</div>
-                                <span>43석</span>
-                            </div>
-                            <div>
-                                <div>21:50</div>
-                                <span>63석</span>
+                                <div>
+                                    <div>
+                                        <div>4관</div>
+                                        <div>총 103석</div>
+                                    </div>
+                                    <div>
+                                        <div>2D(자막)</div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div>
+                                        <div>13:40</div>
+                                        <span>65석</span>
+                                    </div>
+                                    <div>
+                                        <div>21:10</div>
+                                        <span>66석</span>
+                                    </div>
+                                    <div>
+                                        <div>13:40</div>
+                                        <span>65석</span>
+                                    </div>
+                                    <div>
+                                        <div>21:10</div>
+                                        <span>66석</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
