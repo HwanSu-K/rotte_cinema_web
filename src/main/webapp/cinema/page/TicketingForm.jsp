@@ -7,6 +7,7 @@
 <%@ include file="../include/IncludeDefault.jsp"%>
 
 <link rel="stylesheet" href="./style/ticketing.css" />
+<script src="./js/ticketing.js"></script>
 </head>
 <body>
 	<c:import url="/include/header.do"/>
@@ -20,7 +21,7 @@
 	<div class="content">
 		<section class="reserv">
 			<div class="reserv_tab">
-				<div class="${param.index == null ? 'active' : ''}" onclick="location.href='ticketing.do'">
+				<div class="${param.index == null ? 'active' : ''}">
 					<span>STEP 1</span> <span>영화선택</span>
 				</div>
 				<div class="${param.index != null ? 'active' : ''}">
@@ -88,93 +89,37 @@
 					<div class="theater_list">
 						<div class="theater_list_title">
 						<c:forEach var="local" items="${locals}" varStatus="status">
-						<div class="locals" data-local-class="${local.localClass }">${local.localName }</div>
-						<c:if test="${status.last == false}">
-						<div>|</div>
-						</c:if>
+							<div class="locals" data-local-class="${local.localClass }">${local.localName }</div>
+							<c:if test="${!status.last }">
+									<span>|</span>
+							</c:if>
 						</c:forEach>
 						</div>
 
 						<div class="theater_list_tab">
-							<c:forEach var="cinema" items="${cinemas}" varStatus="status">
-							<div data-local-class="${cinema.localClass }">${cinema.title }</div>
+							<c:forEach var="cinema" items="${cinemas}">
+								<div data-cinema-index="${cinema.index }" data-local-class="${cinema.localClass }" class="${cinema.count == 0 ? 'disabled':'' }">${cinema.title }</div>
 							</c:forEach>
 						</div>
 					</div>
 				</div>
 			</article>
 
-			<article class="datetime_choice ${reserv != null ? 'active' : ''}">
-				<div></div>
-				<div>
-					<div class="datetime_movie">
-						<img src="./images/post_img/movie01_kruella.jpg">
-					</div>
-					<div class="datetime_list">
-						<div class="datetime_list_title">강남</div>
-
-						<div>
-							<div>
-								<div>1관</div>
-								<div>총 232석</div>
-							</div>
-							<div>
-								<div>2D(자막)</div>
-							</div>
-							<div>
-								<div>17:50</div>
-								<span>140석</span>
-							</div>
-						</div>
-						<div>
-							<div>
-								<div>4관</div>
-								<div>총 103석</div>
-							</div>
-							<div>
-								<div>2D(자막)</div>
-							</div>
-							<div>
-								<div>13:40</div>
-								<span>65석</span>
-							</div>
-							<div>
-								<div>21:10</div>
-								<span>66석</span>
-							</div>
-						</div>
-						<div>
-							<div>
-								<div>6관</div>
-								<div>총 103석</div>
-							</div>
-							<div>
-								<div>2D(자막)</div>
-							</div>
-							<div>
-								<div>12:30</div>
-								<span>63석</span>
-							</div>
-							<div>
-								<div>14:50</div>
-								<span>65석</span>
-							</div>
-							<div>
-								<div>17:10</div>
-								<span>62석</span>
-							</div>
-							<div>
-								<div>19:30</div>
-								<span>43석</span>
-							</div>
-							<div>
-								<div>21:50</div>
-								<span>63석</span>
-							</div>
-						</div>
-					</div>
-				</div>
-			</article>
+			<article class="datetime_choice">
+                <div>
+                    <div class="datetime_movie">
+                        <c:if test="${movie != null}">
+						<img src="./images/poster/${movie.poster }">
+                        <img src="./images/icon/age_${movie.limitAge }.png">
+						</c:if>
+                    </div>
+                    <div class="datetime_list">
+                        <div class="datetime_list_title"></div>
+                        <div class="datetime_list_tab">
+                        </div>
+                    </div>
+                </div>
+            </article>
 
 		</section>
 	</div>

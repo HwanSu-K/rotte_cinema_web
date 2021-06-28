@@ -7,16 +7,22 @@
 	<resultMap type="Cinema" id="ResultMap">
 		<id column="CINEMA_INDEX" property="index" />
 		<result column="CINEMA_TITLE" property="title" />
+		<result column="MOVIE_COUNT" property="count" />
 		<result column="CINEMA_ADDRESS" property="addr" />
 		<result column="CINEMA_INFO" property="info" />
 		<result column="LOCAL_NAME" property="localName" />
 		<result column="LOCAL_CLASS" property="localClass" />
 	</resultMap>
 
-	<select id="selectList" parameterType="map"
+	<select id="selectList" parameterType="int"
 		resultMap="ResultMap">
-		SELECT A.CINEMA_INDEX,A.CINEMA_TITLE,A.CINEMA_ADDRESS,A.CINEMA_INFO,B.LOCAL_NAME,B.LOCAL_CLASS 
-		FROM CINEMA A INNER JOIN CATEGORY_LOCAL B ON A.LOCAL_INDEX = B.LOCAL_INDEX
+		SELECT C.CINEMA_INDEX,C.CINEMA_TITLE,COUNT(B.COUNT) AS MOVIE_COUNT,D.LOCAL_CLASS 
+		FROM CINEMA_THEATER A 
+		LEFT OUTER JOIN (SELECT THEATER_INDEX, COUNT(SHOWING_INDEX) AS COUNT FROM MOVIE_SHOWING WHERE MOVIE_INDEX = #{value} AND SHOW_DATE = DATE_FORMAT(NOW(),'%Y-%m-%d') GROUP BY THEATER_INDEX) B 
+		ON A.THEATER_INDEX = B.THEATER_INDEX 
+		INNER JOIN CINEMA C ON A.CINEMA_INDEX = C.CINEMA_INDEX INNER JOIN CATEGORY_LOCAL D ON C.LOCAL_INDEX = D.LOCAL_INDEX
+		GROUP BY C.CINEMA_TITLE,C.CINEMA_INDEX
+		ORDER BY C.LOCAL_INDEX,C.CINEMA_TITLE
 	</select>
 	
 	<select id="selectListLocal" parameterType="map"

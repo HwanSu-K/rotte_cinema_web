@@ -3,6 +3,7 @@ package spms.vo;
 public class Cinema {
 	protected int index;
 	protected String title;
+	protected int count;
 	protected String addr;
 	protected String info;
 	protected String localName;
@@ -19,6 +20,12 @@ public class Cinema {
 	}
 	public void setTitle(String title) {
 		this.title = title;
+	}
+	public int getCount() {
+		return count;
+	}
+	public void setCount(int count) {
+		this.count = count;
 	}
 	public String getAddr() {
 		return addr;

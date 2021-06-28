@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 2. 동적 SQL 적용 -->
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="spms.dao.TheaterDao">
+	<resultMap type="theater" id="ResultMap">
+		<id column="THEATER_INDEX" property="index" />
+		<result column="THEATER_NAME" property="name" />
+		<result column="THEATER_SEAT_X" property="seatX" />
+		<result column="THEATER_SEAT_Y" property="seatY" />
+		<result column="SHOWING_INDEX" property="indexShowing" />
+		<result column="SHOW_STARTTIME" property="startTime" />
+	</resultMap>
+
+	<select id="selectList" parameterType="map"
+		resultMap="ResultMap">
+		SELECT A.THEATER_INDEX,A.THEATER_NAME,A.THEATER_SEAT_X,A.THEATER_SEAT_Y,B.SHOWING_INDEX,B.SHOW_STARTTIME 
+		FROM CINEMA_THEATER A INNER JOIN MOVIE_SHOWING B ON A.THEATER_INDEX = B.THEATER_INDEX
+		WHERE A.CINEMA_INDEX = #{indexCinema} AND B.MOVIE_INDEX = #{indexMovie} AND B.SHOW_DATE = DATE_FORMAT(NOW(),'%Y-%m-%d') 
+		ORDER BY THEATER_INDEX,SHOW_STARTTIME
+	</select>
+	
+</mapper>

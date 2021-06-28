@@ -16,7 +16,7 @@
 		SELECT BANNER_INDEX,BANNER_IMAGE,BANNER_VIDEO,BANNER_STATE FROM BANNER
 		<choose>
 			<when test="view == 'all'"></when>
-			<otherwise>WHERE BANNER_STATE = 1;</otherwise>
+			<otherwise>WHERE BANNER_STATE = 1</otherwise>
 		</choose>
 	</select>
 	

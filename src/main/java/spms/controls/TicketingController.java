@@ -40,7 +40,7 @@ public class TicketingController {
 			Movie detailInfo = movieDao.selectOneDefault(Integer.parseInt(index));
 			model.put("movie", detailInfo);
 			model.put("locals", cinemaDao.selectListLocal());
-			model.put("cinemas", cinemaDao.selectList());
+			model.put("cinemas", cinemaDao.selectList(Integer.parseInt(index)));
 		}
 
 		return "/cinema/page/TicketingForm.jsp";
