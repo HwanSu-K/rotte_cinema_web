@@ -1,1 +1,6 @@
-#reviewButton.disabled {background-color: #efefef}
+.movie_info {display: flex; flex-direction : row; width: 1200px;}
+.movie_info > .post {display: flex; flex-direction: column;}
+.movie_info > .post > img {width: 200px;}
+.movie_info > .detail_top {margin-left: 90px;}
+.movie_info > .detail_top > .title > img {margin: 5px 2px;}
+.movie_info > .detail_top > .title > span:nth-child(2) {font-size: 19pt;}
