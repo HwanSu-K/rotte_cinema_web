@@ -7,6 +7,7 @@
 	<%@ include file="../include/IncludeDefault.jsp" %>
 
     <link rel="stylesheet" href="./style/movie.css" />
+    <script src="./js/movie.js"></script>
 </head>
 <body>	
     <c:import url="/include/header.do"/>
@@ -27,9 +28,10 @@
                 <div class="${param.type == 'qration' ? 'active' : ''}" onClick="location.href ='movie.do?type=qration'">큐레이션</div>
             </div>
             <div class="movie_list">
-            <c:forEach var="movie" items="${movies}">
+            <c:forEach var="movie" items="${movies}" varStatus="status">
 				<div>
                     <div onClick="location.href ='moviedetail.do?index=${movie.index}'">
+                    	<div><p>${status.count }</p></div>
                         <img src="./images/poster/${movie.poster }">
                         <img src="./images/icon/age_${movie.limitAge }.png">
                     </div>
@@ -43,11 +45,29 @@
                         <span>${movie.rating }</span>
                     </div>
                     <div>
-                        <div>
-                            <i class="far fa-heart"></i>
+                    <div class="movieLike" data-movie-index ="${movie.index }">
+                        <c:set var="loop_flag" value="false" />
+                        <c:forEach var="like" items="${likes }">
+					    	<c:if test="${like.indexMovie == movie.index }">
+					    		<i class="fas fa-heart active"></i>
+					    		<c:set var="loop_flag" value="true" />
+					    	</c:if>
+					    </c:forEach>
+					    <c:if test="${not loop_flag }">
+					    	<i class="far fa-heart"></i>
+				    	</c:if>
+					    
+                            
                             <span>${movie.like }</span>
                         </div>
-                        <div onClick="location.href ='ticketing.do?index=${movie.index}'">예매</div>
+                        <c:if test="${movie.openSoon >= 0 }">
+                        	<div onClick="location.href ='ticketing.do?index=${movie.index}'">예매</div>
+                        </c:if>
+                        
+                        <c:if test="${movie.openSoon < 0 }">
+                        	<div class="disabled">D${movie.openSoon }</div>
+                        </c:if>
+                        
                     </div>
                 </div>
 			</c:forEach>

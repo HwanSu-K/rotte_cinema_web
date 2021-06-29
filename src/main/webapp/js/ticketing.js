@@ -1,20 +1,19 @@
 $(document).ready(function() {
-	const urlParams = new URLSearchParams(location.search);
-	
+
 	$('.theater_list_title > div').on('click', function(e) {
 		$('.theater_list_title > div').each(function() {
 			$(this).removeClass('active');
 		});
 		
 		$('.theater_list_tab > div').each(function() {
-			if ($(e.target).data('local-class') === $(this).data('local-class')) {
+			if ($(e.currentTarget).data('local-class') === $(this).data('local-class')) {
 				$(this).css('display','flex');
 			} else {
 				$(this).css('display','none');
 			}
 		});
 
-		$(e.target).addClass('active');
+		$(e.currentTarget).addClass('active');
 	});
 
 	// 첫번째 항목 클릭.
@@ -25,18 +24,18 @@ $(document).ready(function() {
 	});
 	
 	$('.theater_list_tab > div').on('click',function(e){
-		if(!$(e.target).hasClass('disabled')) {
+		if(!$(e.currentTarget).hasClass('disabled')) {
 			$('.reserv_tab > div:nth-child(2)').removeClass('active');
 			$('.reserv_tab > div:nth-child(3)').addClass('active');
 			$('.theater_choice').removeClass('active');
 			$('.datetime_choice').addClass('active');
 			
-			$('.datetime_list_title').text($(e.target).text());
+			$('.datetime_list_title').text($(e.currentTarget).text());
 			
 			$('.datetime_list_tab > div').remove();
 			
 			var form = {
-				movie: urlParams.get('index'),
+				movie: new URLSearchParams(location.search).get('index'),
 				cinema: $(e.target).data('cinema-index')
 			}
 					
@@ -71,7 +70,7 @@ $(document).ready(function() {
 						$('#theater-' + this.index + '').append($(
 							'<div>' +
 								'<div>' + this.startTime + '</div>' +
-								'<div>' + (this.seatX * this.seatY) + '석</div>' +
+								'<span>' + (this.seatX * this.seatY) + '석</span>' +
 							'</div>'
 						));	
 							

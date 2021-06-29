@@ -6,7 +6,8 @@
 <head>
 	<%@ include file="../include/IncludeDefault.jsp" %>   
 	
-	<link rel="stylesheet" href="./style/login.css" /> 
+	<link rel="stylesheet" href="./style/login.css" />
+	<script src="./js/login.js"></script> 
 </head>
 <body>
     <c:import url="/include/header.do"/>
@@ -22,7 +23,7 @@
         <div class="member_login">
             <div class="login_tab">
                 <div class="active">회원 로그인</div>
-                <div style="">비회원 로그인 (예매확인)</div>
+                <div class="">비회원 로그인 (예매확인)</div>
             </div>
 
             <div class="welcom">
@@ -43,7 +44,7 @@
                             <input type="password" name="password" maxlength="15" placeholder="비밀번호를 입력해 주세요."
                              onKeypress="javascript:if(event.keyCode==13) {document.getElementById('login').submit();}">
                         </div>
-                        <div onclick="document.getElementById('login').submit();">로그인</div>
+                        <div id="loginBtn">로그인</div>
                     </div>
 
                     <div class="save">
@@ -54,8 +55,8 @@
 
                     <div class="click">
                         <div onclick="location.href='registration.do'">회원가입</div>
-                        <div>아이디 찾기</div>
-                        <div>비밀번호 찾기</div>
+                        <div onclick="location.href='finder.do?type=email'">아이디 찾기</div>
+                        <div onclick="location.href='finder.do?type=password'">비밀번호 찾기</div>
                     </div>
                 </div>
             </div>

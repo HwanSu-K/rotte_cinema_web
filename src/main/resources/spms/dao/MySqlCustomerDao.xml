@@ -51,4 +51,27 @@
 		FROM CUSTOMER
 		WHERE CUSTOMER_EMAIL=#{email} and CUSTOMER_PASSWORD=#{password}
 	</select>
+	
+	<select id="finder" parameterType="map"
+		resultMap="ResultMap">
+		
+		<if test="email == null">
+		SELECT CUSTOMER_EMAIL 
+		FROM CUSTOMER
+		WHERE CUSTOMER_NAME=#{name} AND CUSTOMER_BIRTH=#{birth} AND CUSTOMER_PHONENUM=#{phonenum}
+		</if>
+		
+		<if test="email != null">
+		SELECT CUSTOMER_PASSWORD 
+		FROM CUSTOMER
+		WHERE CUSTOMER_EMAIL=#{email} AND CUSTOMER_NAME=#{name} AND CUSTOMER_BIRTH=#{birth} AND CUSTOMER_PHONENUM=#{phonenum}
+		</if>
+	</select>
+	
+	<select id="email" parameterType="map"
+		resultMap="ResultMap">
+		SELECT CUSTOMER_INDEX
+		FROM CUSTOMER
+		WHERE CUSTOMER_EMAIL=#{email}
+	</select>
 </mapper>

@@ -7,7 +7,7 @@
 	<%@ include file="../include/IncludeDefault.jsp" %>
 
     <link rel="stylesheet" href="./style/main.css" />
-    <script src="./js/index.js"></script>
+    <script src="./js/main.js"></script>
     
     <script src="./plugin/jquery.touchSwipe.min.js"></script>
     <link rel="stylesheet" href="./plugin/lightslider.css" />
@@ -86,9 +86,10 @@
                 <img src="./images/icon/section2_arrow_right.png">   <!-- 화살표 아이콘 -->
             </div>
             <div class="reserv_list">
-            <c:forEach var="movie" items="${movies}">
+            <c:forEach var="movie" items="${movies}" varStatus="status">
                 <div>
                     <div onClick="location.href ='moviedetail.do?index=${movie.index}'">
+                    	<div><p>${status.count }</p></div>
                         <img src="./images/poster/${movie.poster }">
                         <img src="./images/icon/age_${movie.limitAge }.png">
                     </div>
@@ -123,33 +124,28 @@
                     <img src="./images/icon/plus_icon.png">
                 </span>
             </div>
-
+			<c:forEach var="qration" items="${qrations}" end="0">
             <div class="qration_main">
                 <div>
-                    <img src="./images/qration_img/qration_img_01.jpg">
+                    <img src="./images/poster/${qration.poster }">
                 </div>       <!-- 큰 포스트 -->
                 <div>
-                <input type="button" value="상세정보">
-                <input type="button" value="예매">
+                <input type="button" onClick="location.href ='moviedetail.do?index=${qration.index}'" value="상세정보">
+                <input type="button" onClick="location.href ='ticketing.do?index=${qration.index}'" value="예매">
                 </div>
             </div>
             
             <div class="qration_sub_info">
-                <div class="tag">#클래식소사이어티</div>      <!-- #adb4f8 -->
-                <div class="title">2021 빈 필하모닉 여름음악회</div>
+                <div class="tag">${qration.tags }</div>      <!-- #adb4f8 -->
+                <div class="title">${qration.title }</div>
                 <div>
-                    스크린으로 만나는 세계 최대 클래식 여름 축제!<br>
-                    2021 빈 필하모닉 여름음악회<br><br>
-    
-                    [상영정보]<br>
-                    - 상영일시 : 2021년 6월 19일(토) 20:00 *딜레이중계<br>
-                    - 예매오픈 : 2021년 5월 24일(월) 15:00<br>
-                    - 공연시간 : 약 90분 (인터미션 없음)<br>
+                    ${qration.info }
                 </div>
             </div>
+            </c:forEach>
             <div class="qration_post">
-            <c:forEach var="qration" items="${qrations}" end="3">
-            	<div>
+            <c:forEach var="qration" items="${qrations}" begin="1" end="4">
+            	<div onClick="location.href ='moviedetail.do?index=${qration.index}'">
                     <img class="icon" src="./images/icon/qration_c_icon.png">
                     <img src="./images/poster/${qration.poster }">
                     <div>${qration.title }</div>

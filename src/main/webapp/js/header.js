@@ -69,7 +69,7 @@ $(document).ready(function() {
 	});
 	
 	$('#searchText').on('propertychange change keyup paste input', function(e){
-		var searchText = e.target.value.trim();
+		var searchText = e.currentTarget.value.trim();
 		if(searchText != '') {
 			var form = {
 			search: searchText

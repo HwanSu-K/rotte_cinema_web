@@ -23,10 +23,10 @@ public class MySqlBannerDao implements BannerDao {
 	}
 
 	@Override
-	public List<Banner> selectList(HashMap<String, Object> paramMap) throws Exception {
+	public List<Banner> selectList() throws Exception {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		try {
-			return sqlSession.selectList("spms.dao.BannerDao.selectList", paramMap);
+			return sqlSession.selectList("spms.dao.BannerDao.selectList");
 		} finally {
 			sqlSession.close();
 		}

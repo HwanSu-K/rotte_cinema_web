@@ -6,6 +6,8 @@ import java.util.List;
 import spms.vo.Movie;
 
 public interface MovieDao {
+	List<Movie> selectList() throws Exception;
+	
 	List<Movie> selectList(HashMap<String, Object> paramMap) throws Exception;
 	
 	List<Movie> selectListTitle(HashMap<String, Object> paramMap) throws Exception;

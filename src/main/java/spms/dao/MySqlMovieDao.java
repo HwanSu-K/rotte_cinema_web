@@ -21,6 +21,17 @@ public class MySqlMovieDao implements MovieDao {
 		this.sqlSessionFactory = sqlSessionFactory;
 	}
 	
+
+	@Override
+	public List<Movie> selectList() throws Exception {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		try {
+			return sqlSession.selectList("spms.dao.MovieDao.selectList");
+		} finally {
+			sqlSession.close();
+		}
+	}
+	
 	@Override
 	public List<Movie> selectList(HashMap<String, Object> paramMap) throws Exception {
 		SqlSession sqlSession = sqlSessionFactory.openSession();

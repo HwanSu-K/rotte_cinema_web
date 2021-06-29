@@ -30,14 +30,13 @@ public class MainController {
 	@RequestMapping("/main.do")
 	public String execute(Map<String, Object> model) throws Exception {
 		HashMap<String, Object> paramMap = new HashMap<String, Object>();
-		HashMap<String, Object> paramMapQration = new HashMap<String, Object>();
-		paramMapQration.put("view", "qration");
+		paramMap.put("type", "qration");
 		
-		model.put("movies", movieDao.selectList(paramMap));
+		model.put("movies", movieDao.selectList());
 		
-		model.put("qrations", movieDao.selectList(paramMapQration));
+		model.put("qrations", movieDao.selectList(paramMap));
 		
-		model.put("banners", bannerDao.selectList(paramMap));
+		model.put("banners", bannerDao.selectList());
 		return "/cinema/page/MainForm.jsp";
 	}
 }

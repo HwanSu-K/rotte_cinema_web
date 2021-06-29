@@ -1,16 +1,18 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<%@ include file="../include/IncludeDefault.jsp" %>   
-	
-	<link rel="stylesheet" href="./style/registration.css" /> 
-	<script src="./js/registration.js"></script>
+    <meta charset="UTF-8">
+    <title>rotte_cinema</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style/default.css" />
+    <script src="./plugin/jquery.min.js"></script>
+    <script src="./plugin/jquery-ui.min.js"></script>
+    <script src="./js/default.js"></script>
+    
+	<link rel="stylesheet" href="./style/registration.css" />
 </head>
 <body>
-    <c:import url="/include/header.do"/>
+    <header></header>
     <section class="location">      <!-- background-color: #f8f8fa; -->
         <div>
             <span><i class="fas fa-home"></i></span>
@@ -33,24 +35,25 @@
                         <input type="text" id="email" name="email" maxlength="15">
                         <span>@</span>
                         <input type="text" id="emailAddr" name="email" maxlength="15">
-                        <select id='emailSelect' name='state'>
+                        <select id='state' name='state'>
                             <option value='' >직접입력</option>
                             <option value='naver.com'>네이버</option>
                             <option value='hanmail.com'>다음</option>
                             <option value='gmail.com'>구글</option>
                             <option value='kakao.com'>카카오</option>
                         </select>
+                        <div class="btn">중복체크</div>
                     </div>
-                    <div id="emailAlert" class="disabled"></div>
+                    <div id="emailAlert" class="disabled">이미 존재하는 이메일 입니다.</div>
                     <div>
                         <label for="pass"><span>*</span>비밀번호</label>
-                        <input type="password" id="pass" name="name" maxlength="5">                        
+                        <input type="text" id="pass" name="name" maxlength="5">                        
                     </div>
                     <div>
                         <label for="passcheck"><span>*</span>비밀번호확인</label>
-                        <input type="password" id="passcheck" name="name" maxlength="5">
+                        <input type="text" id="passcheck" name="name" maxlength="5">
                     </div>
-                    <div id="passAlert" class="disabled"></div>
+                    <div id="passAlert" class="disabled">비밀번호가 일치하지 않습니다.</div>
                     <div><label for="name"><span>*</span>이름</label><input type="text" id="name" name="name" maxlength="5"></div>
                     <div>
                         <label for="birth"><span>*</span>생년월일</label>
@@ -88,16 +91,16 @@
                     </div>    
                     <div>
                         <label for="zipcode"><span>*</span>주소</label>
-                        <input type="text" id="zipcode" name="zipcode" maxlength="6" disabled>                        
+                        <input type="text" id="zipcode" name="zipcode" maxlength="6" readonly>                        
                         <div class="btn">주소찾기</div>
                     </div>                
                     <div>
                         <label for="addr"></label>
-                        <input type="text" id="addr" name="addr" maxlength="20" disabled>                        
+                        <input type="text" id="addr" name="addr" maxlength="20" readonly>                        
                     </div>
                     <div>
                         <label for="addr2"></label>
-                        <input type="text" id="addr2" name="addr" maxlength="20">                        
+                        <input type="text" id="addr2" name="addr" maxlength="20" readonly>                        
                     </div>
                 </form>
             </section>
@@ -106,9 +109,9 @@
                 <div>홍길동님 가입을 환영합니다.</div>
             </section>
 
-            <div class="reg_btn"><div id="btn_cancel" class="disabled">취소</div><div id="btn_reg">가입</div></div>
+            <div class="reg_btn"><div class="disabled">취소</div><div>가입</div></div>
         </div>
     </div>
-    <c:import url="/include/footer.do"/>
+    <footer></footer>
 </body>
 </html>

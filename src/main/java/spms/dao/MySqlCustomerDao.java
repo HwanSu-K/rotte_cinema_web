@@ -101,10 +101,30 @@ public class MySqlCustomerDao implements CustomerDao {
 		paramMap.put("email", email);
 		paramMap.put("password", password);
 
-		System.out.println(paramMap);
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		try {
 			return sqlSession.selectOne("spms.dao.CustomerDao.exist", paramMap);
+		} finally {
+			sqlSession.close();
+		}
+	}
+	
+	@Override
+	public Customer finder(Customer customer) throws Exception {
+
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		try {
+			return sqlSession.selectOne("spms.dao.CustomerDao.finder", customer);
+		} finally {
+			sqlSession.close();
+		}
+	}
+
+	@Override
+	public Customer email(HashMap<String, Object> paramMap) throws Exception {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		try {
+			return sqlSession.selectOne("spms.dao.CustomerDao.email", paramMap);
 		} finally {
 			sqlSession.close();
 		}

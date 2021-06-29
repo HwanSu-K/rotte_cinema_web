@@ -21,6 +21,6 @@ public class LocationController {
 	@RequestMapping("/location.do")
 	public String execute(Map<String, Object> model) throws Exception {
 
-		return "/cinema/page/WaringForm.jsp";
+		return "/cinema/page/LocationForm.jsp";
 	}
 }

@@ -1,0 +1,40 @@
+.member_reg {width: 800px; margin:0 auto;}
+.member_reg > .reg_tab {display: flex; justify-content: center;}       /* 목록 탭 */
+.member_reg > .reg_tab > div {width: 400px; height: 65px; display: flex; justify-content: center; align-items: center; 
+    border: 1px solid #e0e0e0; margin-left: -1px; font-size: 13pt;}       /* 목록탭 버튼 */
+.member_reg > .reg_tab > div.active 
+    {background-color: #f3f3f3; border-bottom: 4px solid #2b3380; height: 62px; color: black;}
+.member_reg > .reg_tab > div {color: #898989;}
+
+.member_reg > section              /* 로그인 박스 설정 */
+    {display: none; flex-direction: column; justify-content: center; align-items:center; margin: 0 auto;
+    padding:40px 0; background-color: #f9f9f9; margin-bottom: 30px; font-size: 11pt;}
+.member_reg > #formcomp {font-size: 18pt;}
+.member_reg > section.active {display:flex;}    
+.member_reg > section > form {width: 90%;}
+.member_reg > section > form > div {display: flex; justify-content: flex-start; align-items: center;}    
+.member_reg > section > form > div > label {flex-basis: 100px;}
+.member_reg > section > form > div > label > span {color:#ff0000; margin: 0 5px;}
+.member_reg > section > form > div > input , .member_reg > section > form > div > select         /* 이메일, 비번 입력 박스 */
+    {width: 300px; height: 40px; margin: 5px 5px; padding-left: 10px;
+    box-sizing: border-box; border: 1px solid #ddd;}
+.member_reg > section > form > #emailAlert, 
+.member_reg > section > form > #passAlert {color:#ff0000; margin: 0 10px;}
+.member_reg > section > form > #emailAlert.active {color:#27be6d; margin: 0 10px;}
+.member_reg > section > form > #emailAlert.disabled,
+.member_reg > section > form > #passAlert.disabled {display: none;}
+.member_reg > section > form > div > #email,
+.member_reg > section > form > div > #emailAddr {width: 150px;}
+.member_reg > section > form > div > #name {width: 180px;}
+.member_reg > section > form > div > #p_middle,
+.member_reg > section > form > div > #p_bottom {width: 100px;}
+.member_reg > section > form > div > #zipcode {width: 180px;}
+.member_reg > section > form > div > #addr,
+.member_reg > section > form > div > #addr2 {width: 400px;}
+.member_reg > section > form > div > .btn {display: flex; justify-content: center; align-items: center; width: 100px; height: 30px; margin:0 5px; color: #fff; background-color: #252451;}
+.member_reg > section > form > div > select {width: 100px;}
+.member_reg > section > form > div > input::placeholder {color: rgb(184, 184, 184);}      /*인풋박스 폰트 컬러*/
+.member_reg > section > form > div > input[type="text"]:disabled { background: #ebebeb; }
+.member_reg > .reg_btn {display: flex; justify-content: center; align-items: center;}
+.member_reg > .reg_btn div {display: flex; justify-content: center; align-items: center; width: 150px; height: 30px; margin:0 15px; color: #fff; background-color: #252451;}
+.member_reg > .reg_btn div.disabled {background-color: #707070; }

@@ -217,81 +217,135 @@
 	                <span id="movieSubTitle"></span>
 	            </div>
 	            <div>
-	                <span>상영중</span>
-	                <span id="movieRunningTime"></span>
+	                <div>상영중</div>
+	                <div>/</div>
+	                <div id="movieRunningTime"></div>
 	            </div>
 	        </div>
 	        <div class="reserv_info_local">
 	            <div class="active">서울</div>
 	            <div>대구</div>
 	        </div>
-	        <div class="reserv_info_list">
-	            <div class="reserv_info_list_title">
-	                강남
-	            </div>
-	            <div class="reserv_info_list_theater">
-	                <div>
-	                    <div>
-	                        <div>1관</div>
-	                        <div>총 232석</div>
-	                    </div>
-	                    <div>
-	                        <div>2D(자막)</div>
-	                    </div>
-	                    <div>
-	                        <div>17:50</div>
-	                        <span>140석</span>
-	                    </div>
-	                </div>
-	                <div>
-	                    <div class="">
-	                        <div>4관</div>
-	                        <div>총 103석</div>
-	                    </div>
-	                    <div>
-	                        <div>2D(자막)</div>
-	                    </div>
-	                    <div>
-	                        <div>13:40</div>
-	                        <span>65석</span>
-	                    </div>
-	                    <div>
-	                        <div>21:10</div>
-	                        <span>66석</span>
-	                    </div>
-	                </div>
-	                <div>
-	                    <div>
-	                        <div>6관</div>
-	                        <div>총 103석</div>
-	                    </div>
-	                    <div>
-	                        <div>2D(자막)</div>
-	                    </div>
-	                    <div>
-	                        <div>12:30</div>
-	                        <span>63석</span>
-	                    </div>
-	                    <div>
-	                        <div>14:50</div>
-	                        <span>65석</span>
-	                    </div>
-	                    <div>
-	                        <div>17:10</div>
-	                        <span>62석</span>
-	                    </div>
-	                    <div>
-	                        <div>19:30</div>
-	                        <span>43석</span>
-	                    </div>
-	                    <div>
-	                        <div>21:50</div>
-	                        <span>63석</span>
-	                    </div>
-	                </div>
-	            </div>
-	            
-	        </div>
+	        
+	        <div class="reserv_list">
+				<div class="reserv_info_list">
+					<div>
+						<div class="reserv_info_list_title">강변</div>
+					</div>
+					<div class="reserv_info_list_theater">
+						<div>
+							<div>
+								<div>
+									<div>4관</div>
+									<div>총 25석</div>
+								</div>
+								<div>
+									<div>2D(자막)</div>
+								</div>
+							</div>
+							<div id="theater-8">
+								<div>
+									<div>11:00</div>
+									<span>25석</span>
+								</div>
+								<div>
+									<div>14:30</div>
+									<span>25석</span>
+								</div>
+								<div>
+									<div>16:20</div>
+									<span>25석</span>
+								</div>
+							</div>
+						</div>
+	
+						<div>
+							<div>
+								<div>
+									<div>4관</div>
+									<div>총 25석</div>
+								</div>
+								<div>
+									<div>2D(자막)</div>
+								</div>
+							</div>
+							<div id="theater-8">
+								<div>
+									<div>11:00</div>
+									<span>25석</span>
+								</div>
+								<div>
+									<div>14:30</div>
+									<span>25석</span>
+								</div>
+								<div>
+									<div>16:20</div>
+									<span>25석</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+	
+				<div class="reserv_info_list">
+					<div>
+						<div class="reserv_info_list_title">강변</div>
+					</div>
+					<div class="reserv_info_list_theater">
+						<div>
+							<div>
+								<div>
+									<div>4관</div>
+									<div>총 25석</div>
+								</div>
+								<div>
+									<div>2D(자막)</div>
+								</div>
+							</div>
+							<div id="theater-8">
+								<div>
+									<div>11:00</div>
+									<div>25석</div>
+								</div>
+								<div>
+									<div>14:30</div>
+									<div>25석</div>
+								</div>
+								<div>
+									<div>16:20</div>
+									<div>25석</div>
+								</div>
+							</div>
+						</div>
+	
+						<div>
+							<div>
+								<div>
+									<div>4관</div>
+									<div>총 25석</div>
+								</div>
+								<div>
+									<div>2D(자막)</div>
+								</div>
+							</div>
+							<div id="theater-8">
+								<div>
+									<div>11:00</div>
+									<div>25석</div>
+								</div>
+								<div>
+									<div>14:30</div>
+									<div>25석</div>
+								</div>
+								<div>
+									<div>16:20</div>
+									<div>25석</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 	
 			<div class="reserv_warning">
 	            <div>・ 지연입장에 의한 관람불편을 최소화하고자 본 영화는 약 10분 후 시작됩니다.</div>
