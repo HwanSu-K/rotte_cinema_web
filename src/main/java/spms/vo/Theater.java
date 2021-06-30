@@ -7,6 +7,9 @@ public class Theater {
 	protected int seatY;
 	protected int indexShowing;
 	protected String startTime;
+	protected int indexCinema;
+	protected String nameCinema;
+	protected String localClass;
 	
 	public int getIndex() {
 		return index;
@@ -43,5 +46,23 @@ public class Theater {
 	}
 	public void setStartTime(String startTime) {
 		this.startTime = startTime;
+	}
+	public int getIndexCinema() {
+		return indexCinema;
+	}
+	public void setIndexCinema(int indexCinema) {
+		this.indexCinema = indexCinema;
+	}
+	public String getNameCinema() {
+		return nameCinema;
+	}
+	public void setNameCinema(String nameCinema) {
+		this.nameCinema = nameCinema;
+	}
+	public String getLocalClass() {
+		return localClass;
+	}
+	public void setLocalClass(String localClass) {
+		this.localClass = localClass;
 	}
 }

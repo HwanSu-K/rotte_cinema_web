@@ -7,6 +7,9 @@ public class Customer {
 	protected String name;
 	protected String birth;
 	protected String phonenum;
+	protected String zipcode;
+	protected String address;
+	protected String detailaddress;
 	protected int access;
 	
 	public int getIndex() {
@@ -44,6 +47,24 @@ public class Customer {
 	}
 	public void setPhonenum(String phonenum) {
 		this.phonenum = phonenum;
+	}
+	public String getZipcode() {
+		return zipcode;
+	}
+	public void setZipcode(String zipcode) {
+		this.zipcode = zipcode;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	public String getDetailaddress() {
+		return detailaddress;
+	}
+	public void setDetailaddress(String detailaddress) {
+		this.detailaddress = detailaddress;
 	}
 	public int getAccess() {
 		return access;

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import spms.dao.CustomerDao;
@@ -38,7 +39,6 @@ public class LogInController {
 
 	@RequestMapping(value = "/login.do", method = RequestMethod.POST)
 	public String login(String email, String password, String saveEmail, HttpServletResponse response, Map<String, Object> model) throws Exception {
-		System.out.println(saveEmail);
 		Cookie cookie = null;
 		if (saveEmail != null) {
 			cookie = new Cookie("email", email);

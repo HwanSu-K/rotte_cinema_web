@@ -20,6 +20,16 @@ public class MySqlCinemaDao implements CinemaDao {
 	}
 
 	@Override
+	public List<Cinema> selectListDefault() throws Exception {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		try {
+			return sqlSession.selectList("spms.dao.CinemaDao.selectDefault");
+		} finally {
+			sqlSession.close();
+		}
+	}
+	
+	@Override
 	public List<Cinema> selectList(int no) throws Exception {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		try {
@@ -34,6 +44,16 @@ public class MySqlCinemaDao implements CinemaDao {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		try {
 			return sqlSession.selectList("spms.dao.CinemaDao.selectListLocal");
+		} finally {
+			sqlSession.close();
+		}
+	}
+
+	@Override
+	public Cinema selectOneDefault(int no) throws Exception {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		try {
+			return sqlSession.selectOne("spms.dao.CinemaDao.selectOneDefault", no);
 		} finally {
 			sqlSession.close();
 		}

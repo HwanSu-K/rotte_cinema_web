@@ -28,19 +28,19 @@
             </div>
             <section id="formID" class="${param.type == 'email' ? 'active' : ''}">
 				<form id="id">
-                    <div><label for="name">이름</label><input type="text" id="name" name="name" maxlength="5" placeholder="이름을 입력해 주세요."></div>
-                    <div><label for="birth">생년월일</label><input type="text" id="birth" name="birth" maxlength="10" placeholder="생년월일을 입력해 주세요."></div>
-                    <div><label for="phonenum">휴대폰번호</label><input type="text" id="phonenum" name="phonenum" maxlength="13" placeholder="'-'없이 입력해 주세요."></div>
+                    <div><label for="name">이름</label><input type="text" id="name" name="name" maxlength="5"></div>
+                    <div><label for="birth">생년월일</label><input type="text" id="birth" name="birth" maxlength="8" placeholder="'-'없이 입력해 주세요."></div>
+                    <div><label for="phonenum">휴대폰번호</label><input type="text" id="phonenum" name="phonenum" maxlength="11" placeholder="'-'없이 입력해 주세요."></div>
                     
                     <div id="btnId">아이디 찾기</div>
                 </form>
             </section>
             <section id="formPass" class="${param.type == 'password' ? 'active' : ''}">
 				<form id="pass">
-                    <div><label for="email2">이메일</label><input type="text" id="email2" name="email" maxlength="20" placeholder="이메일을 입력해 주세요."></div>
-                    <div><label for="name2">이름</label><input type="text" id="name2" name="name" maxlength="5" placeholder="이름을 입력해 주세요."></div>
-                    <div><label for="birth2">생년월일</label><input type="text" id="birth2" name="birth" maxlength="10" placeholder="생년월일을 입력해 주세요."></div>
-                    <div><label for="phonenum2">휴대폰번호</label><input type="text" id="phonenum2" name="phonenum" maxlength="13" placeholder="'-'없이 입력해 주세요."></div>
+                    <div><label for="email2">이메일</label><input type="text" id="email2" name="email" maxlength="20"></div>
+                    <div><label for="name2">이름</label><input type="text" id="name2" name="name" maxlength="5"></div>
+                    <div><label for="birth2">생년월일</label><input type="text" id="birth2" name="birth" maxlength="8" placeholder="'-'없이 입력해 주세요."></div>
+                    <div><label for="phonenum2">휴대폰번호</label><input type="text" id="phonenum2" name="phonenum" maxlength="11" placeholder="'-'없이 입력해 주세요."></div>
                     
                     <div id="btnPass">비밀번호 찾기</div>
                 </form>
