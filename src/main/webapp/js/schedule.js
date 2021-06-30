@@ -37,7 +37,7 @@ $(document).ready(function() {
 	// 버튼 이벤트 할당.
 	$('.reserv_content_list > div').on('click', function(e) {
 		var form = {
-			index: $(e.target).data('movie-index')
+			index: $(e.currentTarget).data('movie-index')
 		}
 
 		$.ajax({
@@ -50,7 +50,7 @@ $(document).ready(function() {
 				$('#movieAge').attr('src', './images/icon/age_' + data.movie.limitAge + '.png');
 				$('#movieTitle').text(data.movie.title);
 				$('#movieSubTitle').text(data.movie.title);
-				$('#movieRunningTime').text('/상영시간 ' + data.movie.runningTime + '분');
+				$('#movieRunningTime').text(data.movie.runningTime + '분');
 
 				$('.reserv_content_list > div').each(function() {
 					$(this).removeClass('active');

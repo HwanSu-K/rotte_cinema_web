@@ -114,7 +114,10 @@
 						</c:if>
                     </div>
                     <div class="datetime_list">
-                        <div class="datetime_list_title"></div>
+                        <div>
+                            <div class="datetime_list_title">강남</div>
+                            <div><div>상영중</div><div>/</div><div id="minute">${movie.runningTime }분</div></div>
+                        </div>
                         <div class="datetime_list_tab">
                         </div>
                     </div>

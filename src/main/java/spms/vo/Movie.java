@@ -15,6 +15,7 @@ public class Movie {
 	protected String tags;
 	protected int type;
 	protected int state;
+	protected int openSoon;
 	protected int like;
 	protected double rating;
 	protected double reservRating;
@@ -102,6 +103,12 @@ public class Movie {
 	}
 	public void setState(int state) {
 		this.state = state;
+	}
+	public int getOpenSoon() {
+		return openSoon;
+	}
+	public void setOpenSoon(int openSoon) {
+		this.openSoon = openSoon;
 	}
 	public int getLike() {
 		return like;

@@ -6,7 +6,7 @@ import java.util.List;
 import spms.vo.Banner;
 
 public interface BannerDao {
-	List<Banner> selectList(HashMap<String, Object> paramMap) throws Exception;
+	List<Banner> selectList() throws Exception;
 	
 	int insert(Banner banner) throws Exception ;
 	

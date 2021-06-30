@@ -5,6 +5,8 @@
 <html>
 <head>
 	<%@ include file="../include/IncludeDefault.jsp" %>
+	
+	<link rel="stylesheet" href="./style/about.css" /> 
 </head>
 <body>
 	<c:import url="/include/header.do"/>

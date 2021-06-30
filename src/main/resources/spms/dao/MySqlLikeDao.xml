@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 2. 동적 SQL 적용 -->
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="spms.dao.LikeDao">
+	<resultMap type="like" id="ResultMap">
+		<id column="LIKE_INDEX" property="index" />
+		<result column="MOVIE_INDEX" property="indexMovie" />
+		<result column="CUSTOMER_INDEX" property="indexCustomer" />
+		<result column="LIKE_COUNT" property="count" />
+	</resultMap>
+
+	<select id="selectList" parameterType="int"
+		resultMap="ResultMap">
+		SELECT LIKE_INDEX,MOVIE_INDEX,CUSTOMER_INDEX
+		FROM MOVIE_LIKE 
+		WHERE CUSTOMER_INDEX=#{value}
+	</select>
+	
+	<insert id="insert" parameterType="like">
+		INSERT INTO MOVIE_LIKE (MOVIE_INDEX,CUSTOMER_INDEX)
+		VALUES(#{indexMovie},#{indexCustomer})
+	</insert>
+	
+	<insert id="delete" parameterType="like">
+		DELETE 
+		FROM MOVIE_LIKE
+		WHERE MOVIE_INDEX=#{indexMovie} AND CUSTOMER_INDEX=#{indexCustomer}
+	</insert>
+	
+	<select id="selectOne" parameterType="like"
+		resultMap="ResultMap">
+		SELECT LIKE_INDEX
+		FROM MOVIE_LIKE 
+		WHERE MOVIE_INDEX=#{indexMovie} AND CUSTOMER_INDEX=#{indexCustomer}
+	</select>
+	
+	<select id="selectOneCount" parameterType="like"
+		resultMap="ResultMap">
+		SELECT COUNT(LIKE_INDEX) AS LIKE_COUNT
+		FROM MOVIE_LIKE 
+		WHERE MOVIE_INDEX=#{indexMovie}
+	</select>
+</mapper>

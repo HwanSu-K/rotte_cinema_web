@@ -93,8 +93,11 @@ nav.active {background-color: rgba(0,0,0,0.9);}
 /* .reserv > .reserv_section2 .reserv_list {display: flex; justify-content: space-between; align-items: center; overflow: hidden;}
 .reserv > .reserv_section2 .reserv_list > div > div {width: 270px;} */
 .reserv > .reserv_section2 .reserv_list > div > :nth-child(1) {display: flex; justify-content: space-between; position: relative;}
-.reserv > .reserv_section2 .reserv_list > div > :nth-child(1) > img:first-child {width: 100%; margin-bottom: -5px; border-radius: 10px; cursor:porinter;}          /* 포스트박스 크기 */
-.reserv > .reserv_section2 .reserv_list > div > :nth-child(1) > img:last-child {position: absolute; top: 8px; right: 8px; display: none;}   /* 상영등급 */
+.reserv > .reserv_section2 .reserv_list > div > :nth-child(1) > :nth-child(1) 
+{position: absolute; width: 100%; height: 150px; top: 0; left: 0; font-size: 24pt; font-style: italic; color:#fff; text-shadow: 2px 2px 2px rgba(0,0,0,0.8); background: url('../images/bg/bg-main-movie-rank.png') no-repeat; border-radius: 10px;}     /* 상영등급 */
+.reserv > .reserv_section2 .reserv_list > div > :nth-child(1) > :nth-child(1) > p {margin: 5px 10px;}
+.reserv > .reserv_section2 .reserv_list > div > :nth-child(1) > :nth-child(2) {width: 100%; border-radius: 10px; cursor:pointer;}            /* 이미지 크기 */
+.reserv > .reserv_section2 .reserv_list > div > :nth-child(1) > :nth-child(3) {display: none;}     /* 상영등급 */
 .reserv > .reserv_section2 .reserv_list > div > :nth-child(2)
     {background-color: rgba(0,0,0,0.0); padding-top: 15px;}                    /* 영화 제목 타이틀 */
 .reserv > .reserv_section2 .reserv_list > div > :nth-child(2) > span 
@@ -141,7 +144,7 @@ nav.active {background-color: rgba(0,0,0,0.9);}
 .qration > .qration_content > .qration_main > div {display: flex; justify-content: space-between;}
 .qration > .qration_content > .qration_main > div > img {width: 300px; border-radius: 10px;} 
 .qration > .qration_content > .qration_main > div > input 
-{display: flex; flex-direction: row; border-radius: 5px; height: 40px; color: #ffffff; margin-top: 20px;}
+{display: flex; flex-direction: row; border-radius: 5px; height: 40px; color: #ffffff; margin-top: 20px; font-size:16px;}
 .qration > .qration_content > .qration_main > div > input:nth-child(1)          /* 상세정보 */
     {background-color:rgba(0,0,0 ,0); border: 2px solid white; width: 47%; justify-content: center;}
 .qration > .qration_content > .qration_main > div > input:nth-child(2)          /* 예매 */
@@ -152,9 +155,9 @@ nav.active {background-color: rgba(0,0,0,0.9);}
 .qration > .qration_content > .qration_sub_info > .tag {font-size: 15px; color: #adb4f8; line-height: 1.5; flex-wrap: nowrap;}
 .qration > .qration_content > .qration_sub_info > .title 
     {font-size: 24px; font-weight: 700; border-bottom: 1px solid #5d64ab; line-height: 2.5;}
-.qration > .qration_content > .qration_sub_info > div:nth-child(3) {padding-top: 13px;}
+.qration > .qration_content > .qration_sub_info > div:nth-child(3) {padding-top: 13px; line-height: 1.5; height: 150px; overflow: hidden; font-size: 16px;}
 .qration > .qration_content > .qration_post
-    { grid-area: post; display: flex; justify-content: space-between; align-items: center; font-size: 12px;}
+    { grid-area: post; display: flex; justify-content: space-between; align-items: center; font-size: 12px; cursor:pointer;}
 .qration > .qration_content > .qration_post > div {display: flex; flex-direction: column; margin-top: 10px;}
 .qration > .qration_content > .qration_post > div > div {text-align: center; line-height: 3;}
 .qration > .qration_content > .qration_post > div > .icon {width: 40px; position:absolute; margin-top: -10px; margin-left: 5px;}

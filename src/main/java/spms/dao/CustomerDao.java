@@ -15,4 +15,8 @@ public interface CustomerDao {
 	int update(Customer customer) throws Exception;
 	
 	Customer exist(String email, String password) throws Exception;
+	
+	Customer finder(Customer customer) throws Exception;
+	
+	Customer email(HashMap<String, Object> paramMap) throws Exception ;
 }
