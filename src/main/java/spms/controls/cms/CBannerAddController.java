@@ -38,7 +38,7 @@ public class CBannerAddController {
 		String realPath = request.getSession().getServletContext().getRealPath("/images/banner/");
 		String imageFileName = imageFile.getOriginalFilename();
 		String videoFileName = videoFile.getOriginalFilename();
-
+		System.out.println(realPath);
 		banner.setImagePath(imageFileName);
 		banner.setVideoPath(videoFileName);
 		

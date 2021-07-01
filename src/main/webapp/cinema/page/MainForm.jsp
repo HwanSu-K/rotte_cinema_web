@@ -120,7 +120,7 @@
             <div class="qration_title">
                 <span class="title">큐레이션</span>
                 <span class="more">
-                    <span onClick="location.href ='movie.do?tab=2'">큐레이션 더보기</span>
+                    <span onClick="location.href ='movie.do?type=qration'">큐레이션 더보기</span>
                     <img src="./images/icon/plus_icon.png">
                 </span>
             </div>

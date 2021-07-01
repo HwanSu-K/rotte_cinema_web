@@ -70,158 +70,35 @@
 	            <span>상영시간표</span>
 	        </div>
 	        <div class="reserv_info_date">
-	            <div><i class="fas fa-chevron-left"></i></div>      <!-- div 1 폰트 어썸 화살표 아이콘-->
-	            <div class="dates">
-					<div class="active">
-						<div>2021.06</div>
-						<div>9.오늘</div>
-						<div></div>
-					</div>
-					<div>
-						<div></div>
-						<div>10.내일</div>
-						<div></div>
-					</div>
-					<div>
-						<div></div>
-						<div>11.금</div>
-						<div></div>
-					</div>
-					<div class="b">
-						<div></div>
-						<div>12.토</div>
-						<div></div>
-					</div>
-					<div class="r">
-						<div></div>
-						<div>13.일</div>
-						<div></div>
-					</div>
-					<div>
-						<div></div>
-						<div>14.월</div>
-						<div></div>
-					</div>
-					<div>
-						<div></div>
-						<div>15.화</div>
-						<div></div>
-					</div>
-					<div class="g">
-						<div></div>
-						<div>16.수</div>
-						<div></div>
-					</div>
-					<div class="g">
-						<div></div>
-						<div>17.수</div>
-						<div></div>
-					</div>
-					<div class="g">
-						<div></div>
-						<div>18.수</div>
-						<div></div>
-					</div>
-					<div class="g">
-						<div></div>
-						<div>19.수</div>
-						<div></div>
-					</div>
-					<div class="g">
-						<div></div>
-						<div>20.수</div>
-						<div></div>
-					</div>
-					<div class="g">
-						<div></div>
-						<div>21.수</div>
-						<div></div>
-					</div>
-					<div class="g">
-						<div></div>
-						<div>22.수</div>
-						<div></div>
-					</div>
-					<div class="g">
-						<div></div>
-						<div>23.수</div>
-						<div></div>
-					</div>
-					<div class="g">
-						<div></div>
-						<div>24.수</div>
-						<div></div>
-					</div>
-					<div class="g">
-						<div></div>
-						<div>25.수</div>
-						<div></div>
-					</div>
-					<div class="g">
-						<div></div>
-						<div>26.수</div>
-						<div></div>
-					</div>
-					<div class="g">
-						<div></div>
-						<div>27.수</div>
-						<div></div>
-					</div>
-					<div class="g">
-						<div></div>
-						<div>28.수</div>
-						<div></div>
-					</div>
-					<div class="g">
-						<div></div>
-						<div>29.수</div>
-						<div></div>
-					</div>
-					<div class="g">
-						<div></div>
-						<div>30.수</div>
-						<div></div>
-					</div>
-					<div class="g">
-						<div></div>
-						<div>31.수</div>
-						<div></div>
-					</div>
-					<div class="g">
-						<div>2021.07</div>
-						<div>1.수</div>
-						<div></div>
-					</div>
-					<div class="g">
-						<div></div>
-						<div>2.수</div>
-						<div></div>
-					</div>
-					<div class="g">
-						<div></div>
-						<div>16.수</div>
-						<div></div>
-					</div>
+				<div id="next"><i class="fas fa-chevron-left"></i></div>      <!-- div 1 폰트 어썸 화살표 아이콘-->
+				<div id="dates">
+					<c:forEach var="date" items="${dates}">
+						<div class="${date.weekEng }" data-date-value="${date.date }">
+							<div>${date.yearMonth }</div>
+							<div>${date.day }.${date.weekKor }</div>
+							<div></div>
+						</div>
+					</c:forEach>
 				</div>
-	            <div><i class="fas fa-chevron-right"></i></div>         <!--  3 폰트어썸 화살표 아이콘  -->
-	            <div><i class="far fa-calendar-alt"></i></div>
-	        </div>
+				<div id="prev"><i class="fas fa-chevron-right"></i></div>         <!--  3 폰트어썸 화살표 아이콘  -->
+				<div id="today"><i class="far fa-calendar-alt"></i></div>
+			</div>
 	
 	        <div class="reserv_info_age">
 	            <div>
-	                <img src="images/icon/age_0.png">
+	                <img src="./images/icon/age_0.png">
 	                <span>전체 관람</span>
 	            </div>
 	            <div>
-	                <img src="images/icon/age_12.png">
+	                <img src="./images/icon/age_12.png">
 	                <span>만 12세 이상</span>
 	            </div>
 	            <div>
-	                <img src="images/icon/age_15.png">
+	                <img src="./images/icon/age_15.png">
 	                <span>만 15세 이상</span>
 	            </div>
 	            <div>
-	                <img src="images/icon/age_18.png">
+	                <img src="./images/icon/age_18.png">
 	                <span>청소년 관람불가(만 18세 이상)</span>
 	            </div>
 	        </div>

@@ -10,11 +10,17 @@ public interface CustomerDao {
 	
 	int insert(Customer customer) throws Exception ;
 	
+	int insertToken(Customer customer) throws Exception;
+	
 	Customer selectOne(int no) throws Exception ;
 	
 	int update(Customer customer) throws Exception;
 	
+	int updateToken(Customer customer) throws Exception;
+	
 	Customer exist(String email, String password) throws Exception;
+	
+	Customer existToken(String token) throws Exception;
 	
 	Customer finder(Customer customer) throws Exception;
 	

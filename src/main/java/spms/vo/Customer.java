@@ -11,6 +11,7 @@ public class Customer {
 	protected String address;
 	protected String detailaddress;
 	protected int access;
+	protected String token;
 	
 	public int getIndex() {
 		return index;
@@ -71,6 +72,12 @@ public class Customer {
 	}
 	public void setAccess(int access) {
 		this.access = access;
+	}
+	public String getToken() {
+		return token;
+	}
+	public void setToken(String token) {
+		this.token = token;
 	}
 
 }

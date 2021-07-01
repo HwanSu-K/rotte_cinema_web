@@ -10,6 +10,10 @@ public class Theater {
 	protected int indexCinema;
 	protected String nameCinema;
 	protected String localClass;
+	protected int indexMovie;
+	protected String nameMovie;
+	protected int limitAge;
+	protected String runningTime;
 	
 	public int getIndex() {
 		return index;
@@ -64,5 +68,29 @@ public class Theater {
 	}
 	public void setLocalClass(String localClass) {
 		this.localClass = localClass;
+	}
+	public int getIndexMovie() {
+		return indexMovie;
+	}
+	public void setIndexMovie(int indexMovie) {
+		this.indexMovie = indexMovie;
+	}
+	public String getNameMovie() {
+		return nameMovie;
+	}
+	public void setNameMovie(String nameMovie) {
+		this.nameMovie = nameMovie;
+	}
+	public int getLimitAge() {
+		return limitAge;
+	}
+	public void setLimitAge(int limitAge) {
+		this.limitAge = limitAge;
+	}
+	public String getRunningTime() {
+		return runningTime;
+	}
+	public void setRunningTime(String runningTime) {
+		this.runningTime = runningTime;
 	}
 }

@@ -43,6 +43,19 @@ public class MySqlCustomerDao implements CustomerDao {
 			sqlSession.close();
 		}
 	}
+	
+
+	@Override
+	public int insertToken(Customer customer) throws Exception {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		try {
+			int count = sqlSession.insert("spms.dao.CustomerDao.insertToken", customer);
+			sqlSession.commit();
+			return count;
+		} finally {
+			sqlSession.close();
+		}
+	}
 
 	@Override
 	public Customer selectOne(int no) throws Exception {
@@ -94,6 +107,18 @@ public class MySqlCustomerDao implements CustomerDao {
 			sqlSession.close();
 		}
 	}
+	
+	@Override
+	public int updateToken(Customer customer) throws Exception {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		try {
+			int count = sqlSession.insert("spms.dao.CustomerDao.updateToken", customer);
+			sqlSession.commit();
+			return count;
+		} finally {
+			sqlSession.close();
+		}
+	}
 
 	@Override
 	public Customer exist(String email, String password) throws Exception {
@@ -104,6 +129,20 @@ public class MySqlCustomerDao implements CustomerDao {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		try {
 			return sqlSession.selectOne("spms.dao.CustomerDao.exist", paramMap);
+		} finally {
+			sqlSession.close();
+		}
+	}
+	
+	@Override
+	public Customer existToken(String token) throws Exception {
+		HashMap<String, String> paramMap = new HashMap<String, String>();
+		paramMap.put("token", token);
+	
+
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		try {
+			return sqlSession.selectOne("spms.dao.CustomerDao.existToken", paramMap);
 		} finally {
 			sqlSession.close();
 		}

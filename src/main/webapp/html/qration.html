@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>rotte_cinema</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+    <link rel="stylesheet" href="../style/default.css" />
+    <script src="../plugin/jquery.min.js"></script>
+    <script src="../plugin/jquery-ui.min.js"></script>
+    <script src="./js/default.js"></script>
+
+    <link rel="stylesheet" href="../style/movie.css" />    
+</head>
+<body>
+    <header></header>
+    <section class="location">      <!-- background-color: #f8f8fa; -->
+        <div>
+            <span><i class="fas fa-home"></i></span>
+            <span>></span>
+            <span>예매</span>
+            <span>></span>
+            <span>상영시간표</span>
+        </div>
+    </section>
+    <div class="content">
+        <section class="movie">
+            <div class="movie_tab">
+                <div onclick="location.href ='movie.html'">현재상영작</div>
+                <div onclick="location.href ='soon.html'">상영예정작</div>
+                <div class="active" onclick="location.href ='qration.html'">큐레이션</div>
+            </div>
+            
+            <div class="reserv_info_age">
+                <div>
+                    <img src="../images/icon/age_0.png">
+                    <span>전체 관람</span>
+                </div>
+                <div>
+                    <img src="../images/icon/age_12.png">
+                    <span>만 12세 이상</span>
+                </div>
+                <div>
+                    <img src="../images/icon/age_15.png">
+                    <span>만 15세 이상</span>
+                </div>
+                <div>
+                    <img src="../images/icon/age_18.png">
+                    <span>청소년 관람불가(만 18세 이상)</span>
+                </div>
+            </div>
+            
+            <div class="movie_list">
+            
+				<div>
+                    <div onclick="location.href ='moviedetail.html?index=11'">
+                    	<div><p>1</p></div>
+                        <img src="../images/poster/V1W8UlEDi3QS64EsqKtCfv57jCyjBRGv_420.jpg">
+                        <img src="../images/icon/age_15.png">
+                    </div>
+                    <div>
+                        <span>그 여름, 가장 차가웠던</span>
+                    </div>
+                    <div>
+                        <span>예매율 0.0%</span>
+                        <span>|</span>
+                        <img src="../images/icon/post_infobox_icon.png"> 
+                        <span>8.0</span>
+                    </div>
+                    <div>
+                    <div class="movieLike" data-movie-index="11">
+                        
+                        
+					    
+					    	<i class="far fa-heart"></i>
+				    	
+					    
+                            
+                            <span>0</span>
+                        </div>
+                        
+                        	<div onclick="location.href ='ticketing.html?index=11'">예매</div>
+                        
+                        
+                        
+                        
+                    </div>
+                </div>
+			
+				<div>
+                    <div onclick="location.href ='moviedetail.html?index=15'">
+                    	<div><p>2</p></div>
+                        <img src="../images/poster/eh5TBmhjdXo61Ek7Y1sV0hQfjCQ0udZd_420.jpg">
+                        <img src="../images/icon/age_15.png">
+                    </div>
+                    <div>
+                        <span>메이드 인 루프탑</span>
+                    </div>
+                    <div>
+                        <span>예매율 0.0%</span>
+                        <span>|</span>
+                        <img src="../images/icon/post_infobox_icon.png"> 
+                        <span>8.5</span>
+                    </div>
+                    <div>
+                    <div class="movieLike" data-movie-index="15">
+                        
+                        
+					    
+					    	<i class="far fa-heart"></i>
+				    	
+					    
+                            
+                            <span>0</span>
+                        </div>
+                        
+                        	<div onclick="location.href ='ticketing.html?index=15'">예매</div>
+                        
+                        
+                        
+                        
+                    </div>
+                </div>
+			
+				<div>
+                    <div onclick="location.href ='moviedetail.html?index=23'">
+                    	<div><p>3</p></div>
+                        <img src="../images/poster/8oW4b6TcvHySvWGnSYx0Wk7TUn7WH6af_420.jpg">
+                        <img src="../images/icon/age_12.png">
+                    </div>
+                    <div>
+                        <span>크레센도</span>
+                    </div>
+                    <div>
+                        <span>예매율 0.0%</span>
+                        <span>|</span>
+                        <img src="../images/icon/post_infobox_icon.png"> 
+                        <span>0.0</span>
+                    </div>
+                    <div>
+                    <div class="movieLike" data-movie-index="23">
+                        
+                        
+					    
+					    	<i class="far fa-heart"></i>
+				    	
+					    
+                            
+                            <span>0</span>
+                        </div>
+                        
+                        	<div onclick="location.href ='ticketing.html?index=23'">예매</div>
+                        
+                        
+                        
+                        
+                    </div>
+                </div>
+			
+				<div>
+                    <div onclick="location.href ='moviedetail.html?index=24'">
+                    	<div><p>4</p></div>
+                        <img src="../images/poster/4BhaVtrxlNF8gpoN58EqW7TxHb0pKy2p_420.jpg">
+                        <img src="../images/icon/age_12.png">
+                    </div>
+                    <div>
+                        <span>노매드랜드</span>
+                    </div>
+                    <div>
+                        <span>예매율 0.0%</span>
+                        <span>|</span>
+                        <img src="../images/icon/post_infobox_icon.png"> 
+                        <span>0.0</span>
+                    </div>
+                    <div>
+                    <div class="movieLike" data-movie-index="24">
+                        
+                        
+					    
+					    	<i class="far fa-heart"></i>
+				    	
+					    
+                            
+                            <span>0</span>
+                        </div>
+                        
+                        	<div onclick="location.href ='ticketing.html?index=24'">예매</div>
+                        
+                        
+                        
+                        
+                    </div>
+                </div>
+			
+				<div>
+                    <div onclick="location.href ='moviedetail.html?index=25'">
+                    	<div><p>5</p></div>
+                        <img src="../images/poster/7yI8u6docVgxwYIlHap9ncDuFlFjDEOV_420.jpg">
+                        <img src="../images/icon/age_0.png">
+                    </div>
+                    <div>
+                        <span>흩어진밤</span>
+                    </div>
+                    <div>
+                        <span>예매율 0.0%</span>
+                        <span>|</span>
+                        <img src="../images/icon/post_infobox_icon.png"> 
+                        <span>0.0</span>
+                    </div>
+                    <div>
+                    <div class="movieLike" data-movie-index="25">
+                        
+                        
+					    
+					    	<i class="far fa-heart"></i>
+				    	
+					    
+                            
+                            <span>0</span>
+                        </div>
+                        
+                        	<div onclick="location.href ='ticketing.html?index=25'">예매</div>
+                        
+                        
+                        
+                        
+                    </div>
+                </div>
+			
+				<div>
+                    <div onclick="location.href ='moviedetail.html?index=26'">
+                    	<div><p>6</p></div>
+                        <img src="../images/poster/kxbZ6WY0SM1x4omDIJV9e9w0vuL2ejHe_420.jpg">
+                        <img src="../images/icon/age_12.png">
+                    </div>
+                    <div>
+                        <span>더 파더</span>
+                    </div>
+                    <div>
+                        <span>예매율 0.0%</span>
+                        <span>|</span>
+                        <img src="../images/icon/post_infobox_icon.png"> 
+                        <span>0.0</span>
+                    </div>
+                    <div>
+                    <div class="movieLike" data-movie-index="26">
+                        
+                        
+					    
+					    	<i class="far fa-heart"></i>
+				    	
+					    
+                            
+                            <span>0</span>
+                        </div>
+                        
+                        	<div onclick="location.href ='ticketing.html?index=26'">예매</div>
+                        
+                        
+                        
+                        
+                    </div>
+                </div>
+			
+				<div>
+                    <div onclick="location.href ='moviedetail.html?index=27'">
+                    	<div><p>7</p></div>
+                        <img src="../images/poster/5fVdq9oGQpNmzCdA4vcV5NmwT4T3tIzp_420.jpg">
+                        <img src="../images/icon/age_0.png">
+                    </div>
+                    <div>
+                        <span>식물카페, 온정</span>
+                    </div>
+                    <div>
+                        <span>예매율 0.0%</span>
+                        <span>|</span>
+                        <img src="../images/icon/post_infobox_icon.png"> 
+                        <span>0.0</span>
+                    </div>
+                    <div>
+                    <div class="movieLike" data-movie-index="27">
+                        
+                        
+					    
+					    	<i class="far fa-heart"></i>
+				    	
+					    
+                            
+                            <span>0</span>
+                        </div>
+                        
+                        	<div onclick="location.href ='ticketing.html?index=27'">예매</div>
+                        
+                        
+                        
+                        
+                    </div>
+                </div>
+			
+            </div>
+        </section>
+    </div>
+    <footer></footer>
+</body>
+</html>

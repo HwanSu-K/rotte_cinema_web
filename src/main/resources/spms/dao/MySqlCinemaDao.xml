@@ -44,5 +44,6 @@
 		resultMap="ResultMap">
 		SELECT LOCAL_NAME,LOCAL_CLASS 
 		FROM CATEGORY_LOCAL
+		ORDER BY LOCAL_SORT
 	</select>
 </mapper>

@@ -126,13 +126,19 @@ public class AjaxController {
 
 	@RequestMapping(value = "/theatersobject.do", method = RequestMethod.POST)
 	@ResponseBody
-	public Object getTheaterObject(String cinema, String movie) throws Exception {
+	public Object getTheaterObject(String cinema, String movie, String date) throws Exception {
 		HashMap<String, Object> paramMap = new HashMap<String, Object>();
-		if (cinema != null) {
+
+		if (cinema != null && !cinema.equals("")) {
 			paramMap.put("indexCinema", cinema);
 		}
-		if (movie != null) {
+
+		if (movie != null && !movie.equals("")) {
 			paramMap.put("indexMovie", movie);
+		}
+
+		if (date != null && !date.equals("")) {
+			paramMap.put("date", date);
 		}
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("theaters", theaterDao.selectList(paramMap));
@@ -197,11 +203,20 @@ public class AjaxController {
 
 	@RequestMapping(value = "/loginobject.do", method = RequestMethod.POST)
 	@ResponseBody
-	public Object getregistrationObject(String email, String password, HttpSession session) throws Exception {
+	public Object getregistrationObject(String email, String password, String token, HttpSession session)
+			throws Exception {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		Customer customer = customerDao.exist(email, password);
-		if (customer != null) {
+		if (customer != null && token != null) {
 			session.setAttribute("customer", customer);
+			customer.setToken(token);
+			Customer customerToken = customerDao.existToken(token);
+			if (customerToken == null) {
+				customerDao.insertToken(customer);
+			} else {
+				customerDao.updateToken(customer);
+			}
+
 			map.put("result", "success");
 			map.put("name", customer.getName());
 			return map;

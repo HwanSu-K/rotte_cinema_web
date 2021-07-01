@@ -15,6 +15,7 @@
 		<result column="CUSTOMER_ADDRESS" property="address" />
 		<result column="CUSTOMER_DETAILADDRESS" property="detailaddress" />
 		<result column="CUSTOMER_ACCESS" property="access" />
+		<result column="CUSTOMER_TOKEN" property="token" />
 	</resultMap>
 
 	<select id="selectList" parameterType="map"
@@ -26,6 +27,11 @@
 	<insert id="insert" parameterType="customer">
 		INSERT INTO CUSTOMER (CUSTOMER_EMAIL,CUSTOMER_PASSWORD,CUSTOMER_NAME,CUSTOMER_BIRTH,CUSTOMER_PHONENUM,CUSTOMER_ZIPCODE,CUSTOMER_ADDRESS,CUSTOMER_DETAILADDRESS,CUSTOMER_ACCESS)
 		VALUES(#{email},#{password},#{name},#{birth},#{phonenum},#{zipcode},#{address},#{detailaddress},1)
+	</insert>
+	
+	<insert id="insertToken" parameterType="customer">
+		INSERT INTO CUSTOMER_TOKEN (TOKEN_VALUE,CUSTOMER_INDEX)
+		VALUES(#{token},#{index})
 	</insert>
 	
 	<select id="selectOne" parameterType="int"
@@ -48,11 +54,26 @@
 		WHERE CUSTOMER_INDEX=#{index}
 	</update>
 	
+	<update id="updateToken" parameterType="map">
+		UPDATE CUSTOMER_TOKEN
+		<set>
+			CUSTOMER_INDEX=#{index},
+		</set>
+		WHERE TOKEN_VALUE=#{token}
+	</update>
+	
 	<select id="exist" parameterType="map"
 		resultMap="ResultMap">
 		SELECT CUSTOMER_INDEX,CUSTOMER_EMAIL,CUSTOMER_PASSWORD,CUSTOMER_NAME,CUSTOMER_BIRTH,CUSTOMER_PHONENUM,CUSTOMER_ZIPCODE,CUSTOMER_ADDRESS,CUSTOMER_DETAILADDRESS,CUSTOMER_ACCESS 
 		FROM CUSTOMER
 		WHERE CUSTOMER_EMAIL=#{email} and CUSTOMER_PASSWORD=#{password}
+	</select>
+	
+	<select id="existToken" parameterType="map"
+		resultMap="ResultMap">
+		SELECT CUSTOMER_INDEX 
+		FROM CUSTOMER_TOKEN 
+		WHERE TOKEN_VALUE=#{token}
 	</select>
 	
 	<select id="finder" parameterType="map"

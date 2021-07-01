@@ -34,16 +34,16 @@
 
 			<div class="reserv_info_age">
 				<div>
-					<img src="images/icon/age_0.png"> <span>전체 관람</span>
+					<img src="./images/icon/age_0.png"> <span>전체 관람</span>
 				</div>
 				<div>
-					<img src="images/icon/age_12.png"> <span>만 12세 이상</span>
+					<img src="./images/icon/age_12.png"> <span>만 12세 이상</span>
 				</div>
 				<div>
-					<img src="images/icon/age_15.png"> <span>만 15세 이상</span>
+					<img src="./images/icon/age_15.png"> <span>만 15세 이상</span>
 				</div>
 				<div>
-					<img src="images/icon/age_18.png"> <span>청소년 관람불가(만 18세 이상)</span>
+					<img src="./images/icon/age_18.png"> <span>청소년 관람불가(만 18세 이상)</span>
 				</div>
 			</div>
 

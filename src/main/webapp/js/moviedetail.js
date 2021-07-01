@@ -16,12 +16,26 @@ $(document).ready(function() {
 				$('#reviewList > div').remove();
 				$(data.reviews).each(function() {
 					$('#reviewList').append($(
-						'<div>' + this.rating + '</div><div>' + this.text + '</div>' +
-						'<div>' + this.date + '</div><div>' + this.name + '</div>'));
+						'<div>' +
+                            '<div class="cmt_icon">' +
+                                '<img src="./images/icon/sub4_comment_user.png">' +
+                            '</div>' +
+                            '<div class="cmt_info">' +
+                                '<div>' +
+                                    '<div class="name_info">' + this.name + '</div>' +
+                                    '<span>|</span>' +
+                                    '<div><i class="fas fa-star"></i></div>' +
+                                    '<div>' + this.rating + '</div>' +
+                                '</div>' +
+                                '<div>' + this.text + '</div>' +
+                                '<div>' + this.date + '</div>' +
+                            '</div>' +
+                        '</div>'
+					));
 				});
 			},
 			error: function() {
-			/*	alert('통신이 원할하지 않습니다.'); */
+				console.log('error');
 			}
 		});
 	}
@@ -30,8 +44,12 @@ $(document).ready(function() {
 		if ($('#reviewButton').hasClass('disabled')) {
 			return;
 		}
-		var form = $('#reviewInput').serialize();
-		form += '&indexMovie=' + urlParams.get('index');
+		
+		var form = {
+			text: $('#txtComment').val(),
+			rating: $('#score').text(),
+			indexMovie: urlParams.get('index')
+		}
 
 		const formParams = new URLSearchParams(form);
 
@@ -54,11 +72,11 @@ $(document).ready(function() {
 					alert('오류가 발생했습니다.')
 				}
 				reviewLoad();
-				$('#reviewInput > input').val('');
+				$('#reviewInput > textarea').val('');
 				
 			},
 			error: function() {
-			/*	alert('통신이 원할하지 않습니다.'); */
+				console.log('error');
 			}
 		});
 	});

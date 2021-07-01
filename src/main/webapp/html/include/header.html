@@ -1,0 +1,90 @@
+<script src="../js/header.js"></script>
+<nav>
+    <ul>
+        <li>
+            <div class="header_menu"></div>
+            <div class="header_search"></div>
+        </li>
+        <li class="nav_over" onclick="location.href='./movie.html';">영화
+            <ul>
+                <li><a href="./movie.html">전체영화</a></li>
+                <li><a href="./qration.html">큐레이션</a></li>
+            </ul>
+        </li>
+        <li class="nav_over" onclick="location.href='./ticketing.html';">예매
+            <ul>
+                <li><a href="./ticketing.html">빠른예매</a></li>
+                <li><a href="./schedule.html">상영시간표</a></li>
+            </ul>
+        </li>
+        <li>
+            <div class="header_logo" onclick="location.href='./main.html';"></div>
+        </li>
+        <li class="nav_over" onclick="location.href='./event.html';">이벤트
+            <ul>
+                <li><a href="./event.html">전체이벤트</a></li>
+                <li><a href="./event.html">진행이벤트</a></li>
+            </ul>
+        </li>
+        <li class="nav_over" onclick="location.href='./about.html';">시설안내
+            <ul>
+                <li><a href="./about.html">극장안내</a></li>
+                <li><a href="./location.html">오시는길</a></li>
+            </ul>
+        </li>
+        <li>
+            <div onclick="location.href='./ticketing.html';" class="header_calendar"></div>
+            <div onclick="location.href='./login.html';" class="header_user"></div>
+        </li>
+        
+    </ul>
+    <div class="nav_bg"></div>
+    <div class="nav_map">
+        <div>
+            <div><span>SITEMAP</span></div>
+            <ul>
+                <li><div>영화</div>
+                    <ul>
+                        <li><a href="./movie.html">전체영화</a></li>
+                        <li><a href="./movie.html">큐레이션</a></li>
+                    </ul>
+                </li>
+                <li><div>예매</div>
+                    <ul>
+                        <li><a href="./ticketing.html">빠른예매</a></li>
+                        <li><a href="./schedule.html">상영시간표</a></li>
+                    </ul>
+                </li>
+                <li><div>이벤트</div>
+                    <ul>
+                        <li><a href="./event.html">전체이벤트</a></li>
+                        <li><a href="./event.html">진행이벤트</a></li>
+                    </ul>
+                </li>
+                <li><div>시설안내</div>
+                    <ul>
+                        <li><a href="./about.html">극장안내</a></li>
+                        <li><a href="./location.html">오시는길</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div> 
+    </div>
+    <div class="nav_search">
+        <div>
+            <div>
+                <div id="headerPoster" onclick="location.href ='./moviedetail.html?index=1'"><img src="../images/poster/8d6BF2d0Yaq4iVCGXKO160dzsmhKI09m_420.jpg"></div>
+                <div class="movie_List">
+                <div onclick="location.href ='./moviedetail.html?index=1'"><span>1</span><span>킬러의 보디가드 2</span></div><div onclick="location.href ='./moviedetail.html?index=2'"><span>2</span><span>발신제한</span></div><div onclick="location.href ='./moviedetail.html?index=3'"><span>3</span><span>크루엘라</span></div><div onclick="location.href ='./moviedetail.html?index=4'"><span>4</span><span>루카</span></div><div onclick="location.href ='./moviedetail.html?index=5'"><span>5</span><span>콰이어트 플레이스 2</span></div></div>
+            </div>
+            <div>
+                <div></div>
+                <form id="search">
+				<input id="searchText" type="text" name="search" placeholder="영화를 검색하세요">
+				<i class="fas fa-search" onclick="document.getElementById('search').submit();"></i>
+				</form>
+				<div id="search_List"><div onclick="location.href ='./moviedetail.html?index=3'">크루엘라</div><div onclick="location.href ='./moviedetail.html?index=4'">루카</div><div onclick="location.href ='./moviedetail.html?index=15'">메이드 인 루프탑</div></div>
+            </div>
+        </div>
+    </div>
+</nav>

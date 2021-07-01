@@ -32,8 +32,6 @@ $(document).ready(function() {
 			
 			$('.datetime_list_title').text($(e.currentTarget).text());
 			
-			$('.datetime_list_tab > div').remove();
-			
 			var form = {
 				movie: new URLSearchParams(location.search).get('index'),
 				cinema: $(e.target).data('cinema-index')
@@ -47,7 +45,7 @@ $(document).ready(function() {
 				success: function(data) {
 					var theater = null;
 					$(data.theaters).each(function(){
-						
+						$('.datetime_list_tab > div').remove();
 						if(theater != this.index) {
 							$('.datetime_list_tab').append($(
 							'<div>' + 
@@ -77,7 +75,7 @@ $(document).ready(function() {
 					})
 				},
 				error: function() {
-					alert('통신이 원할하지 않습니다.');
+					console.log('error');
 				}
 			});
 		}

@@ -19,6 +19,7 @@ public class Movie {
 	protected int like;
 	protected double rating;
 	protected double reservRating;
+	protected int rank;
 	
 	public int getIndex() {
 		return index;
@@ -127,6 +128,12 @@ public class Movie {
 	}
 	public void setReservRating(double reservRating) {
 		this.reservRating = reservRating;
+	}
+	public int getRank() {
+		return rank;
+	}
+	public void setRank(int rank) {
+		this.rank = rank;
 	}
 	
 }

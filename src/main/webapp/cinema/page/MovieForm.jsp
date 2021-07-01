@@ -27,6 +27,26 @@
                 <div class="${param.type == 'soon' ? 'active' : ''}" onClick="location.href ='movie.do?type=soon'">상영예정작</div>
                 <div class="${param.type == 'qration' ? 'active' : ''}" onClick="location.href ='movie.do?type=qration'">큐레이션</div>
             </div>
+            
+            <div class="reserv_info_age">
+                <div>
+                    <img src="./images/icon/age_0.png">
+                    <span>전체 관람</span>
+                </div>
+                <div>
+                    <img src="./images/icon/age_12.png">
+                    <span>만 12세 이상</span>
+                </div>
+                <div>
+                    <img src="./images/icon/age_15.png">
+                    <span>만 15세 이상</span>
+                </div>
+                <div>
+                    <img src="./images/icon/age_18.png">
+                    <span>청소년 관람불가(만 18세 이상)</span>
+                </div>
+            </div>
+            
             <div class="movie_list">
             <c:forEach var="movie" items="${movies}" varStatus="status">
 				<div>

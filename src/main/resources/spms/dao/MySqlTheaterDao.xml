@@ -14,12 +14,16 @@
 		<result column="CINEMA_INDEX" property="indexCinema" />		
 		<result column="CINEMA_TITLE" property="nameCinema" />
 		<result column="LOCAL_CLASS" property="localClass" />
+		<result column="MOVIE_INDEX" property="indexMovie" />
+		<result column="MOVIE_TITLE" property="nameMovie" />
+		<result column="MOVIE_LIMIT_AGE" property="limitAge" />
+		<result column="MOVIE_RUNNING_TIME" property="runningTime" />
 	</resultMap>
 
 	<select id="selectList" parameterType="map"
 		resultMap="ResultMap">
-		SELECT A.THEATER_INDEX,A.THEATER_NAME,A.THEATER_SEAT_X,A.THEATER_SEAT_Y,B.SHOWING_INDEX,B.SHOW_STARTTIME,C.CINEMA_INDEX,C.CINEMA_TITLE,D.LOCAL_CLASS
-		FROM CINEMA_THEATER A INNER JOIN MOVIE_SHOWING B ON A.THEATER_INDEX = B.THEATER_INDEX INNER JOIN CINEMA C ON A.CINEMA_INDEX = C.CINEMA_INDEX INNER JOIN CATEGORY_LOCAL D ON C.LOCAL_INDEX = D.LOCAL_INDEX
+		SELECT A.THEATER_INDEX,A.THEATER_NAME,A.THEATER_SEAT_X,A.THEATER_SEAT_Y,B.SHOWING_INDEX,B.SHOW_STARTTIME,C.CINEMA_INDEX,C.CINEMA_TITLE,D.LOCAL_CLASS,B.MOVIE_INDEX,E.MOVIE_TITLE,E.MOVIE_LIMIT_AGE,E.MOVIE_RUNNING_TIME
+		FROM CINEMA_THEATER A INNER JOIN MOVIE_SHOWING B ON A.THEATER_INDEX = B.THEATER_INDEX INNER JOIN CINEMA C ON A.CINEMA_INDEX = C.CINEMA_INDEX INNER JOIN CATEGORY_LOCAL D ON C.LOCAL_INDEX = D.LOCAL_INDEX  INNER JOIN MOVIE E ON B.MOVIE_INDEX = E.MOVIE_INDEX
 		WHERE 
 		<if test="indexCinema != null">
 			A.CINEMA_INDEX = #{indexCinema} AND
@@ -27,8 +31,20 @@
 		<if test="indexMovie != null">
 			B.MOVIE_INDEX = #{indexMovie} AND 
 		</if> 
-		B.SHOW_DATE = DATE_FORMAT(NOW(),'%Y-%m-%d') 
-		ORDER BY THEATER_INDEX,SHOW_STARTTIME
+		<choose>
+			<when test="date != null">B.SHOW_DATE = #{date}</when><!-- CMS 관리 -->
+			<otherwise>B.SHOW_DATE = DATE_FORMAT(NOW(),'%Y-%m-%d')</otherwise><!-- 예매순 -->
+		</choose>
+		
+		
+		ORDER BY 
+		<if test="indexCinema != null">
+			MOVIE_INDEX,
+		</if> 
+		<if test="indexMovie != null">
+			CINEMA_INDEX,
+		</if>
+		THEATER_INDEX,SHOW_STARTTIME
 	</select>
 	
 </mapper>
