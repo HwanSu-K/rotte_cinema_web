@@ -12,11 +12,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import spms.dao.CinemaDao;
 import spms.dao.CustomerDao;
 import spms.dao.LikeDao;
 import spms.dao.MovieDao;
 import spms.dao.ReviewDao;
 import spms.dao.TheaterDao;
+import spms.vo.Cinema;
 import spms.vo.Customer;
 import spms.vo.Like;
 import spms.vo.Movie;
@@ -29,6 +31,7 @@ public class AjaxController {
 	TheaterDao theaterDao;
 	LikeDao likeDao;
 	CustomerDao customerDao;
+	CinemaDao cinemaDao;
 
 	@Autowired
 	public AjaxController setMovieDao(MovieDao movieDao) {
@@ -57,6 +60,12 @@ public class AjaxController {
 	@Autowired
 	public AjaxController setCustomerDao(CustomerDao customerDao) {
 		this.customerDao = customerDao;
+		return this;
+	}
+
+	@Autowired
+	public AjaxController setCinemaDao(CinemaDao cinemaDao) {
+		this.cinemaDao = cinemaDao;
 		return this;
 	}
 
@@ -117,11 +126,14 @@ public class AjaxController {
 
 	@RequestMapping(value = "/theatersobject.do", method = RequestMethod.POST)
 	@ResponseBody
-	public Object getTheatersObject(String cinema, String movie) throws Exception {
+	public Object getTheaterObject(String cinema, String movie) throws Exception {
 		HashMap<String, Object> paramMap = new HashMap<String, Object>();
-		paramMap.put("indexCinema", cinema);
-		paramMap.put("indexMovie", movie);
-
+		if (cinema != null) {
+			paramMap.put("indexCinema", cinema);
+		}
+		if (movie != null) {
+			paramMap.put("indexMovie", movie);
+		}
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("theaters", theaterDao.selectList(paramMap));
 		return map;
@@ -164,19 +176,49 @@ public class AjaxController {
 		HashMap<String, Object> paramMap = new HashMap<String, Object>();
 		paramMap.put("email", email);
 		Customer customer = customerDao.email(paramMap);
-		
+
 		if (customer == null) {
 			return true;
 		} else {
 			return false;
 		}
-
 	}
 
-	@RequestMapping(value = "/test.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/registrationobject.do", method = RequestMethod.POST)
 	@ResponseBody
-	public Object getTestObject() throws Exception {
+	public Object getregistrationObject(Customer customer) throws Exception {
 
-		return "test";
+		if (customer != null) {
+
+			return customerDao.insert(customer);
+		}
+		return -1;
+	}
+
+	@RequestMapping(value = "/loginobject.do", method = RequestMethod.POST)
+	@ResponseBody
+	public Object getregistrationObject(String email, String password, HttpSession session) throws Exception {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		Customer customer = customerDao.exist(email, password);
+		if (customer != null) {
+			session.setAttribute("customer", customer);
+			map.put("result", "success");
+			map.put("name", customer.getName());
+			return map;
+
+		} else {
+			map.put("result", "fail");
+			map.put("name", null);
+			return map;
+		}
+	}
+
+	@RequestMapping(value = "/cinemaobject.do", method = RequestMethod.POST)
+	@ResponseBody
+	public Object getCinemaObject(Cinema cinema) throws Exception {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		Cinema detailInfo = cinemaDao.selectOneDefault(cinema.getIndex());
+		map.put("cinema", detailInfo);
+		return map;
 	}
 }

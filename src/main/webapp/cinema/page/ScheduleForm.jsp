@@ -33,21 +33,36 @@
 	                <div>극장별</div>
 	            </div>
 	        </div>
-	        <div class="reserv_content">
-	            <div class="reserv_content_title">
-	                <span class="active" data-tab-type="default">전체영화</span>
-	                <span data-tab-type="qration">큐레이션</span>
-	            </div>
-	            <div class="reserv_content_list">   
-	            <c:forEach var="movie" items="${movies}" varStatus="status">
-						<div data-movie-index="${movie.index }" data-movie-type=${movie.type == 1 ? "qration":"default" }>${movie.title }</div>
-				</c:forEach> 
-	            </div>
-	            
-	        </div>
-	        <div class="reserv_post">
-	            <img id="moviePoster">
-	        </div>
+	        <section class="reserv_movie active">
+		        <div class="reserv_content">
+		            <div class="reserv_content_title">
+		                <span class="active" data-tab-type="default">전체영화</span>
+		                <span data-tab-type="qration">큐레이션</span>
+		            </div>
+		            <div class="reserv_content_list"> 
+		            <c:forEach var="movie" items="${movies}" varStatus="status">
+							<div data-movie-index="${movie.index }" data-movie-type=${movie.type == 1 ? "qration":"default" }>${movie.title }</div>
+					</c:forEach> 
+		            </div>
+		        </div>	        
+		        <div class="reserv_post">
+		            <img id="moviePoster">
+		        </div>
+	        </section>
+	        <section class="reserv_theater">
+		        <div class="reserv_content">
+		            <div class="reserv_content_title">
+						<c:forEach var="local" items="${locals}" varStatus="status">
+							<span class="locals" data-tab-type="${local.localClass }">${local.localName }</span>
+						</c:forEach>
+		            </div>
+		            <div class="reserv_content_list">
+						<c:forEach var="cinema" items="${cinemas}">
+							<div data-cinema-index="${cinema.index }" data-movie-type="${cinema.localClass }">${cinema.title }</div>
+						</c:forEach>
+					</div>
+		        </div>	        
+	        </section>
 	    </section>
 	    <section class="reserv_info">
 	        <div class="reserv_info_title">
@@ -211,7 +226,7 @@
 	            </div>
 	        </div>
 	
-	        <div class="reserv_info_movie">
+	        <div class="reserv_info_movie active">
 	            <div>
 	                <img id="movieAge">
 	                <span id="movieSubTitle"></span>
@@ -222,129 +237,14 @@
 	                <div id="movieRunningTime"></div>
 	            </div>
 	        </div>
-	        <div class="reserv_info_local">
-	            <div class="active">서울</div>
-	            <div>대구</div>
+	        <div class="reserv_info_local active">
+	            <c:forEach var="local" items="${locals}">
+					<div data-tab-type="${local.localClass }">${local.localName }</div>
+				</c:forEach>
 	        </div>
 	        
-	        <div class="reserv_list">
-				<div class="reserv_info_list">
-					<div>
-						<div class="reserv_info_list_title">강변</div>
-					</div>
-					<div class="reserv_info_list_theater">
-						<div>
-							<div>
-								<div>
-									<div>4관</div>
-									<div>총 25석</div>
-								</div>
-								<div>
-									<div>2D(자막)</div>
-								</div>
-							</div>
-							<div id="theater-8">
-								<div>
-									<div>11:00</div>
-									<span>25석</span>
-								</div>
-								<div>
-									<div>14:30</div>
-									<span>25석</span>
-								</div>
-								<div>
-									<div>16:20</div>
-									<span>25석</span>
-								</div>
-							</div>
-						</div>
-	
-						<div>
-							<div>
-								<div>
-									<div>4관</div>
-									<div>총 25석</div>
-								</div>
-								<div>
-									<div>2D(자막)</div>
-								</div>
-							</div>
-							<div id="theater-8">
-								<div>
-									<div>11:00</div>
-									<span>25석</span>
-								</div>
-								<div>
-									<div>14:30</div>
-									<span>25석</span>
-								</div>
-								<div>
-									<div>16:20</div>
-									<span>25석</span>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-	
-				<div class="reserv_info_list">
-					<div>
-						<div class="reserv_info_list_title">강변</div>
-					</div>
-					<div class="reserv_info_list_theater">
-						<div>
-							<div>
-								<div>
-									<div>4관</div>
-									<div>총 25석</div>
-								</div>
-								<div>
-									<div>2D(자막)</div>
-								</div>
-							</div>
-							<div id="theater-8">
-								<div>
-									<div>11:00</div>
-									<div>25석</div>
-								</div>
-								<div>
-									<div>14:30</div>
-									<div>25석</div>
-								</div>
-								<div>
-									<div>16:20</div>
-									<div>25석</div>
-								</div>
-							</div>
-						</div>
-	
-						<div>
-							<div>
-								<div>
-									<div>4관</div>
-									<div>총 25석</div>
-								</div>
-								<div>
-									<div>2D(자막)</div>
-								</div>
-							</div>
-							<div id="theater-8">
-								<div>
-									<div>11:00</div>
-									<div>25석</div>
-								</div>
-								<div>
-									<div>14:30</div>
-									<div>25석</div>
-								</div>
-								<div>
-									<div>16:20</div>
-									<div>25석</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+	        <div class="reserv_list active">
+				
 			</div>
 	
 			<div class="reserv_warning">
