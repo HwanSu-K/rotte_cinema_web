@@ -12,7 +12,7 @@
     width: 800px; height: 330px; background-color: #f9f9f9; margin-bottom: 100px;}
 .member_login > .login_form > .login_box {display: flex; justify-content: center; flex-direction: column;}
 .member_login > .login_form > .login_box > .chkbox {display: flex; justify-content: flex-start; margin-bottom: 20px;}
-.member_login > .login_form > .login_box > .chkbox > label {color: #777777; font-size: 12pt; padding-right: 35px;}
+.member_login > .login_form > .login_box > .chkbox > label {color: #777; font-size: 12pt; padding-right: 35px;}
 .member_login > .login_form > .login_box > .chkbox > label > input {margin: 3px 5px 0px 5px;}
 
 
@@ -31,7 +31,7 @@
 
 
 .member_login > .login_form > .login_box .save {color: #5a5a5a; margin: 3px 5px 0px 5px;}       /* 아이디 저장 인풋박스 */
-.member_login > .login_form > .login_box .save > label {color: #777777;}
+.member_login > .login_form > .login_box .save > label {color: #777;}
 
 
 .member_login > .login_form > .login_box > .click {display: flex;}              /* 회원가입 아이디찾기 비번찾기 */

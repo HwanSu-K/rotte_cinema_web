@@ -10,6 +10,7 @@
     <script src="./js/default.js"></script>
     
     <link rel="stylesheet" href="./style/moviedetail.css" />
+    <script src="./js/movieDetail.js"></script>
 </head>
 
 <body>
@@ -87,7 +88,7 @@
                 <div>영화정보</div>                      <!-- detail_tab > div:first-child -->
                 <div class="active">                                    <!-- detail_tab > div:last-child -->
                     <span>평점 및 관람평</span>
-                    <span>(1,234)</span>
+                    <span>&nbsp;(1,234)</span>
                 </div>
             </div>
 
@@ -96,7 +97,7 @@
             </div>
 
 
-            <div class="tab_info2">
+            <div class="review_box">
                 <div class="grade">
                     <div>총 평점</div>
                     <div><i class="fas fa-star"></i></div>
@@ -105,52 +106,58 @@
                     <div>10</div>
                 </div>
                 <form>
-                    <div>                       <!-- form > div:first-child -->
+                    <div class="star_score_box">                       <!-- form > .star_score_box -->
                         <span>
-                            0
+                            <span id="score">5</span>
                             <p>점</p>
                         </span>
                         
                         <div class="star">
-                            <div class="active"><i class="fas fa-star"></i></div>
-                            <div><i class="fas fa-star"></i></div>
-                            <div><i class="fas fa-star"></i></div>
-                            <div><i class="fas fa-star"></i></div>
-                            <div><i class="fas fa-star"></i></div>
-                            <div><i class="fas fa-star"></i></div>
-                            <div><i class="fas fa-star"></i></div>
-                            <div><i class="fas fa-star"></i></div>
-                            <div><i class="fas fa-star"></i></div>
-                            <div><i class="fas fa-star"></i></div>
+                            <div class="active" data-value="1"><i class="fas fa-star"></i></div>
+                            <div class="active" data-value="2"><i class="fas fa-star"></i></div>
+                            <div class="active" data-value="3"><i class="fas fa-star"></i></div>
+                            <div class="active" data-value="4"><i class="fas fa-star"></i></div>
+                            <div class="active" data-value="5"><i class="fas fa-star"></i></div>
+                            <div data-value="6"><i class="fas fa-star"></i></div>
+                            <div data-value="7"><i class="fas fa-star"></i></div>
+                            <div data-value="8"><i class="fas fa-star"></i></div>
+                            <div data-value="9"><i class="fas fa-star"></i></div>
+                            <div data-value="10"><i class="fas fa-star"></i></div>
                         </div>
                     </div>
-                    <input type="text" id="userId" maxlength="220" placeholder="평점 및 영화 관람평을 작성 해 주세요.
-                    주제와 무관한 리뷰 또는 스포일러는 표시제한 또는 삭제될 수 있습니다.">                      <!-- form > input -->
-                    <div>관람평 작성</div>               <!-- form > div:last-child -->
-                </form>
+                    <div class="review_write_box">                      <!-- form > .review_write_box > -->
+                        <textarea id="txtComment" placeholder="평점 및 영화 관람평을 작성해주세요.                                                                  
+주제와 무관한 리뷰 또는 스포일러는 표시제한 또는 삭제될 수 있습니다." title="관람평 작성"></textarea>
+                        <span class="byte_info">
+                            <strong class="byte">0</strong>/<em>220</em>
+                        </span>
+                    </div>
+
+                <div class="review_btn">관람평 작성</div>               <!-- form > .review_btn -->
+            </form>
                 <div class="comment">
                     <div class="comment_title">
                         <div>총 2,924건</div>
                         <div>
-                            <div>
-                                <i class="fas fa-circle active"></i>
-                                최신순</div>
+                            <div><i class="fas fa-circle active"></i>최신순</div>
                             <div><i class="fas fa-circle"></i>평점순</div>
                         </div>
                     </div>
 
-                    <div class="comment_info">
-                        <div>                               <!-- comment_info > div > comment_info1 -->
-                            <div class="comment_user_icon">
+                    <div class="review_comment">
+                        <div>                               <!-- .review_comment > div > .cmt_icon -->
+                            <div class="cmt_icon">
                                 <img src="./images/icon/sub4_comment_user.png">
                             </div>
-                            <div class="comment_info1">
+                            <div class="cmt_info">
                                 <div>
-                                    <div>이*주</div>
-                                    <span>|</span><div><i class="fas fa-star"></i>평점</div>
+                                    <div class="name_info">정*준</div>
+                                    <span>|</span>
+                                    <div><i class="fas fa-star"></i></div>
+                                    <div>8</div>
                                 </div>
-                                <div>댓글내용</div>
-                                <div>등록날짜</div>
+                                <div>볼만했습니다~</div>
+                                <div>2021.07.01</div>
                             </div>
                         </div>
                     </div>

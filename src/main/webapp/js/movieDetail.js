@@ -21,7 +21,7 @@ $(document).ready(function() {
 				});
 			},
 			error: function() {
-				alert('통신이 원할하지 않습니다.');
+			/*	alert('통신이 원할하지 않습니다.'); */
 			}
 		});
 	}
@@ -58,10 +58,28 @@ $(document).ready(function() {
 				
 			},
 			error: function() {
-				alert('통신이 원할하지 않습니다.');
+			/*	alert('통신이 원할하지 않습니다.'); */
 			}
 		});
 	});
 
 	reviewLoad();
+
+	var stars = $('.star > div');
+	$(stars).on('hover',function(e){
+		var count = $(e.currentTarget).data('value');
+		$(stars).each(function(index,elem){
+			if(index < count){
+				$(elem).addClass('active');
+			} else{
+				$(elem).removeClass('active');
+			}
+		});
+		$('#score').text(count);
+	});
+
+	$('#txtComment').on('propertychange change keyup paste input',function(e){
+		var byte = $('#txtComment').val().length;
+		$('.byte').text(byte);
+	});
 });

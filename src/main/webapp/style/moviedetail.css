@@ -34,42 +34,52 @@
 
 .detail_tab > .tab_title {display: flex; margin-top: 100px;}
 .detail_tab > .tab_title > div {display: flex; justify-content: center; align-items: center; width: 50%; 
-    border-bottom: 1px solid #ccc; padding-bottom: 15px; color: #898989;}
-.detail_tab > .tab_title > div.active {border-bottom: 4px solid #2b3380; color: #000;}
+    border-bottom: 1px solid #ccc; padding-bottom: 15px; color: #898989; font-size: 12pt;}
+.detail_tab > .tab_title > div.active {border-bottom: 4px solid #777; color: #666;}
+
+.detail_tab > .review_box > .grade  {display: flex; align-items: center; justify-content: center; margin: 35px 0; color: #333; height: 30px;}
+.detail_tab > .review_box > .grade  > div {margin: 0px 5px; font-size: 11pt; color: #333;}
+.detail_tab > .review_box > .grade  > div > i {font-size: 17pt; color: #ffa406;}
+.detail_tab > .review_box > .grade  > div:nth-child(3) {font-size: 25pt; font-weight: bold;}
+.detail_tab > .review_box > .grade  > div:nth-child(4), div:nth-child(5) { align-self: flex-end;}
+
+.detail_tab > .review_box > form {display: flex; border: 1px solid #ccc; box-sizing: border-box; height: 80px; margin-bottom: 55px;}
+.detail_tab > .review_box > form > .star_score_box 
+    {display: flex; flex-direction: column; justify-content: space-evenly; 
+    flex-basis: 320px; border-right: 1px solid #ccc; background-color: #f8f8f8;}
+.detail_tab > .review_box > form > .star_score_box > span 
+    {display: flex; align-items: flex-end; justify-content: center; font-size: 17pt; font-weight: bold;}    /* 5 */
+
+.detail_tab > .review_box > form > .star_score_box > span > p {font-size: 11pt; padding-left: 3px;}         /* 점 */
+.detail_tab > .review_box > form > .star_score_box > .star > .active {color: #ffa406;}
+.detail_tab > .review_box > form > .star_score_box > .star {color: #ccc; justify-content: center; display: flex;}
+.detail_tab > .review_box > form > .star_score_box > .star > div {padding-right: 5px;}
+
+.detail_tab > .review_box > form > .review_write_box 
+    {flex-direction: column; display: flex; justify-content: space-between; flex-grow: 1; position: relative;}
+.detail_tab > .review_box > form > .review_write_box > textarea 
+    {width: 100%; height: 100%; border-style: none; padding: 10px 0 0px 10px; box-sizing: border-box; line-height: 1.5; overflow: hidden;}
+.detail_tab > .review_box > form > .review_write_box > textarea::placeholder { color: #bbb; font-size: 10pt;}
+.detail_tab > .review_box > form > .review_write_box > textarea:focus {outline: none;}
+.detail_tab > .review_box > form > .review_write_box > .byte_info
+    {margin: 0 10px 10px 0; font-size: 11px; color: #666; position: absolute; bottom: 0; right: 0;}
+
+.detail_tab > .review_box > form > .review_btn {flex-basis: 120px; color: #fff; background-color: #666;
+    display: flex; align-items: center; justify-content: center; border: none;}                   /* 관람평작성 */
+
+.detail_tab > .review_box > .comment > .comment_title {display: flex; align-items: center; justify-content: space-between; 
+    border-top: 1px solid #ddd; border-bottom: 1px solid #ddd; height: 90px;}
+.detail_tab > .review_box > .comment > .comment_title > div {display: flex; margin: 0 20px; font-weight: 900; color: #777;}
+.detail_tab > .review_box > .comment > .comment_title > div > div { margin: 0 10px; display: flex; align-items: center; cursor: pointer;}
+.detail_tab > .review_box > .comment > .comment_title > div > div:nth-child(2) {margin-left: 20px;}
+.detail_tab > .review_box > .comment > .comment_title > div i {font-size: 7px; color:#ddd; margin-right : 8px;}
+.detail_tab > .review_box > .comment > .comment_title > div i.active {color: #FF7787;}
 
 
-.detail_tab > .tab_info1 {}
-
-
-.detail_tab > .tab_info2 > .grade {display: flex; align-items: center; justify-content: center; margin: 35px 0; color: #333; height: 30px;}
-.detail_tab > .tab_info2 > .grade > div {margin: 0px 5px; font-size: 11pt; color: #333;}
-.detail_tab > .tab_info2 > .grade > div > i {font-size: 17pt; color: #ffa406;}
-.detail_tab > .tab_info2 > .grade > div:nth-child(3) {font-size: 25pt; font-weight: bold;}
-.detail_tab > .tab_info2 > .grade > div:nth-child(4), div:nth-child(5) { align-self: flex-end;}
-
-.detail_tab > .tab_info2 > form {display: flex; border: 1px solid #ccc; height: 70px;}
-.detail_tab > .tab_info2 > form > div:first-child {display: flex; flex-direction: column; justify-content: space-around; 
-    flex-basis: 320px; border-right: 1px solid #ccc;}
-.detail_tab > .tab_info2 > form > div:first-child > div {display: flex;}
-.detail_tab > .tab_info2 > form > div:first-child > span {display: flex; align-items: flex-end; justify-content: center; font-size: 17pt; font-weight: bold;}
-.detail_tab > .tab_info2 > form > div:first-child > span > p {font-size: 11pt; padding-left: 3px;}
-.detail_tab > .tab_info2 > form > div > .star > .active {color: #ffa406;}
-.detail_tab > .tab_info2 > form > div > .star {color: #ccc; justify-content: center;}
-.detail_tab > .tab_info2 > form > div > .star > div {padding-right: 5px;}
-
-.detail_tab > .tab_info2 > form > input {border-style: none; flex-grow: 1;}
-.detail_tab > .tab_info2 > form > input:focus {outline: none;}
-
-.detail_tab > .tab_info2 > form > div:last-child {flex-basis: 120px; border-left: 1px solid #ccc; color: #fff; background-color: #666;
-    display: flex; align-items: center; justify-content: center;}
-
-.detail_tab > .tab_info2 > .comment > .comment_title {display: flex; align-items: center; justify-content: space-between; 
-    border-top: 1px solid #ddd; border-bottom: 1px solid #ddd; height: 90px; margin-top: 35px;}
-.detail_tab > .tab_info2 > .comment > .comment_title > div {display: flex; margin: 0 20px; font-weight: 900; color: #777;}
-.detail_tab > .tab_info2 > .comment > .comment_title > div > div { margin: 0 10px; display: flex; align-items: center;}
-.detail_tab > .tab_info2 > .comment > .comment_title > div i {font-size: 7px; color:#ddd; margin : 0 5px; }
-.detail_tab > .tab_info2 > .comment > .comment_title > div i.active {color: #2b3380;}
-
-.detail_tab > .tab_info2 > .comment > .comment_info > div {display: flex;}
-
-.detail_tab > .tab_info2 > .comment > .comment_info > div > .comment_info1 {}
+.detail_tab > .review_box > .comment > .review_comment > div {display: flex; align-items: center;  height: 120px; border-bottom: 1px solid #ddd;}
+.detail_tab > .review_box > .comment > .review_comment > div > .cmt_icon {margin: 0 20px;}
+.detail_tab > .review_box > .comment > .review_comment > div > .cmt_info 
+    {display: flex; flex-direction: column; justify-content: space-evenly; font-size: 11pt;}
+    .detail_tab > .review_box > .comment > .review_comment > div > .cmt_info > div {display: flex; margin: 3px 0px;}
+.detail_tab > .review_box > .comment > .review_comment > div > .cmt_info > div > span {margin: 0 10px; color: #ddd;}
+.detail_tab > .review_box > .comment > .review_comment > div > .cmt_info > div > div > i {color: #ffa406; margin: 0 5px;}
