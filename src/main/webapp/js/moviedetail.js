@@ -58,7 +58,7 @@ $(document).ready(function() {
 
 		for (const value of values) {
 			if (value == '') {
-				return;
+				return false;
 			}
 		}
 
@@ -72,7 +72,17 @@ $(document).ready(function() {
 					alert('오류가 발생했습니다.')
 				}
 				reviewLoad();
-				$('#reviewInput > textarea').val('');
+				$('#txtComment').val('');
+				
+				var count = 5;
+				$(stars).each(function(index,elem){
+					if(index < count){
+						$(elem).addClass('active');
+					} else{
+						$(elem).removeClass('active');
+					}
+				});
+				$('#score').text(count);
 				
 			},
 			error: function() {
@@ -85,6 +95,10 @@ $(document).ready(function() {
 
 	var stars = $('.star > div');
 	$(stars).on('hover',function(e){
+		if ($('#reviewButton').hasClass('disabled')) {
+			return false;
+		}
+		
 		var count = $(e.currentTarget).data('value');
 		$(stars).each(function(index,elem){
 			if(index < count){

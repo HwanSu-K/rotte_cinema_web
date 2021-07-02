@@ -50,7 +50,7 @@
                             <span><img src="../images/icon/sub4_info_ticket.png"></span>
                             <span>#</span>
                             <span>위</span>
-                            <span>${movie.reservRating }%%</span>
+                            <span>${movie.reservRating }%</span>
                         </div>
                     </div>
                     <div class="area1_section">                   <!-- info_area1 > div:nth-child(2) -->
@@ -139,7 +139,7 @@
                         </span>
                     </div>
 
-                <div class="review_btn" id="reviewButton" class="${empty sessionScope.customer ? 'disabled':'' }">관람평 작성</div>               <!-- form > .review_btn -->
+                <div class="review_btn${empty sessionScope.customer ? ' disabled':'' }" id="reviewButton">관람평 작성</div>               <!-- form > .review_btn -->
             </form>
                 <div class="comment">
                     <div class="comment_title">
