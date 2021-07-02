@@ -1,7 +1,7 @@
-.member_login > .login_tab {display: flex; justify-content: center;}       /* 목록 탭 */
-.member_login > .login_tab > div {width: 400px; height: 65px; display: flex; justify-content: center; align-items: center; 
+.member_login > .login_tab {display: flex; justify-content: center;}        /* 목록 탭 */
+.member_login > .login_tab > div {width: 400px; height: 65px; display: flex; justify-content: center; align-items: center;
     border: 1px solid #e0e0e0; margin-left: -1px; font-size: 13pt;}       /* 목록탭 버튼 */
-.member_login > .login_tab > div.active 
+.member_login > .login_tab > div.active
     {background-color: #f3f3f3; border-bottom: 4px solid #2b3380; height: 62px; color: black;}
 .member_login > .login_tab > div:last-child {color: #898989;}
 
@@ -14,7 +14,6 @@
 .member_login > .login_form > .login_box > .chkbox {display: flex; justify-content: flex-start; margin-bottom: 20px;}
 .member_login > .login_form > .login_box > .chkbox > label {color: #777; font-size: 12pt; padding-right: 35px;}
 .member_login > .login_form > .login_box > .chkbox > label > input {margin: 3px 5px 0px 5px;}
-
 
 .member_login > .login_form > .login_box .login_area {display: flex; }
 .member_login > .login_form > .login_box .login_area > div:first-child > input          /* 이메일, 비번 입력 박스 */

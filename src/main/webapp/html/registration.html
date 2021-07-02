@@ -28,31 +28,45 @@
                 <div class="active">필수 정보</div>
                 <div class="">가입 완료</div>
             </div>
+            <div class="reg_info">
+                <div>
+                    기본 입력
+                </div>
+                <div>
+                    <span>*</span>
+                    <div>표시 필수 입력사항</div>
+                </div>
+            </div>
             <section id="formReg" class="active">
 				<form id="reg">
-                    <div>
+                    <div>                       <!-- #formReg > form > div -->
                         <label for="email"><span>*</span>이메일</label>
-                        <input type="text" id="email" name="email" maxlength="15">
-                        <span>@</span>
-                        <input type="text" id="emailAddr" name="email" maxlength="15">
-                        <select id="emailSelect" name="state">
-                            <option value="default">직접입력</option>
-                            <option value="naver.com">네이버</option>
-                            <option value="hanmail.com">다음</option>
-                            <option value="gmail.com">구글</option>
-                            <option value="kakao.com">카카오</option>
-                        </select>
+                        <div class="reg_box">               <!-- #formReg > form > div > .reg_box-->
+                            <input type="text" id="email" name="email" maxlength="15">
+                            <span>@</span>
+                            <input type="text" id="emailAddr" name="email" maxlength="15">
+                            <select id="emailSelect" name="state">
+                                <option value="default">직접입력</option>
+                                <option value="naver.com">네이버</option>
+                                <option value="hanmail.com">다음</option>
+                                <option value="gmail.com">구글</option>
+                                <option value="kakao.com">카카오</option>
+                            </select>
+                            <div id="emailAlert" class="">이메일 형식이 잘못되었습니다.</div>
+                        </div>
                     </div>
-                    <div id="emailAlert" class="">이메일 형식이 잘못되었습니다.</div>
+                    
                     <div>
                         <label for="password"><span>*</span>비밀번호</label>
-                        <input type="password" id="password" name="name" maxlength="20">                        
+                        <div class="reg_box">               <!-- #formReg > form > div > .reg_box-->
+                            <input type="password" id="password" name="name" maxlength="20" placeholder="비밀번호를 입력해주세요 (영문,숫자 조합)">
+                            <div id="passAlert" class="">비밀번호는 8자리 이상으로 입력해주세요.</div>
+                        </div>
                     </div>
                     <div>
-                        <label for="passwordcheck"><span>*</span>비밀번호확인</label>
-                        <input type="password" id="passwordcheck" name="name" maxlength="20">
+                        <label for="passwordcheck"><span>*</span>비밀번호 확인</label>
+                        <input type="password" id="passwordcheck" name="name" maxlength="20" placeholder="비밀번호를 입력해주세요 (영문,숫자 조합)">
                     </div>
-                    <div id="passAlert" class="">비밀번호는 8자리 이상으로 입력해주세요.</div>
                     <div><label for="name"><span>*</span>이름</label><input type="text" id="name" name="name" maxlength="5"></div>
                     <div>
                         <label for="birth"><span>*</span>생년월일</label>
@@ -69,7 +83,7 @@
                     <div>
                         <label for="phonenum"><span>*</span>휴대전화</label>
                         <select id="p_top" name="p_top">
-                        	<option value="">선택</option>
+                            <option value="">선택</option>
                             <option value="010">010</option>
                             <option value="011">011</option>
                             <option value="017">017</option>
@@ -78,17 +92,18 @@
                         <input type="text" id="p_bottom" name="p_middle" maxlength="4">
                     </div>    
                     <div>
-                        <label for="zipcode" onclick="sample2_execDaumPostcode()"><span>*</span>주소</label>
+                        <label for="zipcode" onclick="sample2_execDaumPostcode()">
+                            <span>*</span>주소</label>
                         <input type="text" id="zipcode" name="zipcode" maxlength="6" disabled="">                        
                         <div class="btn" onclick="sample2_execDaumPostcode()">주소찾기</div>
-                    </div>                
+                    <!-- </div> -->
                     <div id="layer" style="display:none;position:fixed;overflow:hidden;z-index:1;-webkit-overflow-scrolling:touch;">
 						<img src="//t1.daumcdn.net/postcode/resource/images/close.png" id="btnCloseLayer" style="cursor:pointer;position:absolute;right:-3px;top:-3px;z-index:1" onclick="closeDaumPostcode()" alt="닫기 버튼">
-					</div>
+					<!-- </div> -->
                     <div>
                         <label for="address"></label>
                         <input type="text" id="address" name="addr" maxlength="20" disabled="">                        
-                    </div>
+                    <!-- </div> -->
                     <div>
                         <label for="detailAddress"></label>
                         <input type="text" id="detailAddress" name="addr" maxlength="20">                        
