@@ -41,4 +41,14 @@ public class MySqlReviewDao implements ReviewDao {
 			sqlSession.close();
 		}
 	}
+
+	@Override
+	public int selectOneCount(HashMap<String, Object> paramMap) throws Exception {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		try {
+			return sqlSession.selectOne("spms.dao.ReviewDao.selectOneCount", paramMap);
+		} finally {
+			sqlSession.close();
+		}
+	}
 }

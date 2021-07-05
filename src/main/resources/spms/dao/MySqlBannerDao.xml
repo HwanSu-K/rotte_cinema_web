@@ -14,10 +14,7 @@
 	<select id="selectList" parameterType="map"
 		resultMap="ResultMap">
 		SELECT BANNER_INDEX,BANNER_IMAGE,BANNER_VIDEO,BANNER_STATE FROM BANNER
-		<choose>
-			<when test="view == 'all'"></when>
-			<otherwise>WHERE BANNER_STATE = 1</otherwise>
-		</choose>
+		<if test="view != 'all'">WHERE BANNER_STATE = 1</if>
 	</select>
 	
 	<insert id="insert" parameterType="movie">

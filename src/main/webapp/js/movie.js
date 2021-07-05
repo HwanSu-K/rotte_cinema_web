@@ -12,7 +12,6 @@ $(document).ready(function() {
 			data: form,
 			dataType: 'json',
 			success: function(data) {
-				console.log(data);
 				if(data === -1)
 				{
 					alert('로그인이 필요한 서비스 입니다.');

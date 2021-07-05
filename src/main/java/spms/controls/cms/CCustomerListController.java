@@ -22,9 +22,8 @@ public class CCustomerListController {
 
 	@RequestMapping("/cms/customer/list.do")
 	public String execute(Map<String, Object> model) throws Exception {
-		HashMap<String, Object> paramMap = new HashMap<String, Object>();
-		//paramMap.put("view", "all");
-		model.put("customers", customerDao.selectList(paramMap));
+	
+		model.put("customers", customerDao.selectList());
 		return "/cms/CustomerListForm.jsp";
 	}
 }

@@ -31,7 +31,7 @@
 	
 	<select id="selectOne" parameterType="like"
 		resultMap="ResultMap">
-		SELECT LIKE_INDEX
+		SELECT LIKE_INDEX,MOVIE_INDEX
 		FROM MOVIE_LIKE 
 		WHERE MOVIE_INDEX=#{indexMovie} AND CUSTOMER_INDEX=#{indexCustomer}
 	</select>

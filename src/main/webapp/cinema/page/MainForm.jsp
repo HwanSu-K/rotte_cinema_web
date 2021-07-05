@@ -146,7 +146,7 @@
             <div class="qration_post">
             <c:forEach var="qration" items="${qrations}" begin="1" end="4">
             	<div onClick="location.href ='moviedetail.do?index=${qration.index}'">
-                    <img class="icon" src="./images/icon/qration_c_icon.png">
+                    <img class="icon" src="./images/icon/qration_q_icon.png">
                     <img src="./images/poster/${qration.poster }">
                     <div>${qration.title }</div>
                 </div>

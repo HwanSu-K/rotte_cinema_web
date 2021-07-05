@@ -11,17 +11,6 @@
 </head>
 <body>
     <c:import url="/include/header.do"/>
-    <%-- 
-        
-			<div>
-				<form id="reviewInput" method="post" id="review">
-	                <input type="text" name="rating" maxlength="50" placeholder="평점을 입력하세요." ${empty sessionScope.customer ? 'disabled':'' }>
-	                <input type="text" name="text" maxlength="15" placeholder="리뷰내용을 입력하세요." ${empty sessionScope.customer ? 'disabled':'' }>
-	            <div id="reviewButton" class="${empty sessionScope.customer ? 'disabled':'' }" >리뷰작성</div>
-        		</form>		
-			</div>
-			<div id=reviewList></div>
-	--%>
 	<section class="location">      <!-- background-color: #f8f8fa; -->
         <div>
             <span><i class="fas fa-home"></i></span>
@@ -47,8 +36,8 @@
                     <div class="area1_section">                   <!-- info_area1 > div:nth-child(1) -->
                         <p>예매율</p>
                         <div>
-                            <span><img src="../images/icon/sub4_info_ticket.png"></span>
-                            <span>#</span>
+                            <span><img src="./images/icon/sub4_info_ticket.png"></span>
+                            <span>${rank }</span>
                             <span>위</span>
                             <span>${movie.reservRating }%</span>
                         </div>
@@ -56,8 +45,8 @@
                     <div class="area1_section">                   <!-- info_area1 > div:nth-child(2) -->
                         <p>누적관객수</p>
                         <div>
-                            <span><img src="../images/icon/sub4_info_user.png"></span>
-                            <span>#,###,###</span>
+                            <span><img src="./images/icon/sub4_info_user.png"></span>
+                            <span class="memberCountCon">12345678</span>
                         </div>
                     </div>
                 </div>
@@ -78,12 +67,17 @@
                     </div>
 
                     <div class="area2_section2">
-                        <div>
-                            <i class="far fa-heart"></i>
+                        <div class="movieLike" data-movie-index ="${movie.index }">
+                        	<c:if test="${like.indexMovie == movie.index }">
+					    		<i class="fas fa-heart active"></i>
+					    	</c:if>
+					    	<c:if test="${like.indexMovie != movie.index }">
+					    		<i class="far fa-heart"></i>
+				    		</c:if>
                             <!-- 마우스 오버시 : <i class="fas fa-heart"></i> -->
                             <span>${movie.like }</span>
                         </div>
-                        <div onClick="location.href ='moviedetail.do?index=${movie.index}'">예매하기</div>
+                        <div onClick="location.href ='ticketing.do?index=${movie.index}'">예매하기</div>
                     </div>
                 </div>
             </div>
@@ -95,7 +89,7 @@
                 <div>영화정보</div>                      <!-- detail_tab > div:first-child -->
                 <div class="active">                                    <!-- detail_tab > div:last-child -->
                     <span>평점 및 관람평</span>
-                    <span>&nbsp;(1,234)</span>
+                    <span></span>
                 </div>
             </div>
 
@@ -133,7 +127,10 @@
                         </div>
                     </div>
                     <div class="review_write_box">                      <!-- form > .review_write_box > -->
-                        <textarea id="txtComment" placeholder="평점 및 영화 관람평을 작성해주세요. 주제와 무관한 리뷰 또는 스포일러는 표시제한 또는 삭제될 수 있습니다." title="관람평 작성" ${empty sessionScope.customer ? 'disabled':'' }></textarea>
+                        <textarea id="txtComment" placeholder=
+                        ${empty sessionScope.customer ? '"로그인 후 사용할 수 있습니다"':'"평점 및 영화 관람평을 작성해주세요.&#13;&#10;주제와 무관한 리뷰 또는 스포일러는 표시제한 또는 삭제될 수 있습니다."' }
+                        
+                        title="관람평 작성" ${empty sessionScope.customer ? 'disabled':'' }></textarea>
                         <span class="byte_info">
                             <strong class="byte">0</strong>/<em>220</em>
                         </span>
@@ -143,10 +140,10 @@
             </form>
                 <div class="comment">
                     <div class="comment_title">
-                        <div>총 2,924건</div>
+                        <div></div>
                         <div>
-                            <div><i class="fas fa-circle active"></i>최신순</div>
-                            <div><i class="fas fa-circle"></i>평점순</div>
+                            <div data-order-type=""><i class="fas fa-circle active"></i>최신순</div>
+                            <div data-order-type="score"><i class="fas fa-circle"></i>평점순</div>
                         </div>
                     </div>
                     <div class="review_comment" id="reviewList">

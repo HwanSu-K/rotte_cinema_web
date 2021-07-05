@@ -7,12 +7,12 @@
 	<%@ include file="../cinema/include/IncludeCMS.jsp" %>
 </head>
 <body>
-<a href='../list.do'>콘텐츠 관리 시스템</a>
+<div class="button">
+	<button type="button" class="btn btn-primary btn-lg">등록</button>
+	<button type="button" class="btn btn-primary btn-lg" onclick="location.href='../list.do'">콘텐츠 관리 시스템</button>
+</div>
 <h1>회원 목록 </h1>
-<p>
-	<a href='add.do'>회원 등록 </a>
-</p>
-<table border="1">
+<table class="table">
 	<tr>
 		<th>인덱스 </th>
 		<th>아이디 </th>
@@ -32,7 +32,7 @@
 		<td>${customer.birth  }</td>
 		<td>${customer.phonenum  }</td>
 		<td>${customer.access  }</td>
-		<td><a href="update.do?no=${customer.index }">수정 </a></td>
+		<td>수정</a></td>
 	</tr>
 </c:forEach>
 </table>

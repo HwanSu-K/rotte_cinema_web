@@ -1,52 +1,221 @@
-.member_reg {width: 800px; margin:0 auto; }
-.member_reg > .reg_tab {display: flex; justify-content: center;}            /* 목록 탭 */
-.member_reg > .reg_tab > div {width: 400px; height: 65px; display: flex; justify-content: center; align-items: center; 
-    border: 1px solid #e0e0e0; margin-left: -2px; font-size: 13pt;}       /* 목록탭 버튼 */
-.member_reg > .reg_tab > div.active
-    {background-color: #f3f3f3; border-bottom: 4px solid #2b3380; height: 62px; color: black;}
-.member_reg > .reg_tab > div {color: #898989;}
+.member_reg {
+	width: 800px;
+	margin: 0 auto;
+}
+.member_reg > .reg_tab {
+	display: flex;
+	justify-content: center;
+} /* 목록 탭 */
+.member_reg > .reg_tab > div {
+	width: 400px;
+	height: 65px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid #e0e0e0;
+	margin-left: -2px;
+	font-size: 13pt;
+} /* 목록탭 버튼 */
+.member_reg > .reg_tab > div.active {
+	background-color: #f3f3f3;
+	border-bottom: 4px solid #2b3380;
+	height: 62px;
+	color: black;
+}
+.member_reg > .reg_tab > div {
+	color: #898989;
+}
 
+[data-tooltip-text]:hover {
+	position: relative;
+}
 
-.member_reg > .reg_info {display: flex; justify-content: space-between; margin: 70px 0 10px 0;}
-.member_reg > .reg_info > div {display: flex; color: #898989; margin: 0 10px;}
-.member_reg > .reg_info > div > span {margin-right: 5px; color: red;}
+[data-tooltip-text]:after {
+	-webkit-transition: bottom 0.3s ease-in-out, opacity 0.3s ease-in-out;
+	-moz-transition: bottom 0.3s ease-in-out, opacity 0.3s ease-in-out;
+	transition: bottom 0.3s ease-in-out, opacity 0.3s ease-in-out;
 
-.member_reg > #formReg              /* 로그인 박스 설정 */
-    {display: none; flex-direction: column; justify-content: center; align-items:center; margin: 0 auto;
-    margin-bottom: 30px; font-size: 11pt; border-bottom: 1px solid #e5e5e5; border-top: 1px solid #e5e5e5;}
-.member_reg > #formcomp {font-size: 18pt; display: none; flex-direction: row;}
-.member_reg > #formcomp.active{display: flex;}
-.member_reg > #formcomp > div:nth-child(1) {color: #2b3380;}
-.member_reg > #formReg.active {display:flex;}    
-.member_reg > #formReg > form {width: 100%;}
-.member_reg > #formReg > form > div {display: flex; justify-content: flex-start; align-items: center;  border-bottom: 1px solid #e5e5e5; }
-.member_reg > #formReg > form > div:nth-child(7) , form > div:nth-child(8) , form > div:nth-child(9) {border-style: none;}
-.member_reg > #formReg > form > div > label
-    {flex-basis: 175px; height: 60px; background-color: #f9f9f9; display: flex; justify-content: center; align-items: center;}
-.member_reg > #formReg > form > div > label > span {color:red; margin-right:5px;}
-.member_reg > #formReg > form > div > input , .member_reg > #formReg > form > div > select         /* 이메일, 비번 입력 박스 */
-    {width: 300px; height: 35px; margin: 0px 10px; padding-left: 10px;
-    box-sizing: border-box; border: 1px solid #ddd;}
-.member_reg > #formReg > form > div > div #emailAlert, .member_reg > #formReg > form > div > div #passAlert {color: red; margin-top: 5px;}
-.member_reg > #formReg > form > #emailAlert.active {color:#27be6d; margin: 0 10px;}
-.member_reg > #formReg > form > #emailAlert.disabled,
-.member_reg > #formReg > form > #passAlert.disabled {display: none;}
+	background-color: rgba(0, 0, 0, 0.8);
+
+	-webkit-box-shadow: 0px 0px 3px 1px rgba(50, 50, 50, 0.4);
+	-moz-box-shadow: 0px 0px 3px 1px rgba(50, 50, 50, 0.4);
+	box-shadow: 0px 0px 3px 1px rgba(50, 50, 50, 0.4);
+
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+
+	color: #ffffff;
+	font-size: 12px;
+	margin-bottom: 10px;
+	padding: 7px 12px;
+	position: absolute;
+	width: auto;
+	min-width: 50px;
+	max-width: 300px;
+	white-space: nowrap;
+
+	z-index: 9999;
+
+	opacity: 0;
+	left: -9999px;
+	top: 90%;
+	content: attr(data-content);
+}
+
+[data-tooltip-text]:hover:after {
+	top: 130%;
+	left: 0;
+	opacity: 1;
+}
+
+.member_reg > .reg_info {
+	display: flex;
+	justify-content: space-between;
+	margin: 70px 0 10px 0;
+}
+.member_reg > .reg_info > div {
+	display: flex;
+	color: #898989;
+	margin: 0 10px;
+}
+.member_reg > .reg_info > div > span {
+	margin-right: 5px;
+	color: red;
+}
+
+.member_reg > #formcomp {
+	font-size: 18pt;
+	display: none;
+	flex-direction: row;
+	background: #f9f9f9;
+	justify-content: center;
+	align-items: center;
+	padding: 100px 0;
+	margin-top: 100px;
+}
+.member_reg > #formcomp.active {
+	display: flex;
+}
+.member_reg > #formcomp > div:nth-child(1) {
+	color: #2b3380;
+}
+.member_reg > #formReg.active {
+	display: flex;
+}
+.member_reg > #formReg > form {
+	width: 100%;
+	border-top: 1px solid #e5e5e5;
+	border-bottom: 1px solid #e5e5e5;
+}
+.member_reg > #formReg > form > div {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	border-bottom: 1px solid #e5e5e5;
+}
+.member_reg > #formReg > form > div:nth-child(7),
+.member_reg > #formReg > form > div:nth-child(8),
+.member_reg > #formReg > form > div:nth-child(9) {
+	border-style: none;
+}
+.member_reg > #formReg > form > div:nth-child(8) {
+	height: 30px;
+}
+.member_reg > #formReg > form > div > label {
+	flex-basis: 175px;
+	height: 60px;
+	background-color: #f9f9f9;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.member_reg > #formReg > form > div > label > span {
+	color: red;
+	margin-right: 5px;
+}
+.member_reg > #formReg > form > div > input ,
+.member_reg > #formReg > form > div > select         /* 이메일, 비번 입력 박스 */ {
+	width: 300px;
+	height: 35px;
+	margin: 0px 10px;
+	padding-left: 10px;
+	box-sizing: border-box;
+	border: 1px solid #ddd;
+}
+.member_reg > #formReg > form > div > #emailAlert,
+.member_reg > #formReg > form > div > #passAlert {
+	color: red;
+}
+.member_reg > #formReg > form > div > #emailAlert.active,
+.member_reg > #formReg > form > div > #passAlert.active {
+	color: #27be6d;
+}
+.member_reg > #formReg > form > div > #emailAlert.disabled,
+.member_reg > #formReg > form > div > #passAlert.disabled {
+	display: none;
+}
 .member_reg > #formReg > form > div > #email,
-.member_reg > #formReg > form > div > #emailAddr {width: 150px;}
-.member_reg > #formReg > form > div > #name {width: 180px;}
+.member_reg > #formReg > form > div > #emailAddr {
+	width: 150px;
+}
+.member_reg > #formReg > form > div > #name {
+	width: 180px;
+}
 .member_reg > #formReg > form > div > #p_middle,
-.member_reg > #formReg > form > div > #p_bottom {width: 100px;}
-.member_reg > #formReg > form > div > #zipcode {width: 180px;}
-.member_reg > #formReg > form > div > #address, .member_reg > #formReg > form > div > #detailAddress {width: 400px;}
-.member_reg > #formReg > form > div > .btn {display: flex; justify-content: center; align-items: center; width: 100px; height: 35px; color: #fff; background-color: #252451;}
-.member_reg > #formReg > form > div > select {width: 100px;}
-.member_reg > #formReg > form > div > input::placeholder {color: rgb(184, 184, 184);}       /* 인풋박스 폰트 컬러*/
-.member_reg > #formReg > form > div > input[type="text"]:disabled { background: #f5f5f5; }
-.member_reg > .reg_btn,.member_reg > .reg_alert 
-    {display: flex; justify-content: center; align-items: center; margin-top: 35px;}
-.member_reg > .reg_btn > div, .member_reg > .reg_alert > div 
-    {display: flex; justify-content: center; align-items: center; margin-right: 10px;
-    background-color: #252451; color: #fff; width: 150px; height: 40px; font-size: 12pt;}
-.member_reg > .reg_btn > div.g {background-color: #2b3380;}
-.member_reg > .reg_alert > div {display: none;}
-.member_reg > .reg_alert.active > div {display: flex;}
+.member_reg > #formReg > form > div > #p_bottom {
+	width: 100px;
+}
+.member_reg > #formReg > form > div > #zipcode {
+	width: 180px;
+}
+.member_reg > #formReg > form > div > #address,
+.member_reg > #formReg > form > div > #detailAddress {
+	width: 400px;
+}
+.member_reg > #formReg > form > div > .btn {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100px;
+	height: 35px;
+	color: #fff;
+	background-color: #252451;
+}
+.member_reg > #formReg > form > div > select {
+	width: 100px;
+}
+.member_reg > #formReg > form > div > input::placeholder {
+	color: rgb(184, 184, 184);
+} /* 인풋박스 폰트 컬러*/
+.member_reg > #formReg > form > div > input[type='text']:disabled {
+	background: #f5f5f5;
+}
+.member_reg > .reg_btn,
+.member_reg > .reg_alert {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 35px;
+}
+.member_reg > .reg_btn > div,
+.member_reg > .reg_alert > div {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-right: 10px;
+	background-color: #252451;
+	color: #fff;
+	width: 150px;
+	height: 40px;
+	font-size: 12pt;
+}
+.member_reg > .reg_btn > div.g {
+	background-color: #2b3380;
+}
+.member_reg > .reg_alert > div {
+	display: none;
+}
+.member_reg > .reg_alert.active > div {
+	display: flex;
+}

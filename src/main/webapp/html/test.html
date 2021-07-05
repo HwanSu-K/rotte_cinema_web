@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../plugin/jquery.min.js"></script>
+  <script src="../plugin/jquery-ui.min.js"></script>
+</head>
+<body>
+  <div class="memberCountCon">1234567</div>
+</body>
+<script>
+  var memberCountConTxt= $('.memberCountCon').text();
+  
+  $({ val : 0 }).animate({ val : memberCountConTxt }, {
+    duration: 2000,
+  step: function() {
+    var num = numberWithCommas(Math.floor(this.val));
+    $(".memberCountCon").text(num);
+  },
+  complete: function() {
+    var num = numberWithCommas(Math.floor(this.val));
+    $(".memberCountCon").text(num);
+  }
+});
+
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+</script>
+</html>

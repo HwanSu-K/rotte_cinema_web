@@ -54,6 +54,16 @@ public class MySqlMovieDao implements MovieDao {
 	}
 	
 	@Override
+	public List<Movie> selectListRank(int no) throws Exception {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		try {
+			return sqlSession.selectList("spms.dao.MovieDao.selectListRank", no);
+		} finally {
+			sqlSession.close();
+		}
+	}
+	
+	@Override
 	public int insert(Movie movie) throws Exception {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		try {

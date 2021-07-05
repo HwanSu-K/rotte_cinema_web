@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 2. 동적 SQL 적용 -->
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="spms.dao.TokenDao">
+	<resultMap type="token" id="ResultMap">
+		<id column="TOKEN_INDEX" property="index" />
+		<result column="TOKEN_VALUE" property="value" />
+		<result column="CUSTOMER_INDEX" property="indexCustomer" />
+	</resultMap>
+
+	<select id="selectList" parameterType="int"
+		resultMap="ResultMap">
+		SELECT TOKEN_INDEX, TOKEN_VALUE, CUSTOMER_INDEX
+		FROM CUSTOMER_TOKEN
+		WHERE CUSTOMER_INDEX = #{value}
+	</select>
+</mapper>

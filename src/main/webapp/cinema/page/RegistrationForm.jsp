@@ -27,6 +27,15 @@
                 <div class="active">필수 정보</div>
                 <div class="">가입 완료</div>
             </div>
+            <div class="reg_info">
+                <div>
+                    기본 입력
+                </div>
+                <div>
+                    <span>*</span>
+                    <div>표시 필수 입력사항</div>
+                </div>
+            </div>
             <section id="formReg" class="active">
 				<form id="reg">
                     <div>
@@ -37,21 +46,21 @@
                         <select id='emailSelect' name='state'>
                             <option value='default' >직접입력</option>
                             <option value='naver.com'>네이버</option>
-                            <option value='hanmail.com'>다음</option>
+                            <option value='hanmail.net'>다음</option>
                             <option value='gmail.com'>구글</option>
                             <option value='kakao.com'>카카오</option>
                         </select>
+                        <div id="emailAlert" class="disabled" data-tooltip-text=""><i class="fas fa-check"></i></div>
                     </div>
-                    <div id="emailAlert" class="disabled"></div>
                     <div>
                         <label for=password><span>*</span>비밀번호</label>
-                        <input type="password" id="password" name="name" maxlength="20">                        
+                        <input type="password" id="password" name="name" maxlength="20">    
+                        <div id="passAlert" class="disabled" data-tooltip-text=""><i class="fas fa-check"></i></div>
                     </div>
                     <div>
                         <label for="passwordcheck"><span>*</span>비밀번호확인</label>
                         <input type="password" id="passwordcheck" name="name" maxlength="20">
                     </div>
-                    <div id="passAlert" class="disabled"></div>
                     <div><label for="name"><span>*</span>이름</label><input type="text" id="name" name="name" maxlength="5"></div>
                     <div>
                         <label for="birth"><span>*</span>생년월일</label>
@@ -77,15 +86,12 @@
                         <input type="text" id="p_bottom" name="p_middle" maxlength="4">
                     </div>    
                     <div>
-                        <label for="zipcode" onclick="sample2_execDaumPostcode()"><span>*</span>주소</label>
+                        <label for="zipcode"></label>
                         <input type="text" id="zipcode" name="zipcode" maxlength="6" disabled>                        
                         <div class="btn" onclick="sample2_execDaumPostcode()">주소찾기</div>
                     </div>                
-                    <div id="layer" style="display:none;position:fixed;overflow:hidden;z-index:1;-webkit-overflow-scrolling:touch;">
-						<img src="//t1.daumcdn.net/postcode/resource/images/close.png" id="btnCloseLayer" style="cursor:pointer;position:absolute;right:-3px;top:-3px;z-index:1" onclick="closeDaumPostcode()" alt="닫기 버튼">
-					</div>
                     <div>
-                        <label for="address"></label>
+                    	<label for="address" onclick="sample2_execDaumPostcode()"><span>*</span>주소</label>
                         <input type="text" id="address" name="addr" maxlength="20" disabled>                        
                     </div>
                     <div>
@@ -93,6 +99,9 @@
                         <input type="text" id="detailAddress" name="addr" maxlength="20">                        
                     </div>
                 </form>
+                <div id="layer" style="display:none;position:fixed;overflow:hidden;z-index:1;-webkit-overflow-scrolling:touch;">
+						<img src="//t1.daumcdn.net/postcode/resource/images/close.png" id="btnCloseLayer" style="cursor:pointer;position:absolute;right:-3px;top:-3px;z-index:1" onclick="closeDaumPostcode()" alt="닫기 버튼">
+					</div>
             </section>
             
             <section id="formcomp">

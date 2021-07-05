@@ -3,6 +3,7 @@ package spms.controls;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
@@ -18,11 +19,13 @@ import spms.dao.LikeDao;
 import spms.dao.MovieDao;
 import spms.dao.ReviewDao;
 import spms.dao.TheaterDao;
+import spms.fcm.FcmService;
 import spms.vo.Cinema;
 import spms.vo.Customer;
 import spms.vo.Like;
 import spms.vo.Movie;
 import spms.vo.Review;
+import spms.vo.Token;
 
 @Controller
 public class AjaxController {
@@ -32,6 +35,9 @@ public class AjaxController {
 	LikeDao likeDao;
 	CustomerDao customerDao;
 	CinemaDao cinemaDao;
+
+	@Autowired
+	FcmService fcmService;
 
 	@Autowired
 	public AjaxController setMovieDao(MovieDao movieDao) {
@@ -102,26 +108,31 @@ public class AjaxController {
 
 	@RequestMapping(value = "/reviewsobject.do", method = RequestMethod.POST)
 	@ResponseBody
-	public Object getReviewsObject(String index) throws Exception {
+	public Object getReviewsObject(String index, String order) throws Exception {
 		HashMap<String, Object> paramMap = new HashMap<String, Object>();
 		paramMap.put("index", index);
-
+		paramMap.put("order", order);
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("reviews", reviewDao.selectList(paramMap));
+		map.put("count", reviewDao.selectOneCount(paramMap));
 		return map;
 	}
 
 	@RequestMapping(value = "/reviewobject.do", method = RequestMethod.POST)
 	@ResponseBody
-	public int setReviewObject(HttpSession session, Review review) throws Exception {
+	public Object setReviewObject(HttpSession session, Review review) throws Exception {
+		HashMap<String, Object> map = new HashMap<String, Object>();
 		Customer customer = (Customer) session.getAttribute("customer");
 		if (customer != null) {
 			review.setIndexCustomer(customer.getIndex());
 			review.setDate(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
 
-			return reviewDao.insert(review);
+			reviewDao.insert(review);
+			map.put("result", "success");
+			return map;
 		}
-		return -1;
+		map.put("result", "fail");
+		return map;
 	}
 
 	@RequestMapping(value = "/theatersobject.do", method = RequestMethod.POST)
@@ -217,10 +228,17 @@ public class AjaxController {
 				customerDao.updateToken(customer);
 			}
 
-			map.put("result", "success");
+			map.put("result", "connect");
 			map.put("name", customer.getName());
 			return map;
 
+		} else if (token != null) {
+			session.invalidate();
+			customerDao.deleteToken(new Customer().setToken(token));
+
+			map.put("result", "disconnect");
+			map.put("name", null);
+			return map;
 		} else {
 			map.put("result", "fail");
 			map.put("name", null);
@@ -235,5 +253,16 @@ public class AjaxController {
 		Cinema detailInfo = cinemaDao.selectOneDefault(cinema.getIndex());
 		map.put("cinema", detailInfo);
 		return map;
+	}
+
+	@RequestMapping(value = "/test.do")
+	@ResponseBody
+	public Object sendPushObject(int no, String title, String body) throws Exception {
+
+		List<Token> tokens = customerDao.selectList(no);
+		for (Token token : tokens) {
+			fcmService.sendTargetMessage(token.getValue(), title, body, "");
+		}
+		return "success";
 	}
 }

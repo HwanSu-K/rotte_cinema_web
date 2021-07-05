@@ -18,7 +18,7 @@
 		<result column="CUSTOMER_TOKEN" property="token" />
 	</resultMap>
 
-	<select id="selectList" parameterType="map"
+	<select id="selectList" parameterType="int"
 		resultMap="ResultMap">
 		SELECT CUSTOMER_INDEX,CUSTOMER_EMAIL,CUSTOMER_PASSWORD,CUSTOMER_NAME,CUSTOMER_BIRTH,CUSTOMER_PHONENUM,CUSTOMER_ZIPCODE,CUSTOMER_ADDRESS,CUSTOMER_DETAILADDRESS,CUSTOMER_ACCESS
 		FROM CUSTOMER
@@ -59,6 +59,11 @@
 		<set>
 			CUSTOMER_INDEX=#{index},
 		</set>
+		WHERE TOKEN_VALUE=#{token}
+	</update>
+	
+	<update id="deleteToken" parameterType="map">
+		DELETE FROM CUSTOMER_TOKEN
 		WHERE TOKEN_VALUE=#{token}
 	</update>
 	

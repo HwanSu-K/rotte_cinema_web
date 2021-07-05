@@ -23,7 +23,9 @@ public class CBannerListController {
 
 	@RequestMapping("/cms/banner/list.do")
 	public String execute(Map<String, Object> model) throws Exception {
-		model.put("banners", bannerDao.selectList());
+		HashMap<String, Object> paramMap = new HashMap<String, Object>();
+		paramMap.put("view", "all");
+		model.put("banners", bannerDao.selectList(paramMap));
 		return "/cms/BannerListForm.jsp";
 	}
 }

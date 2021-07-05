@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c'%>
+	<c:set var="path" value="<%=request.getContextPath() %>" scope="application"/>
     <meta charset='UTF-8'>
 	<title>Rotte Cinema CMS</title>
     
@@ -25,3 +26,21 @@
 	<c:if test="${empty sessionScope.customer or sessionScope.customer.access != 0}">
 		<c:redirect url="/"/>
 	</c:if> 
+	
+	<script src="${path }/plugin/jquery.min.js"></script>
+    
+	<link href="${path }/plugin/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<script src="${path }/plugin/bootstrap/js/bootstrap.min.js"></script>
+	
+	<style>
+		body {
+			margin:10px;
+		}
+		button {
+			margin:5px 10px;
+		}
+		form {
+			margin-bottom: 10px;	
+		}
+	</style>
+	

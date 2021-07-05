@@ -9,26 +9,30 @@ public class Like {
 	public int getIndex() {
 		return index;
 	}
-	public void setIndex(int index) {
+	public Like setIndex(int index) {
 		this.index = index;
+		return this;
 	}
 	public int getIndexMovie() {
 		return indexMovie;
 	}
-	public void setIndexMovie(int indexMovie) {
+	public Like setIndexMovie(int indexMovie) {
 		this.indexMovie = indexMovie;
+		return this;
 	}
 	public int getIndexCustomer() {
 		return indexCustomer;
 	}
-	public void setIndexCustomer(int indexCustomer) {
+	public Like setIndexCustomer(int indexCustomer) {
 		this.indexCustomer = indexCustomer;
+		return this;
 	}
 	public int getCount() {
 		return count;
 	}
-	public void setCount(int count) {
+	public Like setCount(int count) {
 		this.count = count;
+		return this;
 	}
 	
 }

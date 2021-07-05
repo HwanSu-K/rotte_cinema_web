@@ -4,9 +4,12 @@ import java.util.HashMap;
 import java.util.List;
 
 import spms.vo.Customer;
+import spms.vo.Token;
 
 public interface CustomerDao {
-	List<Customer> selectList(HashMap<String, Object> paramMap) throws Exception;
+	List<Customer> selectList() throws Exception;
+	
+	List<Token> selectList(int no) throws Exception;
 	
 	int insert(Customer customer) throws Exception ;
 	
@@ -17,6 +20,8 @@ public interface CustomerDao {
 	int update(Customer customer) throws Exception;
 	
 	int updateToken(Customer customer) throws Exception;
+	
+	int deleteToken(Customer customer) throws Exception;
 	
 	Customer exist(String email, String password) throws Exception;
 	

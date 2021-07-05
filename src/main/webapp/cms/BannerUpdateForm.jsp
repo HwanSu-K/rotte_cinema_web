@@ -6,42 +6,37 @@
 <head>
 	<%@ include file="../cinema/include/IncludeCMS.jsp" %>
 <style>
-ul {
-	padding: 0;
-}
 
-li {
-	list-style: none;
-}
-
-label {
-	float: left;
-	text-align: right;
-	width: 80px;
-}
 </style>
 </head>
 <body>
 <c:set var="path" value="<%=request.getContextPath() %>"/>
-<h1>영화 등록</h1>
+<h1>배너 수정</h1>
 	<form action='update.do' method='post' enctype='multipart/form-data'>
-		<ul>
-			<li><label for='index'>번호 </label> <input id='index' type='text'
-				name='index' size='50' readonly value='${banner.index }'></li>
-			<li><label for='image'>이미지 </label> <input id='image' type='file'
-				name='image' size='50' accept='image/*'></li>
-			<li><label for='video'>비디오 </label> <input id='video' type='file'
-				name='video' size='50' accept='video/*'></li>
-			<li><label for='state'>상태 </label> <select id='state'
-				name='state'>
-				<option value='1' ${banner.state == 1 ? 'selected' : ''}>정상 </option>
-				<option value='0' ${banner.state == 0 ? 'selected' : ''}>중지 </option>
-			</select></li>
-		</ul>
-		<input type='submit' value='변경'> <input type='reset'
-			value='취소' onclick='history.back(-1)'>
+	<div>
+		<label for='index'>번호</label>
+		<input class="form-control" type="text" name="index" value="${banner.index }" readonly>
+	</div>
+	<div>
+		<label for="formFileImage" class="form-label">이미지 선택</label>
+		<input class="form-control" type="file" id="formFileImage" name="image" accept="image/*">
+	</div>
+	
+	<div>
+		<label for="formFileVideo" class="form-label">비디오 선택</label>
+		<input class="form-control" type="file" id="formFileVideo" name="video" accept="video/*">
+	</div>
+	<div>
+		<label for='state'>상태 </label>
+		<select class="form-select" id='state' name='state' aria-label="Default select example">
+			<option value='1' ${banner.state == 1 ? 'selected' : ''}>정상 </option>
+			<option value='0' ${banner.state == 0 ? 'selected' : ''}>중지 </option>
+		</select>
+	</div>
+	<button type="submit" class="btn btn-primary btn-lg">등록</button>
+	<button type="reset" class="btn btn-secondary btn-lg" onclick="history.back(-1)">취소</button>
 	</form>
-	<img src="${path }/images/banner/${banner.imagePath }">
-	<video controls><source src="${path }/images/banner/${banner.videoPath }"></video>
+	<img src="${path }/images/banner/${banner.imagePath }" class="img-thumbnail" alt="...">
+	<video controls class="img-thumbnail"><source src="${path }/images/banner/${banner.videoPath }"></video>
 </body>
 </html>

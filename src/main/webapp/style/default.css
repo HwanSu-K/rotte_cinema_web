@@ -1,106 +1,390 @@
-:root{
-    /* size */
-    --default--width:1200px;
+:root {
+	/* size */
+	--default--width: 1200px;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
-* {margin: 0; padding: 0; font-family: 'Noto Sans KR', sans-serif;}
-li {display: inline;}
-a {text-decoration: none; color: #ffffff;}
+* {
+	margin: 0;
+	padding: 0;
+	font-family: 'Noto Sans KR', sans-serif;
+}
+li {
+	display: inline;
+}
+a {
+	text-decoration: none;
+	color: #ffffff;
+}
 
-body{
-    display: grid; 
-    grid-template-areas: 
-                "header header header"
-                "location location location"
-                "content content content"
-                "footer footer footer";
-    grid-template-rows: 60px auto 1fr auto;
+body {
+	display: grid;
+	grid-template-areas:
+		'header header header'
+		'location location location'
+		'content content content'
+		'footer footer footer';
+	grid-template-rows: 60px auto 1fr auto;
 }
 
 /* 헤더부분 */
-header {grid-area: header; position: absolute; width: 100%; height: 60px; position: sticky; top:0; 
-    background-color: #252451; z-index: 999; color: #fff;}
-nav {width: 100%; height: 100%; border-bottom: 1px solid rgba(175,175,175,1);}
-nav > ul {display: flex; width: 100%; height: 100%; justify-content: center; }
-nav > ul > li {height: 100%; display: flex; justify-content: center; align-items: center; flex-basis: 130px;} /* 항목들의 넓이가 최소 100px은 유지 되도록 */
-nav > ul > li:hover{cursor: pointer; color: #ffd630;}
+header {
+	grid-area: header;
+	position: absolute;
+	width: 100%;
+	height: 60px;
+	position: sticky;
+	top: 0;
+	background-color: #252451;
+	z-index: 999;
+	color: #fff;
+}
+nav {
+	width: 100%;
+	height: 100%;
+	border-bottom: 1px solid rgba(175, 175, 175, 1);
+}
+nav > ul {
+	display: flex;
+	width: 100%;
+	height: 100%;
+	justify-content: center;
+}
+nav > ul > li {
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-basis: 130px;
+} /* 항목들의 넓이가 최소 100px은 유지 되도록 */
+nav > ul > li:hover {
+	cursor: pointer;
+	color: #ffd630;
+}
 
-.header_search_txb {position: absolute; height: 30px; margin-left: 150px;}
+.header_search_txb {
+	position: absolute;
+	height: 30px;
+	margin-left: 150px;
+}
 nav > ul > li:first-child,
-nav > ul > li:last-child{flex-basis: 150px;}
-nav > ul > li:nth-child(4){flex-basis: 450px}
-nav > ul > li > div {cursor: pointer;}
-nav > ul > li > .header_menu {width: 20px; height: 20px; background: url('../images/icon/menu_icon.png'); background-size: contain; background-repeat: no-repeat;}
-nav > ul > li > .header_menu.active{background: url('../images/icon/close_icon.png'); background-size: contain; background-repeat: no-repeat;}
-nav > ul > li > .header_search {width: 20px; height: 20px; background: url('../images/icon/search_icon.png'); background-size: contain; background-repeat: no-repeat;}
-nav > ul > li > .header_search.active{background: url('../images/icon/close_icon.png'); background-size: contain; background-repeat: no-repeat;}
-nav > ul > li > .header_calendar {width: 20px; height: 20px; background: url('../images/icon/calendar_icon.png'); background-size: contain; background-repeat: no-repeat;}
-nav > ul > li > .header_calendar.active{background: url('../images/icon/close_icon.png'); background-size: contain; background-repeat: no-repeat;}
-nav > ul > li > .header_user {width: 20px; height: 20px; background: url('../images/icon/user_icon.png'); background-size: contain; background-repeat: no-repeat;}
-nav > ul > li > .header_user.active{background: url('../images/icon/close_icon.png'); background-size: contain; background-repeat: no-repeat;}
-nav > ul > li > .header_logo {width: 200px; height: 40px; background: url('../images/icon/rt_logo_w_blue.png'); background-size: contain; background-repeat: no-repeat;}
+nav > ul > li:last-child {
+	flex-basis: 150px;
+}
+nav > ul > li:nth-child(4) {
+	flex-basis: 450px;
+}
+nav > ul > li > div {
+	cursor: pointer;
+}
+nav > ul > li > .header_menu {
+	width: 20px;
+	height: 20px;
+	background: url('../images/icon/menu_icon.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+nav > ul > li > .header_menu.active {
+	background: url('../images/icon/close_icon.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+nav > ul > li > .header_search {
+	width: 20px;
+	height: 20px;
+	background: url('../images/icon/search_icon.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+nav > ul > li > .header_search.active {
+	background: url('../images/icon/close_icon.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+nav > ul > li > .header_calendar {
+	width: 20px;
+	height: 20px;
+	background: url('../images/icon/calendar_icon.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+nav > ul > li > .header_calendar.active {
+	background: url('../images/icon/close_icon.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+nav > ul > li > .header_user {
+	width: 20px;
+	height: 20px;
+	background: url('../images/icon/user_icon.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+nav > ul > li > .header_user.active {
+	background: url('../images/icon/close_icon.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+nav > ul > li > .header_logo {
+	width: 200px;
+	height: 40px;
+	background: url('../images/icon/rt_logo_w_blue.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+}
 
-nav > ul > li > div {height: 20px; padding: 0 10px 0 10px;}     /* 아이콘 */
-nav > ul > li > .logo_w_blue {height: 40px; cursor:point;}                    /* 중앙 로고만 크기 조절 */
-nav > ul > .nav_over > ul {position: absolute; padding-top: 70px; visibility: hidden; color:#fff; top:0; margin: auto 0;}
-nav > ul > .nav_over:hover ul {visibility: inherit;}
-nav > ul > .nav_over > ul > li {padding: 0 10px 0 10px;}
-nav > ul > .nav_over > ul > li:hover {text-decoration: underline;}
+nav > ul > li > div {
+	height: 20px;
+	padding: 0 10px 0 10px;
+} /* 아이콘 */
+nav > ul > li > .logo_w_blue {
+	height: 40px;
+	cursor: point;
+} /* 중앙 로고만 크기 조절 */
+nav > ul > .nav_over > ul {
+	position: absolute;
+	padding-top: 70px;
+	visibility: hidden;
+	color: #fff;
+	top: 0;
+	margin: auto 0;
+}
+nav > ul > .nav_over:hover ul {
+	visibility: inherit;
+}
+nav > ul > .nav_over > ul > li {
+	padding: 0 10px 0 10px;
+}
+nav > ul > .nav_over > ul > li:hover {
+	text-decoration: underline;
+}
 
-nav > .nav_bg.active {background-color: rgba(0,0,0);
-    /*border-bottom: 1px solid rgba(149,149,149,0.6);*/ height: 40px; margin-top: 1px;}
-nav > .nav_map.active {display: block;}
-nav > .nav_map {width: 100%; height: 350px; background-color:#2b3380; padding: 60px 0; z-index: 900; position: absolute; display: none;}
-nav > .nav_map > div {width: var(--default--width); margin: 0 auto;}
-nav > .nav_map > div > div {font-size: 16pt; font-weight: bold; margin-bottom: 30px; padding: 5px 15px;}
-nav > .nav_map > div > div > span {border-bottom: 2px solid #fff;}
-nav > .nav_map > div > ul {display: flex; justify-content: space-between; margin: 0 50px;}
-nav > .nav_map > div > ul > li {text-align: center;}
-nav > .nav_map > div > ul > li > div {border-bottom: 1px solid rgba(255,255,255,0.4) ; 
-    margin: 10px 0; padding: 10px 70px; font-size: 13pt;  color: #fff; }
-nav > .nav_map > div > ul > li > ul {display: flex; justify-content: center; flex-direction: column;}
-nav > .nav_map > div > ul > li > ul > li {font-size: 11pt; padding: 25px 0;}
-nav > .nav_map > div > ul > li > ul > li > a {color: #fff; }
-nav > .nav_map > div > ul > li > ul > li > a:hover {text-decoration: underline; cursor: pointer;}
+nav > .nav_bg.active {
+	background-color: rgba(0, 0, 0);
+	/*border-bottom: 1px solid rgba(149,149,149,0.6);*/
+	height: 40px;
+	margin-top: 1px;
+}
+nav > .nav_map.active {
+	display: block;
+}
+nav > .nav_map {
+	width: 100%;
+	height: 350px;
+	background-color: #2b3380;
+	padding: 60px 0;
+	z-index: 900;
+	position: absolute;
+	display: none;
+}
+nav > .nav_map > div {
+	width: var(--default--width);
+	margin: 0 auto;
+}
+nav > .nav_map > div > div {
+	font-size: 16pt;
+	font-weight: bold;
+	margin-bottom: 30px;
+	padding: 5px 15px;
+}
+nav > .nav_map > div > div > span {
+	border-bottom: 2px solid #fff;
+}
+nav > .nav_map > div > ul {
+	display: flex;
+	justify-content: space-between;
+	margin: 0 50px;
+}
+nav > .nav_map > div > ul > li {
+	text-align: center;
+}
+nav > .nav_map > div > ul > li > div {
+	border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+	margin: 10px 0;
+	padding: 10px 70px;
+	font-size: 13pt;
+	color: #fff;
+}
+nav > .nav_map > div > ul > li > ul {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+nav > .nav_map > div > ul > li > ul > li {
+	font-size: 11pt;
+	padding: 25px 0;
+}
+nav > .nav_map > div > ul > li > ul > li > a {
+	color: #fff;
+}
+nav > .nav_map > div > ul > li > ul > li > a:hover {
+	text-decoration: underline;
+	cursor: pointer;
+}
 
-nav > .nav_search.active {display: block;}
+nav > .nav_search.active {
+	display: block;
+}
 /* border-bottom: 1px solid rgba(149,149,149,0.6); */
-nav > .nav_search {width: 100%; height: 350px; background-color:#2b3380; padding: 60px 0; z-index: 900; position: absolute; display: none;}
-nav > .nav_search > div {width: var(--default--width); height: 100%; margin: 0 auto; 
-    display: flex; justify-content: center; align-items: center;}
-nav > .nav_search > div > div:nth-child(1) {display: flex; justify-content: center; margin-right: 60px;}
-nav > .nav_search > div > div:nth-child(1) > div:first-child > img {width: 180px; margin-right: 50px; cursor:pointer;}
-nav > .nav_search > div > div:nth-child(1) > div:last-child {display: flex; justify-content: space-evenly; align-items: flex-start; flex-direction: column;}
-nav > .nav_search > div > div:nth-child(1) > div:last-child > div > span:first-child {font-size: 15pt; font-style: italic; font-weight: bold; padding: 0 20px;}
+nav > .nav_search {
+	width: 100%;
+	height: 350px;
+	background-color: #2b3380;
+	padding: 60px 0;
+	z-index: 900;
+	position: absolute;
+	display: none;
+}
+nav > .nav_search > div {
+	width: var(--default--width);
+	height: 100%;
+	margin: 0 auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+nav > .nav_search > div > div:nth-child(1) {
+	display: flex;
+	justify-content: center;
+	margin-right: 60px;
+}
+nav > .nav_search > div > div:nth-child(1) > div:first-child > img {
+	width: 180px;
+	margin-right: 50px;
+	cursor: pointer;
+}
+nav > .nav_search > div > div:nth-child(1) > div:last-child {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: flex-start;
+	flex-direction: column;
+}
+nav
+	> .nav_search
+	> div
+	> div:nth-child(1)
+	> div:last-child
+	> div
+	> span:first-child {
+	font-size: 15pt;
+	font-style: italic;
+	font-weight: bold;
+	padding: 0 20px;
+}
 
-nav > .nav_search > div > div:nth-child(1) > div:last-child > div > span:last-child:hover {text-decoration: underline; cursor: pointer;}
+nav
+	> .nav_search
+	> div
+	> div:nth-child(1)
+	> div:last-child
+	> div
+	> span:last-child:hover {
+	text-decoration: underline;
+	cursor: pointer;
+}
 
-nav > .nav_search > div > div:nth-child(1) > div > div > span:last-child {font-size: 13pt;}
-nav > .nav_search > div > div:nth-child(2) {display: flex; flex-direction: column; width: 350px; margin-left:100px;}
-nav > .nav_search > div > div:nth-child(2) > div {height: 150px; display: flex;padding: 10px; flex-wrap: wrap; align-content: flex-start;}
-nav > .nav_search > div > div:nth-child(2) > div > div {margin: 5px; padding: 5px 8px; border-radius: 8px; background-color: #161d5f; cursor:pointer;}
-nav > .nav_search > div > div:nth-child(2) input
-    { width: 300px; padding: 0px 30px 15px 15px;color:#fff; border-style: none;  
-    background-color: rgba(0,0,0,0); border-bottom: 1px solid #ebebeb; font-size: 13pt;}
-nav > .nav_search > div > div:nth-child(2) > form > input::placeholder {color: white;}
-nav > .nav_search > div > div:nth-child(2) > form > input:focus {outline: none;}
-nav > .nav_search > div > div:nth-child(2) > form > i {margin-left: -35px; font-size: 20px; cursor:pointer;}
-
+nav > .nav_search > div > div:nth-child(1) > div > div > span:last-child {
+	font-size: 13pt;
+}
+nav > .nav_search > div > div:nth-child(2) {
+	display: flex;
+	flex-direction: column;
+	width: 350px;
+	margin-left: 100px;
+}
+nav > .nav_search > div > div:nth-child(2) > div {
+	height: 150px;
+	display: flex;
+	padding: 10px;
+	flex-wrap: wrap;
+	align-content: flex-start;
+}
+nav > .nav_search > div > div:nth-child(2) > div > div {
+	margin: 5px;
+	padding: 5px 8px;
+	border-radius: 8px;
+	background-color: #161d5f;
+	cursor: pointer;
+}
+nav > .nav_search > div > div:nth-child(2) input {
+	width: 300px;
+	padding: 0px 30px 15px 15px;
+	color: #fff;
+	border-style: none;
+	background-color: rgba(0, 0, 0, 0);
+	border-bottom: 1px solid #ebebeb;
+	font-size: 13pt;
+}
+nav > .nav_search > div > div:nth-child(2) > form > input::placeholder {
+	color: white;
+}
+nav > .nav_search > div > div:nth-child(2) > form > input:focus {
+	outline: none;
+}
+nav > .nav_search > div > div:nth-child(2) > form > i {
+	margin-left: -35px;
+	font-size: 20px;
+	cursor: pointer;
+}
 
 /* 로케이션 */
-.location {grid-area: location; width: 100%; height: 40px; display: flex; align-items: center;
-    background-color: #f8f8fa;}                           /* 현재 페이지 위치 */
-.location > div {width: var(--default--width); margin: 0 auto; color: #6f6f6f;}
-.location > div > span {padding-right: 5px; font-size: 10pt;}            /* 현재 페이지 위치 여백*/
-.location > div > span:nth-child(3):hover {cursor: pointer; text-decoration: underline;}
-.location > div > span:last-child:hover {cursor: pointer; text-decoration: underline;}
+.location {
+	grid-area: location;
+	width: 100%;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	background-color: #f8f8fa;
+} /* 현재 페이지 위치 */
+.location > div {
+	width: var(--default--width);
+	margin: 0 auto;
+	color: #6f6f6f;
+}
+.location > div > span {
+	padding-right: 5px;
+	font-size: 10pt;
+} /* 현재 페이지 위치 여백*/
+.location > div > span:nth-child(3):hover {
+	cursor: pointer;
+	text-decoration: underline;
+}
+.location > div > span:last-child:hover {
+	cursor: pointer;
+	text-decoration: underline;
+}
 
-.content {grid-area: content; width: var(--default--width); margin: 0 auto; margin-top: 75px; margin-bottom: 75px;}
+.content {
+	grid-area: content;
+	width: var(--default--width);
+	margin: 0 auto;
+	margin-top: 75px;
+}
 
 /* 풋터부분 */
-footer {grid-area: footer;}
-footer > .footer_link {background-color: #f3f3f3; color: #545454; font-size: 10pt;}
-footer > .footer_link > div {width: var(--default--width); margin: 0 auto; padding: 5px 0;}
-footer > .footer_info {background-color: #000; color: #afafaf; font-size: 10pt;}
-footer > .footer_info > div {width: var(--default--width); margin: 0 auto; padding: 20px 0; display: flex; justify-content: space-between; align-items: center; }
+footer {
+	grid-area: footer;
+}
+footer > .footer_link {
+	background-color: #f3f3f3;
+	color: #545454;
+	font-size: 10pt;
+}
+footer > .footer_link > div {
+	width: var(--default--width);
+	margin: 0 auto;
+	padding: 5px 0;
+}
+footer > .footer_info {
+	background-color: #000;
+	color: #afafaf;
+	font-size: 10pt;
+}
+footer > .footer_info > div {
+	width: var(--default--width);
+	margin: 0 auto;
+	padding: 20px 0;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}

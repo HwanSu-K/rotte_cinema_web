@@ -36,7 +36,7 @@ public class MainController {
 		
 		model.put("qrations", movieDao.selectList(paramMap));
 		
-		model.put("banners", bannerDao.selectList());
+		model.put("banners", bannerDao.selectList(null));
 		return "/cinema/page/MainForm.jsp";
 	}
 }

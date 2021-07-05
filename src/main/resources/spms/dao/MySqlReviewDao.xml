@@ -16,12 +16,23 @@
 		resultMap="ResultMap">
 		SELECT A.REVIEW_INDEX,A.REVIEW_RATING,A.REVIEW_TEXT,A.REVIEW_DATE,B.CUSTOMER_NAME
 		FROM MOVIE_REVIEW A INNER JOIN CUSTOMER B ON A.CUSTOMER_INDEX = B.CUSTOMER_INDEX
-		WHERE A.MOVIE_INDEX = ${index} ORDER BY A.REVIEW_INDEX DESC
-		
+		WHERE A.MOVIE_INDEX = #{index}
+		ORDER BY 
+		<if test="order == 'score'">
+		A.REVIEW_RATING DESC,
+		</if> 
+		A.REVIEW_INDEX DESC
 		
 	</select>
 	
-	<insert id="insert" parameterType="movie">
+	<select id="selectOneCount" parameterType="map"
+		resultType="int">
+		SELECT COUNT(*) AS REVIEW_COUNT
+		FROM MOVIE_REVIEW
+		WHERE MOVIE_INDEX = #{index}
+	</select>
+	
+	<insert id="insert" parameterType="review">
 		INSERT INTO MOVIE_REVIEW (MOVIE_INDEX,CUSTOMER_INDEX,REVIEW_RATING,REVIEW_TEXT,REVIEW_DATE)
 		VALUES(#{indexMovie},#{indexCustomer},#{rating},#{text},#{date})
 	</insert>

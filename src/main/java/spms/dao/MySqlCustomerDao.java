@@ -9,8 +9,8 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import spms.vo.Banner;
 import spms.vo.Customer;
+import spms.vo.Token;
 
 //@Repository 애노테이션으로 변경
 @Repository
@@ -23,10 +23,20 @@ public class MySqlCustomerDao implements CustomerDao {
 	}
 
 	@Override
-	public List<Customer> selectList(HashMap<String, Object> paramMap) throws Exception {
+	public List<Customer> selectList() throws Exception {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		try {
-			return sqlSession.selectList("spms.dao.CustomerDao.selectList", paramMap);
+			return sqlSession.selectList("spms.dao.CustomerDao.selectList");
+		} finally {
+			sqlSession.close();
+		}
+	}
+	
+	@Override
+	public List<Token> selectList(int no) throws Exception {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		try {
+			return sqlSession.selectList("spms.dao.TokenDao.selectList",no);
 		} finally {
 			sqlSession.close();
 		}
@@ -113,6 +123,18 @@ public class MySqlCustomerDao implements CustomerDao {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		try {
 			int count = sqlSession.insert("spms.dao.CustomerDao.updateToken", customer);
+			sqlSession.commit();
+			return count;
+		} finally {
+			sqlSession.close();
+		}
+	}
+	
+	@Override
+	public int deleteToken(Customer customer) throws Exception {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		try {
+			int count = sqlSession.insert("spms.dao.CustomerDao.deleteToken", customer);
 			sqlSession.commit();
 			return count;
 		} finally {

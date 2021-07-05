@@ -43,9 +43,11 @@ $(document).ready(function() {
 				data: form,
 				dataType: 'json',
 				success: function(data) {
+					$('.datetime_list_tab > div').remove();
+					
 					var theater = null;
 					$(data.theaters).each(function(){
-						$('.datetime_list_tab > div').remove();
+						
 						if(theater != this.index) {
 							$('.datetime_list_tab').append($(
 							'<div>' + 

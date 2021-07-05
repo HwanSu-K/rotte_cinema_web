@@ -5,13 +5,22 @@
 <html>
 <head>
 	<%@ include file="../cinema/include/IncludeCMS.jsp" %>
+	<style>
+		body {
+			display:flex;
+			justify-content: center;
+			flex-direction: column;
+		}
+		button {
+			margin:10px 5px;
+		}
+	</style>
 </head>
 
 <body>
-	<a href='../'>메인페이지</a>
-	<h1>콘텐츠 관리 시스템</h1>
-	<a href='banner/list.do'>배너관리</a>
-	<a href='movie/list.do'>영화관리</a>
-	<a href='customer/list.do'>회원관리</a>
+	<button type="button" id="main" class="btn btn-secondary btn-lg" onclick="location.href='../'">메인페이지</button>
+	<button type="button" class="btn btn-primary btn-lg" onclick="location.href='banner/list.do'">배너관리</button>
+	<button type="button" class="btn btn-primary btn-lg" onclick="location.href='movie/list.do'">영화관리</button>
+	<button type="button" class="btn btn-primary btn-lg" onclick="location.href='customer/list.do'">회원관리</button>
 </body>
 </html>

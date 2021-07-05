@@ -8,6 +8,7 @@ public class Review {
 	protected int indexMovie;
 	protected int indexCustomer;
 	protected String name;
+	protected int count;
 	
 	public int getIndex() {
 		return index;
@@ -51,6 +52,10 @@ public class Review {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	
+	public int getCount() {
+		return count;
+	}
+	public void setCount(int count) {
+		this.count = count;
+	}
 }

@@ -12,6 +12,8 @@ public interface MovieDao {
 	
 	List<Movie> selectListTitle(HashMap<String, Object> paramMap) throws Exception;
 	
+	List<Movie> selectListRank(int no) throws Exception;
+	
 	int insert(Movie movie) throws Exception ;
 	
 	Movie selectOne(int no) throws Exception ;

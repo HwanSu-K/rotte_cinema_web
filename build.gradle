@@ -15,6 +15,9 @@ repositories {
 }
 
 dependencies {
+
+	implementation group: 'com.google.firebase', name: 'firebase-admin', version: '7.1.0'
+	
     implementation 'commons-io:commons-io:2.6'
     implementation 'commons-fileupload:commons-fileupload:1.4'
     

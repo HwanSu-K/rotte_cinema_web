@@ -5,34 +5,23 @@
 <html>
 <head>
 	<%@ include file="../cinema/include/IncludeCMS.jsp" %>
-<style>
-ul {
-	padding: 0;
-}
-
-li {
-	list-style: none;
-}
-
-label {
-	float: left;
-	text-align: right;
-	width: 80px;
-}
-</style>
 </head>
 <body>
 
 <h1>배너 등록</h1>
 	<form action='add.do' method='post' enctype='multipart/form-data'>
-		<ul>
-			<li><label for='image'>이미지 </label> <input id='image' type='file'
-				name='image' size='50' accept='image/*'></li>
-			<li><label for='video'>비디오 </label> <input id='video' type='file'
-				name='video' size='50' accept='video/*'></li>
-		</ul>
-		<input type='submit' value='등록'> <input type='reset'
-			value='취소' onclick='history.back(-1)'>
+	<div>
+	  <label for="formFileImage" class="form-label">이미지 선택</label>
+	  <input class="form-control" type="file" id="formFileImage" name="image" accept="image/*">
+	</div>
+	
+	<div>
+	  <label for="formFileVideo" class="form-label">비디오 선택</label>
+	  <input class="form-control" type="file" id="formFileVideo" name="video" accept="video/*">
+	</div>
+	
+	<button type="submit" class="btn btn-primary btn-lg">등록</button>
+	<button type="reset" class="btn btn-secondary btn-lg" onclick="history.back(-1)">취소</button>
 	</form>
 	
 </body>
