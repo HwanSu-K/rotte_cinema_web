@@ -26,7 +26,7 @@
 
 .member_login > .login_form > .login_box .login_area > div:last-child                   /* 로그인 버튼 */
     {display: flex; justify-content: center; align-items: center; font-size: 13pt; width: 100px; height: 90px; 
-    color: #fff; background-color: #252451;}
+    color: #fff; background-color: #252451; cursor: pointer;}
 
 
 .member_login > .login_form > .login_box .save {color: #5a5a5a; margin: 3px 5px 0px 5px;}       /* 아이디 저장 인풋박스 */
@@ -40,4 +40,4 @@
 .member_login > .login_form > .login_box > .click > div:first-child
     {background-color: #252451; color: #fff; width: 100px; height: 38px; font-size: 12pt;}
 .member_login > .login_form > .login_box > .click > div
-    {background-color: #2b3380; color: #fff; font-size: 13pt; width: 130px;}
+    {background-color: #2b3380; color: #fff; font-size: 13pt; width: 130px; cursor: pointer;}

@@ -92,14 +92,16 @@
 	justify-content: center;
 	align-items: center;
 	padding: 100px 0;
-	margin-top: 100px;
+	margin-top: 100px; font-size: 16pt;
 }
 .member_reg > #formcomp.active {
-	display: flex;
+	display: flex; flex-direction: column; justify-content: center;
 }
-.member_reg > #formcomp > div:nth-child(1) {
+.member_reg > #formcomp > div {display: flex; margin-bottom: 10px;}
+.member_reg > #formcomp > div > div {
 	color: #2b3380;
 }
+
 .member_reg > #formReg.active {
 	display: flex;
 }
@@ -174,7 +176,7 @@
 	width: 400px;
 }
 .member_reg > #formReg > form > div > .btn {
-	display: flex;
+	display: flex; cursor: pointer;
 	justify-content: center;
 	align-items: center;
 	width: 100px;
@@ -196,7 +198,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	margin-top: 35px;
+	margin: 40px 0;
 }
 .member_reg > .reg_btn > div,
 .member_reg > .reg_alert > div {
@@ -209,6 +211,7 @@
 	width: 150px;
 	height: 40px;
 	font-size: 12pt;
+	cursor: pointer;
 }
 .member_reg > .reg_btn > div.g {
 	background-color: #2b3380;
