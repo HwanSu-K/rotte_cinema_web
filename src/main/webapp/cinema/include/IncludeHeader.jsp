@@ -33,8 +33,8 @@
         </li>
         <li class="nav_over" onclick="location.href='${path }/about.do';">시설안내
             <ul>
-                <li><a href="${path }/about.do">극장안내</a></li>
-                <li><a href="${path }/location.do">오시는길</a></li>
+                <li><a href="${path }/about.do">시설안내</a></li>
+                <li><a href="${path }/location.do">극장안내</a></li>
             </ul>
         </li>
         <li>
@@ -68,8 +68,8 @@
                 </li>
                 <li><div>시설안내</div>
                     <ul>
-                        <li><a href="${path }/about.do">극장안내</a></li>
-                        <li><a href="${path }/location.do">오시는길</a></li>
+                        <li><a href="${path }/about.do">시설안내</a></li>
+                        <li><a href="${path }/location.do">극장안내</a></li>
                     </ul>
                 </li>
             </ul>

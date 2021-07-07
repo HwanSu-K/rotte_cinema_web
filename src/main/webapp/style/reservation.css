@@ -6,8 +6,8 @@
 .reserv_info > .reserv_movie > div > div {display: flex;}
 .reserv_info > .reserv_movie > div > div > span {margin: 0 3px;}
 .reserv_info > .reserv_movie > img {width: 50px; margin-right: 5px; border-radius: 5px;}
-.reserv_info > .reserv_movie > .reserv_info_title {display: flex; align-items: center;}
-.reserv_info > .reserv_movie > .reserv_info_title > img {margin-right: 5px;}
+.reserv_info > .reserv_movie > div > .reserv_info_title {display: flex; align-items: center;}
+.reserv_info > .reserv_movie > div > .reserv_info_title > img {margin-right: 5px;}
 .reserv_info > .reserv_movie > div > .reserv_info_dateTime, 
 .reserv_info > .reserv_movie > div > .reserv_info_location {font-size: 10pt;}
 
@@ -23,7 +23,7 @@
 .reserv_screen > .reserv_seat > div > div {margin: 5px; background-color: #999999; color:#fff; width: 20px; padding: 1px 0; border-radius: 5px 5px 0 0; text-align: center;}
 .reserv_screen > .reserv_seat > div > div.active {background-color: #2b3380; color:#fff}
 .reserv_screen > .reserv_seat > div > div.reserv {background-color: #2b2b2b; color:#fff}
-.reserv_screen > .reserv_seat > div > div.disabled {width: 0; height: 0; border-right: 20px solid #606060; border-bottom: 14px solid #202020;  font-size: 0;}
+.reserv_screen > .reserv_seat > div > div.disabled {background-color: #606060; font-size: 0;}
 .reserv_screen > .reserv_seat > div > div:nth-child(1) {margin-right: 30px; background:none; color:#000;} 
 .reserv_screen > .reserv_seat_info {margin-left: 50px; display: flex; align-items: center; padding-bottom: 30px;} 
 .reserv_screen > .reserv_seat_info > span {width: 15px; height: 10px; margin-right: 5px;}
@@ -32,7 +32,7 @@
 .reserv_screen > .reserv_seat_info > span:nth-child(1) {background-color: #2b3380;}
 .reserv_screen > .reserv_seat_info > span:nth-child(3) {background-color: #999999;}
 .reserv_screen > .reserv_seat_info > span:nth-child(5) {background-color: #2b2b2b;}
-.reserv_screen > .reserv_seat_info > span:nth-child(7) {width: 0; height: 0; border-right: 15px solid #606060; border-bottom: 10px solid #202020;}
+.reserv_screen > .reserv_seat_info > span:nth-child(7) {background-color: #606060;}
 .reserv_pay {background-color: #6b6b6b; display: flex; justify-content: space-between; align-items: center; height: 70px; margin-bottom: 50px;}
 .reserv_pay > div:nth-child(1) {display: flex; color:#fff; align-items: flex-end; margin-left: 30px;}
 .reserv_pay > div:nth-child(1) > div {margin-left: 10px; font-size: 18pt; font-weight: bold;}

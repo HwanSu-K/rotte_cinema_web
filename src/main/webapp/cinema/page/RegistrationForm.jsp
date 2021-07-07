@@ -103,13 +103,13 @@
 						<img src="//t1.daumcdn.net/postcode/resource/images/close.png" id="btnCloseLayer" style="cursor:pointer;position:absolute;right:-3px;top:-3px;z-index:1" onclick="closeDaumPostcode()" alt="닫기 버튼">
 					</div>
             </section>
-            
             <section id="formcomp">
-                <div></div><div>님 가입을 환영합니다.</div>
+                <div><div id="rName"></div>님 회원 가입이 완료 되었습니다.</div>
+                <p>로그인 후 서비스를 이용 하실 수 있습니다.</p>
             </section>
 
             <div class="reg_btn"><div id="btn_cancel" class="g">취소</div><div id="btn_reg">가입</div></div>
-            <div class="reg_alert" OnClick="location.href ='login.do'"><div>확인</div></div>
+            <div class="reg_alert" OnClick="location.href ='login.do'"><div>로그인</div></div>
         </div>
     </div>
     <c:import url="/include/footer.do"/>

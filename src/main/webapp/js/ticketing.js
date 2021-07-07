@@ -47,31 +47,31 @@ $(document).ready(function() {
 					
 					var theater = null;
 					$(data.theaters).each(function(){
-						
+						console.log(this);
 						if(theater != this.index) {
 							$('.datetime_list_tab').append($(
-							'<div>' + 
-								'<div>' +
-									'<div>' +
-										'<div>' + this.name + '</div>' +
-										'<div>총 ' + (this.seatX * this.seatY) + '석</div>' +
-									'</div>' +
-									'<div>' +
-										'<div>2D(자막)</div>' +
-									'</div>' +
-								'</div>' +
-								'<div id="theater-' + this.index + '">' +
-								'</div>' +
-							'</div>'));
+							`<div>` + 
+								`<div>` +
+									`<div>` +
+										`<div>${this.name}</div>` +
+										`<div>총 ${this.seatX * this.seatY}석</div>` +
+									`</div>` +
+									`<div>` +
+										`<div>2D(자막)</div>` +
+									`</div>` +
+								`</div>` +
+								`<div id="theater-${this.index}">` +
+								`</div>` +
+							`</div>`));
 							theater = this.index;
 						}
 						
 						
 						$('#theater-' + this.index + '').append($(
-							'<div>' +
-								'<div>' + this.startTime + '</div>' +
-								'<span>' + (this.seatX * this.seatY) + '석</span>' +
-							'</div>'
+							`<div onclick="location.href='reservation.do?index=${this.indexShowing}'">` +
+								`<div>${this.startTime}</div>` +
+								`<span>${this.seatX * this.seatY}석</span>` +
+							`</div>`
 						));	
 							
 					})

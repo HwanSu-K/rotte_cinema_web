@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 2. 동적 SQL 적용 -->
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="spms.dao.ReservationDao">
+	<resultMap type="Reservation" id="ResultMap">
+		<id column="SHOWING_INDEX" property="index" />
+		<result column="SHOW_STARTTIME" property="startTime" />
+		<result column="SHOW_DATE" property="date" />
+		<result column="THEATER_NAME" property="theaterTitle" />
+		<result column="THEATER_SEAT_X" property="theaterSeatX" />
+		<result column="THEATER_SEAT_Y" property="theaterSeatY" />
+		<result column="CINEMA_TITLE" property="cinemaTitle" />
+		<result column="MOVIE_TITLE" property="movieTitle" />
+		<result column="MOVIE_POSTER" property="moviePoster" />
+		<result column="MOVIE_RUNNING_TIME" property="movieRunningTime" />
+		<result column="MOVIE_LIMIT_AGE" property="movieLimitAge" />
+	</resultMap>
+
+	<select id="selectList" parameterType="int"
+		resultMap="ResultMap">
+			SELECT A.SHOWING_INDEX,A.SHOW_STARTTIME,A.SHOW_DATE,B.THEATER_NAME,B.THEATER_SEAT_X,B.THEATER_SEAT_Y,C.CINEMA_TITLE,D.MOVIE_TITLE,D.MOVIE_POSTER,D.MOVIE_RUNNING_TIME,D.MOVIE_LIMIT_AGE 
+			FROM MOVIE_SHOWING A INNER JOIN CINEMA_THEATER B ON A.THEATER_INDEX = B.THEATER_INDEX INNER JOIN CINEMA C ON B.CINEMA_INDEX = C.CINEMA_INDEX INNER JOIN MOVIE D ON A.MOVIE_INDEX = D.MOVIE_INDEX
+			WHERE SHOWING_INDEX = #{value}
+	</select>
+</mapper>

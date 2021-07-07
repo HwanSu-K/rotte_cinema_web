@@ -37,7 +37,7 @@
                         <p>예매율</p>
                         <div>
                             <span><img src="./images/icon/sub4_info_ticket.png"></span>
-                            <span>${rank }</span>
+                            <span id="rank">${rank }</span>
                             <span>위</span>
                             <span>${movie.reservRating }%</span>
                         </div>
@@ -46,7 +46,7 @@
                         <p>누적관객수</p>
                         <div>
                             <span><img src="./images/icon/sub4_info_user.png"></span>
-                            <span class="memberCountCon">12345678</span>
+                            <span class="memberCountCon"></span>
                         </div>
                     </div>
                 </div>

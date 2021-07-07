@@ -175,7 +175,7 @@ $(document).ready(function() {
 					}
 
 					$('#theater-' + this.index + '').append($(
-						'<div>' +
+						`<div onclick="location.href='reservation.do?index=${this.indexShowing}'">` +
 						'<div>' + this.startTime + '</div>' +
 						'<span>' + (this.seatX * this.seatY) + '석</span>' +
 						'</div>'

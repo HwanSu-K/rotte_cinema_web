@@ -1,118 +1,143 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
-	<%@ include file="../include/IncludeDefault.jsp" %>
-	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=222a1aea3eb30dafa3b98b821fed8f7d"></script>
-	<link rel="stylesheet" href="./style/location.css" /> 
+<%@ include file="../include/IncludeDefault.jsp"%>
+<script type="text/javascript"
+	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=222a1aea3eb30dafa3b98b821fed8f7d"></script>
+<link rel="stylesheet" href="./style/location.css" />
+
+<script src="./js/location.js"></script>
 </head>
 <body>
-	<c:import url="/include/header.do"/>
-	<section class="location">      <!-- background-color: #f8f8fa; -->
-        <div>
-            <span><i class="fas fa-home"></i></span>
-            <span>></span>
-            <span>오시는길</span>
-            <span></span>
-            <span></span>
-        </div>
-    </section>
-	<div class="content">
-		<div class="map_wrap">
-		    <div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div> 
-		    <!-- 지도타입 컨트롤 div 입니다 -->
-		    <div class="custom_typecontrol radius_border">
-		        <span id="btnRoadmap" class="selected_btn" onclick="setMapType('roadmap')">지도</span>
-		        <span id="btnSkyview" class="btn" onclick="setMapType('skyview')">스카이뷰</span>
-		    </div>
-		    <!-- 지도 확대, 축소 컨트롤 div 입니다 -->
-		    <div class="custom_zoomcontrol radius_border"> 
-		        <span onclick="zoomIn()"><img src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_plus.png" alt="확대"></span>  
-		        <span onclick="zoomOut()"><img src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_minus.png" alt="축소"></span>
-		    </div>
+	<c:import url="/include/header.do" />
+	<section class="location">
+		<!-- background-color: #f8f8fa; -->
+		<div>
+			<span><i class="fas fa-home"></i></span> <span>></span> <span>극장안내</span>
+			<span></span> <span></span>
 		</div>
-		<div class="map_info">
-			<div>교통정보</div>
-			<div>
-				<ul>
-					<li><i class="far fa-map"></i>(701-835) 대구광역시 동구 화랑로 525(용계동)</li>
-					<li><i class="fas fa-bus"></i>618, 719, 805, 808, 818, 836, 980, 동구1, 동구1-1, 동구2</li>
-					<li><i class="fas fa-subway"></i>대구1호선 용계역 (3번 출구)</li>
-				</ul>
+	</section>
+	<div class="content">
+		<section class="reserv_choice">
+			<section class="reserv_theater">
+				<div class="reserv_content">
+					<div class="reserv_content_title">
+						<c:forEach var="local" items="${locals}" varStatus="status">
+							<span class="locals" data-tab-type="${local.localClass }">${local.localName }</span>
+						</c:forEach>
+					</div>
+					<div class="reserv_content_list">
+						<c:forEach var="cinema" items="${cinemas}">
+							<div data-cinema-index="${cinema.index }"
+								data-movie-type="${cinema.localClass }">${cinema.title }</div>
+						</c:forEach>
+					</div>
+				</div>
+			</section>
+		</section>
+		<div class="cinema_info">
+			<div class="info_title"></div>
+			<div class="info_map">
+				<div>약도</div>
+				<div class="info_addr">
+					<p>도로명주소 : </p>
+					<p><p>
+				</div>
+				<div class="map_wrap">
+					<div id="map"
+						style="width: 100%; height: 100%; position: relative; overflow: hidden;"></div>
+					<div class="custom_zoomcontrol radius_border">
+						<span id="zooIn"><img
+							src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_plus.png"
+							alt="확대"></span> <span id="zooOut"><img
+							src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_minus.png"
+							alt="축소"></span>
+					</div>
+				</div>
+			</div>
+			<div class="info_transport">
+				<div>대중교통</div>
+				<span>
+					<div>
+						<div>
+							<img src="./images/icon/ico-bus.png">
+						</div>
+						<div>
+							<span>버스</span>
+							<ul>
+								<li>서초03번, 3412번, 4412번</li>
+								<li>140번, 144번, 145번, 360번, 400번, 402번, 407번, 420번, 421번,
+									440번, 441번, 471번, 542번, 643번, N13번, N37번</li>
+								<li>1005-1번, 1100번, 1550번, 1570번, 3030번, 3100번, 3600번,
+									6000번, 6009번, 6500번, 6009-1번, 8001번, 8541번, 9600번, 9700번,
+									9404번, 9408번</li>
+							</ul>
+						</div>
+					</div>
+					<div>
+						<div>
+							<img src="./images/icon/ico-metro.png">
+						</div>
+						<div>
+							<span>지하철</span>
+							<ul>
+								<li>지하철 2호선 '강남역'하차 -> 지하철 11번 출구 이용 도보 3분 (250m)</li>
+								<li>지하철 9호선 '신논현역'하차 -> 지하철 5번 출구 이용 도보 8분 (500m)</li>
+							</ul>
+						</div>
+					</div>
+				</span>
+			</div>
+			<div class="info_parking">
+				<div>주차</div>
+				<span>
+					<div>
+						<div>
+							<img src="./images/icon/ico-parking.png">
+						</div>
+						<div>
+							<span>주차안내</span>
+							<ul>
+								<li>씨티빌딩 후면 주차타워 이용</li>
+								<li>주차공간이 협소하오니 대중교통 이용바랍니다.</li>
+							</ul>
+						</div>
+					</div>
+					<div>
+						<div>
+							<img src="./images/icon/ico-confirm.png">
+						</div>
+						<div>
+							<span>주차확인</span>
+							<ul>
+								<li>영화 관람전 매표소에서 주차 인증</li>
+							</ul>
+						</div>
+					</div>
+					<div>
+						<div>
+							<img src="./images/icon/ico-cash.png">
+						</div>
+						<div>
+							<span>주차요금</span>
+							<ul>
+								<li>주차 요금은 입차시간을 기준으로 합니다.</li>
+								<li>평일 관람 시 3시간 무료</li>
+								<li>주말 및 공휴일 3시간 2,000원</li>
+								<li>매표소에서 영화 티켓과 주차권 함께 제시 (티켓당 1대 적용)</li>
+								<li>초과 요금 발생시 출차시 정산 (30분당 2,500원)</li>
+								<li>출차시 무인정산기 이용</li>
+							</ul>
+						</div>
+					</div>
+				</span>
 			</div>
 		</div>
-    </div>
-    <c:import url="/include/footer.do"/>
+
+	</div>
+	<c:import url="/include/footer.do" />
 </body>
-<script>
-var mapContainer = document.getElementById('map'), // 지도의 중심좌표
-    mapOption = { 
-        center: new kakao.maps.LatLng(35.87555107556265, 128.68168847477938), // 지도의 중심좌표
-        level: 2 // 지도의 확대 레벨
-    }; 
-
-var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
-
-// 지도에 마커를 표시합니다 
-var marker = new kakao.maps.Marker({
-    map: map, 
-    position: new kakao.maps.LatLng(35.87555107556265, 128.68168847477938)
-});
-
-// 커스텀 오버레이에 표시할 컨텐츠 입니다
-// 커스텀 오버레이는 아래와 같이 사용자가 자유롭게 컨텐츠를 구성하고 이벤트를 제어할 수 있기 때문에
-// 별도의 이벤트 메소드를 제공하지 않습니다 
-var content = '<div class="wrap">' + 
-            '    <div class="info">' + 
-            '        <div class="title">' + 
-            '            ROTTE CINEMA' +  
-            '        </div>' + 
-            '        <div class="body">' + 
-            '            <div class="img">' +
-            '                <img src="./images/favicon/android-icon-192x192.png" width="73" height="70">' +
-            '           </div>' + 
-            '            <div class="desc">' + 
-            '                <div class="ellipsis">대구광역시 동구 화랑로 525</div>' + 
-            '                <div class="jibun ellipsis">(우) 701-835 (지번)용계동 1018-1</div>' + 
-            '                <div><a href="./main.do" target="_blank" class="link">홈페이지</a></div>' + 
-            '            </div>' + 
-            '        </div>' + 
-            '    </div>' +    
-            '</div>';
-
-// 마커 위에 커스텀오버레이를 표시합니다
-// 마커를 중심으로 커스텀 오버레이를 표시하기위해 CSS를 이용해 위치를 설정했습니다
-var overlay = new kakao.maps.CustomOverlay({
-    content: content,
-    map: map,
-    position: marker.getPosition()       
-});
-
-//지도타입 컨트롤의 지도 또는 스카이뷰 버튼을 클릭하면 호출되어 지도타입을 바꾸는 함수입니다
-function setMapType(maptype) { 
-    var roadmapControl = document.getElementById('btnRoadmap');
-    var skyviewControl = document.getElementById('btnSkyview'); 
-    if (maptype === 'roadmap') {
-        map.setMapTypeId(kakao.maps.MapTypeId.ROADMAP);    
-        roadmapControl.className = 'selected_btn';
-        skyviewControl.className = 'btn';
-    } else {
-        map.setMapTypeId(kakao.maps.MapTypeId.HYBRID);    
-        skyviewControl.className = 'selected_btn';
-        roadmapControl.className = 'btn';
-    }
-}
-
-// 지도 확대, 축소 컨트롤에서 확대 버튼을 누르면 호출되어 지도를 확대하는 함수입니다
-function zoomIn() {
-    map.setLevel(map.getLevel() - 1);
-}
-
-// 지도 확대, 축소 컨트롤에서 축소 버튼을 누르면 호출되어 지도를 확대하는 함수입니다
-function zoomOut() {
-    map.setLevel(map.getLevel() + 1);
-}
-</script>
 </html>

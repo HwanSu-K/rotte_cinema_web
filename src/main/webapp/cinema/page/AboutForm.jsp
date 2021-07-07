@@ -15,7 +15,7 @@
         <div>
             <span><i class="fas fa-home"></i></span>
             <span>></span>
-            <span>극장안내</span>
+            <span>시설안내</span>
             <span></span>
             <span></span>
         </div>

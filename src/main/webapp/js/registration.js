@@ -229,7 +229,7 @@ $(document).ready(function () {
 
 					$('.reg_alert').addClass('active');
 					$('#formcomp').addClass('active');
-					$('#formcomp > div:nth-child(1)').text(form.name);
+					$('#rName').text(form.name);
 					$('.reg_tab > div:nth-child(2)').addClass('active');
 				},
 				error: function () {

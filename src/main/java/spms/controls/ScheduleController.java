@@ -18,9 +18,10 @@ import spms.vo.MovieDate;
 
 @Controller
 public class ScheduleController {
-	
+
 	MovieDao movieDao;
 	CinemaDao cinemaDao;
+	String[] week = { "일", "월", "화", "수", "목", "금", "토" };
 
 	@Autowired
 	public ScheduleController setMovieDao(MovieDao movieDao) {
@@ -44,13 +45,13 @@ public class ScheduleController {
 		DateFormat dfFull = new SimpleDateFormat("yyyy-MM-dd");
 		DateFormat dfYearMonth = new SimpleDateFormat("yyyy.MM");
 		DateFormat dfDay = new SimpleDateFormat("dd");
-		DateFormat dfWeek = new SimpleDateFormat("E");
 
 		for (int i = 0; i < 30; i++) {
 			dates.add(new MovieDate().setDate(dfFull.format(cal.getTime())).setDay(dfDay.format(cal.getTime()))
-					.setWeekKor(dfWeek.format(cal.getTime()))
-					.setWeekEng(dfWeek.format(cal.getTime()).equals("토") ? "b":dfWeek.format(cal.getTime()).equals("일") ? "r":"")
-					.setYearMonth(dfDay.format(cal.getTime()).equals("01") ? dfYearMonth.format(cal.getTime()) : ""));
+					.setWeekKor(week[cal.get(Calendar.DAY_OF_WEEK) -1])
+					.setWeekEng(cal.get(Calendar.DAY_OF_WEEK) == 7 ? "b"
+							: cal.get(Calendar.DAY_OF_WEEK) == 1 ? "r" : "")
+					.setYearMonth(dfDay.format(cal.getTime()).equals("01") || i == 0 ? dfYearMonth.format(cal.getTime()) : ""));
 			cal.add(Calendar.DATE, 1);
 		}
 

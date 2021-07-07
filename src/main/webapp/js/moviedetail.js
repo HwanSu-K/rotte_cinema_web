@@ -1,7 +1,12 @@
-$(document).ready(function() {
+$(document).ready(function() {	
+	
 	const urlParams = new URLSearchParams(location.search);
 
-	var memberCountConTxt= $(".memberCountCon").text();
+	let memberCountConTxt = 10_000_000 - (Math.random() * 1_000_000 * $('#rank').text());
+	
+	if(memberCountConTxt < 0) {
+		memberCountConTxt = Math.random() * 100_000
+	}
   
   $({ val : 0 }).animate({ val : memberCountConTxt }, {
     duration: 2000,
