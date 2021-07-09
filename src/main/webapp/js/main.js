@@ -106,7 +106,7 @@ $(document).ready(function(){
         });
     });
 
-    $("video").on("click",function(){
+    $(".video").on("click",function(){
         $.each(banners,function(index, item){
             videos.get(index).load(); 
             $(videos.get(index)).css('display','none');

@@ -2,12 +2,8 @@ package spms.controls;
 
 import java.util.Map;
 
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
@@ -28,14 +24,22 @@ public class RegistrationController {
 	}
 
 	@RequestMapping(value = "/registration.do", method = RequestMethod.GET)
-	public String loginForm(Map<String, Object> model) throws Exception {
+	public String loginForm(String key, Map<String, Object> model) throws Exception {
+		if(key != null && !key.equals(""))
+		{
+			if(customerDao.updateKey(new Customer().setKey(key)) > 0);
+			{
+				return "redirect:/login.do";
+			}
+		}
+		
 		return "/cinema/page/RegistrationForm.jsp";
 	}
+	
+	@RequestMapping(value = "/loginwarning.do", method = RequestMethod.GET)
+	public String warningForm(Map<String, Object> model) throws Exception {
 
-	@RequestMapping(value = "/registration.do", method = RequestMethod.POST)
-	public String login(Map<String, Object> model) throws Exception {
-
-		return "redirect:/login.do";
 		
+		return "/cinema/page/RegistrationWaitForm.jsp";
 	}
 }

@@ -12,19 +12,23 @@
 .reserv_info > .reserv_movie > div > .reserv_info_location {font-size: 10pt;}
 
 .reserv_info > .reserv_porson > div {margin: 0 10px;}
-.reserv_info > .reserv_porson > .reserv_count {display: flex; border: 1px solid #d6d6d6; padding: 10px 10px; border-radius: 5px; color: #6b6b6b;}
+.reserv_info > .reserv_porson > .reserv_count {display: flex; border: 1px solid #d6d6d6; padding: 10px 10px; border-radius: 5px; color: #6b6b6b; width: 87px;}
+.reserv_info > .reserv_porson > .reserv_count > div > i {cursor: pointer;}
 .reserv_info > .reserv_porson > .reserv_count > div:nth-child(2) {margin: 0 25px; color:#000;}
-.reserv_screen {width: 100%; background-color:#f3f3f3; color:#000;}
+.reserv_screen {width: 100%; background-color:#f3f3f3; color:#000; position: relative;}
+.reserv_screen > .mask {width: 100%; height: 100%; position: absolute; background-color: rgba(0, 0, 0, .75); top:0}
+.reserv_screen > .mask > div {display: flex; justify-content: center; color:#fff; margin-top: 40px; font-size: 20pt;}
+.reserv_screen > .mask > div > span {padding: 0 10px;}
 .reserv_screen > .reserv_screen_info {text-align: center; margin: 20px 0; font-size: 10pt;}
 .reserv_screen > .reserv_screen_front {display: flex; background-color: #6b6b6b; justify-content: center; padding: 10px 0; margin:30px 0;}
 .reserv_screen > .reserv_screen_front > p {margin: 0 10px;}
-.reserv_screen > .reserv_seat {font-size: 9pt; margin-left: -50px; margin: 50px 0;}
+.reserv_screen > .reserv_seat {font-size: 9pt; margin: 50px 0; margin-left: -50px;}
 .reserv_screen > .reserv_seat > div {display: flex; justify-content: center;}
-.reserv_screen > .reserv_seat > div > div {margin: 5px; background-color: #999999; color:#fff; width: 20px; padding: 1px 0; border-radius: 5px 5px 0 0; text-align: center;}
-.reserv_screen > .reserv_seat > div > div.active {background-color: #2b3380; color:#fff}
-.reserv_screen > .reserv_seat > div > div.reserv {background-color: #2b2b2b; color:#fff}
-.reserv_screen > .reserv_seat > div > div.disabled {background-color: #606060; font-size: 0;}
-.reserv_screen > .reserv_seat > div > div:nth-child(1) {margin-right: 30px; background:none; color:#000;} 
+.reserv_screen > .reserv_seat > div > div {margin: 5px; background-color: #999999; color:#fff; width: 20px; padding: 1px 0; border-radius: 5px 5px 0 0; text-align: center; cursor: pointer;}
+.reserv_screen > .reserv_seat > div > div.active {background-color: #2b3380; color:#fff;}
+.reserv_screen > .reserv_seat > div > div.reserv {background-color: #2b2b2b; color:#fff; cursor: default;}
+.reserv_screen > .reserv_seat > div > div.disabled {background-color: #606060; font-size: 0; cursor: default;}
+.reserv_screen > .reserv_seat > div > span {margin-right: 30px; background:none; color:#000; cursor: default; text-align: center; align-self:center; width: 20px;} 
 .reserv_screen > .reserv_seat_info {margin-left: 50px; display: flex; align-items: center; padding-bottom: 30px;} 
 .reserv_screen > .reserv_seat_info > span {width: 15px; height: 10px; margin-right: 5px;}
 .reserv_screen > .reserv_seat_info > div {margin-right: 15px; font-size: 10pt;}
@@ -37,4 +41,5 @@
 .reserv_pay > div:nth-child(1) {display: flex; color:#fff; align-items: flex-end; margin-left: 30px;}
 .reserv_pay > div:nth-child(1) > div {margin-left: 10px; font-size: 18pt; font-weight: bold;}
 .reserv_pay > div:nth-child(1) > span {font-size: 12pt;}
-.reserv_pay > div:nth-child(2) {background-color: #2b3380; height: 100%; width: 200px; display: flex; justify-content: center; align-items: center; color:#fff}
+.reserv_pay > div:nth-child(2) {background-color: #999999; height: 100%; width: 200px; display: flex; justify-content: center; align-items: center; color:#fff}
+.reserv_pay > div:nth-child(2).active {background-color: #2b3380; cursor: pointer;}

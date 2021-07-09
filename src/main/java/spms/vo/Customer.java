@@ -12,6 +12,8 @@ public class Customer {
 	protected String detailaddress;
 	protected int access;
 	protected String token;
+	protected String key;
+	protected int state;
 	
 	public int getIndex() {
 		return index;
@@ -88,6 +90,20 @@ public class Customer {
 	}
 	public Customer setToken(String token) {
 		this.token = token;
+		return this;
+	}
+	public String getKey() {
+		return key;
+	}
+	public Customer setKey(String key) {
+		this.key = key;
+		return this;
+	}
+	public int getState() {
+		return state;
+	}
+	public Customer setState(int state) {
+		this.state = state;
 		return this;
 	}
 

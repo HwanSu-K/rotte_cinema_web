@@ -64,9 +64,9 @@ nav.active {background-color: rgba(0,0,0,0.9);}
 
 .banner > .dots > div.active {background-color:rgba(255,255,255,1);} /* 활성화된 점*/
 .banner > .video {visibility: hidden; position: absolute; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center;} /* 비디오 담는 div */
-.banner > .video > div {padding: 10px; background-color: #fff; z-index: 1;} /* 비디오 내부 여백 */
+.banner > .video > div {padding: 10px; background-color: #fff; z-index: 2;} /* 비디오 내부 여백 */
 .banner > .video > div > video {width: 800px; display: none;} /* 비디오 */
-.banner > .video > .mask {position: absolute; background-color: #00000090; width: 100%; height: 100%; z-index: 0;} /* 뒷 배경 */
+.banner > .video > .mask {position: absolute; background-color: #00000090; width: 100%; height: 100%; z-index: 1;} /* 뒷 배경 */
 
 /* 예약부분 */
 .reserv {
@@ -160,5 +160,5 @@ nav.active {background-color: rgba(0,0,0,0.9);}
     { grid-area: post; display: flex; justify-content: space-between; align-items: center; font-size: 12px; cursor:pointer;}
 .qration > .qration_content > .qration_post > div {display: flex; flex-direction: column; margin-top: 10px;}
 .qration > .qration_content > .qration_post > div > div {text-align: center; line-height: 3;}
-.qration > .qration_content > .qration_post > div > .icon {width: 40px; position:absolute; margin-top: -10px; margin-left: 5px; border-radius: 3px;}
+.qration > .qration_content > .qration_post > div > .icon {width: 40px; position:absolute; margin-top: -10px; margin-left: 5px;}
 .qration > .qration_content > .qration_post > div > img {width: 170px; border-radius:5px;}

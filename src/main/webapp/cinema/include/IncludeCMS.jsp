@@ -23,14 +23,9 @@
 	<meta name="msapplication-TileImage" content="./images/favicon/ms-icon-144x144.png">
 	<meta name="theme-color" content="#ffffff">
 	
-	<c:if test="${empty sessionScope.customer or sessionScope.customer.access != 0}">
-		<c:redirect url="/"/>
-	</c:if> 
-	
-	<script src="${path }/plugin/jquery.min.js"></script>
-    
-	<link href="${path }/plugin/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<script src="${path }/plugin/bootstrap/js/bootstrap.min.js"></script>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 	
 	<style>
 		body {
@@ -44,3 +39,6 @@
 		}
 	</style>
 	
+	<c:if test="${empty sessionScope.customer or sessionScope.customer.access != 0}">
+		<c:redirect url="/"/>
+	</c:if> 

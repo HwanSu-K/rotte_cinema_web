@@ -31,7 +31,7 @@
 		</div>
 		<div>
 			<label for="type">유형 </label>
-			<select id="limitAge" name="limitAge">
+			<select class="form-select" id="limitAge" name="limitAge">
 					<option value="0">전체 </option>
 					<option value="12">12세 </option>
 					<option value="15">15세 </option>
@@ -64,7 +64,7 @@
 		</div>
 		<div>
 			<label for="type">유형 </label>
-			<select id="type" name="type">
+			<select class="form-select" id="type" name="type">
 					<option value="0">일반 </option>
 					<option value="1">큐레이션 </option>
 			</select>

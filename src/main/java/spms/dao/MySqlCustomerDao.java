@@ -131,6 +131,18 @@ public class MySqlCustomerDao implements CustomerDao {
 	}
 	
 	@Override
+	public int updateKey(Customer customer) throws Exception {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		try {
+			int count = sqlSession.insert("spms.dao.CustomerDao.updateKey", customer);
+			sqlSession.commit();
+			return count;
+		} finally {
+			sqlSession.close();
+		}
+	}
+	
+	@Override
 	public int deleteToken(Customer customer) throws Exception {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		try {
@@ -143,10 +155,9 @@ public class MySqlCustomerDao implements CustomerDao {
 	}
 
 	@Override
-	public Customer exist(String email, String password) throws Exception {
+	public Customer exist(String email) throws Exception {
 		HashMap<String, String> paramMap = new HashMap<String, String>();
 		paramMap.put("email", email);
-		paramMap.put("password", password);
 
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		try {

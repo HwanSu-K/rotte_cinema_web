@@ -15,8 +15,17 @@ repositories {
 }
 
 dependencies {
+	
+	implementation 'net.sf.json-lib:json-lib:2.4:jdk15'
+	
+	implementation 'org.mindrot:jbcrypt:0.3m'
 
-	implementation group: 'com.google.firebase', name: 'firebase-admin', version: '7.1.0'
+	implementation 'org.springframework.boot:spring-boot-starter-mail'
+	implementation 'javax.mail:javax.mail-api:1.6.2'
+	
+	implementation 'com.squareup.retrofit2:converter-gson:2.6.2'
+	 
+	implementation 'com.google.firebase:firebase-admin:7.1.0'
 	
     implementation 'commons-io:commons-io:2.6'
     implementation 'commons-fileupload:commons-fileupload:1.4'
