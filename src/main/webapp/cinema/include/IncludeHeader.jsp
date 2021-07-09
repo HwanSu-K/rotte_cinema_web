@@ -93,4 +93,7 @@
         </div>
     </div>
 </nav>
+<div id="bg_mask">
+    <img src="./images/icon/loading.gif">
+</div>
 </header> 

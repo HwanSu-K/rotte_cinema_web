@@ -2,11 +2,17 @@ $(document).ready(function() {
 	const urlParams = new URLSearchParams(location.search);
 	let adultAmount;
 	let teenagerAmount;
-
+	
 	$.ajax({
 		url: 'paytypeobject.do',
 		type: 'POST',
 		dataType: 'json',
+		beforeSend: function() {
+			$('#bg_mask').addClass('active');
+	    },
+	    complete: function() {
+			$('#bg_mask').removeClass('active');
+	    },
 		success: function(data) {
 			// 가격 호출.
 			adultAmount = data.paytype[0].amount;
@@ -26,6 +32,12 @@ $(document).ready(function() {
 		type: 'POST',
 		data: form,
 		dataType: 'json',
+		beforeSend: function() {
+			$('#bg_mask').addClass('active');
+	    },
+	    complete: function() {
+			$('#bg_mask').removeClass('active');
+	    },
 		success: function(data) {
 			$(data.reservs).each(function() {
 				$('#x' + this.seatX + 'y' + this.seatY).addClass('reserv');
@@ -173,6 +185,18 @@ $(document).ready(function() {
 					type: 'POST',
 					data: { "jsonData": jsonData, "uid": rsp.imp_uid},
 					dataType: 'json',
+					beforeSend: function() {
+						$('#bg_mask').addClass('active');
+				    },
+				    complete: function() {
+						$('#bg_mask').removeClass('active');
+				    },
+					beforeSend: function() {
+						$('#bg_mask').addClass('active');
+				    },
+				    complete: function() {
+						$('#bg_mask').removeClass('active');
+				    },
 					success: function(data) {
 						if (data === -1) {
 							alert('로그인이 필요한 서비스 입니다.');
@@ -181,7 +205,39 @@ $(document).ready(function() {
 							alert(data.message);
 							return false;
 						}
-						console.log(data);
+						$('.reserv').remove();
+						$('.reserv_comp').addClass('active');
+						
+						let adultCount = 0;
+						let teenagerCount = 0;
+						
+						$(data.reservs).each(function() {
+							console.log(this);
+							$('.reserv_seat').append($(
+								`<div>${String.fromCharCode(64 + parseInt(this.seatY))}열${this.seatX}</div>`
+							));
+							if(this.payCategory === 1) {
+								adultCount++;
+							} else {
+								teenagerCount++;	
+							}
+						})
+						
+						$('.reserv_amount').append($(
+							`<div>결제금액</div><div>${data.amount.toLocaleString('ko-KR')}원</div>`
+						));
+						
+						if(adultCount > 0) {
+							$('.reserv_amount_info').append($(
+								`<div>성인(${adultCount})</div>`
+							));
+						}
+						
+						if(teenagerCount > 0) {
+							$('.reserv_amount_info').append($(
+								`<div>청소년(${teenagerCount})</div>`
+							));
+						}
 					},
 					error: function() {
 						console.log('error');

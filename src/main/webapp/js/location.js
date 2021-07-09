@@ -54,6 +54,12 @@ $(document).ready(function() {
 			type: 'POST',
 			data: form,
 			dataType: 'json',
+			beforeSend: function() {
+				$('#bg_mask').addClass('active');
+		    },
+		    complete: function() {
+				$('#bg_mask').removeClass('active');
+		    },
 			success: function(data) {
 				$('.info_title').text(data.cinema.title);
 				const APIKEY = 'afaccf592a85bcd0d22ac83f291a8c25';

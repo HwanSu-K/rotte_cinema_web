@@ -17,9 +17,13 @@ public interface CustomerDao {
 	
 	Customer selectOne(int no) throws Exception ;
 	
+	Customer selectOneKey(Customer customer) throws Exception ;
+	
 	int update(Customer customer) throws Exception;
 	
 	int updateToken(Customer customer) throws Exception;
+	
+	int updateState(Customer customer) throws Exception;
 	
 	int updateKey(Customer customer) throws Exception;
 	

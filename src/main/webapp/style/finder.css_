@@ -1,0 +1,33 @@
+.member_finder {width: 800px; margin:0 auto;}
+.member_finder > .finder_tab {display: flex; justify-content: center;}       /* 목록 탭 */
+.member_finder > .finder_tab > div {width: 400px; height: 65px; display: flex; justify-content: center; align-items: center; 
+    border: 1px solid #e0e0e0; margin-left: -1px; font-size: 13pt;}       /* 목록탭 버튼 */
+.member_finder > .finder_tab > div.active 
+    {background-color: #f3f3f3; border-bottom: 4px solid #2b3380; height: 62px; color: black;}
+.member_finder > .finder_tab > div {color: #898989;}
+
+.member_finder > section              /* 로그인 박스 설정 */
+    {display: none; flex-direction: column; justify-content: center; align-items:center; margin: 0 auto;
+    margin: 70px 0 30px 0;width: 100%;border-top: 1px solid #e5e5e5;}
+
+.member_finder > section.active {display:flex;}    
+.member_finder > section > div {font-size: 24px;}
+.member_finder > section > form > div {display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e5e5e5;}    
+.member_finder > section > form > div > label {color: #777; background-color: #f9f9f9; 
+    flex-basis: 175px;
+    height: 60px;
+    background-color: #f9f9f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;}
+.member_finder > section > form > div > input          /* 이메일, 비번 입력 박스 */
+    {width: 350px; height: 40px; font-size: 11pt; margin: 10px; padding-left: 10px;
+    box-sizing: border-box; border: 1px solid #ddd;} 
+.member_finder > section > form > div > input::placeholder {color: rgb(184, 184, 184);}      /*인풋박스 폰트 컬러*/
+
+.member_finder > section > div:last-child                   /* 로그인 버튼 */
+    {display: flex; justify-content: center; align-items: center; font-size: 13pt; width: 80%; height: 60px; 
+    color: #fff; background-color: #252451; margin-top: 30px;}
+
+.member_finder > section > div:nth-child(1) {font-size: 22px; margin-bottom: 10px;}
+.member_finder > section > div:nth-child(2) {font-size: 18px; margin-bottom: 10px; color: #2b3380;}

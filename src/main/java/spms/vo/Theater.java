@@ -14,6 +14,7 @@ public class Theater {
 	protected String nameMovie;
 	protected int limitAge;
 	protected String runningTime;
+	protected int seatCount;
 	
 	public int getIndex() {
 		return index;
@@ -92,5 +93,11 @@ public class Theater {
 	}
 	public void setRunningTime(String runningTime) {
 		this.runningTime = runningTime;
+	}
+	public int getSeatCount() {
+		return seatCount;
+	}
+	public void setSeatCount(int seatCount) {
+		this.seatCount = seatCount;
 	}
 }

@@ -326,6 +326,21 @@ nav > .nav_search > div > div:nth-child(2) > form > i {
 	font-size: 20px;
 	cursor: pointer;
 }
+#bg_mask {
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	background-color: rgba(0,0,0,.25);
+	display: none;
+	cursor:wait;
+}
+#bg_mask.active {
+	display: flex;
+}
+#bg_mask > img {
+	margin:auto;
+	width: 125px;
+}
 
 /* 로케이션 */
 .location {

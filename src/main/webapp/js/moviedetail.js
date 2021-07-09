@@ -36,6 +36,12 @@ $(document).ready(function() {
 			type: 'POST',
 			data: form,
 			dataType: 'json',
+			beforeSend: function() {
+				$('#bg_mask').addClass('active');
+		    },
+		    complete: function() {
+				$('#bg_mask').removeClass('active');
+		    },
 			success: function(data) {
 
 				$('.comment_title > div:nth-child(2) > div > i').each(function(){
@@ -85,6 +91,12 @@ $(document).ready(function() {
 			type: 'POST',
 			data: form,
 			dataType: 'json',
+			beforeSend: function() {
+				$('#bg_mask').addClass('active');
+		    },
+		    complete: function() {
+				$('#bg_mask').removeClass('active');
+		    },
 			success: function(data) {
 
 				$('#reviewList > div').remove();
@@ -145,6 +157,12 @@ $(document).ready(function() {
 			type: 'POST',
 			data: form,
 			dataType: 'json',
+			beforeSend: function() {
+				$('#bg_mask').addClass('active');
+		    },
+		    complete: function() {
+				$('#bg_mask').removeClass('active');
+		    },
 			success: function(data) {
 				if (data === 'fail') {
 					alert('오류가 발생했습니다.')
@@ -180,6 +198,12 @@ $(document).ready(function() {
 			type: 'POST',
 			data: form,
 			dataType: 'json',
+			beforeSend: function() {
+				$('#bg_mask').addClass('active');
+		    },
+		    complete: function() {
+				$('#bg_mask').removeClass('active');
+		    },
 			success: function(data) {
 				if(data === -1)
 				{

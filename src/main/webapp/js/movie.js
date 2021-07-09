@@ -11,6 +11,12 @@ $(document).ready(function() {
 			type: 'POST',
 			data: form,
 			dataType: 'json',
+			beforeSend: function() {
+				$('#bg_mask').addClass('active');
+		    },
+		    complete: function() {
+				$('#bg_mask').removeClass('active');
+		    },
 			success: function(data) {
 				if(data === -1)
 				{

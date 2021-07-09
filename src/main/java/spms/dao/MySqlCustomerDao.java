@@ -76,6 +76,16 @@ public class MySqlCustomerDao implements CustomerDao {
 			sqlSession.close();
 		}
 	}
+	
+	@Override
+	public Customer selectOneKey(Customer customer) throws Exception {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		try {
+			return sqlSession.selectOne("spms.dao.CustomerDao.selectOneKey", customer);
+		} finally {
+			sqlSession.close();
+		}
+	}
 
 	@Override
 	public int update(Customer customer) throws Exception {
@@ -123,6 +133,18 @@ public class MySqlCustomerDao implements CustomerDao {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		try {
 			int count = sqlSession.insert("spms.dao.CustomerDao.updateToken", customer);
+			sqlSession.commit();
+			return count;
+		} finally {
+			sqlSession.close();
+		}
+	}
+	
+	@Override
+	public int updateState(Customer customer) throws Exception {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		try {
+			int count = sqlSession.insert("spms.dao.CustomerDao.updateState", customer);
 			sqlSession.commit();
 			return count;
 		} finally {

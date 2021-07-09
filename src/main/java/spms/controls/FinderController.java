@@ -20,8 +20,19 @@ public class FinderController {
 	}
 
 	@RequestMapping(value = "/finder.do", method = RequestMethod.GET)
-	public String execute(Map<String, Object> model) throws Exception {
+	public String execute(String type, Map<String, Object> model) throws Exception {
 
-		return "/cinema/page/FinderForm.jsp";
+		if (type.equals("email")) {
+			return "/cinema/page/FinderIdForm.jsp";
+		} else {
+			return "/cinema/page/FinderPwForm.jsp";
+		}
+
+	}
+
+	@RequestMapping(value = "/password.do", method = RequestMethod.GET)
+	public String passwordPage(String key, Map<String, Object> model) throws Exception {
+		System.out.println(key);
+		return "/cinema/page/PassWordForm.jsp";
 	}
 }

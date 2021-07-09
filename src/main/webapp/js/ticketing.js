@@ -42,12 +42,17 @@ $(document).ready(function() {
 				type: 'POST',
 				data: form,
 				dataType: 'json',
+				beforeSend: function() {
+					$('#bg_mask').addClass('active');
+			    },
+			    complete: function() {
+					$('#bg_mask').removeClass('active');
+			    },
 				success: function(data) {
 					$('.datetime_list_tab > div').remove();
 					
 					var theater = null;
 					$(data.theaters).each(function(){
-						console.log(this);
 						if(theater != this.index) {
 							$('.datetime_list_tab').append($(
 							`<div>` + 
@@ -70,10 +75,9 @@ $(document).ready(function() {
 						$('#theater-' + this.index + '').append($(
 							`<div onclick="location.href='reservation.do?index=${this.indexShowing}'">` +
 								`<div>${this.startTime}</div>` +
-								`<span>${this.seatX * this.seatY}석</span>` +
+								`<span>${this.seatX * this.seatY - this.seatCount}석</span>` +
 							`</div>`
-						));	
-							
+						));								
 					})
 				},
 				error: function() {

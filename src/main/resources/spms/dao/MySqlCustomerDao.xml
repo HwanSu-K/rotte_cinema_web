@@ -43,6 +43,13 @@
 		WHERE CUSTOMER_INDEX=#{value}
 	</select>
 	
+	<select id="selectOneKey" parameterType="int"
+		resultMap="ResultMap">
+		SELECT CUSTOMER_INDEX 
+		FROM CUSTOMER
+		WHERE CUSTOMER_KEY=#{value}
+	</select>
+	
 	<update id="update" parameterType="map">
 		UPDATE CUSTOMER
 		<set>
@@ -64,12 +71,20 @@
 		WHERE TOKEN_VALUE=#{token}
 	</update>
 	
-	<update id="updateKey" parameterType="map">
+	<update id="updateState" parameterType="map">
 		UPDATE CUSTOMER
 		<set>
 			CUSTOMER_STATE=1,
 		</set>
 		WHERE CUSTOMER_KEY=#{key}
+	</update>
+	
+	<update id="updateKey" parameterType="map">
+		UPDATE CUSTOMER
+		<set>
+			CUSTOMER_KEY=#{key},
+		</set>
+		WHERE CUSTOMER_EMAIL=#{email}
 	</update>
 	
 	<update id="deleteToken" parameterType="map">
@@ -93,19 +108,14 @@
 	
 	<select id="finder" parameterType="map"
 		resultMap="ResultMap">
-		
-		<if test="email == null">
 		SELECT CUSTOMER_EMAIL 
 		FROM CUSTOMER
-		WHERE CUSTOMER_NAME=#{name} AND CUSTOMER_BIRTH=#{birth} AND CUSTOMER_PHONENUM=#{phonenum} AND CUSTOMER_STATE  >= 0
-		</if>
+		WHERE CUSTOMER_NAME=#{name} AND CUSTOMER_BIRTH=#{birth} AND CUSTOMER_PHONENUM=#{phonenum} AND CUSTOMER_STATE > 0
 		
 		<if test="email != null">
-		SELECT CUSTOMER_PASSWORD 
-		FROM CUSTOMER
-		WHERE CUSTOMER_EMAIL=#{email} AND CUSTOMER_NAME=#{name} AND CUSTOMER_BIRTH=#{birth} AND CUSTOMER_PHONENUM=#{phonenum} AND CUSTOMER_STATE >= 0
+		AND CUSTOMER_EMAIL=#{email}
 		</if>
-		
+				
 		LIMIT 1
 	</select>
 	

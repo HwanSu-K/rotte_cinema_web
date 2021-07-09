@@ -34,6 +34,7 @@ import spms.dao.TheaterDao;
 import spms.etc.Encrypt;
 import spms.etc.IamPay;
 import spms.etc.MailSend;
+import spms.etc.Rand;
 import spms.fcm.FcmService;
 import spms.vo.Cinema;
 import spms.vo.Customer;
@@ -223,10 +224,20 @@ public class AjaxController {
 
 	@RequestMapping(value = "/finderobject.do", method = RequestMethod.POST)
 	@ResponseBody
-	public Object getfinderObject(Customer customer) throws Exception {
-
+	public Object getfinderObject(Customer customer) throws Exception {		
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("customer", customerDao.finder(customer));
+		
+		if(customer.getEmail() != null) {
+			
+			// 랜덤키 12자리 발생후 등록
+			customer.setKey(Rand.code());
+			// 입력받은 패스워드를 암호화해서 저장.
+			customerDao.updateKey(customer);
+			String title = "비밀번호 변경 메일입니다.";
+			String content = "https://kumas.dev/rotte_cinema/password.do?key=" + customer.getKey();
+			new MailSend().send(mailSender, customer.getEmail(), title, content);
+		}
 		return map;
 	}
 
@@ -249,17 +260,9 @@ public class AjaxController {
 	public Object getregistrationObject(Customer customer) throws Exception {
 
 		if (customer != null) {
-			Random rnd = new Random();
-			StringBuffer buf = new StringBuffer();
-			for (int i = 0; i < 12; i++) {
-				if (rnd.nextBoolean()) {
-					buf.append((char) ((int) (rnd.nextInt(26)) + 65));
-				} else {
-					buf.append((char) ((int) (rnd.nextInt(26)) + 97));
-				}
-			}
+
 			// 랜덤키 12자리 발생후 등록
-			customer.setKey(buf.toString());
+			customer.setKey(Rand.code());
 			// 입력받은 패스워드를 암호화해서 저장.
 			customer.setPassword(new Encrypt().encrypt(customer.getPassword()));
 			String title = "가입 확인 메일입니다.";
@@ -383,7 +386,6 @@ public class AjaxController {
 	@ResponseBody
 	public Object getReservationObject(@RequestParam String jsonData, String uid, HttpSession session)
 			throws Exception {
-		System.out.println(jsonData);
 		Customer customer = (Customer) session.getAttribute("customer");
 		if (customer != null) {
 			HashMap<String, Object> map = new HashMap<String, Object>();
@@ -409,8 +411,6 @@ public class AjaxController {
 				reserv.setShowingIndex((int) obj.get("showingIndex"));
 				totalAmount += payType.get(reserv.getPayCategory() - 1).getAmount();
 				reservs.add(reserv);
-				
-				System.out.println(reserv.getPayCategory());
 			}
 
 			// 예약 되어있는 좌석이 있는지 체크.
@@ -459,7 +459,8 @@ public class AjaxController {
 			}
 
 			map.put("result", "success");
-			map.put("payIndex", pay.getIndex());
+			map.put("amount", pay.getAmount());
+			map.put("reservs", reservs);
 			
 			IamPay.getCancelPaymentObject(uid);
 			

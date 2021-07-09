@@ -62,7 +62,7 @@ $(document).ready(function() {
 					});
 				},
 				error: function() {
-					alert('통신이 원할하지 않습니다.');
+					console.log('error');
 				}
 			});	
 		}

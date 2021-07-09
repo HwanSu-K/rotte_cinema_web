@@ -27,7 +27,10 @@ public class RegistrationController {
 	public String loginForm(String key, Map<String, Object> model) throws Exception {
 		if(key != null && !key.equals(""))
 		{
-			if(customerDao.updateKey(new Customer().setKey(key)) > 0);
+			if(customerDao.selectOneKey(new Customer().setKey(key)) =! null) {
+				;
+			}
+			if(customerDao.updateState(new Customer().setKey(key)) > 0);
 			{
 				return "redirect:/login.do";
 			}

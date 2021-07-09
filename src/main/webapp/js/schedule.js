@@ -59,6 +59,12 @@ $(document).ready(function() {
 			type: 'POST',
 			data: form,
 			dataType: 'json',
+			beforeSend: function() {
+				$('#bg_mask').addClass('active');
+		    },
+		    complete: function() {
+				$('#bg_mask').removeClass('active');
+		    },
 			success: function(data) {
 				$('#moviePoster').attr('src', './images/poster/' + data.movie.poster);
 				$('#movieAge').attr('src', './images/icon/age_' + data.movie.limitAge + '.png');
@@ -94,6 +100,12 @@ $(document).ready(function() {
 			type: 'POST',
 			data: form,
 			dataType: 'json',
+			beforeSend: function() {
+				$('#bg_mask').addClass('active');
+		    },
+		    complete: function() {
+				$('#bg_mask').removeClass('active');
+		    },
 			success: function(data) {
 
 				$('#movieTitle').text(data.cinema.title);
@@ -134,6 +146,12 @@ $(document).ready(function() {
 			type: 'POST',
 			data: search,
 			dataType: 'json',
+			beforeSend: function() {
+				$('#bg_mask').addClass('active');
+		    },
+		    complete: function() {
+				$('#bg_mask').removeClass('active');
+		    },
 			success: function(data) {
 				var cinema = null;
 				var theater = null;
@@ -177,7 +195,7 @@ $(document).ready(function() {
 					$('#theater-' + this.index + '').append($(
 						`<div onclick="location.href='reservation.do?index=${this.indexShowing}'">` +
 							'<div>' + this.startTime + '</div>' +
-							'<span>' + (this.seatX * this.seatY) + '석</span>' +
+							'<span>' + (this.seatX * this.seatY - this.seatCount) + '석</span>' +
 						'</div>'
 					));
 
@@ -197,6 +215,12 @@ $(document).ready(function() {
 			type: 'POST',
 			data: search,
 			dataType: 'json',
+			beforeSend: function() {
+				$('#bg_mask').addClass('active');
+		    },
+		    complete: function() {
+				$('#bg_mask').removeClass('active');
+		    },
 			success: function(data) {
 				var movie = null;
 				var theater = null;

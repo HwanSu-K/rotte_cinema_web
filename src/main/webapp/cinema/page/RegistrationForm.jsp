@@ -37,7 +37,7 @@
                 </div>
             </div>
             <section id="formReg" class="active">
-				<form id="reg">
+				<form id="reg" autocomplete=”off”>
                     <div>
                         <label for="email"><span>*</span>이메일</label>
                         <input type="text" id="email" name="email" maxlength="15">
@@ -105,7 +105,7 @@
             </section>
             <section id="formcomp">
                 <div><div id="rName"></div>님 회원 가입이 완료 되었습니다.</div>
-                <p>로그인 후 서비스를 이용 하실 수 있습니다.</p>
+                <p>이메일 인증 후 서비스를 이용 하실 수 있습니다.</p>
             </section>
 
             <div class="reg_btn"><div id="btn_cancel" class="g">취소</div><div id="btn_reg">가입</div></div>
