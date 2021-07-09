@@ -18,10 +18,10 @@ public class MySqlReservationDao implements ReservationDao {
 	}
 
 	@Override
-	public Reservation selectList(int no) throws Exception {
+	public Reservation selectOne(int no) throws Exception {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		try {
-			return sqlSession.selectOne("spms.dao.ReservationDao.selectList", no);
+			return sqlSession.selectOne("spms.dao.ReservationDao.selectOne", no);
 		} finally {
 			sqlSession.close();
 		}

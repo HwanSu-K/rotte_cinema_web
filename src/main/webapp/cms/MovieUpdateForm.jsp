@@ -35,7 +35,7 @@
 		</div>
 		<div>
 			<label for="type">유형 </label>
-			<select id="limitAge" name="limitAge">
+			<select class="form-select" id="limitAge" name="limitAge">
 					<option value="0" ${movie.limitAge == 0 ? 'selected' : ''}>전체 </option>
 					<option value="12" ${movie.limitAge == 12 ? 'selected' : ''}>12세 </option>
 					<option value="15" ${movie.limitAge == 15 ? 'selected' : ''}>15세 </option>
@@ -68,14 +68,14 @@
 		</div>
 		<div>
 			<label for="type">유형 </label>
-			<select id="type" name="type">
+			<select class="form-select" id="type" name="type">
 					<option value="0" ${movie.type == 0 ? 'selected' : ''}>일반 </option>
 					<option value="1" ${movie.type == 1 ? 'selected' : ''}>큐레이션 </option>
 			</select>
 		</div>
 		<div>
 		<label for='state'>상태 </label>
-			<select class="form-select" id='state' name='state' aria-label="Default select example">
+			<select class="form-select" class="form-select" id='state' name='state' aria-label="Default select example">
 				<option value='1' ${movie.state == 1 ? 'selected' : ''}>정상 </option>
 				<option value='0' ${movie.state == 0 ? 'selected' : ''}>중지 </option>
 			</select>

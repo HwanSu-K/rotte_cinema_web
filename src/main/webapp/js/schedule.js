@@ -139,17 +139,17 @@ $(document).ready(function() {
 				var theater = null;
 
 				$('.reserv_list > div').remove();
-				
+
 				$(data.theaters).each(function() {
-					
+
 					if (cinema != this.indexCinema) {
 						$('.reserv_list').append($(
 							'<div class="reserv_info_list" data-local-class="' + this.localClass + '">' +
-							'<div>' +
-							'<div class="reserv_info_list_title">' + this.nameCinema + '</div>' +
-							'</div>' +
-							'<div id="cinema-' + this.indexCinema + '" class="reserv_info_list_theater">' +
-							'</div>' +
+								'<div>' +
+									'<div class="reserv_info_list_title">' + this.nameCinema + '</div>' +
+									'</div>' +
+									'<div id="cinema-' + this.indexCinema + '" class="reserv_info_list_theater">' +
+								'</div>' +
 							'</div>'
 						));
 						cinema = this.indexCinema;
@@ -158,17 +158,17 @@ $(document).ready(function() {
 					if (theater != this.index) {
 						$('#cinema-' + this.indexCinema + '').append($(
 							'<div>' +
-							'<div>' +
-							'<div>' +
-							'<div>' + this.name + '</div>' +
-							'<div>총 ' + (this.seatX * this.seatY) + '석</div>' +
-							'</div>' +
-							'<div>' +
-							'<div>2D(자막)</div>' +
-							'</div>' +
-							'</div>' +
-							'<div id="theater-' + this.index + '">' +
-							'</div>' +
+								'<div>' +
+									'<div>' +
+										'<div>' + this.name + '</div>' +
+											'<div>총 ' + (this.seatX * this.seatY) + '석</div>' +
+											'</div>' +
+										'<div>' +
+											'<div>2D(자막)</div>' +
+										'</div>' +
+									'</div>' +
+								'<div id="theater-' + this.index + '">' +
+								'</div>' +
 							'</div>'
 						));
 						theater = this.index;
@@ -176,8 +176,8 @@ $(document).ready(function() {
 
 					$('#theater-' + this.index + '').append($(
 						`<div onclick="location.href='reservation.do?index=${this.indexShowing}'">` +
-						'<div>' + this.startTime + '</div>' +
-						'<span>' + (this.seatX * this.seatY) + '석</span>' +
+							'<div>' + this.startTime + '</div>' +
+							'<span>' + (this.seatX * this.seatY) + '석</span>' +
 						'</div>'
 					));
 
@@ -203,26 +203,26 @@ $(document).ready(function() {
 
 				$('.reserv_list > div').remove();
 
-				$(data.theaters).each(function() {					
-					
+				$(data.theaters).each(function() {
+
 					if (movie != this.indexMovie) {
 						$('.reserv_list').append($(
 							'<div class="reserv_info_list">' +
-							'<div>' +
-							'<div class="movie_info_list_title">' +
-							'<div>' +
-							'<img id="movieAge" src="./images/icon/age_' + this.limitAge + '.png">' +
-							'<span id="movieSubTitle">' + this.nameMovie + '</span>' +
-							'</div>' +
-							'<div>' +
-							'<div>상영중</div>' +
-							'<div>/</div>' +
-							'<div>' + this.runningTime + '분</div>' +
-							'</div>' +
-							'</div>' +
-							'</div>' +
-							'<div id="movie-' + this.indexMovie + '" class="reserv_info_list_theater">' +
-							'</div>' +
+								'<div>' +
+									'<div class="movie_info_list_title">' +
+										'<div>' +
+											'<img id="movieAge" src="./images/icon/age_' + this.limitAge + '.png">' +
+											'<span id="movieSubTitle">' + this.nameMovie + '</span>' +
+										'</div>' +
+										'<div>' +
+											'<div>상영중</div>' +
+											'<div>/</div>' +
+											'<div>' + this.runningTime + '분</div>' +
+										'</div>' +
+									'</div>' +
+								'</div>' +
+								'<div id="movie-' + this.indexMovie + '" class="reserv_info_list_theater">' +
+								'</div>' +
 							'</div>'
 						));
 						movie = this.indexMovie;
@@ -231,26 +231,26 @@ $(document).ready(function() {
 					if (theater != this.index) {
 						$('#movie-' + this.indexMovie + '').append($(
 							'<div class="disabled">' +
-							'<div>' +
-							'<div>' +
-							'<div>' + this.name + '</div>' +
-							'<div>총 ' + (this.seatX * this.seatY) + '석</div>' +
-							'</div>' +
-							'<div>' +
-							'<div>2D(자막)</div>' +
-							'</div>' +
-							'</div>' +
-							'<div id="theater-' + this.index + '">' +
-							'</div>' +
+								'<div>' +
+									'<div>' +
+										'<div>' + this.name + '</div>' +
+											'<div>총 ' + (this.seatX * this.seatY) + '석</div>' +
+											'</div>' +
+										'<div>' +
+									'<div>2D(자막)</div>' +
+									'</div>' +
+								'</div>' +
+								'<div id="theater-' + this.index + '">' +
+								'</div>' +
 							'</div>'
 						));
 						theater = this.index;
 					}
 
 					$('#theater-' + this.index + '').append($(
-						'<div>' +
-						'<div>' + this.startTime + '</div>' +
-						'<span>' + (this.seatX * this.seatY) + '석</span>' +
+						`<div onclick="location.href='reservation.do?index=${this.indexShowing}'">` +
+							'<div>' + this.startTime + '</div>' +
+							'<span>' + (this.seatX * this.seatY) + '석</span>' +
 						'</div>'
 					));
 

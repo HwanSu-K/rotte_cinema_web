@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import spms.dao.CustomerDao;
+import spms.etc.Encrypt;
 import spms.vo.Customer;
 
 @Controller
@@ -48,13 +49,21 @@ public class LogInController {
 			cookie.setMaxAge(0);
 		}
 		response.addCookie(cookie);
-		Customer customer = customerDao.exist(email, password);
+		Customer customer = customerDao.exist(email);
 		if (customer != null) {
-			model.put("customer", customer);
-			return "redirect:/main.do";
-
-		} else {
-			return "redirect:/login.do";
+			if(new Encrypt().isMatch(password, customer.getPassword())) {
+				if(customer.getState() == 0) {
+					return "redirect:/loginwarning.do";	
+				}
+				else
+				{
+					customer.setPassword("");
+					model.put("customer", customer);
+					return "redirect:/main.do";	
+				}
+			}
 		}
+		
+		return "redirect:/login.do";
 	}
 }

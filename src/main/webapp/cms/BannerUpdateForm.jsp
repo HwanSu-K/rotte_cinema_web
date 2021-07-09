@@ -28,7 +28,7 @@
 	</div>
 	<div>
 		<label for='state'>상태 </label>
-		<select class="form-select" id='state' name='state' aria-label="Default select example">
+		<select class="form-select" class="form-select" id='state' name='state' aria-label="Default select example">
 			<option value='1' ${banner.state == 1 ? 'selected' : ''}>정상 </option>
 			<option value='0' ${banner.state == 0 ? 'selected' : ''}>중지 </option>
 		</select>

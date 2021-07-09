@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 2. 동적 SQL 적용 -->
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="spms.dao.PayDao">
+	<resultMap type="Pay" id="ResultMap">
+		<id column="PAY_INDEX" property="index" />
+		<result column="PAY_AMOUNT" property="amount" />
+		<result column="PAY_IMP_UID" property="uid" />
+		<result column="PAY_CARD_NAME" property="cardName" />
+		<result column="PAY_CARD_NUMBER" property="cardNumber" />
+		<result column="CUSTOMER_INDEX" property="customerIndex" />
+	</resultMap>
+	
+	<insert id="insert" parameterType="map">
+		INSERT INTO PAY (PAY_AMOUNT,PAY_IMP_UID,PAY_CARD_NAME,PAY_CARD_NUMBER,CUSTOMER_INDEX)
+		VALUES(#{amount}, #{uid}, #{cardName}, #{cardNumber}, #{customerIndex})
+		<selectKey keyProperty="index" resultType="int">
+        SELECT LAST_INSERT_ID()
+    	</selectKey>
+	</insert>
+</mapper>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 2. 동적 SQL 적용 -->
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="spms.dao.ReservDao">
+	<resultMap type="Reserv" id="ResultMap">
+		<id column="RESERV_INDEX" property="index" />
+		<result column="SEAT_X" property="seatX" />
+		<result column="SEAT_Y" property="seatY" />
+		<result column="SHOWING_INDEX" property="showingIndex" />
+		<result column="PAY_INDEX" property="payIndex" />
+		<result column="PAY_CATEGORY" property="payCategory" />
+	</resultMap>
+
+	<select id="selectList" parameterType="int"
+		resultMap="ResultMap">
+		SELECT RESERV_INDEX,SEAT_X,SEAT_Y
+		FROM MOVIE_RESERV
+		WHERE SHOWING_INDEX = #{value} AND RESERV_STATE = 1
+	</select>
+	
+	<select id="selectOne" parameterType="map"
+		resultMap="ResultMap">
+			SELECT RESERV_INDEX,SEAT_X,SEAT_Y,SHOWING_INDEX,PAY_INDEX,PAY_CATEGORY,RESERV_STATE 
+			FROM MOVIE_RESERV
+			WHERE SHOWING_INDEX = #{showingIndex } AND SEAT_X = #{seatX }  AND SEAT_Y = #{seatY } AND RESERV_STATE = 1
+	</select>
+	
+	<insert id="insert" parameterType="map">
+		INSERT INTO MOVIE_RESERV (SEAT_X,SEAT_Y,SHOWING_INDEX,PAY_INDEX,PAY_CATEGORY,RESERV_STATE)
+		VALUES(#{seatX },#{seatY },#{showingIndex },#{payIndex },#{payCategory },1)
+		<selectKey keyProperty="index" resultType="int">
+        SELECT LAST_INSERT_ID()
+    	</selectKey>
+	</insert>
+</mapper>

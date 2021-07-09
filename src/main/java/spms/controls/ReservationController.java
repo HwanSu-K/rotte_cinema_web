@@ -9,7 +9,9 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
+import spms.dao.PayTypeDao;
 import spms.dao.ReservationDao;
 import spms.vo.Reservation;
 
@@ -18,7 +20,7 @@ public class ReservationController {
 	String[] week = { "일", "월", "화", "수", "목", "금", "토" };
 	
 	ReservationDao reservationDao;
-
+	
 	@Autowired
 	public ReservationController setMovieDao(ReservationDao reservationDao) {
 		this.reservationDao = reservationDao;
@@ -27,7 +29,7 @@ public class ReservationController {
 
 	@RequestMapping("/reservation.do")
 	public String movieLoad(int index, Map<String, Object> model) throws Exception {
-		Reservation rev = reservationDao.selectList(index);
+		Reservation rev = reservationDao.selectOne(index);
 		DateFormat df = new SimpleDateFormat("yyyy-MM-ddhh:mm");
 		DateFormat time = new SimpleDateFormat("hh:mm");
 		Date date = df.parse(rev.getDate() + rev.getStartTime());
@@ -40,6 +42,6 @@ public class ReservationController {
 		
 		
 		model.put("reservations", rev);	
-		return "/cinema/page/Reservation.jsp";
+		return "/cinema/page/ReservationForm.jsp";
 	}
 }

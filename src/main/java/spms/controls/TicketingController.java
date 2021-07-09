@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import spms.dao.CinemaDao;
 import spms.dao.MovieDao;
 import spms.vo.Movie;
-import spms.vo.Reserv;
 
 @Controller
 public class TicketingController {

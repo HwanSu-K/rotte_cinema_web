@@ -1,23 +1,47 @@
 package spms.vo;
 
 public class Reserv {
-	protected int movieIndex;
-	protected int theaterIndex;
-	protected int showingIndex;
+	protected int index;
 	protected int seatX;
 	protected int seatY;
+	protected int payIndex;
+	protected int payCategory;
+	protected int showingIndex;
 	
-	public int getMovieIndex() {
-		return movieIndex;
+	public int getIndex() {
+		return index;
 	}
-	public void setMovieIndex(int movieIndex) {
-		this.movieIndex = movieIndex;
+	public Reserv setIndex(int index) {
+		this.index = index;
+		return this;
 	}
-	public int getTheaterIndex() {
-		return theaterIndex;
+	public int getSeatX() {
+		return seatX;
 	}
-	public void setTheaterIndex(int theaterIndex) {
-		this.theaterIndex = theaterIndex;
+	public Reserv setSeatX(int seatX) {
+		this.seatX = seatX;
+		return this;
+	}
+	public int getSeatY() {
+		return seatY;
+	}
+	public Reserv setSeatY(int seatY) {
+		this.seatY = seatY;
+		return this;
+	}
+	public int getPayIndex() {
+		return payIndex;
+	}
+	public Reserv setPayIndex(int payIndex) {
+		this.payIndex = payIndex;
+		return this;
+	}
+	public int getPayCategory() {
+		return payCategory;
+	}
+	public Reserv setPayCategory(int payCategory) {
+		this.payCategory = payCategory;
+		return this;
 	}
 	public int getShowingIndex() {
 		return showingIndex;
@@ -25,17 +49,4 @@ public class Reserv {
 	public void setShowingIndex(int showingIndex) {
 		this.showingIndex = showingIndex;
 	}
-	public int getSeatX() {
-		return seatX;
-	}
-	public void setSeatX(int seatX) {
-		this.seatX = seatX;
-	}
-	public int getSeatY() {
-		return seatY;
-	}
-	public void setSeatY(int seatY) {
-		this.seatY = seatY;
-	}
-
 }
