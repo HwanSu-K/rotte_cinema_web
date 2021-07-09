@@ -226,9 +226,9 @@ $(document).ready(function() {
 	});
 
 	var stars = $('.star > div');
-	$(stars).on('hover',function(e){
+	$(stars).on('mouseenter',function(e){
 		if ($('#reviewButton').hasClass('disabled')) {
-			return false;
+			return;
 		}
 		
 		var count = $(e.currentTarget).data('value');

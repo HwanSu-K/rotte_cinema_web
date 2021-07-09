@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import spms.dao.CustomerDao;
+import spms.etc.Rand;
 import spms.vo.Customer;
 
 @Controller
@@ -27,15 +28,14 @@ public class RegistrationController {
 	public String loginForm(String key, Map<String, Object> model) throws Exception {
 		if(key != null && !key.equals(""))
 		{
-			if(customerDao.selectOneKey(new Customer().setKey(key)) =! null) {
-				;
-			}
-			if(customerDao.updateState(new Customer().setKey(key)) > 0);
-			{
+			Customer customer = customerDao.selectOneKey(new Customer().setKey(key)); 
+			if(customer != null) {
+				customerDao.updateState(new Customer().setKey(key));
+				customer.setKey(Rand.code());
+				customerDao.updateKey(customer);
 				return "redirect:/login.do";
 			}
 		}
-		
 		return "/cinema/page/RegistrationForm.jsp";
 	}
 	

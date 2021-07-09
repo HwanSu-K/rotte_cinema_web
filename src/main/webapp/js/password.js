@@ -86,7 +86,8 @@ $(document).ready(function () {
 						alert('오류가 발생했습니다.');
 						return false;
 					}
-					console.log(data);
+					
+					location.href='login.do';
 
 				},
 				error: function () {

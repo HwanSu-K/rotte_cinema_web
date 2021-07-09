@@ -43,11 +43,11 @@
 		WHERE CUSTOMER_INDEX=#{value}
 	</select>
 	
-	<select id="selectOneKey" parameterType="int"
+	<select id="selectOneKey" parameterType="map"
 		resultMap="ResultMap">
-		SELECT CUSTOMER_INDEX 
+		SELECT CUSTOMER_EMAIL 
 		FROM CUSTOMER
-		WHERE CUSTOMER_KEY=#{value}
+		WHERE CUSTOMER_KEY=#{key}
 	</select>
 	
 	<update id="update" parameterType="map">
@@ -83,6 +83,14 @@
 		UPDATE CUSTOMER
 		<set>
 			CUSTOMER_KEY=#{key},
+		</set>
+		WHERE CUSTOMER_EMAIL=#{email}
+	</update>
+	
+	<update id="updatePass" parameterType="map">
+		UPDATE CUSTOMER
+		<set>
+			CUSTOMER_PASSWORD=#{password},
 		</set>
 		WHERE CUSTOMER_EMAIL=#{email}
 	</update>

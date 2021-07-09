@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import spms.dao.CustomerDao;
+import spms.vo.Customer;
 
 @Controller
 public class FinderController {
@@ -32,7 +33,13 @@ public class FinderController {
 
 	@RequestMapping(value = "/password.do", method = RequestMethod.GET)
 	public String passwordPage(String key, Map<String, Object> model) throws Exception {
-		System.out.println(key);
-		return "/cinema/page/PassWordForm.jsp";
+		if(key != null && !key.equals(""))
+		{
+			Customer customer = customerDao.selectOneKey(new Customer().setKey(key)); 
+			if(customer != null) {
+				return "/cinema/page/PassWordForm.jsp";
+			}
+		}
+		return "redirect:/login.do";
 	}
 }

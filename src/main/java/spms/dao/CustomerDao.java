@@ -27,6 +27,8 @@ public interface CustomerDao {
 	
 	int updateKey(Customer customer) throws Exception;
 	
+	int updatePass(Customer customer) throws Exception;
+	
 	int deleteToken(Customer customer) throws Exception;
 	
 	Customer exist(String email) throws Exception;

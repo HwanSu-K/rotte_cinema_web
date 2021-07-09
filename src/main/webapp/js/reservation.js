@@ -135,7 +135,7 @@ $(document).ready(function() {
 						alert('로그인이 필요한 서비스 입니다.');
 						return false;
 					}
-					
+					alert('결제를 하더라도 자동으로 취소가 됩니다.');
 					pay(data);
 				},
 				error: function() {
@@ -214,7 +214,7 @@ $(document).ready(function() {
 						$(data.reservs).each(function() {
 							console.log(this);
 							$('.reserv_seat').append($(
-								`<div>${String.fromCharCode(64 + parseInt(this.seatY))}열${this.seatX}</div>`
+								`<div>${String.fromCharCode(64 + parseInt(this.seatY))}열${this.seatX}번</div>`
 							));
 							if(this.payCategory === 1) {
 								adultCount++;

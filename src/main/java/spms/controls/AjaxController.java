@@ -240,6 +240,28 @@ public class AjaxController {
 		}
 		return map;
 	}
+	
+	@RequestMapping(value = "/passwordobject.do", method = RequestMethod.POST)
+	@ResponseBody
+	public Object setpasswordObject(Customer customer) throws Exception {		
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		String key = customer.getKey();
+		if(key != null && !key.equals(""))
+		{
+			Customer customer_ = customerDao.selectOneKey(new Customer().setKey(key));
+			customer_.setPassword(new Encrypt().encrypt(customer.getPassword()));
+			customerDao.updatePass(customer_);
+			
+			customer_.setKey(Rand.code());
+			customerDao.updateKey(customer_);
+			map.put("result", "success");
+		}
+		else
+		{
+			map.put("result", "fail");	
+		}
+		return map;
+	}
 
 	@RequestMapping(value = "/emailobject.do", method = RequestMethod.POST)
 	@ResponseBody
