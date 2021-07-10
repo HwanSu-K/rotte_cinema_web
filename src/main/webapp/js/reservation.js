@@ -51,13 +51,14 @@ $(document).ready(function() {
 	$('#adult > div').on('click', (e) => {
 		const target = $(e.currentTarget).children('i');
 		if (target) {
-			if ($(target).hasClass('fa-plus')) {
-				const count = parseInt($('#adult_count').text());
-				if (count < 4) {
+			const maxCount = parseInt($('#adult_count').text()) + parseInt($('#teenager_count').text());;
+			const count = parseInt($('#adult_count').text());
+				
+			if ($(target).hasClass('fa-plus')) {	
+				if (maxCount < 8) {
 					$('#adult_count').text(count + 1);
 				}
 			} else {
-				const count = $('#adult_count').text();
 				if (count > 0) {
 					$('#adult_count').text(count - 1);
 				}
@@ -68,13 +69,15 @@ $(document).ready(function() {
 	$('#teenager > div').on('click', (e) => {
 		const target = $(e.currentTarget).children('i');
 		if (target) {
+			const maxCount = parseInt($('#adult_count').text()) + parseInt($('#teenager_count').text());;
+			const count = parseInt($('#teenager_count').text());
+			
 			if ($(target).hasClass('fa-plus')) {
-				const count = parseInt($('#teenager_count').text());
-				if (count < 4) {
+				if (maxCount < 8) {
 					$('#teenager_count').text(count + 1);
 				}
 			} else {
-				const count = $('#teenager_count').text();
+				
 				if (count > 0) {
 					$('#teenager_count').text(count - 1);
 				}
@@ -109,7 +112,21 @@ $(document).ready(function() {
 				}
 			}
 			target.toggleClass('active');
-
+			
+			$('.select_seat > div').each(function() {
+				$(this).text('-');
+				$(this).removeClass('active');
+			});
+			
+			let seatCount = 0;
+			$('.reserv_seat > div > div').each(function() {
+				if ($(this).hasClass('active')) {
+					seatCount++;
+					$(`.select_seat > div:nth-child(${seatCount})`).text(`${String.fromCharCode(64 + parseInt($(this).data('seat-y')))}${$(this).data('seat-x')}`)
+					$(`.select_seat > div:nth-child(${seatCount})`).addClass('active');
+				}
+			});
+			
 			if (checkCount() === maxCount) {
 				$('#pay').addClass('active');
 			}
@@ -135,7 +152,7 @@ $(document).ready(function() {
 						alert('로그인이 필요한 서비스 입니다.');
 						return false;
 					}
-					alert('결제를 하더라도 자동으로 취소가 됩니다.');
+					alert('결제 금액은 자동으로 취소됩니다.');
 					pay(data);
 				},
 				error: function() {
@@ -153,7 +170,7 @@ $(document).ready(function() {
 			pg: 'html5_inicis',
 			pay_method: 'card',
 			merchat_uid: 'merchant_' + new Date().getTime(),
-			name: $('.reserv_info_title > div').text(),
+			name: $('.movie_title > div > div:nth-child(1)').text().trim(),
 			amount: amount,
 			buyer_email: data.customer.email,
 			buyer_name: data.customer.name,
@@ -205,6 +222,8 @@ $(document).ready(function() {
 							alert(data.message);
 							return false;
 						}
+						console.log(data);
+						/*
 						$('.reserv').remove();
 						$('.reserv_comp').addClass('active');
 						
@@ -238,6 +257,7 @@ $(document).ready(function() {
 								`<div>청소년(${teenagerCount})</div>`
 							));
 						}
+						*/
 					},
 					error: function() {
 						console.log('error');
@@ -253,9 +273,23 @@ $(document).ready(function() {
 		});
 	}
 	function init() {
+		const maxCount = parseInt($('#adult_count').text()) + parseInt($('#teenager_count').text());;
+		
 		$('.reserv_seat > div > div').each(function() {
 			$(this).removeClass('active');
 			$('.reserv_pay > div:nth-child(2)').removeClass('active');
+		});
+		
+		$('.select_seat > div').each(function(index, item) {
+			$(item).text('-');
+			$(item).removeClass('active');
+			
+			if(index < maxCount) {
+				$(item).addClass('enabled');	
+			} else
+			{
+				$(item).removeClass('enabled');
+			}
 		});
 	}
 

@@ -30,8 +30,8 @@ public class ReservationController {
 	@RequestMapping("/reservation.do")
 	public String movieLoad(int index, Map<String, Object> model) throws Exception {
 		Reservation rev = reservationDao.selectOne(index);
-		DateFormat df = new SimpleDateFormat("yyyy-MM-ddhh:mm");
-		DateFormat time = new SimpleDateFormat("hh:mm");
+		DateFormat df = new SimpleDateFormat("yyyy-MM-ddHH:mm");
+		DateFormat time = new SimpleDateFormat("HH:mm");
 		Date date = df.parse(rev.getDate() + rev.getStartTime());
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(date);
@@ -39,9 +39,9 @@ public class ReservationController {
 		rev.setWeek(week[cal.get(Calendar.DAY_OF_WEEK) -1]);
 		cal.add(Calendar.MINUTE, rev.getMovieRunningTime());
 		rev.setEndTime(time.format(cal.getTime()));
+		rev.setDate(rev.getDate().replaceAll("-", "."));
 		
-		
-		model.put("reservations", rev);	
+		model.put("reservation", rev);	
 		return "/cinema/page/ReservationForm.jsp";
 	}
 }
