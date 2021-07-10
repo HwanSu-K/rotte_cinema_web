@@ -24,7 +24,9 @@ body {
 		'location location location'
 		'content content content'
 		'footer footer footer';
-	grid-template-rows: 60px auto 1fr auto;
+	grid-template-rows: 60px auto 1fr 120px;
+	position: relative;
+	min-height: 100vh;
 }
 
 /* 헤더부분 */
@@ -372,13 +374,16 @@ nav > .nav_search > div > div:nth-child(2) > form > i {
 .content {
 	grid-area: content;
 	width: var(--default--width);
-	margin: 0 auto;
-	margin-top: 75px;
+	margin: 75px auto;
 }
 
 /* 풋터부분 */
 footer {
 	grid-area: footer;
+	position: absolute;
+	width: 100%;
+	bottom: 0;
+	
 }
 footer > .footer_link {
 	background-color: #f3f3f3;

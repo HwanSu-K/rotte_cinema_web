@@ -1,4 +1,4 @@
-.content {display: flex; flex-direction: column; margin-bottom: 50px;}
+.content {display: flex; flex-direction: column;}
 .content > .reserv, .content > .reserv_comp {display: none;}
 .reserv.active, .reserv_comp.active {display: block;}
 .reserv_title {display: flex;}

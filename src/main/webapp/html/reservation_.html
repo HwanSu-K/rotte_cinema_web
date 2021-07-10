@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>rotte_cinema</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+    <link rel="stylesheet" href="../style/default.css" />
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.8.js"></script>
+    <script src="./js/default.js"></script>
+    
+    <link rel="stylesheet" href="../style/reservation_.css" />
+    
+    
+</head>
+
+<body>
+  <header></header>
+  <section class="location">      <!-- background-color: #f8f8fa; -->
+    <div>
+        <span><i class="fas fa-home"></i></span>
+        <span>></span>
+        <span>좌석예매</span>
+    </div>
+  </section>
+  <div class="content">
+    <div class="reserv_title">좌석예매</div>
+      <div>
+        <div class="reserv_left">
+          <div class="reserv_info">
+            <div>
+              관람인원선택
+            </div>
+            <div class="reserv_reset">
+              <i class="fas fa-sync-alt"></i>
+              초기화
+            </div>
+          </div>
+          <div class="reserv_person">
+            <div>성인</div>
+            <div class="reserv_count" id="adult">
+              <div><i class="fas fa-minus"></i></div>
+              <div id="adult_count">0</div>
+              <div><i class="fas fa-plus"></i></div>
+            </div>
+            <div>청소년</div>
+            <div class="reserv_count" id="teenager">
+              <div><i class="fas fa-minus"></i></div>
+              <div id="teenager_count">0</div>
+              <div><i class="fas fa-plus"></i></div>
+            </div>
+          </div>
+          <div class="reserv_screen">
+            <div class="mask">
+              <div><img src="../images/icon/bg-seat-count-before.png"><span>관람인원을 선택하십시요</span></div>
+            </div>
+            <div class="reserv_screen_info">좌석 선택 후 결제하기 버튼을 클릭하세요.</div>
+            <div class="reserv_screen_front">
+              <p>S</p>
+              <p>C</p>
+              <p>R</p>
+              <p>E</p>
+              <p>E</p>
+              <p>N</p>
+            </div>
+            <div class="reserv_seat">
+              <div>
+                <span>A</span>
+                <div>1</div>
+                <div class="active">2</div>
+                <div class="reserv">3</div>
+                <div class="disabled">4</div>
+                <div>5</div>
+                <div>6</div>
+                <div>7</div>
+                <div>8</div>
+                <div>9</div>
+                <div>10</div>
+              </div>
+              <div>
+                <span>B</span>
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+                <div>4</div>
+                <div>5</div>
+                <div>6</div>
+                <div>7</div>
+                <div>8</div>
+                <div>9</div>
+                <div>10</div>
+              </div>
+              <div>
+                <span>C</span>
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+                <div>4</div>
+                <div>5</div>
+                <div>6</div>
+                <div>7</div>
+                <div>8</div>
+                <div>9</div>
+                <div>10</div>
+              </div>
+              <div>
+                <span>D</span>
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+                <div>4</div>
+                <div>5</div>
+                <div>6</div>
+                <div>7</div>
+                <div>8</div>
+                <div>9</div>
+                <div>10</div>
+              </div>
+              <div>
+                <span>E</span>
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+                <div>4</div>
+                <div>5</div>
+                <div>6</div>
+                <div>7</div>
+                <div>8</div>
+                <div>9</div>
+                <div>10</div>
+              </div>
+              <div>
+                <span>F</span>
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+                <div>4</div>
+                <div>5</div>
+                <div>6</div>
+                <div>7</div>
+                <div>8</div>
+                <div>9</div>
+                <div>10</div>
+              </div>
+              <div>
+                <span>G</span>
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+                <div>4</div>
+                <div>5</div>
+                <div>6</div>
+                <div>7</div>
+                <div>8</div>
+                <div>9</div>
+                <div>10</div>
+              </div>
+              <div>
+                <span>H</span>
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+                <div>4</div>
+                <div>5</div>
+                <div>6</div>
+                <div>7</div>
+                <div>8</div>
+                <div>9</div>
+                <div>10</div>
+              </div>
+              <div>
+                <span>I</span>
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+                <div>4</div>
+                <div>5</div>
+                <div>6</div>
+                <div>7</div>
+                <div>8</div>
+                <div>9</div>
+                <div>10</div>
+              </div>
+            </div>
+          </div>
+        </div>     
+        <div class="reserv_right">
+          <div class="movie_title">
+            <img src="../images/icon/age_18.png">
+            <div>
+              <div class="movie_title">
+                랑종
+              </div>
+              <div>
+                2D(자막)
+              </div>
+            </div>
+          </div>
+          <div class="movie_info">
+            <div>
+              <div>동대문</div>
+              <div>3관</div>
+              <div>2021.07.21(수)</div>
+              <div></div>
+              <div>08:50~11:11</div>
+              <div></div>
+            </div>
+            <img src="../images/poster/8d6BF2d0Yaq4iVCGXKO160dzsmhKI09m_420.jpg">
+          </div>
+          <div class="movie_seat">
+            <div>
+              <div class="reserv_seat_info">
+                <div>
+                  <span class=""></span>
+                  <div>선택가능</div>
+                </div>  
+                <div>
+                  <span class="active"></span>
+                  <div>선택좌석</div>
+                </div>
+                <div>
+                  <span class="reserv"></span>
+                  <div>예매완료</div>
+                </div>
+                <div>
+                  <span class="disabled"></span>
+                  <div>선택불가</div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div>선택좌석</div>
+              <div class="select_seat">
+                <div class="active">A5</div>
+                <div class="active">A6</div>
+                <div class="active">A7</div>
+                <div>-</div>
+                <div>-</div>
+                <div>-</div>
+                <div>-</div>
+                <div>-</div>
+              </div>
+            </div>
+          </div>
+          <div class="movie_amount">
+            <div>최종결제금액</div><div><p>10,000</p>원</div>
+          </div>
+          <div class="reserv_pay active">
+            결제
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer></footer>
+</body>
+</html>

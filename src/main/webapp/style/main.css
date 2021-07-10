@@ -20,7 +20,7 @@ nav > .nav_bg.active {
 }
 nav.active {background-color: rgba(0,0,0,0.9);}
 
-.content {width:100%; margin-top: -60px;}
+.content {width:100%; margin-top: -60px; margin-bottom: 0;}
 /* 배너부분 */
 .banner {width: 100%; position: relative;} 
 .banner > .banner_img > div{
