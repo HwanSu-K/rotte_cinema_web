@@ -152,7 +152,7 @@ $(document).ready(function () {
 				}
 			},
 			error: function () {
-				console.log('error');
+				
 			},
 		});
 	});
@@ -239,7 +239,7 @@ $(document).ready(function () {
 					$('.reg_tab > div:nth-child(2)').addClass('active');
 				},
 				error: function () {
-					console.log('error');
+					
 				},
 			});
 		}

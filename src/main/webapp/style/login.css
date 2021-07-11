@@ -9,7 +9,7 @@
 
 .member_login > .login_form              /* 로그인 박스 설정 */
     {display: flex;justify-content: center; margin: 0 auto;
-    width: 800px; height: 330px; background-color: #f9f9f9; margin-bottom: 100px;}
+    width: 800px; height: 330px; background-color: #f9f9f9;}
 .member_login > .login_form > .login_box {display: flex; justify-content: center; flex-direction: column;}
 .member_login > .login_form > .login_box > .chkbox {display: flex; justify-content: flex-start; margin-bottom: 20px;}
 .member_login > .login_form > .login_box > .chkbox > label {color: #777; font-size: 12pt; padding-right: 35px;}

@@ -22,5 +22,6 @@
 	<button type="button" class="btn btn-primary btn-lg" onclick="location.href='banner/list.do'">배너관리</button>
 	<button type="button" class="btn btn-primary btn-lg" onclick="location.href='movie/list.do'">영화관리</button>
 	<button type="button" class="btn btn-primary btn-lg" onclick="location.href='customer/list.do'">회원관리</button>
+	<button type="button" class="btn btn-primary btn-lg" onclick="location.href='cinema/list.do'">극장관리</button>
 </body>
 </html>

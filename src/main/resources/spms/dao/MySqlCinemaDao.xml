@@ -10,40 +10,64 @@
 		<result column="MOVIE_COUNT" property="count" />
 		<result column="CINEMA_ADDRESS" property="addr" />
 		<result column="CINEMA_INFO" property="info" />
+		<result column="LOCAL_INDEX" property="localIndex" />
 		<result column="LOCAL_NAME" property="localName" />
 		<result column="LOCAL_CLASS" property="localClass" />
+		<result column="CINEMA_LAT" property="lat" />
+		<result column="CINEMA_LNG" property="lng" />
+		<result column="CINEMA_STATE" property="state" />
 	</resultMap>
 
-	<select id="selectList" parameterType="int"
-		resultMap="ResultMap">
+	<select id="selectList" parameterType="int" resultMap="ResultMap">
 			SELECT C.CINEMA_INDEX,C.CINEMA_TITLE,COUNT(B.COUNT) AS MOVIE_COUNT,D.LOCAL_CLASS 
 			FROM CINEMA_THEATER A 
 			LEFT OUTER JOIN (SELECT THEATER_INDEX, COUNT(SHOWING_INDEX) AS COUNT FROM MOVIE_SHOWING 
 			WHERE MOVIE_INDEX = #{value} AND SHOW_DATE = DATE_FORMAT(NOW(),'%Y-%m-%d') GROUP BY THEATER_INDEX) B 
 			ON A.THEATER_INDEX = B.THEATER_INDEX 
 			INNER JOIN CINEMA C ON A.CINEMA_INDEX = C.CINEMA_INDEX INNER JOIN CATEGORY_LOCAL D ON C.LOCAL_INDEX = D.LOCAL_INDEX
+			WHERE C.CINEMA_STATE = 1
 			GROUP BY C.CINEMA_TITLE,C.CINEMA_INDEX
 			ORDER BY C.LOCAL_INDEX,C.CINEMA_TITLE
 	</select>
 	
-	<select id="selectDefault"
-		resultMap="ResultMap">
-			SELECT A.CINEMA_INDEX,A.CINEMA_TITLE,B.LOCAL_NAME,B.LOCAL_CLASS  
-			FROM CINEMA A INNER JOIN CATEGORY_LOCAL B ON A.LOCAL_INDEX = B.LOCAL_INDEX
+	<select id="selectDefault" resultMap="ResultMap">
+		SELECT A.CINEMA_INDEX,A.CINEMA_TITLE,A.CINEMA_ADDRESS,A.CINEMA_LAT,A.CINEMA_LNG,A.CINEMA_STATE,B.LOCAL_NAME,B.LOCAL_NAME,B.LOCAL_CLASS
+		FROM CINEMA A INNER JOIN CATEGORY_LOCAL B ON A.LOCAL_INDEX = B.LOCAL_INDEX
+		<choose>
+			<when test="type == 'all'">ORDER BY CINEMA_INDEX</when>
+			<otherwise>ORDER BY A.LOCAL_INDEX,A.CINEMA_TITLE</otherwise>
+		</choose>
 	</select>
 	
-	<select id="selectOneDefault" parameterType="int"
-		resultMap="ResultMap">
-		SELECT A.CINEMA_INDEX,A.CINEMA_TITLE,A.CINEMA_ADDRESS,B.LOCAL_NAME,B.LOCAL_CLASS  
+	<select id="selectOneDefault" parameterType="int" resultMap="ResultMap">
+		SELECT A.CINEMA_INDEX,A.CINEMA_TITLE,A.CINEMA_ADDRESS,A.CINEMA_LAT,A.CINEMA_LNG,A.CINEMA_STATE,B.LOCAL_INDEX,B.LOCAL_NAME,B.LOCAL_NAME,B.LOCAL_CLASS
 		FROM CINEMA A INNER JOIN CATEGORY_LOCAL B ON A.LOCAL_INDEX = B.LOCAL_INDEX
 		WHERE A.CINEMA_INDEX=#{value}
 	</select>
 	
 	
-	<select id="selectListLocal" parameterType="map"
-		resultMap="ResultMap">
-		SELECT LOCAL_NAME,LOCAL_CLASS 
+	<select id="selectListLocal" parameterType="map" resultMap="ResultMap">
+		SELECT LOCAL_INDEX,LOCAL_NAME,LOCAL_CLASS  
 		FROM CATEGORY_LOCAL
 		ORDER BY LOCAL_SORT
 	</select>
+	
+	<insert id="insert" parameterType="map">
+		INSERT INTO CINEMA (LOCAL_INDEX,CINEMA_TITLE,CINEMA_ADDRESS,CINEMA_INFO,CINEMA_LAT,CINEMA_LNG,CINEMA_STATE)
+		VALUES (#{localIndex},#{title},#{addr},#{info},#{lat},#{lng},1)
+	</insert>
+	
+	<update id="update" parameterType="map">
+		UPDATE CINEMA
+		<set>
+			<if test="localIndex != null">LOCAL_INDEX=#{localIndex},</if>
+			<if test="title != null">CINEMA_TITLE=#{title},</if>
+			<if test="addr != null">CINEMA_ADDRESS=#{addr},</if>
+			<if test="info != null">CINEMA_INFO=#{info},</if>
+			<if test="lat != null">CINEMA_LAT=#{lat},</if>
+			<if test="lng != null">CINEMA_LNG=#{lng},</if>
+			<if test="state != null">CINEMA_STATE=#{state},</if>
+		</set>
+		WHERE CINEMA_INDEX=#{index}
+	</update>
 </mapper>

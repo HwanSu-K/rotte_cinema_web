@@ -29,6 +29,7 @@ import spms.dao.MovieDao;
 import spms.dao.PayDao;
 import spms.dao.PayTypeDao;
 import spms.dao.ReservDao;
+import spms.dao.ReservationDao;
 import spms.dao.ReviewDao;
 import spms.dao.TheaterDao;
 import spms.etc.Encrypt;
@@ -58,6 +59,7 @@ public class AjaxController {
 	PayTypeDao payTypeDao;
 	ReservDao reservDao;
 	PayDao payDao;
+	ReservationDao reservationDao;
 
 	@Autowired
 	FcmService fcmService;
@@ -116,6 +118,12 @@ public class AjaxController {
 	@Autowired
 	public AjaxController setPayDao(PayDao payDao) {
 		this.payDao = payDao;
+		return this;
+	}
+	
+	@Autowired
+	public AjaxController setReservationDao(ReservationDao reservationDao) {
+		this.reservationDao = reservationDao;
 		return this;
 	}
 
@@ -197,6 +205,7 @@ public class AjaxController {
 		}
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("theaters", theaterDao.selectList(paramMap));
+		map.put("dates", reservationDao.selectList(paramMap));
 		return map;
 	}
 
@@ -392,6 +401,16 @@ public class AjaxController {
 		return map;
 	}
 	
+	@RequestMapping(value = "/dateobject.do", method = RequestMethod.POST)
+	@ResponseBody
+	public Object getDateObject(int index) throws Exception {
+
+		HashMap<String, Object> map = new HashMap<String, Object>();
+
+
+		return map;
+	}
+	
 	@RequestMapping(value = "/reservobject.do", method = RequestMethod.POST)
 	@ResponseBody
 	public Object getReservObject(int index) throws Exception {
@@ -454,7 +473,7 @@ public class AjaxController {
 			}
 			
 			Payment payment = (Payment)iamPay;
-
+			
 			// 결제되어야 할 금액이 맞는지 체크. 다르다면 결제를 취소하고 오류를 리턴.
 			if(totalAmount != payment.getAmount().intValue())
 			{
@@ -463,6 +482,8 @@ public class AjaxController {
 				map.put("message", "결제금액이 불일치 합니다.");
 				return map;
 			}
+			map.put("pay", payment);
+			
 			
 			Pay pay = new Pay();
 			pay.setAmount(payment.getAmount().intValue());
@@ -481,8 +502,7 @@ public class AjaxController {
 			}
 
 			map.put("result", "success");
-			map.put("amount", pay.getAmount());
-			map.put("reservs", reservs);
+			map.put("index",pay.getIndex());
 			
 			IamPay.getCancelPaymentObject(uid);
 			

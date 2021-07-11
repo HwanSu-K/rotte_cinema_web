@@ -1,4 +1,41 @@
 $(document).ready(function() {
+	let aroundCheck = true;
+	
+	if (navigator.geolocation) {
+	    navigator.geolocation.getCurrentPosition(
+	        function(location){
+			sessionStorage.setItem('lat', location.coords.latitude);
+			sessionStorage.setItem('lng', location.coords.longitude);
+			around();
+			
+	        },
+	        function(error){
+	       }
+	    );
+	}
+	else {
+	    
+	}
+	
+	if(sessionStorage.getItem('lat')) {
+		around();
+	}
+	
+	function around() {
+		if(aroundCheck === true) {
+			$('.reserv_theater .reserv_content_title').prepend($(
+			`<span class="locals" data-tab-type="around">내주변</span>`
+			));
+			
+			$('.reserv_info_local').prepend($(
+				`<div data-tab-type="around">내주변</div>`
+			));
+			aroundCheck = false;
+		}
+		
+	}
+	
+
 	const search = {
 		movie: null,
 		cinema: null,
@@ -6,7 +43,7 @@ $(document).ready(function() {
 	}
 
 	// 전체영화,큐레이션 지역 클릭.
-	$('.reserv_content_title > span').on('click', function(e) {
+	$(document).on('click','.reserv_content_title > span', function(e) {
 		var count = 0;
 		// 전체영화일때만 모든 항목 표시.
 		if ($(e.currentTarget).data('tab-type') === 'default') {
@@ -115,13 +152,13 @@ $(document).ready(function() {
 				movies();
 			},
 			error: function() {
-				console.log('error');
+				
 			}
 		});
 	});
 
 	//영화별로 표기시에는 지역선택히 해당 지역의 영화만 표시되도록.
-	$('.reserv_info_local > div').on('click', function(e) {
+	$(document).on('click', '.reserv_info_local > div', function(e) {
 
 		$('.reserv_list > div').each(function() {
 			if ($(this).data('local-class') === $(e.currentTarget).data('tab-type')) {
@@ -201,10 +238,24 @@ $(document).ready(function() {
 
 				})
 
+				$('#dates > div').each(function() {
+					$(this).addClass('g');
+				});
+					
+				$(data.dates).each(function() {
+					const date = this.date;
+					$('#dates > div').each(function() {
+						if($(this).data('date-value') === date) {
+							$(this).removeClass('g');
+							return false;
+						}
+					});	
+				})
+				
 				$('.reserv_info_local > div:nth-child(1)').click();
 			},
 			error: function() {
-				console.log('error');
+				
 			}
 		});
 	}
@@ -281,7 +332,7 @@ $(document).ready(function() {
 				})
 			},
 			error: function() {
-				console.log('error');
+				
 			}
 		});
 	}

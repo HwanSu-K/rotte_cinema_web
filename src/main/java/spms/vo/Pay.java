@@ -1,7 +1,10 @@
 package spms.vo;
 
+import java.util.Date;
+
 public class Pay {
 	protected int index;
+	protected Date date;
 	protected int amount;
 	protected String uid;
 	protected int customerIndex;
@@ -13,6 +16,12 @@ public class Pay {
 	}
 	public void setIndex(int index) {
 		this.index = index;
+	}
+	public Date getDate() {
+		return date;
+	}
+	public void setDate(Date date) {
+		this.date = date;
 	}
 	public int getAmount() {
 		return amount;

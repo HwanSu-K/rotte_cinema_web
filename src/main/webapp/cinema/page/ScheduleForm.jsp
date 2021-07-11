@@ -73,7 +73,7 @@
 				<div id="next"><i class="fas fa-chevron-left"></i></div>      <!-- div 1 폰트 어썸 화살표 아이콘-->
 				<div id="dates">
 					<c:forEach var="date" items="${dates}">
-						<div class="${date.weekEng }" data-date-value="${date.date }">
+						<div class="g ${date.weekEng }" data-date-value="${date.date }">
 							<div>${date.yearMonth }</div>
 							<div>${date.day }.${date.weekKor }</div>
 							<div></div>

@@ -20,6 +20,13 @@
 		WHERE SHOWING_INDEX = #{value} AND RESERV_STATE = 1
 	</select>
 	
+	<select id="selectListPay" parameterType="int"
+		resultMap="ResultMap">
+			SELECT RESERV_INDEX,SEAT_X,SEAT_Y,SHOWING_INDEX,PAY_INDEX,PAY_CATEGORY,RESERV_STATE 
+			FROM MOVIE_RESERV
+			WHERE PAY_INDEX = #{value} AND RESERV_STATE = 1
+	</select>
+	
 	<select id="selectOne" parameterType="map"
 		resultMap="ResultMap">
 			SELECT RESERV_INDEX,SEAT_X,SEAT_Y,SHOWING_INDEX,PAY_INDEX,PAY_CATEGORY,RESERV_STATE 

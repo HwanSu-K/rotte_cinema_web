@@ -5,6 +5,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import spms.vo.Movie;
 import spms.vo.Pay;
 
 //@Repository 애노테이션으로 변경
@@ -17,6 +18,16 @@ public class MySqlPayDao implements PayDao {
 		this.sqlSessionFactory = sqlSessionFactory;
 	}
 
+	@Override
+	public Pay selectOne(int no) throws Exception {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		try {
+			return sqlSession.selectOne("spms.dao.PayDao.selectOne", no);
+		} finally {
+			sqlSession.close();
+		}
+	}
+	
 	@Override
 	public int insert(Pay pay) throws Exception {
 		SqlSession sqlSession = sqlSessionFactory.openSession();

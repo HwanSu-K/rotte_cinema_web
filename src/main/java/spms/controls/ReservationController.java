@@ -22,7 +22,7 @@ public class ReservationController {
 	ReservationDao reservationDao;
 	
 	@Autowired
-	public ReservationController setMovieDao(ReservationDao reservationDao) {
+	public ReservationController setRevDao(ReservationDao reservationDao) {
 		this.reservationDao = reservationDao;
 		return this;
 	}

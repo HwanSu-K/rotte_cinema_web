@@ -4,8 +4,9 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="spms.dao.PayDao">
-	<resultMap type="Pay" id="ResultMap">
+	<resultMap type="pay" id="ResultMap">
 		<id column="PAY_INDEX" property="index" />
+		<result column="PAY_DATE" property="date" javaType="java.util.Date" />
 		<result column="PAY_AMOUNT" property="amount" />
 		<result column="PAY_IMP_UID" property="uid" />
 		<result column="PAY_CARD_NAME" property="cardName" />
@@ -13,9 +14,15 @@
 		<result column="CUSTOMER_INDEX" property="customerIndex" />
 	</resultMap>
 	
+	<select id="selectOne" parameterType="int" resultMap="ResultMap">
+		SELECT PAY_INDEX,PAY_DATE,PAY_AMOUNT,PAY_IMP_UID,PAY_CARD_NAME,PAY_CARD_NUMBER,CUSTOMER_INDEX 
+		FROM PAY
+		WHERE PAY_INDEX=#{value} AND PAY_STATE = 1
+	</select>
+	
 	<insert id="insert" parameterType="map">
-		INSERT INTO PAY (PAY_AMOUNT,PAY_IMP_UID,PAY_CARD_NAME,PAY_CARD_NUMBER,CUSTOMER_INDEX)
-		VALUES(#{amount}, #{uid}, #{cardName}, #{cardNumber}, #{customerIndex})
+		INSERT INTO PAY (PAY_DATE,PAY_AMOUNT,PAY_IMP_UID,PAY_CARD_NAME,PAY_CARD_NUMBER,PAY_STATE,CUSTOMER_INDEX)
+		VALUES(NOW(),#{amount}, #{uid}, #{cardName}, #{cardNumber},1 , #{customerIndex})
 		<selectKey keyProperty="index" resultType="int">
         SELECT LAST_INSERT_ID()
     	</selectKey>

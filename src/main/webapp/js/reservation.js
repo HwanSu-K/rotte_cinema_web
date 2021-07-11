@@ -19,7 +19,7 @@ $(document).ready(function() {
 			teenagerAmount = data.paytype[1].amount;
 		},
 		error: function() {
-			console.log('error');
+			
 		}
 	});
 	
@@ -44,7 +44,7 @@ $(document).ready(function() {
 			});
 		},
 		error: function() {
-			console.log('error');
+			
 		}
 	});
 
@@ -156,7 +156,7 @@ $(document).ready(function() {
 					pay(data);
 				},
 				error: function() {
-					console.log('error');
+					
 				}
 			});
 		}
@@ -208,12 +208,6 @@ $(document).ready(function() {
 				    complete: function() {
 						$('#bg_mask').removeClass('active');
 				    },
-					beforeSend: function() {
-						$('#bg_mask').addClass('active');
-				    },
-				    complete: function() {
-						$('#bg_mask').removeClass('active');
-				    },
 					success: function(data) {
 						if (data === -1) {
 							alert('로그인이 필요한 서비스 입니다.');
@@ -222,45 +216,11 @@ $(document).ready(function() {
 							alert(data.message);
 							return false;
 						}
-						console.log(data);
-						/*
-						$('.reserv').remove();
-						$('.reserv_comp').addClass('active');
 						
-						let adultCount = 0;
-						let teenagerCount = 0;
-						
-						$(data.reservs).each(function() {
-							console.log(this);
-							$('.reserv_seat').append($(
-								`<div>${String.fromCharCode(64 + parseInt(this.seatY))}열${this.seatX}번</div>`
-							));
-							if(this.payCategory === 1) {
-								adultCount++;
-							} else {
-								teenagerCount++;	
-							}
-						})
-						
-						$('.reserv_amount').append($(
-							`<div>결제금액</div><div>${data.amount.toLocaleString('ko-KR')}원</div>`
-						));
-						
-						if(adultCount > 0) {
-							$('.reserv_amount_info').append($(
-								`<div>성인(${adultCount})</div>`
-							));
-						}
-						
-						if(teenagerCount > 0) {
-							$('.reserv_amount_info').append($(
-								`<div>청소년(${teenagerCount})</div>`
-							));
-						}
-						*/
+						location.href=`pay.do?index=` + data.index;
 					},
 					error: function() {
-						console.log('error');
+						
 					}
 				});
 

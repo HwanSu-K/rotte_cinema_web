@@ -32,6 +32,16 @@ public class MySqlReservDao implements ReservDao {
 	}
 	
 	@Override
+	public List<Reserv>  selectListPay(int no) throws Exception {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		try {
+			return sqlSession.selectList("spms.dao.ReservDao.selectListPay", no);
+		} finally {
+			sqlSession.close();
+		}
+	}
+	
+	@Override
 	public Reserv selectOne(Reserv reserv) throws Exception {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		try {
@@ -40,6 +50,8 @@ public class MySqlReservDao implements ReservDao {
 			sqlSession.close();
 		}
 	}
+	
+	
 	
 	@Override
 	public int insert(Reserv reserv) throws Exception {
