@@ -38,7 +38,7 @@ public class ScheduleController {
 	@RequestMapping("/schedule.do")
 	public String execute(Map<String, Object> model) throws Exception {
 		HashMap<String, Object> paramMap = new HashMap<String, Object>();
-		paramMap.put("view", "reserv");
+		paramMap.put("type", "reserv");
 		Vector<MovieDate> dates = new Vector<MovieDate>();
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(new Date());

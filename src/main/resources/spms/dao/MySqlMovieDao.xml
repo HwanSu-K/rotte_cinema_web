@@ -41,9 +41,8 @@
 			<when test="type == 'soon'">WHERE MOVIE_STATE = 1 AND MOVIE_OPEN_DATE > NOW() AND MOVIE_END_DATE >= NOW() ORDER BY MOVIE_OPEN_DATE ASC</when><!-- 상영예정 -->
 			<when test="type == 'qration'">WHERE MOVIE_STATE = 1 AND MOVIE_OPEN_DATE <![CDATA[<=]]> NOW() AND MOVIE_END_DATE >= NOW() AND MOVIE_TYPE = 1 ORDER BY MOVIE_RESERVRATING</when><!-- 큐레이션 -->
 			<when test="type == 'rating'">WHERE MOVIE_STATE = 1 AND MOVIE_OPEN_DATE <![CDATA[<=]]> NOW() AND MOVIE_END_DATE >= NOW() ORDER BY MOVIE_RATING DESC</when><!-- 평점순 -->
-			<otherwise>WHERE MOVIE_STATE = 1 AND MOVIE_OPEN_DATE <![CDATA[<=]]> NOW() AND MOVIE_END_DATE >= NOW() 
-				<if test="search != null">AND MOVIE_TITLE LIKE CONCAT('%', #{search}, '%')</if>
-				ORDER BY MOVIE_RESERVRATING DESC</otherwise><!-- 예매순 -->
+			<when test="type == 'reserv'">WHERE MOVIE_STATE = 1 AND MOVIE_END_DATE >= NOW() ORDER BY MOVIE_RESERVRATING DESC</when><!-- 예매정 -->
+			<otherwise>WHERE MOVIE_STATE = 1 AND MOVIE_OPEN_DATE <![CDATA[<=]]> NOW() AND MOVIE_END_DATE >= NOW() ORDER BY MOVIE_RESERVRATING DESC</otherwise><!-- 예매순 -->
 		</choose>
 	</select>
 	

@@ -58,7 +58,7 @@
 			<c:forEach var="movie" items="${movies}">
 				<div>
 					<div onClick="location.href ='moviedetail.do?index=${movie.index}'">
-						<img src="./images/poster/${movie.poster }">
+						<img src="/images/poster/${movie.poster }">
                         <img src="./images/icon/age_${movie.limitAge }.png">
 					</div>
 					<div>
@@ -82,7 +82,7 @@
 				<div>
 					<div class="theater_movie">
 					<c:if test="${movie != null}">
-						<img src="./images/poster/${movie.poster }">
+						<img src="/images/poster/${movie.poster }">
                         <img src="./images/icon/age_${movie.limitAge }.png">
 					</c:if>
 					</div>
@@ -109,7 +109,7 @@
                 <div>
                     <div class="datetime_movie">
                         <c:if test="${movie != null}">
-						<img src="./images/poster/${movie.poster }">
+						<img src="/images/poster/${movie.poster }">
                         <img src="./images/icon/age_${movie.limitAge }.png">
 						</c:if>
                     </div>

@@ -12,6 +12,7 @@
 		<result column="THEATER_SEAT_X" property="theaterSeatX" />
 		<result column="THEATER_SEAT_Y" property="theaterSeatY" />
 		<result column="CINEMA_TITLE" property="cinemaTitle" />
+		<result column="MOVIE_INDEX" property="indexMovie" />
 		<result column="MOVIE_TITLE" property="movieTitle" />
 		<result column="MOVIE_POSTER" property="moviePoster" />
 		<result column="MOVIE_RUNNING_TIME" property="movieRunningTime" />
@@ -21,19 +22,19 @@
 	<select id="selectList" parameterType="map"
 		resultMap="ResultMap">
 			SELECT SHOW_DATE FROM MOVIE_SHOWING A INNER JOIN CINEMA_THEATER B ON A.THEATER_INDEX = B.THEATER_INDEX
-			WHERE SHOW_DATE > NOW() AND 
+			WHERE SHOW_DATE > DATE_SUB(NOW(), INTERVAL 7 DAY) 
 			<if test="indexMovie != null">
-				A.MOVIE_INDEX = #{indexMovie}
+				AND A.MOVIE_INDEX = #{indexMovie}
 			</if>
 			<if test="indexCinema != null">
-				B.CINEMA_INDEX = #{indexCinema} 
+				AND B.CINEMA_INDEX = #{indexCinema} 
 			</if> 
 			GROUP BY SHOW_DATE
 	</select>
 	
 	<select id="selectOne" parameterType="int"
 		resultMap="ResultMap">
-			SELECT A.SHOWING_INDEX,A.SHOW_STARTTIME,A.SHOW_DATE,B.THEATER_NAME,B.THEATER_SEAT_X,B.THEATER_SEAT_Y,C.CINEMA_TITLE,D.MOVIE_TITLE,D.MOVIE_POSTER,D.MOVIE_RUNNING_TIME,D.MOVIE_LIMIT_AGE 
+			SELECT A.SHOWING_INDEX,A.SHOW_STARTTIME,A.SHOW_DATE,B.THEATER_NAME,B.THEATER_SEAT_X,B.THEATER_SEAT_Y,C.CINEMA_TITLE,D.MOVIE_INDEX,D.MOVIE_TITLE,D.MOVIE_POSTER,D.MOVIE_RUNNING_TIME,D.MOVIE_LIMIT_AGE 
 			FROM MOVIE_SHOWING A INNER JOIN CINEMA_THEATER B ON A.THEATER_INDEX = B.THEATER_INDEX INNER JOIN CINEMA C ON B.CINEMA_INDEX = C.CINEMA_INDEX INNER JOIN MOVIE D ON A.MOVIE_INDEX = D.MOVIE_INDEX
 			WHERE SHOWING_INDEX = #{value}
 	</select>

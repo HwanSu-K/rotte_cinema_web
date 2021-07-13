@@ -83,6 +83,6 @@
 		<button type="submit" class="btn btn-primary btn-lg">등록</button>
 		<button type="reset" class="btn btn-secondary btn-lg" onclick="history.back(-1)">취소</button>
 	</form>
-	<img src="${path }/images/poster/${movie.poster }">
+	<img src="/images/poster/${movie.poster }">
 </body>
 </html>

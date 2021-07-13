@@ -1,0 +1,297 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	
+
+	
+    <meta charset="UTF-8">
+    <title>Rotte Cinema</title>
+    
+    <link rel="apple-touch-icon" sizes="57x57" href="/rotte_cinema/images/favicon/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="/rotte_cinema/images/favicon/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/rotte_cinema/images/favicon/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="/rotte_cinema/images/favicon/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/rotte_cinema/images/favicon/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="/rotte_cinema/images/favicon/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/rotte_cinema/images/favicon/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="/rotte_cinema/images/favicon/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="/rotte_cinema/images/favicon/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="/rotte_cinema/images/favicon/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/rotte_cinema/images/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="/rotte_cinema/images/favicon/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/rotte_cinema/images/favicon/favicon-16x16.png">
+	<link rel="manifest" href="/rotte_cinema/images/favicon/manifest.json">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="/rotte_cinema/images/favicon/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="./style/default.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+    <link rel="stylesheet" href="/rotte_cinema/style/default.css" />
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+
+
+    <link rel="stylesheet" href="./style/moviedetail.css" />
+    
+</head>
+<body>	
+
+
+<header>
+<nav>
+    <ul>
+        <li>
+            <div class="header_menu"></div>
+            <div class="header_search"></div>
+        </li>
+        <li class="nav_over" onclick="location.href='/rotte_cinema/movie.do';">영화
+            <ul>
+                <li><a href="/rotte_cinema/movie.do">전체영화</a></li>
+                <li><a href="/rotte_cinema/movie.do?type=qration">큐레이션</a></li>
+            </ul>
+        </li>
+        <li class="nav_over" onclick="location.href='/rotte_cinema/ticketing.do';">예매
+            <ul>
+                <li><a href="/rotte_cinema/ticketing.do">빠른예매</a></li>
+                <li><a href="/rotte_cinema/schedule.do">상영시간표</a></li>
+            </ul>
+        </li>
+        <li>
+ 	        <div class="header_logo" onclick="location.href='/rotte_cinema/main.do';"></div>
+        </li>
+        <li class="nav_over" onclick="location.href='/rotte_cinema/event.do';">이벤트
+            <ul>
+                <li><a href="/rotte_cinema/event.do">전체이벤트</a></li>
+                <li><a href="/rotte_cinema/event.do">진행이벤트</a></li>
+            </ul>
+        </li>
+        <li class="nav_over" onclick="location.href='/rotte_cinema/about.do';">시설안내
+            <ul>
+                <li><a href="/rotte_cinema/about.do">시설안내</a></li>
+                <li><a href="/rotte_cinema/location.do">극장안내</a></li>
+            </ul>
+        </li>
+        <li>
+            <div onclick="location.href='/rotte_cinema/ticketing.do';" class="header_calendar"></div>
+            <div onclick="location.href='/rotte_cinema/login.do';" class="header_user"></div>
+        </li>
+        
+    </ul>
+    <div class="nav_bg"></div>
+    <div class="nav_map">
+        <div>
+            <div><span>SITEMAP</span></div>
+            <ul>
+                <li><div>영화</div>
+                    <ul>
+                        <li><a href="/rotte_cinema/movie.do">전체영화</a></li>
+                        <li><a href="/rotte_cinema/movie.do?tab=2">큐레이션</a></li>
+                    </ul>
+                </li>
+                <li><div>예매</div>
+                    <ul>
+                        <li><a href="/rotte_cinema/ticketing.do">빠른예매</a></li>
+                        <li><a href="/rotte_cinema/schedule.do">상영시간표</a></li>
+                    </ul>
+                </li>
+                <li><div>이벤트</div>
+                    <ul>
+                        <li><a href="/rotte_cinema/event.do">전체이벤트</a></li>
+                        <li><a href="/rotte_cinema/evnet.do">진행이벤트</a></li>
+                    </ul>
+                </li>
+                <li><div>시설안내</div>
+                    <ul>
+                        <li><a href="/rotte_cinema/about.do">시설안내</a></li>
+                        <li><a href="/rotte_cinema/location.do">극장안내</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div> 
+    </div>
+    <div class="nav_search">
+        <div>
+            <div>
+            	<div id="headerPoster"><img></div>
+                <div class="movie_List">
+                </div>
+            </div>
+            <div>
+            	<div></div>
+            	<form id="search">
+				<input id="searchText" type="text" name="search" placeholder="영화를 검색하세요">
+				<i class="fas fa-search" onclick="document.getElementById('search').submit();"></i>
+				</form>
+				<div id="search_List"></div>
+            </div>
+        </div>
+    </div>
+</nav>
+<div id="bg_mask">
+    <img src="./images/icon/loading.gif">
+</div>
+</header> 
+    <section class="location">      <!-- background-color: #f8f8fa; -->
+        <div>
+            <span><i class="fas fa-home"></i></span>
+            <span>></span>
+            <span>영화</span>
+            <span>></span>
+            <span>전체영화</span>
+        </div>
+    </section>
+    <div class="content">
+        <div class="movie_info">
+            <div class="post">
+                <img src="./images/poster/eh5TBmhjdXo61Ek7Y1sV0hQfjCQ0udZd_420.jpg">
+            </div>
+            
+            <div class="detail_top">
+                <div class="title">
+                    <span><img src="./images/icon/age_15.png"></span>
+                    <span>메이드 인 루프탑</span>
+                </div>
+                <div class="info_area1">
+                    <div class="area1_section">                   <!-- info_area1 > div:nth-child(1) -->
+                        <p>예매율</p>
+                        <div>
+                            <span><img src="./images/icon/sub4_info_ticket.png"></span>
+                            <span id="rank">17</span>
+                            <span>위</span>
+                            <span>0.0%</span>
+                        </div>
+                    </div>
+                    <div class="area1_section">                   <!-- info_area1 > div:nth-child(2) -->
+                        <p>누적관객수</p>
+                        <div>
+                            <span><img src="./images/icon/sub4_info_user.png"></span>
+                            <span class="memberCountCon">65,886</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="info_area2">
+                    <div class="area2_section1">
+                        <div class="sub_info">
+                            <div>장르</div>
+                            <span>드라마, 로맨스, 코미디 </span>  <span>|</span>
+                            <span>2021-06-23 개봉</span>    <span>|</span>
+                            <span>87분</span>
+                        </div>
+                        <div class="sub_info">
+                            <div>감독</div>   <span>김조광수</span>
+                        </div>
+                        <div class="sub_info">
+                            <div>출연</div>   <span>이홍내, 정휘, 곽민규, 강정우, 염문경, 이정은</span>
+                        </div>
+                    </div>
+
+                    <div class="area2_section2">
+                        <div class="movieLike" data-movie-index="15">
+                        	
+					    	
+					    		<i class="far fa-heart"></i>
+				    		
+                            <!-- 마우스 오버시 : <i class="fas fa-heart"></i> -->
+                            <span>0</span>
+                        </div>
+                        <div onclick="location.href ='ticketing.do?index=15'">예매하기</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="detail_tab">
+            <div class="tab_title">
+                <div>영화정보</div>                      <!-- detail_tab > div:first-child -->
+                <div class="active">                                    <!-- detail_tab > div:last-child -->
+                    <span>평점 및 관람평</span>
+                    <span> (0)</span>
+                </div>
+            </div>
+
+            <div class="tab_info1">
+
+            </div>
+
+
+            <div class="review_box">
+                <div class="grade">
+                    <div>총 평점</div>
+                    <div><i class="fas fa-star"></i></div>
+                    <div>0.0</div>
+                    <div>/</div>
+                    <div>10</div>
+                </div>
+                <form id="reviewInput">
+                    <div class="star_score_box" disabled="">                       <!-- form > .star_score_box -->
+                        <span>
+                            <span id="score">5</span>
+                            <p>점</p>
+                        </span>
+                        
+                        <div class="star">
+                            <div class="active" data-value="1"><i class="fas fa-star"></i></div>
+                            <div class="active" data-value="2"><i class="fas fa-star"></i></div>
+                            <div class="active" data-value="3"><i class="fas fa-star"></i></div>
+                            <div class="active" data-value="4"><i class="fas fa-star"></i></div>
+                            <div class="active" data-value="5"><i class="fas fa-star"></i></div>
+                            <div data-value="6"><i class="fas fa-star"></i></div>
+                            <div data-value="7"><i class="fas fa-star"></i></div>
+                            <div data-value="8"><i class="fas fa-star"></i></div>
+                            <div data-value="9"><i class="fas fa-star"></i></div>
+                            <div data-value="10"><i class="fas fa-star"></i></div>
+                        </div>
+                    </div>
+                    <div class="review_write_box">                      <!-- form > .review_write_box > -->
+                        <textarea id="txtComment" placeholder="로그인 후 사용할 수 있습니다" title="관람평 작성" disabled=""></textarea>
+                        <span class="byte_info">
+                            <strong class="byte">0</strong>/<em>220</em>
+                        </span>
+                    </div>
+
+                <div class="review_btn disabled" id="reviewButton">관람평 작성</div>               <!-- form > .review_btn -->
+            </form>
+                <div class="comment">
+                    <div class="comment_title">
+                        <div>총 0건</div>
+                        <div>
+                            <div data-order-type=""><i class="fas fa-circle active"></i>최신순</div>
+                            <div data-order-type="score"><i class="fas fa-circle"></i>평점순</div>
+                        </div>
+                    </div>
+                    <div class="review_comment" id="reviewList">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+<footer>
+<div class="footer_link">
+    <div>
+        <span>이용약관</span>
+        <span>|</span>
+        <span>개인정보처리방침</span>
+        <span>|</span>
+        <span>이메일무단수집거부</span>
+        <span>|</span>
+        <span>윤리경영</span>
+    </div>
+</div>
+<div class="footer_info">
+    <div>
+        <div>
+            <div>대구광역시 동구 용계로1234  |  고객센터 1588-7777</div>
+            <div>대표이사. 김환수 이민주 박은지  |  사업자등록번호 123-45-6789  |  통신판매업신고번호 제1234호</div>
+            <div>COPYRIGHTⓒ ROTTE CINEMA ALL RIGHT RESERVED.</div>
+        </div>
+        <div><img src="/rotte_cinema/images/icon/rt_logo_w_black.png"></div>
+    </div>
+</div>     
+</footer>
+</body>
+</html>

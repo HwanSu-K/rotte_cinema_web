@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,13 +33,14 @@ public class CMovieUpdateController {
 
 		return "/cms/MovieUpdateForm.jsp";
 	}
-
+	@Value("${upload.path}")
+	private String path;
+	
 	@RequestMapping(value = "/cms/movie/update.do", method = RequestMethod.POST)
 	public String update(MultipartHttpServletRequest request, Movie movie) throws Exception {
 
 		MultipartFile imageFile = request.getFile("image");
-
-		String realPath = request.getSession().getServletContext().getRealPath("/images/poster/");
+		String realPath = path + "/poster/"; //request.getSession().getServletContext().getRealPath("/images/poster/");
 		String fileName = imageFile.getOriginalFilename();
 
 		// 업로드 된 경우에만 객체에 삽입

@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	let aroundCheck = true;
-	
+	let arounds = null;
 	if (navigator.geolocation) {
 	    navigator.geolocation.getCurrentPosition(
 	        function(location){
@@ -13,13 +13,7 @@ $(document).ready(function() {
 	       }
 	    );
 	}
-	else {
-	    
-	}
-	
-	if(sessionStorage.getItem('lat')) {
-		around();
-	}
+
 	
 	function around() {
 		if(aroundCheck === true) {
@@ -30,6 +24,42 @@ $(document).ready(function() {
 			$('.reserv_info_local').prepend($(
 				`<div data-tab-type="around">내주변</div>`
 			));
+			
+			
+			var form = {
+				lat: sessionStorage.getItem('lat'),
+				lng: sessionStorage.getItem('lng')
+				
+			}
+	
+			$.ajax({
+				url: 'aroundobject.do',
+				type: 'POST',
+				data: form,
+				dataType: 'json',
+				beforeSend: function() {
+					$('#bg_mask').addClass('active');
+			    },
+			    complete: function() {
+					$('#bg_mask').removeClass('active');
+			    },
+				success: function(data) {
+					arounds = data.arounds;
+					
+					$(arounds).each(function() {
+						const cinema_index = this.indexCinema;
+						$('.reserv_theater .reserv_content_list > div').each(function() {
+							if($(this).data('cinema-index') === cinema_index) {
+								$(this).data('cinema-around','true');
+							}
+						});
+					});
+				},
+				error: function() {
+	
+				}
+			});
+			
 			aroundCheck = false;
 		}
 		
@@ -64,7 +94,14 @@ $(document).ready(function() {
 						count++;
 					}
 				}
-				else {
+				else if(typeof $(this).data('cinema-around') !== 'undefined' && $(e.currentTarget).data('tab-type') === 'around')
+				{
+					$(this).css('display', 'block');
+					if (count === 0) {
+						$(this).click();
+						count++;
+					}
+				} else {
 					$(this).css('display', 'none');
 				}
 			});
@@ -103,7 +140,7 @@ $(document).ready(function() {
 				$('#bg_mask').removeClass('active');
 		    },
 			success: function(data) {
-				$('#moviePoster').attr('src', './images/poster/' + data.movie.poster);
+				$('#moviePoster').attr('src', '/images/poster/' + data.movie.poster);
 				$('#movieAge').attr('src', './images/icon/age_' + data.movie.limitAge + '.png');
 				$('#movieTitle').text(data.movie.title);
 				$('#movieSubTitle').text(data.movie.title);
@@ -115,7 +152,7 @@ $(document).ready(function() {
 
 			},
 			error: function() {
-				//alert('통신이 원할하지 않습니다.');
+
 			}
 		});
 	});
@@ -164,6 +201,9 @@ $(document).ready(function() {
 			if ($(this).data('local-class') === $(e.currentTarget).data('tab-type')) {
 				$(this).css('display', 'block');
 			}
+			else if (typeof $(this).data('cinema-around') !== 'undefined' && $(e.currentTarget).data('tab-type') === 'around') {
+				$(this).css('display', 'block');
+			}
 			else {
 				$(this).css('display', 'none');
 			}
@@ -199,7 +239,7 @@ $(document).ready(function() {
 
 					if (cinema != this.indexCinema) {
 						$('.reserv_list').append($(
-							'<div class="reserv_info_list" data-local-class="' + this.localClass + '">' +
+							'<div class="reserv_info_list" data-cinema-index=' + this.indexCinema + ' data-local-class="' + this.localClass + '">' +
 								'<div>' +
 									'<div class="reserv_info_list_title">' + this.nameCinema + '</div>' +
 									'</div>' +
@@ -250,7 +290,16 @@ $(document).ready(function() {
 							return false;
 						}
 					});	
-				})
+				})				
+				
+				$(arounds).each(function() {
+					const cinema_index = this.indexCinema;
+					$('.reserv_list > div').each(function() {
+						if($(this).data('cinema-index') === cinema_index) {
+							$(this).data('cinema-around','true');
+						}
+					});
+				});
 				
 				$('.reserv_info_local > div:nth-child(1)').click();
 			},
@@ -400,5 +449,9 @@ $(document).ready(function() {
 		//$('.dates').scrollLeft(0);
 		$('#dates').stop().animate({ scrollLeft: '0' })
 	})
-
+	
+		
+	if(sessionStorage.getItem('lat')) {
+		around();
+	}
 });

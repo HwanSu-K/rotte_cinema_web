@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,6 +33,9 @@ public class CBannerUpdateController {
 
 		return "/cms/BannerUpdateForm.jsp";
 	}
+	
+	@Value("${upload.path}")
+	private String path;
 
 	@RequestMapping(value = "/cms/banner/update.do", method = RequestMethod.POST)
 	public String update(MultipartHttpServletRequest request, Banner banner) throws Exception {
@@ -39,7 +43,7 @@ public class CBannerUpdateController {
 		MultipartFile imageFile = request.getFile("image");
 		MultipartFile videoFile = request.getFile("video");
 
-		String realPath = request.getSession().getServletContext().getRealPath("/images/banner/");
+		String realPath = path + "/banner"; //request.getSession().getServletContext().getRealPath("/images/banner/");
 		String imageFileName = imageFile.getOriginalFilename();
 		String videoFileName = videoFile.getOriginalFilename();
 

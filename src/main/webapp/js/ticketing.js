@@ -1,6 +1,71 @@
 $(document).ready(function() {
 
-	$('.theater_list_title > div').on('click', function(e) {
+	let aroundCheck = true;
+	if (navigator.geolocation) {
+	    navigator.geolocation.getCurrentPosition(
+	        function(location){
+			sessionStorage.setItem('lat', location.coords.latitude);
+			sessionStorage.setItem('lng', location.coords.longitude);
+			around();			
+			
+	        },
+	        function(error){
+	       }
+	    );
+	}
+
+	
+	function around() {
+		if(aroundCheck === true) {
+			$('.theater_list_title').prepend($(
+			`<span>|</span>`
+			));
+			$('.theater_list_title').prepend($(
+			`<div class="locals" data-tab-type="around">내주변</div>`
+			));
+			
+			
+			var form = {
+				lat: sessionStorage.getItem('lat'),
+				lng: sessionStorage.getItem('lng')
+				
+			}
+	
+			$.ajax({
+				url: 'aroundobject.do',
+				type: 'POST',
+				data: form,
+				dataType: 'json',
+				beforeSend: function() {
+					$('#bg_mask').addClass('active');
+			    },
+			    complete: function() {
+					$('#bg_mask').removeClass('active');
+			    },
+				success: function(data) {
+					const arounds = data.arounds;
+					
+					$(arounds).each(function() {
+						const cinema_index = this.indexCinema;
+						$('.theater_list_tab > div').each(function() {
+							if($(this).data('cinema-index') === cinema_index) {
+								$(this).data('cinema-around','true');
+							}
+						});
+					});
+					
+					$('.theater_list_title > div:nth-child(1)').click();
+				},
+				error: function() {
+	
+				}
+			});
+			
+			aroundCheck = false;
+		}
+		
+	}
+	$(document).on('click','.theater_list_title > div', function(e) {
 		$('.theater_list_title > div').each(function() {
 			$(this).removeClass('active');
 		});
@@ -8,6 +73,9 @@ $(document).ready(function() {
 		$('.theater_list_tab > div').each(function() {
 			if ($(e.currentTarget).data('local-class') === $(this).data('local-class')) {
 				$(this).css('display','flex');
+			} else if(typeof $(this).data('cinema-around') !== 'undefined' && $(e.currentTarget).data('tab-type') === 'around')
+				{
+					$(this).css('display', 'flex');
 			} else {
 				$(this).css('display','none');
 			}
@@ -15,10 +83,7 @@ $(document).ready(function() {
 
 		$(e.currentTarget).addClass('active');
 	});
-
-	// 첫번째 항목 클릭.
-	$('.theater_list_title > div:nth-child(1)').click();
-
+	
 	$('.reserv_tab > div').on('click',function(e){
 		//console.log(e.target);
 	});
@@ -36,7 +101,6 @@ $(document).ready(function() {
 				movie: new URLSearchParams(location.search).get('index'),
 				cinema: $(e.target).data('cinema-index')
 			}
-					
 			$.ajax({
 				url: 'theatersobject.do',
 				type: 'POST',
@@ -81,9 +145,15 @@ $(document).ready(function() {
 					})
 				},
 				error: function() {
-					
+				
 				}
 			});
 		}
 	});
+	
+	if(sessionStorage.getItem('lat')) {
+		around();
+	}
+	
+	$('.theater_list_title > div:nth-child(1)').click();
 });

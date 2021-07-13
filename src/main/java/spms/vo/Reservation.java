@@ -10,6 +10,7 @@ public class Reservation {
 	protected int theaterSeatX;
 	protected int theaterSeatY;
 	protected String cinemaTitle;
+	protected int indexMovie;
 	protected String movieTitle;
 	protected String moviePoster;
 	protected int movieRunningTime;
@@ -92,5 +93,11 @@ public class Reservation {
 	}
 	public void setMovieLimitAge(int movieLimitAge) {
 		this.movieLimitAge = movieLimitAge;
+	}
+	public int getIndexMovie() {
+		return indexMovie;
+	}
+	public void setIndexMovie(int indexMovie) {
+		this.indexMovie = indexMovie;
 	}
 }

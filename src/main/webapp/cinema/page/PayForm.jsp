@@ -32,7 +32,7 @@
 					</div>
 				</div>
 				<img
-					src="./images/poster/${reservation.moviePoster }">
+					src="/images/poster/${reservation.moviePoster }">
 			</div>
 			<div class="reserv_right">
 				<div>

@@ -20,13 +20,13 @@
     <section class="banner">  <!-- 배너영역 -->
         <div class="banner_img">
         	<c:forEach var="banner" items="${banners}" varStatus="status">
-        	<div class="${status.index == 0 ? 'active':'' }" style="background-image:url(./images/banner/${banner.imagePath });"></div>
+        	<div class="${status.index == 0 ? 'active':'' }" style="background-image:url(/images/banner/${banner.imagePath });"></div>
 			</c:forEach>
         </div> 
         <div class="video">
             <div>
 	            <c:forEach var="banner" items="${banners}">
-	            <video loop><source src="./images/banner/${banner.videoPath }"></video>
+	            <video loop><source src="/images/banner/${banner.videoPath }"></video>
 				</c:forEach>
             </div>
             <div class="mask"></div>
@@ -90,7 +90,7 @@
                 <div>
                     <div onClick="location.href ='moviedetail.do?index=${movie.index}'">
                     	<div><p>${status.count }</p></div>
-                        <img src="./images/poster/${movie.poster }">
+                        <img src="/images/poster/${movie.poster }">
                         <img src="./images/icon/age_${movie.limitAge }.png">
                     </div>
                     <div>
@@ -127,7 +127,7 @@
 			<c:forEach var="qration" items="${qrations}" end="0">
             <div class="qration_main">
                 <div>
-                    <img src="./images/poster/${qration.poster }">
+                    <img src="/images/poster/${qration.poster }">
                 </div>       <!-- 큰 포스트 -->
                 <div>
                 <input type="button" onClick="location.href ='moviedetail.do?index=${qration.index}'" value="상세정보">
@@ -147,7 +147,7 @@
             <c:forEach var="qration" items="${qrations}" begin="1" end="4">
             	<div onClick="location.href ='moviedetail.do?index=${qration.index}'">
                     <img class="icon" src="./images/icon/qration_q_icon.png">
-                    <img src="./images/poster/${qration.poster }">
+                    <img src="/images/poster/${qration.poster }">
                     <div>${qration.title }</div>
                 </div>
             </c:forEach>

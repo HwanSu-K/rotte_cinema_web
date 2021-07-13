@@ -1,16 +1,21 @@
 package spms.controls;
 
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Random;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.google.api.client.util.Base64;
 import com.siot.IamportRestClient.response.Payment;
 
 import net.sf.json.JSONArray;
@@ -44,6 +50,8 @@ import spms.vo.Movie;
 import spms.vo.Pay;
 import spms.vo.PayType;
 import spms.vo.Reserv;
+import spms.vo.ReservItem;
+import spms.vo.Reservation;
 import spms.vo.Review;
 import spms.vo.Token;
 
@@ -191,7 +199,6 @@ public class AjaxController {
 	@ResponseBody
 	public Object getTheaterObject(String cinema, String movie, String date) throws Exception {
 		HashMap<String, Object> paramMap = new HashMap<String, Object>();
-
 		if (cinema != null && !cinema.equals("")) {
 			paramMap.put("indexCinema", cinema);
 		}
@@ -206,6 +213,7 @@ public class AjaxController {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("theaters", theaterDao.selectList(paramMap));
 		map.put("dates", reservationDao.selectList(paramMap));
+		
 		return map;
 	}
 
@@ -400,6 +408,118 @@ public class AjaxController {
 
 		return map;
 	}
+	@Value("#{systemProperties['spring.profiles.active']}")
+	private String jsFileNm;
+
+	@Value("${upload.path}")
+	private String path;
+			
+	@RequestMapping(value = "/pathobject.do", method = RequestMethod.POST)
+	@ResponseBody
+	public Object getPathObject(HttpServletRequest request) throws Exception {
+		
+		return path;
+	}
+	
+	@Value("${upload.path}")
+	private String imagePath;
+	
+	@RequestMapping(value = "/reservsobject.do", method = RequestMethod.POST)
+	@ResponseBody
+	public Object getImageObject(HttpServletRequest request, HttpSession session) throws Exception {
+
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		String[] week = { "일", "월", "화", "수", "목", "금", "토" };
+
+		Customer customer = (Customer) session.getAttribute("customer");
+		
+		if (customer == null) {
+			map.put("result", "fail");
+			return map;
+		}
+		
+		List<ReservItem> reservItems = new ArrayList<ReservItem>();
+		List<Pay> pays = payDao.selectList(customer.getIndex());
+		
+		for (Pay pay : pays) {
+			if (pay == null) {
+				
+				break;
+			}
+
+			List<Reserv> reservs = reservDao.selectListPay(pay.getIndex());
+			Reservation rev = reservationDao.selectOne(reservs.get(0).getShowingIndex());
+			DateFormat df = new SimpleDateFormat("yyyy-MM-ddHH:mm");
+			DateFormat time = new SimpleDateFormat("HH:mm");
+			Date date = df.parse(rev.getDate() + rev.getStartTime());
+			Calendar cal = Calendar.getInstance();
+			cal.setTime(date);
+			
+			rev.setWeek(week[cal.get(Calendar.DAY_OF_WEEK) -1]);
+			cal.add(Calendar.MINUTE, rev.getMovieRunningTime());
+			rev.setEndTime(time.format(cal.getTime()));
+			
+			String reservSeat = "";
+			String reservPerson = "";
+			int adultCount = 0;
+			int teenagerCount = 0;
+			
+			for (Reserv reserv : reservs) {
+				reservSeat += (char)(reserv.getSeatY() + 64) + "열" + reserv.getSeatX() + "번 ";
+				if(reserv.getPayCategory() == 1) {
+					adultCount++;
+				} else {
+					teenagerCount++;
+				}
+			}
+			if(adultCount > 0) {
+				reservPerson += "성인 " + adultCount +"명 ";
+			}
+			
+			if(teenagerCount > 0) {
+				reservPerson += "청소년 " + teenagerCount +"명";
+			}
+			
+			String pathPoster = imagePath + "/poster/" + rev.getMoviePoster();
+			String pathAge = request.getSession().getServletContext().getRealPath("/images/icon/age_" + rev.getMovieLimitAge() + ".png");
+
+			byte[] imagePoster = IOUtils.toByteArray(new FileInputStream(pathPoster));
+			byte[] imageAge = IOUtils.toByteArray(new FileInputStream(pathAge));
+			
+			reservItems.add(
+					new ReservItem()
+					.setIndexMovie(rev.getIndexMovie())
+					.setMovie(rev.getMovieTitle())
+					.setDate(rev.getDate() + " " + rev.getStartTime())
+					.setCinema(rev.getCinemaTitle())
+					.setTheater(rev.getTheaterTitle())
+					.setCustomer(reservPerson)
+					.setSeat(reservSeat)
+					.setPoster(new String(Base64.encodeBase64(imagePoster) , "UTF-8"))
+					.setAge(new String(Base64.encodeBase64(imageAge) , "UTF-8"))
+			);
+		}
+
+		
+		map.put("result", "success");
+		map.put("reservs", reservItems);
+		
+		return map;
+	}
+	
+	@RequestMapping(value = "/aroundobject.do", method = RequestMethod.POST)
+	@ResponseBody
+	public Object getAroundObject(String lat, String lng) throws Exception {
+		HashMap<String, Object> paramMap = new HashMap<String, Object>();
+		paramMap.put("lat", lat);
+		paramMap.put("lng", lng);
+		
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("arounds", theaterDao.selectListAround(paramMap));
+		
+
+		return map;
+	}
 	
 	@RequestMapping(value = "/dateobject.do", method = RequestMethod.POST)
 	@ResponseBody
@@ -423,6 +543,19 @@ public class AjaxController {
 		return map;
 	}
 
+	@RequestMapping(value = "/payobject.do", method = RequestMethod.POST)
+	@ResponseBody
+	public Object getPayObject(String uid) throws Exception {
+
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		
+		Object iamPay = ((HashMap<String, Object>) IamPay.getPaymentObject(uid)).get("result");
+		
+		map.put("result", iamPay);
+
+		return map;
+	}
+	
 	@RequestMapping(value = "/reservation.do", method = RequestMethod.POST)
 	@ResponseBody
 	public Object getReservationObject(@RequestParam String jsonData, String uid, HttpSession session)

@@ -3,6 +3,7 @@ package spms.controls.cms;
 import java.io.File;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,13 +30,16 @@ public class CBannerAddController {
 		return "/cms/BannerAddForm.jsp";
 	}
 
+	@Value("${upload.path}")
+	private String path;
+	
 	@RequestMapping(value = "/cms/banner/add.do", method = RequestMethod.POST)
 	public String add(MultipartHttpServletRequest request, Banner banner) throws Exception {
 
 		MultipartFile imageFile = request.getFile("image");
 		MultipartFile videoFile = request.getFile("video");
 
-		String realPath = request.getSession().getServletContext().getRealPath("/images/banner/");
+		String realPath = path + "/banner"; //request.getSession().getServletContext().getRealPath("/images/banner/");
 		String imageFileName = imageFile.getOriginalFilename();
 		String videoFileName = videoFile.getOriginalFilename();
 		System.out.println(realPath);

@@ -8,7 +8,6 @@
 </head>
 <body>
 <div class="button">
-	<button type="button" class="btn btn-primary btn-lg">등록</button>
 	<button type="button" class="btn btn-primary btn-lg" onclick="location.href='../list.do'">콘텐츠 관리 시스템</button>
 </div>
 <h1>회원 목록 </h1>
@@ -32,7 +31,6 @@
 		<td>${customer.birth  }</td>
 		<td>${customer.phonenum  }</td>
 		<td>${customer.access  }</td>
-		<td>수정</a></td>
 	</tr>
 </c:forEach>
 </table>

@@ -5,12 +5,15 @@
 	xmlns:c="http://www.springframework.org/schema/c"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:task="http://www.springframework.org/schema/task"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd
         http://www.springframework.org/schema/jee 
-        http://www.springframework.org/schema/jee/spring-jee.xsd">
+        http://www.springframework.org/schema/jee/spring-jee.xsd
+        http://www.springframework.org/schema/task 
+		http://www.springframework.org/schema/task/spring-task.xsd">
 
 	<context:component-scan base-package="spms">
 		<context:exclude-filter type="regex"
@@ -33,6 +36,15 @@
 			value="classpath*:spms/dao/*Dao.xml" />
 	</bean>
 
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="104857600"/>
+        <property name="defaultEncoding" value="UTF-8"/>
+    </bean>
+    
+    <context:component-scan base-package="com.ksmart.harulook.scheduler" />
+	<task:scheduler id="jobScheduler" pool-size="10" />
+	<task:annotation-driven scheduler="jobScheduler" />
+    
 	<!-- Gmail -->
 	<bean id="mailSender"
 		class="org.springframework.mail.javamail.JavaMailSenderImpl">

@@ -14,6 +14,12 @@
 		<result column="CUSTOMER_INDEX" property="customerIndex" />
 	</resultMap>
 	
+	<select id="selectList" parameterType="int" resultMap="ResultMap">
+		SELECT PAY_INDEX,PAY_DATE,PAY_AMOUNT,PAY_IMP_UID,PAY_CARD_NAME,PAY_CARD_NUMBER,CUSTOMER_INDEX 
+		FROM PAY
+		WHERE CUSTOMER_INDEX=#{value} AND PAY_STATE = 1
+	</select>
+	
 	<select id="selectOne" parameterType="int" resultMap="ResultMap">
 		SELECT PAY_INDEX,PAY_DATE,PAY_AMOUNT,PAY_IMP_UID,PAY_CARD_NAME,PAY_CARD_NUMBER,CUSTOMER_INDEX 
 		FROM PAY

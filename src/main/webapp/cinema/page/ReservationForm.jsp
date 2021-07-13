@@ -100,7 +100,7 @@
               <div>${reservation.startTime }~${reservation.endTime }</div>
               <div></div>
             </div>
-            <img src="./images/poster/${reservation.moviePoster }">
+            <img src="/images/poster/${reservation.moviePoster }">
           </div>
           <div class="movie_seat">
             <div>

@@ -24,7 +24,7 @@
     <div class="content">
         <div class="movie_info">
             <div class="post">
-                <img src="./images/poster/${movie.poster }">
+                <img src="/images/poster/${movie.poster }">
             </div>
             
             <div class="detail_top">

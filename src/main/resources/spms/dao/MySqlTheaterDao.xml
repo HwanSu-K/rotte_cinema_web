@@ -34,10 +34,9 @@
 			A.CINEMA_INDEX = #{indexCinema} AND
 		</if>
 		<choose>
-			<when test="date != null">B.SHOW_DATE = #{date}</when><!-- CMS 관리 -->
-			<otherwise>B.SHOW_DATE = DATE_FORMAT(NOW(),'%Y-%m-%d')</otherwise><!-- 예매순 -->
+			<when test="date != null">B.SHOW_DATE = #{date}</when>
+			<otherwise>B.SHOW_DATE = DATE_FORMAT(NOW(),'%Y-%m-%d')</otherwise>
 		</choose>
-		
 		
 		ORDER BY 
 		<if test="indexCinema != null">
@@ -47,6 +46,14 @@
 			CINEMA_INDEX,
 		</if>
 		THEATER_INDEX,SHOW_STARTTIME
+	</select>
+	
+	<select id="selectListAround" parameterType="map"
+		resultMap="ResultMap">
+		SELECT CINEMA_INDEX,(6371*acos(cos(radians(CINEMA_LAT))*cos(radians(35.8776557))*cos(radians(128.6753187)-radians(CINEMA_LNG))+sin(radians(CINEMA_LAT))*sin(radians(35.8776557)))) AS DISTANCE 
+		FROM CINEMA
+		GROUP BY CINEMA_INDEX,CINEMA_LAT,CINEMA_LNG
+		ORDER BY DISTANCE limit 5
 	</select>
 	
 </mapper>

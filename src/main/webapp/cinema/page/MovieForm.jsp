@@ -52,7 +52,7 @@
 				<div>
                     <div onClick="location.href ='moviedetail.do?index=${movie.index}'">
                     	<div><p>${status.count }</p></div>
-                        <img src="./images/poster/${movie.poster }">
+                        <img src="/images/poster/${movie.poster }">
                         <img src="./images/icon/age_${movie.limitAge }.png">
                     </div>
                     <div>

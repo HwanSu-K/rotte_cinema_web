@@ -29,4 +29,14 @@ public class MySqlTheaterDao implements TheaterDao {
 			sqlSession.close();
 		}
 	}
+	
+	@Override
+	public List<Theater> selectListAround(HashMap<String, Object> paramMap) throws Exception {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		try {
+			return sqlSession.selectList("spms.dao.TheaterDao.selectListAround", paramMap);
+		} finally {
+			sqlSession.close();
+		}
+	}
 }

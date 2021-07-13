@@ -1,33 +1,52 @@
+/* DESKTOP */
+@media only screen and (min-width: 1280px) {
+	.movie > .movie_tab{flex-direction:row;}
+    .movie > .movie_tab > div {width: 33.3%;}
+    .movie > .movie_list > div {width: 20%;}
+    .movie > .movie_list > div > :nth-child(4) > div {height: 40px; }
+}
+
+/* Mobile*/
+@media only screen and (max-width: 1279px) {
+    html {font-size: 20px;}
+    .movie > .movie_tab {flex-direction:column;}
+    .movie > .movie_tab > div {width: 100%;}
+    .movie > .movie_list > div {width: 45%;}
+    .movie > .movie_list > div > :nth-child(1) > :nth-child(3) {width: 46px;}
+    .movie > .movie_list > div > :nth-child(4) > div {height: 60px; }
+}
+
 .movie > .movie_tab {display: flex;}       /* 목록 탭 */
-.movie > .movie_tab > div {width: 33.3%; height: 65px; display: flex; justify-content: center; align-items: center; border: 1px solid #e0e0e0; 
-    margin-left: -1px; font-size: 13pt; }                                        /* 목록탭 버튼 */
+.movie > .movie_tab > div {height: 65px; display: flex; justify-content: center; align-items: center; border: 1px solid #e0e0e0; 
+    margin-left: -1px; font-size: 1.0833rem }                                        /* 목록탭 버튼 */
 .movie > .movie_tab > div.active {background-color: #f3f3f3; border-bottom: 4px solid #2b3380; height: 62px; color: black;}
 .movie > .movie_tab > div {color: #898989;}
 
-.movie > .reserv_info_age {display: flex; align-items: center; margin-top: 30px; margin-right: 27px; font-size: 11pt; color: #666666;}
+.movie > .reserv_info_age {display: flex; align-items: center; margin-top: 30px; margin-right: 27px; font-size: 0.9167rem; color: #666666;}
 .movie > .reserv_info_age > div {display: flex; align-items: center; padding-right: 20px;}
 .movie > .reserv_info_age > div > img {margin-right: 5px;}
 
-.movie > .movie_list {display: flex; margin-top: 30px; flex-wrap: wrap;}        /* 영화 목록리스트 */
-.movie > .movie_list > div {width: 20%; margin:20px 2.5%;}
+.movie > .movie_list {display: flex; margin-top: 30px; flex-wrap: wrap; justify-content: flex-start;}        /* 영화 목록리스트 */
+
+.movie > .movie_list > div {margin:20px 2.5%;}
 .movie > .movie_list > div > :nth-child(1) {position: relative;}
 
 .movie > .movie_list > div > :nth-child(1) > :nth-child(1) 
-{position: absolute; width: 100%; height: 150px; top: 0; left: 0; font-size: 24pt; font-style: italic; color:#fff; text-shadow: 2px 2px 2px rgba(0,0,0,0.8); background: url('../images/bg/bg-main-movie-rank.png') no-repeat; border-radius: 10px;}     /* 상영등급 */
+{position: absolute; width: 100%; height: 150px; top: 0; left: 0; font-size: 2rem; font-style: italic; color:#fff; text-shadow: 2px 2px 2px rgba(0,0,0,0.8); background: url('../images/bg/bg-main-movie-rank.png') no-repeat; border-radius: 10px; cursor:pointer;}     /* 상영등급 */
 .movie > .movie_list > div > :nth-child(1) > :nth-child(1) > p {margin: 5px 10px;}
 .movie > .movie_list > div > :nth-child(1) > :nth-child(2) {width: 100%; border-radius: 10px; cursor:pointer;}            /* 이미지 크기 */
 .movie > .movie_list > div > :nth-child(1) > :nth-child(3) {position: absolute; top: 8px; right: 8px;}     /* 상영등급 */
-.movie > .movie_list > div > :nth-child(2) > span {display: block; text-align: center; font-size: 12.5pt;
+.movie > .movie_list > div > :nth-child(2) > span {display: block; text-align: center; font-size: 1.0417rem;
     white-space:nowrap; text-overflow: ellipsis; overflow:hidden; margin: 15px 0 5px 0; font-weight: bold; color: #181717;}    /* 영화제목 */
 
-.movie > .movie_list > div > :nth-child(3) {font-size: 10.5pt; color: #636363; display: flex; justify-content: center; align-items: center; margin-bottom: 15px;}    /* 예매정보 */
+.movie > .movie_list > div > :nth-child(3) {font-size: 0.875rem; color: #636363; display: flex; justify-content: center; align-items: center; margin-bottom: 15px;}    /* 예매정보 */
 .movie > .movie_list > div > :nth-child(3) > span:nth-child(2) {padding: 0 5px;}
 .movie > .movie_list > div > :nth-child(4) {display: flex; justify-content: space-between; margin-top: 10px;}     /* 버튼 정렬 */
 .movie > .movie_list > div > :nth-child(4) > div 
-    {height: 40px; border-radius: 5px; display: flex; justify-content: center; align-items:center; cursor:pointer;}   /* 버튼 설정 */
+    {border-radius: 5px; display: flex; justify-content: center; align-items:center; cursor:pointer;}   /* 버튼 설정 */
 .movie > .movie_list > div > :nth-child(4) > div > i {margin-right: 5px; color: #999;}              /* 좋아요 아이콘 */
 .movie > .movie_list > div > :nth-child(4) > div > i.active {color:#ff0000;}
 .movie > .movie_list > div > :nth-child(4) > div > span {color:#000;}
-.movie > .movie_list > div > :nth-child(4) > div:nth-child(1) {width: 70px; border: 1px solid #999; color: #2b3380;} /* 좋아요 버튼 */
-.movie > .movie_list > div > :nth-child(4) > div:nth-child(2) {width: 150px; background-color: #2b3380; border-style: none; color: #fff;}   /* 예매 버튼 */
+.movie > .movie_list > div > :nth-child(4) > div:nth-child(1) {width: 30%; border: 1px solid #999; color: #2b3380;} /* 좋아요 버튼 */
+.movie > .movie_list > div > :nth-child(4) > div:nth-child(2) {width: 63%; background-color: #2b3380; border-style: none; color: #fff;}   /* 예매 버튼 */
 .movie > .movie_list > div > :nth-child(4) > div:nth-child(2).disabled {background-color: #666666; cursor: default;}

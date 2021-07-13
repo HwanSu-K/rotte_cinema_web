@@ -10,7 +10,6 @@
 </style>
 </head>
 <body>
-<c:set var="path" value="<%=request.getContextPath() %>"/>
 <h1>배너 수정</h1>
 	<form action='update.do' method='post' enctype='multipart/form-data'>
 	<div>
@@ -36,7 +35,7 @@
 	<button type="submit" class="btn btn-primary btn-lg">등록</button>
 	<button type="reset" class="btn btn-secondary btn-lg" onclick="history.back(-1)">취소</button>
 	</form>
-	<img src="${path }/images/banner/${banner.imagePath }" class="img-thumbnail" alt="...">
-	<video controls class="img-thumbnail"><source src="${path }/images/banner/${banner.videoPath }"></video>
+	<img src="/images/banner/${banner.imagePath }" class="img-thumbnail" alt="...">
+	<video controls class="img-thumbnail"><source src="/images/banner/${banner.videoPath }"></video>
 </body>
 </html>
