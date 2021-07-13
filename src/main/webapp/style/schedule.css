@@ -25,6 +25,7 @@
 .reserv_choice > section > .reserv_content > .reserv_content_title > span {padding:0 10px;}         /* 클릭시 underline : 2px #6e6e6e */
 .reserv_choice > section > .reserv_content > .reserv_content_title > span.active {border-bottom: 3px solid #6e6e6e; padding-bottom: 9px;}
 .reserv_choice > section > .reserv_content > .reserv_content_list {display: flex; flex-wrap: wrap; overflow-y: scroll;}                           /* 영화목록 정렬방식 */
+
 /* 스크롤바 설정*/
 .reserv_choice > section > .reserv_content > .reserv_content_list::-webkit-scrollbar{
     width: 6px;
