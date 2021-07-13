@@ -9,7 +9,7 @@
 </head>
 <body>
 <c:set var="path" value="<%=request.getContextPath() %>"/>
-<h1>영화 등록</h1>
+<h1>극장 수정</h1>
 	<form action='update.do' method='post' enctype='multipart/form-data'>
 		<div>
 			<label for='index'>번호</label>

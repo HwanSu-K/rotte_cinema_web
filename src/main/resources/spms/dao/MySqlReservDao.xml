@@ -35,8 +35,8 @@
 	</select>
 	
 	<insert id="insert" parameterType="map">
-		INSERT INTO MOVIE_RESERV (SEAT_X,SEAT_Y,SHOWING_INDEX,PAY_INDEX,PAY_CATEGORY,RESERV_STATE)
-		VALUES(#{seatX },#{seatY },#{showingIndex },#{payIndex },#{payCategory },1)
+		INSERT INTO MOVIE_RESERV (SEAT_X,SEAT_Y,SHOWING_INDEX,PAY_INDEX,PAY_CATEGORY,RESERV_STATE,RESERV_PUSH)
+		VALUES(#{seatX },#{seatY },#{showingIndex },#{payIndex },#{payCategory },1,0)
 		<selectKey keyProperty="index" resultType="int">
         SELECT LAST_INSERT_ID()
     	</selectKey>

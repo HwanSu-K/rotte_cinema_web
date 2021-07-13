@@ -48,6 +48,20 @@
 		THEATER_INDEX,SHOW_STARTTIME
 	</select>
 	
+	<select id="selectListDefault" parameterType="map"
+		resultMap="ResultMap">
+		SELECT A.THEATER_INDEX,A.THEATER_NAME,A.THEATER_SEAT_X,A.THEATER_SEAT_Y,B.CINEMA_INDEX,B.CINEMA_TITLE
+		FROM CINEMA_THEATER A INNER JOIN CINEMA B ON A.CINEMA_INDEX = B.CINEMA_INDEX
+		ORDER BY CINEMA_INDEX,THEATER_INDEX
+	</select>
+	
+	<select id="selectOneDefault" parameterType="int"
+		resultMap="ResultMap">
+		SELECT A.THEATER_INDEX,A.THEATER_NAME,A.THEATER_SEAT_X,A.THEATER_SEAT_Y,B.CINEMA_INDEX,B.CINEMA_TITLE
+		FROM CINEMA_THEATER A INNER JOIN CINEMA B ON A.CINEMA_INDEX = B.CINEMA_INDEX
+		WHERE A.THEATER_INDEX=#{value}
+	</select>
+	
 	<select id="selectListAround" parameterType="map"
 		resultMap="ResultMap">
 		SELECT CINEMA_INDEX,(6371*acos(cos(radians(CINEMA_LAT))*cos(radians(35.8776557))*cos(radians(128.6753187)-radians(CINEMA_LNG))+sin(radians(CINEMA_LAT))*sin(radians(35.8776557)))) AS DISTANCE 
@@ -56,4 +70,25 @@
 		ORDER BY DISTANCE limit 5
 	</select>
 	
+	<select id="selectListCinema" parameterType="map" resultMap="ResultMap">
+		SELECT CINEMA_INDEX,CINEMA_TITLE
+		FROM CINEMA WHERE CINEMA_STATE = 1
+		GROUP BY CINEMA_INDEX
+	</select>
+	
+	<insert id="insert" parameterType="map">
+		INSERT INTO CINEMA_THEATER (THEATER_NAME,CINEMA_INDEX,THEATER_SEAT_X,THEATER_SEAT_Y)
+		VALUES (#{name},#{indexCinema},#{seatX},#{seatY})
+	</insert>
+	
+	<update id="update" parameterType="map">
+		UPDATE CINEMA_THEATER
+		<set>
+			<if test="name != null">THEATER_NAME=#{name},</if>
+			<if test="indexCinema != null">CINEMA_INDEX=#{indexCinema},</if>
+			<if test="seatX != null">THEATER_SEAT_X=#{seatX},</if>
+			<if test="seatY != null">THEATER_SEAT_Y=#{seatY},</if>
+		</set>
+		WHERE THEATER_INDEX=#{index}
+	</update>
 </mapper>

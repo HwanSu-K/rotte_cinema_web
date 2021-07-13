@@ -1,0 +1,42 @@
+p {display: inline;}
+p::before{content: "|"; padding: 5px; font-size: 18px; vertical-align: middle;}
+.user {display: flex; border: 2px solid #454545; border-radius: 5px; padding: 15px; margin-bottom: 100px;}
+.user > .profile {flex-basis: 300px; display: flex; justify-content: center; align-items: center;}
+.user > .profile > img {width: 75px; margin-right: 30px;}
+.user > .profile > div {align-self: center; color:#454545}
+.user > .profile > div > .user_name {font-size: 18px;}
+.user > .profile > div > .user_email {font-size: 12px;}
+.user > .info {flex-grow: 1; background-color: #ebebeb; padding: 30px 30px; border-radius: 5px;}
+.user > .info > .title {font-size: 18px; border-bottom: 2px solid #999999; padding-bottom: 10px; margin-bottom: 30px; color: #454545;}
+.user > .info > .list {display: flex; justify-content: space-around; font-size: 14px;}
+.user > .info > .list > div {display: flex; flex-direction: column; align-items: center;}
+
+.user > .info > .list > div > div {margin: 10px 0;}
+.ticket,
+.reserv {border-bottom: 3px solid #999999; margin-bottom: 100px;}
+.ticket > .title,
+.reserv > .title
+{font-size: 18px;display: flex; justify-content: space-between; background-color: #ebebeb; padding: 10px 30px; border: 1px solid #d7d7d7;}
+.ticket > .title > div,
+.reserv > .title > div
+{display: flex;}
+.ticket > .title > div > div,
+.reserv > .title > div > div
+{color: #555555;}
+.ticket > .title > div > img,
+.reserv > .title > div > img
+{margin: auto; padding-left: 10px;}
+.ticket > .info {padding: 15px; display: flex;}
+.ticket > .info > img {width: 150px;}
+.ticket > .info > div {flex-grow: 1; margin-left: 75px; display: flex; flex-direction: column; justify-content: space-around;}
+.ticket > .info > div > div {display: flex; justify-content: space-between;  padding: 30px;}
+.ticket > .info > div > div:first-child {border-bottom: 1px solid #000;}
+.ticket > .info > div > div > div {width: 300px;}
+.ticket > .info > div > div > div > div:first-child {font-size: 18px;}
+.ticket > .info > div > div > div > div:last-child {font-size: 16px; color: #999999; display: flex; margin-top: 10px;}
+.ticket > .info > div > div > div > div:last-child > span {width: 100px; display: block;}
+.reserv {padding-bottom: 30px;}
+.reserv > .reserv_list {margin-top: 30px;}
+.reserv > .reserv_list > div {display: flex; padding: 5px 75px; color: #555555; font-size: 18px;}
+.reserv > .reserv_list > div > div {flex-basis: 500px;}
+

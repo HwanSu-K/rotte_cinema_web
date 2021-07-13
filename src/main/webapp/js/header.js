@@ -53,7 +53,7 @@ $(document).ready(function() {
 					$('.movie_List > div').remove();
 	
 					$('#headerPoster').attr('onclick', 'location.href =\'' + urlPath + '/moviedetail.do?index=' + data.movies[0].index + '\'');
-					$('#headerPoster > img').attr('src', urlPath + '/images/poster/' + data.movies[0].poster);
+					$('#headerPoster > img').attr('src', '/images/poster/' + data.movies[0].poster);
 					$(data.movies).each(function(index, item) {
 						$('.movie_List').append($(
 							'<div onClick="location.href =\'' + urlPath + '/moviedetail.do?index=' + item.index + '\'">' +

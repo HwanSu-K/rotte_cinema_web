@@ -12,7 +12,8 @@
 			flex-direction: column;
 		}
 		button {
-			margin:10px 5px;
+			width:300px;
+			margin:10px auto;
 		}
 	</style>
 </head>

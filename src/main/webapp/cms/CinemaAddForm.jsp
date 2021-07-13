@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<h1>영화 등록</h1>
+<h1>극장 등록</h1>
 	<form action='add.do' method='post' enctype='multipart/form-data'>
 		<div>
 		  <label for="title" class="form-label">극장명</label>
