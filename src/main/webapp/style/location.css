@@ -27,10 +27,10 @@
 .content > .map_info > div:nth-child(2) > ul  > li {padding: 10px 30px;}
 .content > .map_info > div:nth-child(2) > ul  > li > i {width:30px; font-size:14pt}
 
-.reserv_choice {display: flex; height: 250px; border: 3px solid #000000; border-radius: 10px; margin-bottom: 3px;} /* 영화 선택 */
+.reserv_choice {display: flex; height: 250px; border: 3px solid #000000; border-radius: 10px; margin-bottom: 3px; box-sizing: border-box;} /* 영화 선택 */
 
 
-.reserv_choice > .reserv_type {flex-basis: 150px; height: 250px; box-sizing: border-box;}       /* 영화 타입 넓이 */
+.reserv_choice > .reserv_type {flex-basis: 150px; height: 100%; margin-left: -1px; box-sizing: border-box;}       /* 영화 타입 넓이 */
 .reserv_choice > .reserv_type > div {height: 100%; width: 147px; display: flex; flex-direction: column; justify-content: center; align-items: center; 
     border-right: 1px solid #000000; background-color: #ebebeb;}           /* 영화 타입 높이 */
 .reserv_choice > .reserv_type > div:first-child {border-radius: 5px 0 0 0;}
@@ -76,7 +76,10 @@
 .content > .cinema_info .info_addr > span {color:#5e5e5e;}
 .content > .cinema_info > div:first-child {margin:70px 0 40px 0;}
 .content > .cinema_info > .info_transport {margin: 50px 0;}
-.content > .cinema_info > div > div {margin: 0 0 15px 10px; font-size: 13pt;}
+.content > .cinema_info > .info_transport > div, 
+.content > .cinema_info > .info_parking > div {margin: 0 0 15px 10px;}
+
+.content > .cinema_info > div > div { font-size: 13pt;}
 .content > .cinema_info > div > span {border: 1px solid #bfbfbf; border-radius: 10px; display: flex; padding: 15px; flex-direction: column;}
 .content > .cinema_info > div > span > div {display: flex;}
 .content > .cinema_info > div > span > div > div:nth-child(1) {flex-basis: 80px; min-height: 60px;}
