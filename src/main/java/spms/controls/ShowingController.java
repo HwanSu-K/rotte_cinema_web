@@ -34,6 +34,7 @@ public class ShowingController {
 		if(showingDao.selectOneShowing(paramMap) != null)
 		{
 			map.put("result", "fail");
+			map.put("message", "해당 일자에 이미 상영정보가 있습니다.");
 			return map;
 		}
 		Showing showing;
@@ -55,6 +56,7 @@ public class ShowingController {
 		}
 		
 		map.put("result", "succes");
+		map.put("message", "성공적으로 추가 되었습니다.");
 		
 		return map;
 	}

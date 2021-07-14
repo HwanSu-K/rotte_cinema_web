@@ -15,6 +15,7 @@ repositories {
 }
 
 dependencies {
+	implementation 'org.jsoup:jsoup:1.11.3'
 	
 	implementation 'net.sf.json-lib:json-lib:2.4:jdk15'
 	

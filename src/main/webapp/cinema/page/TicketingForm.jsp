@@ -50,7 +50,7 @@
 			<article class="movie_choice ${param.index == null ? 'active' : ''}">
 				<div class="reserv_movie_tab">
 					<div class="${param.type == null ? 'active' : ''}" OnClick="location.href ='ticketing.do'">예매순</div>
-					<div class="${param.type == 'soon' ? 'active' : ''}" OnClick="location.href ='ticketing.do?type=soon'">예정작</div>
+					<!-- <div class="${param.type == 'soon' ? 'active' : ''}" OnClick="location.href ='ticketing.do?type=soon'">예정작</div> -->
 					<div class="${param.type == 'rating' ? 'active' : ''}" OnClick="location.href ='ticketing.do?type=rating'">평점순</div>
 				</div>
 

@@ -8,12 +8,11 @@
 	<script src="../../js/cms.js"></script>
 </head>
 <body>
-<c:set var="path" value="<%=request.getContextPath() %>"/>
-<h1>극장 수정</h1>
+<h1>상영관 수정</h1>
 	<form action='update.do' method='post' enctype='multipart/form-data'>
 		<div>
 			<label for='index'>번호</label>
-			<input class="form-control" type="text" name="index" value="${theater.index }" readonly>
+			<input class="form-control" type="text" id="index" name="index" value="${theater.index }" readonly>
 		</div>
 		<div>
 		  <label for="name" class="form-label">상영관명</label>
@@ -37,6 +36,21 @@
 		</div>
 		<button type="submit" class="btn btn-primary btn-lg">등록</button>
 		<button type="reset" class="btn btn-secondary btn-lg" onclick="history.back(-1)">취소</button>
+	</form>
+	<form id="formShowing">
+		<div>
+		  <label for="date" class="form-label">날짜</label>
+		  <input type="date" class="form-control" id="date" name="date">
+		</div>
+		<div>
+			<label for="movie">영화</label>
+			<select class="form-select" id="movie" name="indexMovie">
+				<c:forEach var="movie" items="${movies }">
+					<option value="${movie.index }">${movie.title } </option>
+				</c:forEach>
+			</select>
+		</div>
+		<button type="button" class="btn btn-primary btn-lg" id="submitShowing">영화등록</button>
 	</form>
 </body>
 </html>

@@ -290,7 +290,14 @@ $(document).ready(function() {
 							return false;
 						}
 					});	
-				})				
+				})	
+				
+				$('#dates > div').each(function() {
+					if($(this).hasClass('active') && $(this).hasClass('g')) {
+						$(this).removeClass('active');
+						return false;
+					}
+				})			
 				
 				$(arounds).each(function() {
 					const cinema_index = this.indexCinema;
@@ -377,8 +384,29 @@ $(document).ready(function() {
 							'<span>' + (this.seatX * this.seatY) + '석</span>' +
 						'</div>'
 					));
-
 				})
+				
+				$('#dates > div').each(function() {
+					$(this).addClass('g');
+				});
+					
+				$(data.dates).each(function() {
+					const date = this.date;
+					$('#dates > div').each(function() {
+						if($(this).data('date-value') === date) {
+							$(this).removeClass('g');
+							return false;
+						}
+					});	
+				})	
+				
+				$('#dates > div').each(function() {
+					if($(this).hasClass('active') && $(this).hasClass('g')) {
+						$(this).removeClass('active');
+						return false;
+					}
+				})		
+					
 			},
 			error: function() {
 				
@@ -415,17 +443,20 @@ $(document).ready(function() {
 	})
 
 	$('#dates > div').on('click', function(e) {
-		$('#dates > div').each(function() {
-			$(this).removeClass('active');
-		})
-		search.date = $(e.currentTarget).data('date-value');
-		if ($('.reserv_type_movie').hasClass('active')) {
-			theaters();
+		
+		if(!$(e.currentTarget).hasClass('g') || typeof e.originalEvent === 'undefined') {
+			$('#dates > div').each(function() {
+				$(this).removeClass('active');
+			})
+			search.date = $(e.currentTarget).data('date-value');
+			if ($('.reserv_type_movie').hasClass('active')) {
+				theaters();
+			}
+			else {
+				movies();
+			}
+			$(e.currentTarget).addClass('active');	
 		}
-		else {
-			movies();
-		}
-		$(e.currentTarget).addClass('active');
 	})
 
 	// 페이지 로딩시 전체영화 버튼을 클릭함.

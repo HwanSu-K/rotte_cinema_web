@@ -31,6 +31,16 @@ public class MySqlReviewDao implements ReviewDao {
 	}
 	
 	@Override
+	public List<Review> selectList(int no) throws Exception {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		try {
+			return sqlSession.selectList("spms.dao.ReviewDao.selectListReview", no);
+		} finally {
+			sqlSession.close();
+		}
+	}
+	
+	@Override
 	public int insert(Review review) throws Exception {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		try {

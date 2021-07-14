@@ -1,10 +1,11 @@
 .reserv_choice {display: flex; justify-content: space-between; width: 100%; height: 305px; border: 3px solid #000000; 
     box-sizing: border-box; border-radius: 10px;} /* 영화 선택 */
 
-.reserv_choice > .reserv_type {flex-basis: 150px; height: 350px; box-sizing: border-box;}       /* 영화 타입 넓이 */
+.reserv_choice > .reserv_type {flex-basis: 150px; box-sizing: border-box;}       /* 영화 타입 넓이 */
 .reserv_choice > .reserv_type > div {margin-left: -1px; height: 50%; width: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; 
     border-right: 1px solid #000000; background-color: #ebebeb;}           /* 영화 타입 높이 */
 .reserv_choice > .reserv_type > div:first-child {border-radius: 5px 0 0 0;}
+.reserv_choice > .reserv_type > div:hover,
 .reserv_choice > .reserv_type > div.active {background-color: #07072b; color:#fff;}
 .reserv_choice > .reserv_type > div:last-child 
     {border-radius: 0 0 0 5px; border-top: 1px solid #000000; font-size: 13pt;}      /* 타입별 텍스트 */
@@ -14,7 +15,9 @@
     {width: 60px; height: 53px; background: url('../images/icon/sub2_choice1_movie.png'); background-repeat: no-repeat; margin-bottom: 20px;}
 .reserv_choice > .reserv_type > div:last-child > div:first-child
     {width: 60px; height: 53px; background: url('../images/icon/sub2_choice2_theater.png'); background-repeat: no-repeat; margin-bottom: 20px;}
+.reserv_choice > .reserv_type > div:hover:first-child > div:first-child,
 .reserv_choice > .reserv_type > div.active:first-child > div:first-child {width: 60px; height: 53px;background: url('../images/icon/sub2_choice1_movie_wh.png'); background-repeat: no-repeat;}
+.reserv_choice > .reserv_type > div:hover:last-child > div:first-child,
 .reserv_choice > .reserv_type > div.active:last-child > div:first-child {width: 60px; height: 53px;background: url('../images/icon/sub2_choice2_theater_wh.png'); background-repeat: no-repeat;}
 .reserv_choice > section ,
 .reserv_choice > section {display: none; width: 1000px; justify-content: space-between;}
@@ -25,6 +28,7 @@
 .reserv_choice > section > .reserv_content > .reserv_content_title
     {margin-bottom: 20px; padding: 0 0 10px 0px; border-bottom: 1px solid #e6e7e8;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   }         /* 영화목록 타이틀 */
 .reserv_choice > section > .reserv_content > .reserv_content_title > span {padding:0 10px;}         /* 클릭시 underline : 2px #6e6e6e */
+.reserv_choice > section > .reserv_content > .reserv_content_title > span:hover,
 .reserv_choice > section > .reserv_content > .reserv_content_title > span.active {border-bottom: 3px solid #6e6e6e; padding-bottom: 9px;}
 .reserv_choice > section > .reserv_content > .reserv_content_list {display: flex; flex-wrap: wrap; overflow-y: scroll;}                           /* 영화목록 정렬방식 */
 
@@ -44,6 +48,7 @@
 .reserv_choice > section > .reserv_content > .reserv_content_list > div {display:block; width: 30.1%; padding: 5px 10px; font-size: 11pt;
     text-overflow: ellipsis; white-space: nowrap; overflow: hidden; cursor: pointer;}      /* 영화목록 크기 */
 .reserv_choice > .reserv_theater > .reserv_content > .reserv_content_list > div {width: 22.8%; }
+.reserv_choice > section > .reserv_content > .reserv_content_list > div:hover,
 .reserv_choice > section > .reserv_content > .reserv_content_list > div.active {background: black; color: white;}
 
 .reserv_choice > section > .reserv_post {flex-basis: 200px;}                           /* 영화목록 포스터 */
@@ -54,24 +59,26 @@
 .reserv_info > .reserv_info_date {margin-top: 20px; display: flex; justify-content: space-between; }        /* 날짜 관련 */
 .reserv_info > .reserv_info_date > div 
     {display: flex; justify-content: center; align-items: center; 
-    border-top: 1px solid #d8d9db; border-bottom: 1px solid #d8d9db; box-sizing: border-box;}           /* 날짜 아이콘 정렬 */
+    border-top: 1px solid #d8d9db; border-bottom: 1px solid #d8d9db; box-sizing: border-box; cursor: pointer;}           /* 날짜 아이콘 정렬 */
 .reserv_info > .reserv_info_date > div > i {color: #888888;}                                                /*날짜 아이콘 크기 */
 .reserv_info > .reserv_info_date > div:nth-child(1) {width: 40px; font-size: 14px; }                     /* ★좌측 화살표 */
 .reserv_info > .reserv_info_date > div:nth-child(2)
     {display: flex; justify-content: flex-start; width: 1050px; font-size: 18px; height: 60px; flex-wrap: nowrap; overflow:hidden; }      /* 날짜 */
 .reserv_info > .reserv_info_date > div:nth-child(2) > div 
     {flex: 0 0 auto; width: 70px; height: 100%; display: flex; justify-content: center; align-items: center; flex-direction: column; position: relative;}   /* 날짜 내부 */
-.reserv_info > .reserv_info_date > div:nth-child(2) > div.active {border-bottom: 7px solid #2b3380; background: #f7f8f9;}
-.reserv_info > .reserv_info_date > div:nth-child(2) > div.hover {border-bottom: 7px solid #2b3380 ;}
+.reserv_info > .reserv_info_date > div:nth-child(2) > div.active {background: #f7f8f9;}
 .reserv_info > .reserv_info_date > div:nth-child(2) > div.m {color:#fff; background-color: #d8d9db;}
 .reserv_info > .reserv_info_date > div:nth-child(2) > div.b {color:blue;}
 .reserv_info > .reserv_info_date > div:nth-child(2) > div.r {color:red;}
-.reserv_info > .reserv_info_date > div:nth-child(2) > div.g {color:#b2b2b2;}
+.reserv_info > .reserv_info_date > div:nth-child(2) > div.g {color:#b2b2b2; cursor:default;}
+.reserv_info > .reserv_info_date > div:nth-child(2) > div.g:hover > div:nth-child(3) {border-bottom:none;}
 .reserv_info > .reserv_info_date > div:nth-child(2) > div > div{display: flex; align-items: center;}
 .reserv_info > .reserv_info_date > div:nth-child(2) > div > div:nth-child(1) 
     {height: 25%; font-size: 9pt; padding-top: 5px; margin-bottom: -5px; color: #999;}
-.reserv_info > .reserv_info_date > div:nth-child(2) > div > div:nth-child(2) {height: 100%; font-size: 12pt; display: flex; cursor: pointer;}
-.reserv_info > .reserv_info_date > div:nth-child(2) > div > div:nth-child(3) {height: 25%;}
+.reserv_info > .reserv_info_date > div:nth-child(2) > div > div:nth-child(2) {height: 50%; font-size: 12pt; display: flex;}
+.reserv_info > .reserv_info_date > div:nth-child(2) > div > div:nth-child(3) {height: 25%; width:100%; box-sizing:border-box;}
+.reserv_info > .reserv_info_date > div:nth-child(2) > div.active > div:nth-child(3) {border-bottom: 2px solid #2b3380;}
+.reserv_info > .reserv_info_date > div:nth-child(2) > div:hover > div:nth-child(3) {border-bottom: 2px solid #2b3380;}
 .reserv_info > .reserv_info_date > div:nth-child(3) {width: 40px; font-size: 14px; }                           /* ★우측화살표 */
 .reserv_info > .reserv_info_date > div:nth-child(4) {width: 70px;box-sizing: border-box; font-size: 23px;}     /* ★달력 아이콘 */
 .reserv_info > .reserv_info_date > div:nth-child(4) > i {height: 48px; width: 100%; display: flex; justify-content: center; align-items: center; border-left: 1px solid #d8d9db; }
@@ -87,7 +94,8 @@
 .reserv_info > .reserv_info_movie > div > img {width: 24px; height: 24px; padding-right: 5px;}      /* 선택 영화 타이틀 등급 이미지 */
 .reserv_info > .reserv_info_local.active{display: flex;}
 .reserv_info > .reserv_info_local {display: none; margin-top: 30px;}                                /* 지역 */
-.reserv_info > .reserv_info_local > div { padding: 8px 0; width:115px; text-align: center; border: 1px solid #d8d9db; margin-right: -1px; color: #555555; cursor: pointer;}    /* 지역 버튼 */
+.reserv_info > .reserv_info_local > div { padding: 8px 0; width:115px; text-align: center; border: 1px solid #d8d9db; margin-right: -1px; color: #555555; cursor: pointer; box-sizing: border-box;}    /* 지역 버튼 */
+.reserv_info > .reserv_info_local > div:hover,
 .reserv_info > .reserv_info_local > div.active {background-color: #555; color:#fff; border-style: none;}
 .reserv_info > .reserv_list {display: none;}
 .reserv_info > .reserv_list.active {display: block;}

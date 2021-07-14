@@ -1,4 +1,6 @@
 $(document).ready(function() {
+	$('#date').val(new Date().toISOString().substring(0, 10));
+	
 	$('#addr').on('change',function(){
 		const APIKEY = 'afaccf592a85bcd0d22ac83f291a8c25';
 		const form = {
@@ -35,5 +37,54 @@ $(document).ready(function() {
 		      
 		    }
 		  });
+	});
+
+	$('#date').on('change',function(){
+		$('#movie > option').remove();
+		
+		var form = {
+			date: $(this).val()
+		}
+
+		$.ajax({
+			url:  '../../moviestitle.do',
+			type: 'POST',
+			data: form,
+			dataType: 'json',
+			success: function(data) {
+				if(data.movies.length > 0) {
+					$('#search_List > div').remove();
+
+					$(data.movies).each(function() {
+						var option = $(
+							`<option value='${this.index }'>${this.title }</option>`
+						);
+						$('#movie').append(option);
+					});	
+				}
+			},
+			error: function() {
+				
+			}
+		});
+	});
+	
+	$('#submitShowing').on('click',function() {
+		var form = $('#formShowing').serialize();
+		form += `&indexTheater=${$('#index').val()}`
+		
+		$.ajax({
+			url:  '../../showingobject.do',
+			type: 'POST',
+			data: form,
+			dataType: 'json',
+			success: function(data) {
+				
+				alert(data.message);
+			},
+			error: function() {
+				
+			}
+		});
 	});
 });

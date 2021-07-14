@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 2. 동적 SQL 적용 -->
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="spms.dao.LocalDao">
+	<resultMap type="local" id="ResultMap">
+		<id column="LOCAL_INDEX" property="index" />
+		<result column="LOCAL_NAME" property="name" />
+		<result column="LOCAL_CLASS" property="className" />
+		<result column="LOCAL_SORT" property="sort" />
+	</resultMap>
+
+	<select id="selectList" parameterType="map"
+		resultMap="ResultMap">
+		SELECT LOCAL_INDEX,LOCAL_NAME,LOCAL_CLASS,LOCAL_SORT 
+		FROM CATEGORY_LOCAL
+	</select>
+	
+	<select id="selectOne" parameterType="int"
+		resultMap="ResultMap">
+		SELECT LOCAL_INDEX,LOCAL_NAME,LOCAL_CLASS,LOCAL_SORT 
+		FROM CATEGORY_LOCAL
+		WHERE LOCAL_INDEX=#{values}
+	</select>
+	
+	<select id="insert" parameterType="map">
+		INSERT INTO CATEGORY_LOCAL (LOCAL_NAME,LOCAL_CLASS,LOCAL_SORT )
+		VALUES (#{name},#{className},#{sort})
+	</select>
+	
+	<select id="update" parameterType="map">
+		UPDATE CATEGORY_LOCAL
+		<set>
+			<if test="name != null">LOCAL_NAME=#{name},</if>
+			<if test="className != null">LOCAL_CLASS=#{className},</if>
+			<if test="sort != null">LOCAL_SORT=#{sort},</if>
+		</set>
+		 WHERE LOCAL_INDEX=#{index}
+	</select>
+</mapper>

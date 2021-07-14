@@ -7,22 +7,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import spms.dao.TheaterDao;
+import spms.dao.CustomerDao;
 
 //@RequestParam 적용
 @Controller
-public class CTheaterListController {
-	TheaterDao theaterDao;
+public class CustomerController {
+	CustomerDao customerDao;
 
 	@Autowired
-	public CTheaterListController setMemberDao(TheaterDao theaterDao) {
-		this.theaterDao = theaterDao;
+	public CustomerController setBannerDao(CustomerDao customerDao) {
+		this.customerDao = customerDao;
 		return this;
 	}
 
-	@RequestMapping("/cms/theater/list.do")
+	@RequestMapping("/cms/customer/list.do")
 	public String execute(Map<String, Object> model) throws Exception {
-		model.put("theaters", theaterDao.selectListDefault());
-		return "/cms/TheaterListForm.jsp";
+	
+		model.put("customers", customerDao.selectList());
+		return "/cms/CustomerListForm.jsp";
 	}
 }

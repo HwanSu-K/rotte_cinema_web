@@ -50,7 +50,10 @@
 		resultMap="ResultMap">
 		SELECT MOVIE_INDEX,MOVIE_TITLE
 		FROM MOVIE
-		WHERE MOVIE_STATE = 1 AND MOVIE_OPEN_DATE <![CDATA[<=]]> NOW() AND MOVIE_END_DATE >= NOW()
+		<choose>
+			<when test="date != null">WHERE MOVIE_STATE = 1 AND MOVIE_OPEN_DATE <![CDATA[<=]]> #{date} AND MOVIE_END_DATE >= #{date}</when><!-- CMS 관리 -->
+			<otherwise>WHERE MOVIE_STATE = 1 AND MOVIE_OPEN_DATE <![CDATA[<=]]> NOW() AND MOVIE_END_DATE >= NOW()</otherwise>
+		</choose>
 		<if test="search != null">AND MOVIE_TITLE LIKE CONCAT('%', #{search}, '%')</if> 
 	</select>
 	

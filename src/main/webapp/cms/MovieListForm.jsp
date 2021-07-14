@@ -26,7 +26,6 @@
 		<th>상영시간 </th>
 		<th>개봉일 </th>
 		<th>종영일 </th>
-		<th>포스터 </th>
 		<th>태그 </th>
 		<th>상태 </th>
 		<th></th>
@@ -42,7 +41,6 @@
 		<td>${movie.runningTime }</td>
 		<td>${movie.openDate }</td>
 		<td>${movie.endDate }</td>
-		<td>${movie.poster }</td>
 		<td>${movie.tags  }</td>
 		<td>${movie.state  }</td>
 		<td><a href="update.do?no=${movie.index }">수정 </a></td>

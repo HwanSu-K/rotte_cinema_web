@@ -18,7 +18,7 @@
 
 .movie > .movie_tab {display: flex;}       /* 목록 탭 */
 .movie > .movie_tab > div {height: 65px; display: flex; justify-content: center; align-items: center; border: 1px solid #e0e0e0; 
-    margin-left: -1px; font-size: 1.0833rem }                                        /* 목록탭 버튼 */
+    margin-left: -1px; font-size: 1.0833rem; cursor: pointer; }                                        /* 목록탭 버튼 */
 .movie > .movie_tab > div.active {background-color: #f3f3f3; border-bottom: 4px solid #2b3380; height: 62px; color: black;}
 .movie > .movie_tab > div {color: #898989;}
 

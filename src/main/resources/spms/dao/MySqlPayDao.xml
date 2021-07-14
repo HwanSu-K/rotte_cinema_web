@@ -12,23 +12,25 @@
 		<result column="PAY_CARD_NAME" property="cardName" />
 		<result column="PAY_CARD_NUMBER" property="cardNumber" />
 		<result column="CUSTOMER_INDEX" property="customerIndex" />
+		<result column="PAY_PUSH" property="push" />
 	</resultMap>
 	
 	<select id="selectList" parameterType="int" resultMap="ResultMap">
-		SELECT PAY_INDEX,PAY_DATE,PAY_AMOUNT,PAY_IMP_UID,PAY_CARD_NAME,PAY_CARD_NUMBER,CUSTOMER_INDEX 
+		SELECT PAY_INDEX,PAY_DATE,PAY_AMOUNT,PAY_IMP_UID,PAY_CARD_NAME,PAY_CARD_NUMBER,CUSTOMER_INDEX,PAY_PUSH
 		FROM PAY
 		WHERE CUSTOMER_INDEX=#{value} AND PAY_STATE = 1
+		ORDER BY PAY_INDEX DESC
 	</select>
 	
 	<select id="selectOne" parameterType="int" resultMap="ResultMap">
-		SELECT PAY_INDEX,PAY_DATE,PAY_AMOUNT,PAY_IMP_UID,PAY_CARD_NAME,PAY_CARD_NUMBER,CUSTOMER_INDEX 
+		SELECT PAY_INDEX,PAY_DATE,PAY_AMOUNT,PAY_IMP_UID,PAY_CARD_NAME,PAY_CARD_NUMBER,CUSTOMER_INDEX,PAY_PUSH
 		FROM PAY
 		WHERE PAY_INDEX=#{value} AND PAY_STATE = 1
 	</select>
 	
 	<insert id="insert" parameterType="map">
-		INSERT INTO PAY (PAY_DATE,PAY_AMOUNT,PAY_IMP_UID,PAY_CARD_NAME,PAY_CARD_NUMBER,PAY_STATE,CUSTOMER_INDEX)
-		VALUES(NOW(),#{amount}, #{uid}, #{cardName}, #{cardNumber},1 , #{customerIndex})
+		INSERT INTO PAY (PAY_DATE,PAY_AMOUNT,PAY_IMP_UID,PAY_CARD_NAME,PAY_CARD_NUMBER,PAY_STATE,CUSTOMER_INDEX,PAY_PUSH)
+		VALUES(NOW(),#{amount}, #{uid}, #{cardName}, #{cardNumber},1 , #{customerIndex},0)
 		<selectKey keyProperty="index" resultType="int">
         SELECT LAST_INSERT_ID()
     	</selectKey>

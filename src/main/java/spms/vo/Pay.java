@@ -10,6 +10,7 @@ public class Pay {
 	protected int customerIndex;
 	protected String cardName;
 	protected String cardNumber;
+	protected String push;
 	
 	public int getIndex() {
 		return index;
@@ -52,5 +53,11 @@ public class Pay {
 	}
 	public void setCardNumber(String cardNumber) {
 		this.cardNumber = cardNumber;
+	}
+	public String getPush() {
+		return push;
+	}
+	public void setPush(String push) {
+		this.push = push;
 	}
 }

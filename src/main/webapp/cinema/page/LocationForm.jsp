@@ -22,6 +22,12 @@
 	</section>
 	<div class="content">
 		<section class="reserv_choice">
+			<div class="reserv_type">
+				<div class="reserv_type_movie active" onclick="location.href ='schedule.html'">
+					<div></div>
+					<div>극장별</div>
+				</div>
+			</div>
 			<section class="reserv_theater">
 				<div class="reserv_content">
 					<div class="reserv_content_title">
@@ -41,7 +47,6 @@
 		<div class="cinema_info">
 			<div class="info_title"></div>
 			<div class="info_map">
-				<div>약도</div>
 				<div class="info_addr">
 					<p>도로명주소 : </p>
 					<p><p>

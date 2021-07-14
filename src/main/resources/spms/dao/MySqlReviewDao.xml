@@ -22,7 +22,14 @@
 		A.REVIEW_RATING DESC,
 		</if> 
 		A.REVIEW_INDEX DESC
-		
+	</select>
+	
+	<select id="selectListReview" parameterType="int"
+		resultMap="ResultMap">
+		SELECT REVIEW_INDEX,MOVIE_INDEX,REVIEW_RATING,REVIEW_TEXT,REVIEW_DATE,CUSTOMER_INDEX 
+		FROM MOVIE_REVIEW
+		WHERE CUSTOMER_INDEX=#{value}
+		ORDER BY REVIEW_INDEX
 	</select>
 	
 	<select id="selectOneCount" parameterType="map"

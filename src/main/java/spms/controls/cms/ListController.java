@@ -12,11 +12,11 @@ import spms.dao.MovieDao;
 
 //@RequestParam 적용
 @Controller
-public class CListController {
+public class ListController {
 	BannerDao bannerDao;
 
 	@Autowired
-	public CListController setBannerDao(BannerDao bannerDao) {
+	public ListController setBannerDao(BannerDao bannerDao) {
 		this.bannerDao = bannerDao;
 		return this;
 	}

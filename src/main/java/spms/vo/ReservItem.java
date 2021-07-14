@@ -10,6 +10,8 @@ public class ReservItem {
 	protected String seat;
 	protected String poster;
 	protected String age;
+	protected String week;
+	protected String time;
 	
 	public int getIndexMovie() {
 		return indexMovie;
@@ -72,6 +74,20 @@ public class ReservItem {
 	}
 	public ReservItem setAge(String age) {
 		this.age = age;
+		return this;
+	}
+	public String getWeek() {
+		return week;
+	}
+	public ReservItem setWeek(String week) {
+		this.week = week;
+		return this;
+	}
+	public String getTime() {
+		return time;
+	}
+	public ReservItem setTime(String time) {
+		this.time = time;
 		return this;
 	}
 }

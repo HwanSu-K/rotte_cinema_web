@@ -14,6 +14,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.io.IOUtils;
+import org.jsoup.Connection;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -128,7 +131,7 @@ public class AjaxController {
 		this.payDao = payDao;
 		return this;
 	}
-	
+
 	@Autowired
 	public AjaxController setReservationDao(ReservationDao reservationDao) {
 		this.reservationDao = reservationDao;
@@ -157,9 +160,16 @@ public class AjaxController {
 
 	@RequestMapping(value = "/moviestitle.do", method = RequestMethod.POST)
 	@ResponseBody
-	public Object getMoviesTitle(String search) throws Exception {
+	public Object getMoviesTitle(String search, String date) throws Exception {
 		HashMap<String, Object> paramMap = new HashMap<String, Object>();
-		paramMap.put("search", search);
+
+		if (search != null) {
+			paramMap.put("search", search);
+		}
+
+		if (date != null) {
+			paramMap.put("date", date);
+		}
 
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("movies", movieDao.selectListTitle(paramMap));
@@ -168,13 +178,20 @@ public class AjaxController {
 
 	@RequestMapping(value = "/reviewsobject.do", method = RequestMethod.POST)
 	@ResponseBody
-	public Object getReviewsObject(String index, String order) throws Exception {
-		HashMap<String, Object> paramMap = new HashMap<String, Object>();
-		paramMap.put("index", index);
-		paramMap.put("order", order);
+	public Object getReviewsObject(String index, String order, HttpSession session) throws Exception {
 		HashMap<String, Object> map = new HashMap<String, Object>();
-		map.put("reviews", reviewDao.selectList(paramMap));
-		map.put("count", reviewDao.selectOneCount(paramMap));
+		Customer customer = (Customer) session.getAttribute("customer");
+		if(index != null) {
+			HashMap<String, Object> paramMap = new HashMap<String, Object>();
+			paramMap.put("index", index);
+			paramMap.put("order", order);
+			
+			map.put("reviews", reviewDao.selectList(paramMap));
+			map.put("count", reviewDao.selectOneCount(paramMap));
+		} else if(customer != null) {
+			map.put("reviews", reviewDao.selectList(customer.getIndex()));
+		}
+		
 		return map;
 	}
 
@@ -213,7 +230,7 @@ public class AjaxController {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("theaters", theaterDao.selectList(paramMap));
 		map.put("dates", reservationDao.selectList(paramMap));
-		
+
 		return map;
 	}
 
@@ -241,12 +258,12 @@ public class AjaxController {
 
 	@RequestMapping(value = "/finderobject.do", method = RequestMethod.POST)
 	@ResponseBody
-	public Object getfinderObject(Customer customer) throws Exception {		
+	public Object getfinderObject(Customer customer) throws Exception {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("customer", customerDao.finder(customer));
-		
-		if(customer.getEmail() != null) {
-			
+
+		if (customer.getEmail() != null) {
+
 			// 랜덤키 12자리 발생후 등록
 			customer.setKey(Rand.code());
 			// 입력받은 패스워드를 암호화해서 저장.
@@ -257,25 +274,22 @@ public class AjaxController {
 		}
 		return map;
 	}
-	
+
 	@RequestMapping(value = "/passwordobject.do", method = RequestMethod.POST)
 	@ResponseBody
-	public Object setpasswordObject(Customer customer) throws Exception {		
+	public Object setpasswordObject(Customer customer) throws Exception {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		String key = customer.getKey();
-		if(key != null && !key.equals(""))
-		{
+		if (key != null && !key.equals("")) {
 			Customer customer_ = customerDao.selectOneKey(new Customer().setKey(key));
 			customer_.setPassword(new Encrypt().encrypt(customer.getPassword()));
 			customerDao.updatePass(customer_);
-			
+
 			customer_.setKey(Rand.code());
 			customerDao.updateKey(customer_);
 			map.put("result", "success");
-		}
-		else
-		{
-			map.put("result", "fail");	
+		} else {
+			map.put("result", "fail");
 		}
 		return map;
 	}
@@ -318,21 +332,29 @@ public class AjaxController {
 			throws Exception {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		Customer customer = customerDao.exist(email);
-		if (customer != null && token != null) {
+		if (customer != null) {
 			if (new Encrypt().isMatch(password, customer.getPassword())) {
-				customer.setPassword("");
-				session.setAttribute("customer", customer);
-				customer.setToken(token);
-				Customer customerToken = customerDao.existToken(token);
-				if (customerToken == null) {
-					customerDao.insertToken(customer);
+				if(customer.getState() == 0) {
+					map.put("result", "auth");
+					map.put("name", null);
+					return map;	
 				} else {
-					customerDao.updateToken(customer);
+					customer.setPassword("");
+					session.setAttribute("customer", customer);
+					if(token != null) {
+						customer.setToken(token);
+						Customer customerToken = customerDao.existToken(token);
+						if (customerToken == null) {
+							customerDao.insertToken(customer);
+						} else {
+							customerDao.updateToken(customer);
+						}
+					}
+	
+					map.put("result", "connect");
+					map.put("name", customer.getName());
+					return map;
 				}
-
-				map.put("result", "connect");
-				map.put("name", customer.getName());
-				return map;
 			}
 
 		} else if (token != null) {
@@ -358,15 +380,24 @@ public class AjaxController {
 		return map;
 	}
 
-	@RequestMapping(value = "/tokentest.do")
+	@RequestMapping(value = "/test.do")
 	@ResponseBody
 	public Object setPushObject(int no, String title, String body) throws Exception {
 
-		List<Token> tokens = customerDao.selectList(no);
-		for (Token token : tokens) {
-			fcmService.sendTargetMessage(token.getValue(), title, body, "");
+//		List<Token> tokens = customerDao.selectList(no);
+//		for (Token token : tokens) {
+//			fcmService.sendTargetMessage(token.getValue(), title, body, "");
+//		}
+		
+		try {
+			String URL = "https://www.kobis.or.kr/kobis/business/stat/boxs/findRealTicketList.do";
+			
+			Connection conn = Jsoup.connect(URL);
+			Document html = conn.get();
+			return html.toString();
+		} catch (Exception e) {
+			return e;
 		}
-		return "success";
 	}
 
 	@RequestMapping(value = "/customerobject.do", method = RequestMethod.POST)
@@ -393,37 +424,33 @@ public class AjaxController {
 
 		return map;
 	}
-	
-	@RequestMapping(value = "/paytestobject.do", method = RequestMethod.POST)
-	@ResponseBody
-	public Object getPayTestObject() throws Exception {
 
-		HashMap<String, Object> map = new HashMap<String, Object>();
-
-		
-		
-		//map.put("payobject", ((HashMap<String, Object>) IamPay.getPaymentObject("imp_9021439112036")).get("result"));
-		//map.put("pay", payment.getAmount());
-		
-
-		return map;
-	}
-	@Value("#{systemProperties['spring.profiles.active']}")
-	private String jsFileNm;
-
-	@Value("${upload.path}")
-	private String path;
-			
 	@RequestMapping(value = "/pathobject.do", method = RequestMethod.POST)
 	@ResponseBody
 	public Object getPathObject(HttpServletRequest request) throws Exception {
-		
+
 		return path;
 	}
-	
+
+	@RequestMapping(value = "/likesobject.do", method = RequestMethod.POST)
+	@ResponseBody
+	public Object getLikesObject(HttpServletRequest request, HttpSession session) throws Exception {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		Customer customer = (Customer) session.getAttribute("customer");
+
+		if (customer == null) {
+			map.put("result", "fail");
+			return map;
+		}
+		
+		List<Like> likes = likeDao.selectList(customer.getIndex());
+		map.put("likes", likes);
+		return map;
+	}
+
 	@Value("${upload.path}")
-	private String imagePath;
-	
+	private String path;
+
 	@RequestMapping(value = "/reservsobject.do", method = RequestMethod.POST)
 	@ResponseBody
 	public Object getImageObject(HttpServletRequest request, HttpSession session) throws Exception {
@@ -432,18 +459,18 @@ public class AjaxController {
 		String[] week = { "일", "월", "화", "수", "목", "금", "토" };
 
 		Customer customer = (Customer) session.getAttribute("customer");
-		
+
 		if (customer == null) {
 			map.put("result", "fail");
 			return map;
 		}
-		
+
 		List<ReservItem> reservItems = new ArrayList<ReservItem>();
 		List<Pay> pays = payDao.selectList(customer.getIndex());
-		
+
 		for (Pay pay : pays) {
 			if (pay == null) {
-				
+
 				break;
 			}
 
@@ -454,90 +481,80 @@ public class AjaxController {
 			Date date = df.parse(rev.getDate() + rev.getStartTime());
 			Calendar cal = Calendar.getInstance();
 			cal.setTime(date);
-			
-			rev.setWeek(week[cal.get(Calendar.DAY_OF_WEEK) -1]);
+
+			rev.setWeek(week[cal.get(Calendar.DAY_OF_WEEK) - 1]);
 			cal.add(Calendar.MINUTE, rev.getMovieRunningTime());
 			rev.setEndTime(time.format(cal.getTime()));
-			
+
 			String reservSeat = "";
 			String reservPerson = "";
 			int adultCount = 0;
 			int teenagerCount = 0;
-			
+
 			for (Reserv reserv : reservs) {
-				reservSeat += (char)(reserv.getSeatY() + 64) + "열" + reserv.getSeatX() + "번 ";
-				if(reserv.getPayCategory() == 1) {
+				reservSeat += (char) (reserv.getSeatY() + 64) + "열" + reserv.getSeatX() + "번 ";
+				if (reserv.getPayCategory() == 1) {
 					adultCount++;
 				} else {
 					teenagerCount++;
 				}
 			}
-			if(adultCount > 0) {
-				reservPerson += "성인 " + adultCount +"명 ";
+			if (adultCount > 0) {
+				reservPerson += "성인 " + adultCount + "명 ";
 			}
-			
-			if(teenagerCount > 0) {
-				reservPerson += "청소년 " + teenagerCount +"명";
+
+			if (teenagerCount > 0) {
+				reservPerson += "청소년 " + teenagerCount + "명";
 			}
-			
-			String pathPoster = imagePath + "/poster/" + rev.getMoviePoster();
-			String pathAge = request.getSession().getServletContext().getRealPath("/images/icon/age_" + rev.getMovieLimitAge() + ".png");
+
+			String pathPoster = path + "/poster/" + rev.getMoviePoster();
+			String pathAge = request.getSession().getServletContext()
+					.getRealPath("/images/icon/age_" + rev.getMovieLimitAge() + ".png");
 
 			byte[] imagePoster = IOUtils.toByteArray(new FileInputStream(pathPoster));
 			byte[] imageAge = IOUtils.toByteArray(new FileInputStream(pathAge));
-			
-			reservItems.add(
-					new ReservItem()
-					.setIndexMovie(rev.getIndexMovie())
-					.setMovie(rev.getMovieTitle())
-					.setDate(rev.getDate() + " " + rev.getStartTime())
-					.setCinema(rev.getCinemaTitle())
-					.setTheater(rev.getTheaterTitle())
-					.setCustomer(reservPerson)
-					.setSeat(reservSeat)
-					.setPoster(new String(Base64.encodeBase64(imagePoster) , "UTF-8"))
-					.setAge(new String(Base64.encodeBase64(imageAge) , "UTF-8"))
-			);
+
+			reservItems.add(new ReservItem().setIndexMovie(rev.getIndexMovie()).setMovie(rev.getMovieTitle())
+					.setDate(rev.getDate() + " " + rev.getStartTime()).setCinema(rev.getCinemaTitle())
+					.setTheater(rev.getTheaterTitle()).setCustomer(reservPerson).setSeat(reservSeat)
+					.setPoster(new String(Base64.encodeBase64(imagePoster), "UTF-8"))
+					.setAge(new String(Base64.encodeBase64(imageAge), "UTF-8")));
 		}
 
-		
 		map.put("result", "success");
 		map.put("reservs", reservItems);
-		
+
 		return map;
 	}
-	
+
 	@RequestMapping(value = "/aroundobject.do", method = RequestMethod.POST)
 	@ResponseBody
 	public Object getAroundObject(String lat, String lng) throws Exception {
 		HashMap<String, Object> paramMap = new HashMap<String, Object>();
 		paramMap.put("lat", lat);
 		paramMap.put("lng", lng);
-		
+
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("arounds", theaterDao.selectListAround(paramMap));
-		
 
 		return map;
 	}
-	
+
 	@RequestMapping(value = "/dateobject.do", method = RequestMethod.POST)
 	@ResponseBody
 	public Object getDateObject(int index) throws Exception {
 
 		HashMap<String, Object> map = new HashMap<String, Object>();
 
-
 		return map;
 	}
-	
+
 	@RequestMapping(value = "/reservobject.do", method = RequestMethod.POST)
 	@ResponseBody
 	public Object getReservObject(int index) throws Exception {
 
 		HashMap<String, Object> map = new HashMap<String, Object>();
 
-		
 		map.put("reservs", reservDao.selectList(index));
 
 		return map;
@@ -548,14 +565,14 @@ public class AjaxController {
 	public Object getPayObject(String uid) throws Exception {
 
 		HashMap<String, Object> map = new HashMap<String, Object>();
-		
+
 		Object iamPay = ((HashMap<String, Object>) IamPay.getPaymentObject(uid)).get("result");
-		
+
 		map.put("result", iamPay);
 
 		return map;
 	}
-	
+
 	@RequestMapping(value = "/reservation.do", method = RequestMethod.POST)
 	@ResponseBody
 	public Object getReservationObject(@RequestParam String jsonData, String uid, HttpSession session)
@@ -568,8 +585,8 @@ public class AjaxController {
 			JSONArray array = JSONArray.fromObject(jsonData);
 
 			List<Reserv> reservs = new ArrayList<Reserv>();
-			List<PayType> payType = payTypeDao.selectList(); 
-			
+			List<PayType> payType = payTypeDao.selectList();
+
 			// 실제로 결제한 티켓의 금액을 합산.
 			int totalAmount = 0;
 			for (int i = 0; i < array.size(); i++) {
@@ -604,20 +621,18 @@ public class AjaxController {
 				map.put("message", "결제내역이 없습니다.");
 				return map;
 			}
-			
-			Payment payment = (Payment)iamPay;
-			
+
+			Payment payment = (Payment) iamPay;
+
 			// 결제되어야 할 금액이 맞는지 체크. 다르다면 결제를 취소하고 오류를 리턴.
-			if(totalAmount != payment.getAmount().intValue())
-			{
+			if (totalAmount != payment.getAmount().intValue()) {
 				IamPay.getCancelPaymentObject(uid);
 				map.put("result", "fail");
 				map.put("message", "결제금액이 불일치 합니다.");
 				return map;
 			}
 			map.put("pay", payment);
-			
-			
+
 			Pay pay = new Pay();
 			pay.setAmount(payment.getAmount().intValue());
 			pay.setCustomerIndex(customer.getIndex());
@@ -635,10 +650,10 @@ public class AjaxController {
 			}
 
 			map.put("result", "success");
-			map.put("index",pay.getIndex());
-			
+			map.put("index", pay.getIndex());
+
 			IamPay.getCancelPaymentObject(uid);
-			
+
 			return map;
 		}
 		return -1;
