@@ -2,11 +2,49 @@
 /* DESKTOP */
 @media only screen and (min-width: 1280px) {
     .banner {height: 100vh;}
+    .reserv_section1 {display: flex;}
+    .reserv > .reserv_section2 > .reserv_more {display: flex; }
+    .reserv {padding: 60px 0}
+    .qration {padding: 60px 0}
+    .qration > .qration_content {
+        width: var(--default--width);
+        margin: 0 auto;
+        grid-area: qration_info;
+        display: grid;
+        grid-template-areas:
+        "title title title"
+        "content . info"
+        "content . post";
+        grid-template-columns: 300px auto 800px;
+        grid-template-rows: 60px 300px auto;
+        height: 100%;
+        color: black;} 
+    .qration > .qration_content > .qration_post {display: flex;}
+    .qration > .qration_content > .qration_title {display: flex;}
+    .qration > .qration_content > .qration_post > div > img {width: 170px; border-radius:8px;}
+    .qration > .qration_content > .qration_post > div > .icon {width: 40px; position:absolute; margin-top: -7px; margin-left: 7px; border-radius: 0;}
+    .qration > .qration_content > .qration_post{font-size: 12pt;}
+    .qration > .qration_content > .qration_title > .title{font-size: 25pt;}
+    .reserv > .reserv_section2 .reserv_list > div > :nth-child(1) > :nth-child(1) {font-size: 24pt;}
+    .reserv > .reserv_section2 .reserv_list > div > :nth-child(2) > span{font-size: 13pt;}
+    .reserv > .reserv_section2 .reserv_list > div > :nth-child(3) {font-size: 10pt;}
+    .reserv > .reserv_section2 .reserv_list > div > :nth-child(4) > div {height: 35px;}
 }
 
 /* Mobile 가로모드*/
 @media only screen and (max-width: 1279px) {
 	.banner {height: 600px}
+
+    .reserv_section1 {display: none;}
+    .reserv > .reserv_section2 > .reserv_more {display: none; }
+    .reserv_arrow_left,
+	.reserv_arrow_right {display: none}
+    .reserv {padding: 60px 20px;}
+    .reserv > .reserv_section2 .reserv_list > div > :nth-child(1) > :nth-child(1) {font-size: 34pt;}
+    .reserv > .reserv_section2 .reserv_list > div > :nth-child(2) > span{font-size: 24pt;}
+    .reserv > .reserv_section2 .reserv_list > div > :nth-child(3) {font-size: 16pt;}
+    .reserv > .reserv_section2 .reserv_list > div > :nth-child(4) > div {height: 65px;}
+    .qration {display: none;}
 }
 
 header {background-color: rgba(0,0,0,0.6);}
@@ -67,11 +105,10 @@ nav.active {background-color: rgba(0,0,0,0.9);}
 .reserv {
     background: #07072b; 
     background-image:url('../images/bg/transparent-bg.png');
-    padding: 60px 0;
 }
 
 /* 첫번째 section 예매부분 */
-.reserv > .reserv_section1 {width: var(--default--width); margin: 0 auto; display: flex; justify-content:space-evenly; background: black; margin-bottom: 80px;}
+.reserv > .reserv_section1 {width: var(--default--width); margin: 0 auto; justify-content:space-evenly; background: black; margin-bottom: 80px;}
 .reserv > .reserv_section1 > span {display: flex; color: #c5c5c5; align-items: center; justify-content: center;}
 .reserv > .reserv_section1 > span:hover {cursor: pointer;}
 .reserv > .reserv_section1 > span i {font-size: 35px; margin-right: 25px;}               /* font awesome 아이콘 사이즈 */
@@ -81,7 +118,7 @@ nav.active {background-color: rgba(0,0,0,0.9);}
 
 .reserv > .reserv_section2 {width: var(--default--width); margin: 0 auto; position: relative;} 
 .reserv > .reserv_section2 > .reserv_more 
-{display: flex; justify-content: flex-end; margin-bottom: 15px; color: #dbdbdb; cursor:pointer} /* 더많은 영화 보기 */
+{justify-content: flex-end; margin-bottom: 15px; color: #dbdbdb; cursor:pointer} /* 더많은 영화 보기 */
 .reserv > .reserv_section2 > .reserv_arrow_left {position: absolute; top:40%; left: -80px; cursor:pointer}
 .reserv > .reserv_section2 > .reserv_arrow_right {position: absolute; top:40%; right: -80px; cursor:pointer}
 
@@ -89,21 +126,21 @@ nav.active {background-color: rgba(0,0,0,0.9);}
 .reserv > .reserv_section2 .reserv_list > div > div {width: 270px;} */
 .reserv > .reserv_section2 .reserv_list > div > :nth-child(1) {display: flex; justify-content: space-between; position: relative;}
 .reserv > .reserv_section2 .reserv_list > div > :nth-child(1) > :nth-child(1) 
-{position: absolute; width: 100%; height: 150px; top: 0; left: 0; font-size: 24pt; font-style: italic; color:#fff; text-shadow: 2px 2px 2px rgba(0,0,0,0.8); background: url('../images/bg/bg-main-movie-rank.png') no-repeat; border-radius: 10px;}     /* 상영등급 */
+{position: absolute; width: 100%; height: 150px; top: 0; left: 0; font-style: italic; color:#fff; text-shadow: 2px 2px 2px rgba(0,0,0,0.8); background: url('../images/bg/bg-main-movie-rank.png') no-repeat; border-radius: 10px;}     /* 상영등급 */
 .reserv > .reserv_section2 .reserv_list > div > :nth-child(1) > :nth-child(1) > p {margin: 5px 10px;}
 .reserv > .reserv_section2 .reserv_list > div > :nth-child(1) > :nth-child(2) {width: 100%; border-radius: 10px; cursor:pointer;}            /* 이미지 크기 */
 .reserv > .reserv_section2 .reserv_list > div > :nth-child(1) > :nth-child(3) {display: none;}     /* 상영등급 */
 .reserv > .reserv_section2 .reserv_list > div > :nth-child(2)
     {background-color: rgba(0,0,0,0.0); padding-top: 15px;}                    /* 영화 제목 타이틀 */
 .reserv > .reserv_section2 .reserv_list > div > :nth-child(2) > span 
-    {display: block; text-align: center; font-size: 13pt; color: #fff; font-weight: bold; white-space:nowrap; text-overflow: ellipsis; overflow:hidden;}    /* 영화제목 */
+    {display: block; text-align: center; color: #fff; font-weight: bold; white-space:nowrap; text-overflow: ellipsis; overflow:hidden;}    /* 영화제목 */
 .reserv > .reserv_section2 .reserv_list > div > :nth-child(3)       /* 영화 서브 타이틀 */
-    {background-color: rgba(0,0,0,0.0); padding: 5px 0 15px 0; font-size: 10pt; color: #fff; display: flex; justify-content: center; align-items: center;}
+    {background-color: rgba(0,0,0,0.0); padding: 5px 0 15px 0; color: #fff; display: flex; justify-content: center; align-items: center;}
 .reserv > .reserv_section2 .reserv_list > div > :nth-child(3) > span:nth-child(2) {padding: 0 5px;}                 /* | */
 .reserv > .reserv_section2 .reserv_list > div > :nth-child(4) {display: flex; justify-content: center; ;}      /* 4번째 DIV(예매버튼) 정렬 */
 
 .reserv > .reserv_section2 .reserv_list > div > :nth-child(4) > div 
-    {background-color: #2b3380; width: 75%;  border-radius: 7px; border-style: none; color: #fff; height: 35px; border-radius: 0px; display: flex; justify-content: center; align-items:center;}   /* 버튼 설정 */
+    {background-color: #2b3380; width: 75%;  border-radius: 7px; border-style: none; color: #fff; border-radius: 0px; display: flex; justify-content: center; align-items:center;}   /* 버튼 설정 */
 
 .reserv > .reserv_section2 .reserv_list > span {margin: 0 0 0 0;}
 .reserv > .reserv_section2 .reserv_list > span > img {width: 270px;}
@@ -113,27 +150,13 @@ nav.active {background-color: rgba(0,0,0,0.9);}
     background-color: #2b3380; color: #ffffff; font-size: 12pt; cursor: pointer; border-style: hidden;}
 
 .qration {
-    padding: 60px 0;
     background:linear-gradient(to top, #252451 50%, #2b3380 50% );
 }
-.qration > .qration_content {
-    width: var(--default--width);
-    margin: 0 auto;
-    grid-area: qration_info;
-    display: grid;
-    grid-template-areas:
-    "title title title"
-    "content . info"
-    "content . post";
-    grid-template-columns: 300px auto 800px;
-    grid-template-rows: 60px 300px auto;
-    height: 100%;
-    color: black;} 
 
 .qration > .qration_content {color: #fff;}
 .qration > .qration_content > .qration_title 
-    {grid-area: title; width: 100%; display: flex; justify-content: space-between;}
-.qration > .qration_content > .qration_title > .title {display: flex; align-items: center; font-size: 25px; font-weight: 500; color: #dbdbdb;}
+    {grid-area: title; width: 100%; justify-content: space-between;}
+.qration > .qration_content > .qration_title > .title {display: flex; align-items: center; font-weight: 500; color: #dbdbdb;}
 .qration > .qration_content > .qration_title > .more {color: #dbdbdb; cursor: pointer;}
 .qration > .qration_content > .qration_main {grid-area: content;}
 .qration > .qration_content > .qration_main > div {display: flex; justify-content: space-between;}
@@ -152,8 +175,7 @@ nav.active {background-color: rgba(0,0,0,0.9);}
     {font-size: 24px; font-weight: 700; border-bottom: 1px solid #5d64ab; line-height: 2.5;}
 .qration > .qration_content > .qration_sub_info > div:nth-child(3) {padding-top: 13px; line-height: 1.5; height: 150px; overflow: hidden; font-size: 16px;}
 .qration > .qration_content > .qration_post
-    { grid-area: post; display: flex; justify-content: space-between; align-items: center; font-size: 12px; cursor:pointer;}
+    { grid-area: post; justify-content: space-between; align-items: center; cursor:pointer;}
 .qration > .qration_content > .qration_post > div {display: flex; flex-direction: column; margin-top: 10px;}
 .qration > .qration_content > .qration_post > div > div {text-align: center; line-height: 3;}
-.qration > .qration_content > .qration_post > div > .icon {width: 40px; position:absolute; margin-top: -7px; margin-left: 7px; border-radius: 0;}
-.qration > .qration_content > .qration_post > div > img {width: 170px; border-radius:8px;}
+

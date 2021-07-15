@@ -21,6 +21,7 @@ public class ErrorController {
 	@ExceptionHandler(Exception.class)
 	public ModelAndView common(Exception e, HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView();
+		mav.addObject("error",e);
 		mav.setViewName("/cinema/error/ErrorForm.jsp");		
 		return mav;
 	}

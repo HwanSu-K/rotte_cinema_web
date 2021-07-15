@@ -14,9 +14,7 @@
     {width: 60px; height: 53px; background: url('../images/icon/sub2_choice1_movie.png'); background-repeat: no-repeat; margin-bottom: 20px;}
 .reserv_choice > .reserv_type > div:last-child > div:first-child
     {width: 60px; height: 53px; background: url('../images/icon/sub2_choice2_theater.png'); background-repeat: no-repeat; margin-bottom: 20px;}
-.reserv_choice > .reserv_type > div:first-child > div:first-child,
 .reserv_choice > .reserv_type > div.active:first-child > div:first-child {width: 60px; height: 53px;background: url('../images/icon/sub2_choice1_movie_wh.png'); background-repeat: no-repeat;}
-.reserv_choice > .reserv_type > div:last-child > div:first-child,
 .reserv_choice > .reserv_type > div.active:last-child > div:first-child {width: 60px; height: 53px;background: url('../images/icon/sub2_choice2_theater_wh.png'); background-repeat: no-repeat;}
 .reserv_choice > section ,
 .reserv_choice > section {display: none; width: 1000px; justify-content: space-between;}

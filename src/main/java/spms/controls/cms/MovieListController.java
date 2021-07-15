@@ -54,11 +54,7 @@ public class MovieListController {
 				new File(realPath).mkdirs();
 			}
 			// 파일 복사
-			try {
-				FileCopyUtils.copy(imageFile.getBytes(), target);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+			FileCopyUtils.copy(imageFile.getBytes(), target);
 		}
 
 		movieDao.insert(movie);
@@ -100,11 +96,7 @@ public class MovieListController {
 				new File(realPath).mkdirs();
 			}
 			// 파일 복사
-			try {
-				FileCopyUtils.copy(imageFile.getBytes(), target);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+			FileCopyUtils.copy(imageFile.getBytes(), target);
 		}
 		
 		movieDao.update(movie);

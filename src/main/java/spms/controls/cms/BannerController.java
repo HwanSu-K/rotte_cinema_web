@@ -14,7 +14,6 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import spms.dao.BannerDao;
-import spms.dao.MovieDao;
 import spms.vo.Banner;
 
 //@RequestParam 적용
@@ -60,11 +59,7 @@ public class BannerController {
 				new File(realPath).mkdirs();
 			}
 			// 파일 복사
-			try {
-				FileCopyUtils.copy(imageFile.getBytes(), target);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+			FileCopyUtils.copy(imageFile.getBytes(), target);
 		}
 
 		// 업로드 된 경우에만 객체에 삽입
@@ -77,11 +72,7 @@ public class BannerController {
 				new File(realPath).mkdirs();
 			}
 			// 파일 복사
-			try {
-				FileCopyUtils.copy(videoFile.getBytes(), target);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+			FileCopyUtils.copy(videoFile.getBytes(), target);
 		}
 
 		bannerDao.insert(banner);
@@ -108,7 +99,7 @@ public class BannerController {
 	
 	@RequestMapping(value = "/cms/banner/update.do", method = RequestMethod.POST)
 	public String updatePost(MultipartHttpServletRequest request, Banner banner) throws Exception {
-
+	
 		MultipartFile imageFile = request.getFile("image");
 		MultipartFile videoFile = request.getFile("video");
 
@@ -127,11 +118,7 @@ public class BannerController {
 				new File(realPath).mkdirs();
 			}
 			// 파일 복사
-			try {
-				FileCopyUtils.copy(imageFile.getBytes(), target);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+			FileCopyUtils.copy(imageFile.getBytes(), target);
 		}
 
 		// 업로드 된 경우에만 객체에 삽입
@@ -145,11 +132,7 @@ public class BannerController {
 				new File(realPath).mkdirs();
 			}
 			// 파일 복사
-			try {
-				FileCopyUtils.copy(videoFile.getBytes(), target);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+			FileCopyUtils.copy(videoFile.getBytes(), target);
 		}
 
 		bannerDao.update(banner);

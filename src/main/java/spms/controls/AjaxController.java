@@ -320,18 +320,23 @@ public class AjaxController {
 	@ResponseBody
 	public Object getfinderObject(Customer customer) throws Exception {
 		HashMap<String, Object> map = new HashMap<String, Object>();
-		map.put("customer", customerDao.finder(customer));
+		Customer customerFinder = customerDao.finder(customer);
+		
+		if(customerFinder != null) {
+			map.put("customer", customerFinder);
 
-		if (customer.getEmail() != null) {
+			if (customer.getEmail() != null) {
 
-			// 랜덤키 12자리 발생후 등록
-			customer.setKey(Rand.code());
-			// 입력받은 패스워드를 암호화해서 저장.
-			customerDao.updateKey(customer);
-			String title = "비밀번호 변경 메일입니다.";
-			String content = "https://kumas.dev/rotte_cinema/password.do?key=" + customer.getKey();
-			new MailSend().send(mailSender, customer.getEmail(), title, content);
+				// 랜덤키 12자리 발생후 등록
+				customer.setKey(Rand.code());
+				// 입력받은 패스워드를 암호화해서 저장.
+				customerDao.updateKey(customer);
+				String title = "비밀번호 변경 메일입니다.";
+				String content = "https://kumas.dev/rotte_cinema/password.do?key=" + customer.getKey();
+				new MailSend().send(mailSender, customer.getEmail(), title, content);
+			}
 		}
+		
 		return map;
 	}
 
@@ -438,20 +443,6 @@ public class AjaxController {
 		Cinema detailInfo = cinemaDao.selectOneDefault(cinema.getIndex());
 		map.put("cinema", detailInfo);
 		return map;
-	}
-
-	@RequestMapping(value = "/test.do")
-	@ResponseBody
-	public Object setPushObject(int no, String title, String body) throws Exception {
-		try {
-			String URL = "https://www.kobis.or.kr/kobis/business/stat/boxs/findRealTicketList.do";
-
-			Connection conn = Jsoup.connect(URL);
-			Document html = conn.get();
-			return html.toString();
-		} catch (Exception e) {
-			return e;
-		}
 	}
 
 	@RequestMapping(value = "/customerobject.do", method = RequestMethod.POST)
