@@ -90,7 +90,11 @@ $(document).ready(function() {
 			amount();
 		}
 	});
-
+	
+	$('.reserv_reset').on('click',function() {
+		init();
+	});
+	
 	// 합계가격 표시.
 	function amount() {
 		const adult = parseInt($('#adult_count').text()) * adultAmount;

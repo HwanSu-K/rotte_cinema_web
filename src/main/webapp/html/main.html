@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
     <link rel="stylesheet" href="../style/default.css" />
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <script src="./js/default.js"></script>
+    <script src="https://kumas.dev/rotte_cinema/js/default.js"></script>
     
     <link rel="stylesheet" href="../style/main.css" />
     <script src="../js/main.js"></script>
@@ -21,52 +21,66 @@
 <div class="content">  
     <section class="banner">  <!-- 배너영역 -->
         <div class="banner_img">
-            <div class="active" style="background-image:url(../images/banner/Jam_1920774.jpg);"></div>
-            <div style="background-image:url(../images/banner/Dark_1920774.jpg);"></div>
-            <div style="background-image:url(../images/banner/Place_1920774.jpg);"></div>
-            <div style="background-image:url(../images/banner/Killer_1920774.jpg);"></div>
-        </div>
+        	
+        	<div class="" style="background-image:url(https://kumas.dev/images/banner/Black_1920774.jpg);"></div>
+			
+        	<div class="active" style="background-image:url(https://kumas.dev/images/banner/Bus_1920774.jpg);"></div>
+			
+        	<div class="" style="background-image:url(https://kumas.dev/images/banner/Ice_1920774.jpg);"></div>
+			
+        	<div class="" style="background-image:url(https://kumas.dev/images/banner/Moga_1920774.jpg);"></div>
+			
+        	<div class="" style="background-image:url(https://kumas.dev/images/banner/Squad_1920774.jpg);"></div>
+			
+        </div> 
         <div class="video">
             <div>
-                <video loop>
-                    <source src="../images/banner/Jam_1280720.mp4">
-                </video>
-                <video loop>
-                    <source src="../images/banner/Dark_1280720.mp4">
-                </video>
-                <video loop>
-                    <source src="../images/banner/Place_1280720.mp4">
-                </video>
-                <video loop>
-                    <source src="../images/banner/Killer_1280720.mp4">
-                </video>
+	            
+	            <video loop=""><source src="https://kumas.dev/images/banner/Black_1280720.mp4"></video>
+				
+	            <video loop=""><source src="https://kumas.dev/images/banner/Bus_1280720.mp4"></video>
+				
+	            <video loop=""><source src="https://kumas.dev/images/banner/Ice_1280720.mp4"></video>
+				
+	            <video loop=""><source src="https://kumas.dev/images/banner/Moga_1280720.mp4"></video>
+				
+	            <video loop=""><source src="https://kumas.dev/images/banner/Squad_1280720.mp4"></video>
+				
             </div>
             <div class="mask"></div>
         </div>
         <div class="banner_icon">        <!-- 화살표 아이콘  < >  -->
-            <div><img src="../images/icon/banner_arrow_icon01.png"></div>
-            <span class="banner_play"><img src="../images/icon/play_icon.png"></span>                   <!--play 아이콘-->
-            <div><img src="../images/icon/banner_arrow_icon02.png"></div>
+            <div><img src="https://kumas.dev/rotte_cinema/images/icon/banner_arrow_icon01.png"></div>
+            <span class="banner_play"><img src="https://kumas.dev/rotte_cinema/images/icon/play_icon.png"></span>                   <!--play 아이콘-->
+            <div><img src="https://kumas.dev/rotte_cinema/images/icon/banner_arrow_icon02.png"></div>
         </div>
         <div class="dots">
-			<div class="active"></div>
-			<div></div>
-			<div></div>
-			<div></div>
+			
+        	<div class=""></div>
+			
+        	<div class="active"></div>
+			
+        	<div class=""></div>
+			
+        	<div class=""></div>
+			
+        	<div class=""></div>
+			
         </div>
     </section>
+
     <section class="reserv">
         <div class="reserv_section1">        <!-- reserv클래스 안의 section 01 영역 -->
-            <span>
+            <span onclick="location.href ='movie.do'">
                 <span><i class="fas fa-film"></i></span>            <!--1번 아이콘부분-->
                 <span>
                     <div>Movie</div>
                     <div>전체영화</div>
                 </span>
             </span>
-            <span><img src="../images/icon/section2_line.png"></span>     <!--Line 아이콘부분-->
+            <span><img src="https://kumas.dev/rotte_cinema/images/icon/section2_line.png"></span>     <!--Line 아이콘부분-->
 
-            <span>
+            <span onclick="location.href ='schedule.do'">
                 <span><i class="far fa-calendar-alt"></i></span>            <!--2번 아이콘부분-->
                 <span>
                     <div>Timetable</div>
@@ -74,9 +88,9 @@
                 </span>
             </span>
 
-            <span><img src="../images/icon/section2_line.png"></span>     <!--Line 아이콘부분-->
+            <span><img src="https://kumas.dev/rotte_cinema/images/icon/section2_line.png"></span>     <!--Line 아이콘부분-->
 
-            <span>
+            <span onclick="location.href ='ticketing.do'">
                 <span><i class="fas fa-ticket-alt"></i></span>            <!--3번 아이콘부분-->
                 <span>
                     <div>Ticketing</div>
@@ -86,33 +100,133 @@
         </div>        
         <div class="reserv_section2">        <!-- reserv클래스 안의 section 02 포스트 슬라이드 영역 -->
             <div class="reserv_more">
-	            <span onclick="location.href ='movie.html'">
+	            <span onclick="location.href ='movie.do'">
 	                <span>더 많은 영화보기</span>
-	                <img src="../images/icon/plus_icon.png">
+	                <img src="https://kumas.dev/rotte_cinema/images/icon/plus_icon.png">
 	            </span>
             </div>
             <div class="reserv_arrow_left">
-                <img src="../images/icon/section2_arrow_left.png">    <!-- 화살표 아이콘 -->
+                <img src="https://kumas.dev/rotte_cinema/images/icon/section2_arrow_left.png">    <!-- 화살표 아이콘 -->
             </div>
             <div class="reserv_arrow_right">
-                <img src="../images/icon/section2_arrow_right.png">   <!-- 화살표 아이콘 -->
+                <img src="https://kumas.dev/rotte_cinema/images/icon/section2_arrow_right.png">   <!-- 화살표 아이콘 -->
             </div>
-            <div class="lSSlideOuter "><div class="lSSlideWrapper usingCss"><div class="reserv_list lightSlider lsGrab lSSlide" style="width: 5412px; height: 418px; padding-bottom: 0%; transform: translate3d(0px, 0px, 0px);">
+            <div class="lSSlideOuter "><div class="lSSlideWrapper usingCss"><div class="reserv_list lightSlider lsGrab lSSlide" style="width: 6150px; height: 419px; padding-bottom: 0%; transform: translate3d(0px, 0px, 0px);">
             
                 <div class="lslide active" style="width: 216px; margin-right: 30px;">
-                    <div onclick="location.href ='moviedetail.do?index=1'">
+                    <div onclick="location.href ='moviedetail.do?index=17'">
                     	<div><p>1</p></div>
-                        <img src="../images/poster/8d6BF2d0Yaq4iVCGXKO160dzsmhKI09m_420.jpg">
-                        <img src="../images/icon/age_18.png">
+                        <img src="https://kumas.dev/images/poster/gD32uTBzzyhwn3jfo0Dreen21yOreg1G_420.jpg">
+                        <img src="https://kumas.dev/rotte_cinema/images/icon/age_12.png">
+                    </div>
+                    <div>
+                        <span>블랙 위도우</span>
+                    </div>
+                    <div>
+                        <span>예매율 54.5%</span>
+                        <span>|</span>
+                        <img src="https://kumas.dev/rotte_cinema/images/icon/post_infobox_icon.png">
+                        <span>7.0</span>
+                    </div>
+                    <div>
+                        <div onclick="location.href ='ticketing.do?index=17'">예매</div>
+                    </div>
+                </div>
+			
+                <div class="lslide" style="width: 216px; margin-right: 30px;">
+                    <div onclick="location.href ='moviedetail.do?index=11'">
+                    	<div><p>2</p></div>
+                        <img src="https://kumas.dev/images/poster/V1W8UlEDi3QS64EsqKtCfv57jCyjBRGv_420.jpg">
+                        <img src="https://kumas.dev/rotte_cinema/images/icon/age_15.png">
+                    </div>
+                    <div>
+                        <span>그 여름, 가장 차가웠던</span>
+                    </div>
+                    <div>
+                        <span>예매율 20.5%</span>
+                        <span>|</span>
+                        <img src="https://kumas.dev/rotte_cinema/images/icon/post_infobox_icon.png">
+                        <span>9.5</span>
+                    </div>
+                    <div>
+                        <div onclick="location.href ='ticketing.do?index=11'">예매</div>
+                    </div>
+                </div>
+			
+                <div class="lslide" style="width: 216px; margin-right: 30px;">
+                    <div onclick="location.href ='moviedetail.do?index=7'">
+                    	<div><p>3</p></div>
+                        <img src="https://kumas.dev/images/poster/7deO12OmPdV0fCZlT1YA68dpI6mOGDKI_420.jpg">
+                        <img src="https://kumas.dev/rotte_cinema/images/icon/age_18.png">
+                    </div>
+                    <div>
+                        <span>캐시트럭</span>
+                    </div>
+                    <div>
+                        <span>예매율 11.4%</span>
+                        <span>|</span>
+                        <img src="https://kumas.dev/rotte_cinema/images/icon/post_infobox_icon.png">
+                        <span>0.0</span>
+                    </div>
+                    <div>
+                        <div onclick="location.href ='ticketing.do?index=7'">예매</div>
+                    </div>
+                </div>
+			
+                <div class="lslide" style="width: 216px; margin-right: 30px;">
+                    <div onclick="location.href ='moviedetail.do?index=23'">
+                    	<div><p>4</p></div>
+                        <img src="https://kumas.dev/images/poster/8oW4b6TcvHySvWGnSYx0Wk7TUn7WH6af_420.jpg">
+                        <img src="https://kumas.dev/rotte_cinema/images/icon/age_12.png">
+                    </div>
+                    <div>
+                        <span>크레센도</span>
+                    </div>
+                    <div>
+                        <span>예매율 11.4%</span>
+                        <span>|</span>
+                        <img src="https://kumas.dev/rotte_cinema/images/icon/post_infobox_icon.png">
+                        <span>7.0</span>
+                    </div>
+                    <div>
+                        <div onclick="location.href ='ticketing.do?index=23'">예매</div>
+                    </div>
+                </div>
+			
+                <div class="lslide" style="width: 216px; margin-right: 30px;">
+                    <div onclick="location.href ='moviedetail.do?index=10'">
+                    	<div><p>5</p></div>
+                        <img src="https://kumas.dev/images/poster/740iTHNvhmJgBNh1yNOsPBCQzABfdfgn_420.jpg">
+                        <img src="https://kumas.dev/rotte_cinema/images/icon/age_15.png">
+                    </div>
+                    <div>
+                        <span>컨저링3: 악마가 시켰다</span>
+                    </div>
+                    <div>
+                        <span>예매율 2.3%</span>
+                        <span>|</span>
+                        <img src="https://kumas.dev/rotte_cinema/images/icon/post_infobox_icon.png">
+                        <span>8.33</span>
+                    </div>
+                    <div>
+                        <div onclick="location.href ='ticketing.do?index=10'">예매</div>
+                    </div>
+                </div>
+			
+                <div class="lslide" style="width: 216px; margin-right: 30px;">
+                    <div onclick="location.href ='moviedetail.do?index=1'">
+                    	<div><p>6</p></div>
+                        <img src="https://kumas.dev/images/poster/8d6BF2d0Yaq4iVCGXKO160dzsmhKI09m_420.jpg">
+                        <img src="https://kumas.dev/rotte_cinema/images/icon/age_18.png">
                     </div>
                     <div>
                         <span>킬러의 보디가드 2</span>
                     </div>
                     <div>
-                        <span>예매율 75.0%</span>
+                        <span>예매율 0.0%</span>
                         <span>|</span>
-                        <img src="../images/icon/post_infobox_icon.png">
-                        <span>7.67</span>
+                        <img src="https://kumas.dev/rotte_cinema/images/icon/post_infobox_icon.png">
+                        <span>9.85</span>
                     </div>
                     <div>
                         <div onclick="location.href ='ticketing.do?index=1'">예매</div>
@@ -121,18 +235,18 @@
 			
                 <div class="lslide" style="width: 216px; margin-right: 30px;">
                     <div onclick="location.href ='moviedetail.do?index=2'">
-                    	<div><p>2</p></div>
-                        <img src="../images/poster/x3UYeEs3EarcB4f5VfBSoySRtAAhvuvw_420.jpg">
-                        <img src="../images/icon/age_15.png">
+                    	<div><p>7</p></div>
+                        <img src="https://kumas.dev/images/poster/x3UYeEs3EarcB4f5VfBSoySRtAAhvuvw_420.jpg">
+                        <img src="https://kumas.dev/rotte_cinema/images/icon/age_15.png">
                     </div>
                     <div>
                         <span>발신제한</span>
                     </div>
                     <div>
-                        <span>예매율 25.0%</span>
+                        <span>예매율 0.0%</span>
                         <span>|</span>
-                        <img src="../images/icon/post_infobox_icon.png">
-                        <span>8.0</span>
+                        <img src="https://kumas.dev/rotte_cinema/images/icon/post_infobox_icon.png">
+                        <span>7.5</span>
                     </div>
                     <div>
                         <div onclick="location.href ='ticketing.do?index=2'">예매</div>
@@ -141,9 +255,9 @@
 			
                 <div class="lslide" style="width: 216px; margin-right: 30px;">
                     <div onclick="location.href ='moviedetail.do?index=3'">
-                    	<div><p>3</p></div>
-                        <img src="../images/poster/J7vthd2FWEXswHD67dL2rQrMW4uhJQUF_420.jpg">
-                        <img src="../images/icon/age_12.png">
+                    	<div><p>8</p></div>
+                        <img src="https://kumas.dev/images/poster/J7vthd2FWEXswHD67dL2rQrMW4uhJQUF_420.jpg">
+                        <img src="https://kumas.dev/rotte_cinema/images/icon/age_12.png">
                     </div>
                     <div>
                         <span>크루엘라</span>
@@ -151,8 +265,8 @@
                     <div>
                         <span>예매율 0.0%</span>
                         <span>|</span>
-                        <img src="../images/icon/post_infobox_icon.png">
-                        <span>7.0</span>
+                        <img src="https://kumas.dev/rotte_cinema/images/icon/post_infobox_icon.png">
+                        <span>0.0</span>
                     </div>
                     <div>
                         <div onclick="location.href ='ticketing.do?index=3'">예매</div>
@@ -161,9 +275,9 @@
 			
                 <div class="lslide" style="width: 216px; margin-right: 30px;">
                     <div onclick="location.href ='moviedetail.do?index=4'">
-                    	<div><p>4</p></div>
-                        <img src="../images/poster/8WrUVuMJCfga7qzEqcztQqoAizavt9uh_420.jpg">
-                        <img src="../images/icon/age_0.png">
+                    	<div><p>9</p></div>
+                        <img src="https://kumas.dev/images/poster/8WrUVuMJCfga7qzEqcztQqoAizavt9uh_420.jpg">
+                        <img src="https://kumas.dev/rotte_cinema/images/icon/age_0.png">
                     </div>
                     <div>
                         <span>루카</span>
@@ -171,7 +285,7 @@
                     <div>
                         <span>예매율 0.0%</span>
                         <span>|</span>
-                        <img src="../images/icon/post_infobox_icon.png">
+                        <img src="https://kumas.dev/rotte_cinema/images/icon/post_infobox_icon.png">
                         <span>0.0</span>
                     </div>
                     <div>
@@ -181,9 +295,9 @@
 			
                 <div class="lslide" style="width: 216px; margin-right: 30px;">
                     <div onclick="location.href ='moviedetail.do?index=5'">
-                    	<div><p>5</p></div>
-                        <img src="../images/poster/7EcZgh6z5Myiy3MJT97KN5lQJgs8xwRF_420.jpg">
-                        <img src="../images/icon/age_15.png">
+                    	<div><p>10</p></div>
+                        <img src="https://kumas.dev/images/poster/7EcZgh6z5Myiy3MJT97KN5lQJgs8xwRF_420.jpg">
+                        <img src="https://kumas.dev/rotte_cinema/images/icon/age_15.png">
                     </div>
                     <div>
                         <span>콰이어트 플레이스 2</span>
@@ -191,7 +305,7 @@
                     <div>
                         <span>예매율 0.0%</span>
                         <span>|</span>
-                        <img src="../images/icon/post_infobox_icon.png">
+                        <img src="https://kumas.dev/rotte_cinema/images/icon/post_infobox_icon.png">
                         <span>0.0</span>
                     </div>
                     <div>
@@ -201,9 +315,9 @@
 			
                 <div class="lslide" style="width: 216px; margin-right: 30px;">
                     <div onclick="location.href ='moviedetail.do?index=6'">
-                    	<div><p>6</p></div>
-                        <img src="../images/poster/2I9hWhiXggXKjGrcBy5oMcBaFDqISg06_420.jpg">
-                        <img src="../images/icon/age_15.png">
+                    	<div><p>11</p></div>
+                        <img src="https://kumas.dev/images/poster/2I9hWhiXggXKjGrcBy5oMcBaFDqISg06_420.jpg">
+                        <img src="https://kumas.dev/rotte_cinema/images/icon/age_15.png">
                     </div>
                     <div>
                         <span>여고괴담 여섯번째 이야기 : 모교</span>
@@ -211,7 +325,7 @@
                     <div>
                         <span>예매율 0.0%</span>
                         <span>|</span>
-                        <img src="../images/icon/post_infobox_icon.png">
+                        <img src="https://kumas.dev/rotte_cinema/images/icon/post_infobox_icon.png">
                         <span>0.0</span>
                     </div>
                     <div>
@@ -220,30 +334,10 @@
                 </div>
 			
                 <div class="lslide" style="width: 216px; margin-right: 30px;">
-                    <div onclick="location.href ='moviedetail.do?index=7'">
-                    	<div><p>7</p></div>
-                        <img src="../images/poster/7deO12OmPdV0fCZlT1YA68dpI6mOGDKI_420.jpg">
-                        <img src="../images/icon/age_18.png">
-                    </div>
-                    <div>
-                        <span>캐시트럭</span>
-                    </div>
-                    <div>
-                        <span>예매율 0.0%</span>
-                        <span>|</span>
-                        <img src="../images/icon/post_infobox_icon.png">
-                        <span>0.0</span>
-                    </div>
-                    <div>
-                        <div onclick="location.href ='ticketing.do?index=7'">예매</div>
-                    </div>
-                </div>
-			
-                <div class="lslide" style="width: 216px; margin-right: 30px;">
                     <div onclick="location.href ='moviedetail.do?index=8'">
-                    	<div><p>8</p></div>
-                        <img src="../images/poster/3xVKOmh4Iykg9nMdGqkA3hwCMUhk3UjS_420.jpg">
-                        <img src="../images/icon/age_15.png">
+                    	<div><p>12</p></div>
+                        <img src="https://kumas.dev/images/poster/3xVKOmh4Iykg9nMdGqkA3hwCMUhk3UjS_420.jpg">
+                        <img src="https://kumas.dev/rotte_cinema/images/icon/age_15.png">
                     </div>
                     <div>
                         <span>미드나이트</span>
@@ -251,7 +345,7 @@
                     <div>
                         <span>예매율 0.0%</span>
                         <span>|</span>
-                        <img src="../images/icon/post_infobox_icon.png">
+                        <img src="https://kumas.dev/rotte_cinema/images/icon/post_infobox_icon.png">
                         <span>0.0</span>
                     </div>
                     <div>
@@ -261,9 +355,9 @@
 			
                 <div class="lslide" style="width: 216px; margin-right: 30px;">
                     <div onclick="location.href ='moviedetail.do?index=9'">
-                    	<div><p>9</p></div>
-                        <img src="../images/poster/CnBG8WH2ycLpVQFd5temvzJeVo3Daaqd_420.jpg">
-                        <img src="../images/icon/age_15.png">
+                    	<div><p>13</p></div>
+                        <img src="https://kumas.dev/images/poster/CnBG8WH2ycLpVQFd5temvzJeVo3Daaqd_420.jpg">
+                        <img src="https://kumas.dev/rotte_cinema/images/icon/age_15.png">
                     </div>
                     <div>
                         <span>플래시백</span>
@@ -271,8 +365,8 @@
                     <div>
                         <span>예매율 0.0%</span>
                         <span>|</span>
-                        <img src="../images/icon/post_infobox_icon.png">
-                        <span>9.0</span>
+                        <img src="https://kumas.dev/rotte_cinema/images/icon/post_infobox_icon.png">
+                        <span>0.0</span>
                     </div>
                     <div>
                         <div onclick="location.href ='ticketing.do?index=9'">예매</div>
@@ -280,50 +374,10 @@
                 </div>
 			
                 <div class="lslide" style="width: 216px; margin-right: 30px;">
-                    <div onclick="location.href ='moviedetail.do?index=10'">
-                    	<div><p>10</p></div>
-                        <img src="../images/poster/740iTHNvhmJgBNh1yNOsPBCQzABfdfgn_420.jpg">
-                        <img src="../images/icon/age_15.png">
-                    </div>
-                    <div>
-                        <span>컨저링3: 악마가 시켰다</span>
-                    </div>
-                    <div>
-                        <span>예매율 0.0%</span>
-                        <span>|</span>
-                        <img src="../images/icon/post_infobox_icon.png">
-                        <span>0.0</span>
-                    </div>
-                    <div>
-                        <div onclick="location.href ='ticketing.do?index=10'">예매</div>
-                    </div>
-                </div>
-			
-                <div class="lslide" style="width: 216px; margin-right: 30px;">
-                    <div onclick="location.href ='moviedetail.do?index=11'">
-                    	<div><p>11</p></div>
-                        <img src="../images/poster/V1W8UlEDi3QS64EsqKtCfv57jCyjBRGv_420.jpg">
-                        <img src="../images/icon/age_15.png">
-                    </div>
-                    <div>
-                        <span>그 여름, 가장 차가웠던</span>
-                    </div>
-                    <div>
-                        <span>예매율 0.0%</span>
-                        <span>|</span>
-                        <img src="../images/icon/post_infobox_icon.png">
-                        <span>8.0</span>
-                    </div>
-                    <div>
-                        <div onclick="location.href ='ticketing.do?index=11'">예매</div>
-                    </div>
-                </div>
-			
-                <div class="lslide" style="width: 216px; margin-right: 30px;">
                     <div onclick="location.href ='moviedetail.do?index=12'">
-                    	<div><p>12</p></div>
-                        <img src="../images/poster/qDLdOQKdvIeLyniUM7DX567IaJeyJmbv_420.jpg">
-                        <img src="../images/icon/age_15.png">
+                    	<div><p>14</p></div>
+                        <img src="https://kumas.dev/images/poster/qDLdOQKdvIeLyniUM7DX567IaJeyJmbv_420.jpg">
+                        <img src="https://kumas.dev/rotte_cinema/images/icon/age_15.png">
                     </div>
                     <div>
                         <span>극장판 귀멸의 칼날: 무한열차편</span>
@@ -331,8 +385,8 @@
                     <div>
                         <span>예매율 0.0%</span>
                         <span>|</span>
-                        <img src="../images/icon/post_infobox_icon.png">
-                        <span>10.0</span>
+                        <img src="https://kumas.dev/rotte_cinema/images/icon/post_infobox_icon.png">
+                        <span>0.0</span>
                     </div>
                     <div>
                         <div onclick="location.href ='ticketing.do?index=12'">예매</div>
@@ -341,9 +395,9 @@
 			
                 <div class="lslide" style="width: 216px; margin-right: 30px;">
                     <div onclick="location.href ='moviedetail.do?index=13'">
-                    	<div><p>13</p></div>
-                        <img src="../images/poster/n0XVEiJdSsiOSlJb8f9lmKSBWVDN6hJW_420.jpg">
-                        <img src="../images/icon/age_12.png">
+                    	<div><p>15</p></div>
+                        <img src="https://kumas.dev/images/poster/n0XVEiJdSsiOSlJb8f9lmKSBWVDN6hJW_420.jpg">
+                        <img src="https://kumas.dev/rotte_cinema/images/icon/age_12.png">
                     </div>
                     <div>
                         <span>분노의 질주 : 더 얼티메이트</span>
@@ -351,8 +405,8 @@
                     <div>
                         <span>예매율 0.0%</span>
                         <span>|</span>
-                        <img src="../images/icon/post_infobox_icon.png">
-                        <span>6.67</span>
+                        <img src="https://kumas.dev/rotte_cinema/images/icon/post_infobox_icon.png">
+                        <span>0.0</span>
                     </div>
                     <div>
                         <div onclick="location.href ='ticketing.do?index=13'">예매</div>
@@ -361,9 +415,9 @@
 			
                 <div class="lslide" style="width: 216px; margin-right: 30px;">
                     <div onclick="location.href ='moviedetail.do?index=14'">
-                    	<div><p>14</p></div>
-                        <img src="../images/poster/uPgb3HcwtNqw4oSjT4hsNW4N5vJmY8hJ_420.jpg">
-                        <img src="../images/icon/age_0.png">
+                    	<div><p>16</p></div>
+                        <img src="https://kumas.dev/images/poster/uPgb3HcwtNqw4oSjT4hsNW4N5vJmY8hJ_420.jpg">
+                        <img src="https://kumas.dev/rotte_cinema/images/icon/age_0.png">
                     </div>
                     <div>
                         <span>뱅드림! 로젤리아 에피소드Ⅰ: 약속</span>
@@ -371,7 +425,7 @@
                     <div>
                         <span>예매율 0.0%</span>
                         <span>|</span>
-                        <img src="../images/icon/post_infobox_icon.png">
+                        <img src="https://kumas.dev/rotte_cinema/images/icon/post_infobox_icon.png">
                         <span>0.0</span>
                     </div>
                     <div>
@@ -381,9 +435,9 @@
 			
                 <div class="lslide" style="width: 216px; margin-right: 30px;">
                     <div onclick="location.href ='moviedetail.do?index=15'">
-                    	<div><p>15</p></div>
-                        <img src="../images/poster/eh5TBmhjdXo61Ek7Y1sV0hQfjCQ0udZd_420.jpg">
-                        <img src="../images/icon/age_15.png">
+                    	<div><p>17</p></div>
+                        <img src="https://kumas.dev/images/poster/eh5TBmhjdXo61Ek7Y1sV0hQfjCQ0udZd_420.jpg">
+                        <img src="https://kumas.dev/rotte_cinema/images/icon/age_15.png">
                     </div>
                     <div>
                         <span>메이드 인 루프탑</span>
@@ -391,8 +445,8 @@
                     <div>
                         <span>예매율 0.0%</span>
                         <span>|</span>
-                        <img src="../images/icon/post_infobox_icon.png">
-                        <span>8.5</span>
+                        <img src="https://kumas.dev/rotte_cinema/images/icon/post_infobox_icon.png">
+                        <span>0.0</span>
                     </div>
                     <div>
                         <div onclick="location.href ='ticketing.do?index=15'">예매</div>
@@ -401,9 +455,9 @@
 			
                 <div class="lslide" style="width: 216px; margin-right: 30px;">
                     <div onclick="location.href ='moviedetail.do?index=16'">
-                    	<div><p>16</p></div>
-                        <img src="../images/poster/Q5Y9atPdJb9iBFrXioDhutbYXYKrym0J_420.jpg">
-                        <img src="../images/icon/age_12.png">
+                    	<div><p>18</p></div>
+                        <img src="https://kumas.dev/images/poster/Q5Y9atPdJb9iBFrXioDhutbYXYKrym0J_420.jpg">
+                        <img src="https://kumas.dev/rotte_cinema/images/icon/age_12.png">
                     </div>
                     <div>
                         <span>인 더 하이츠</span>
@@ -411,7 +465,7 @@
                     <div>
                         <span>예매율 0.0%</span>
                         <span>|</span>
-                        <img src="../images/icon/post_infobox_icon.png">
+                        <img src="https://kumas.dev/rotte_cinema/images/icon/post_infobox_icon.png">
                         <span>0.0</span>
                     </div>
                     <div>
@@ -420,10 +474,30 @@
                 </div>
 			
                 <div class="lslide" style="width: 216px; margin-right: 30px;">
+                    <div onclick="location.href ='moviedetail.do?index=18'">
+                    	<div><p>19</p></div>
+                        <img src="https://kumas.dev/images/poster/HZEfN3ndKp41izhmIGzsrSgVAwKY0QDA_420.jpg">
+                        <img src="https://kumas.dev/rotte_cinema/images/icon/age_15.png">
+                    </div>
+                    <div>
+                        <span>오필리아</span>
+                    </div>
+                    <div>
+                        <span>예매율 0.0%</span>
+                        <span>|</span>
+                        <img src="https://kumas.dev/rotte_cinema/images/icon/post_infobox_icon.png">
+                        <span>0.0</span>
+                    </div>
+                    <div>
+                        <div onclick="location.href ='ticketing.do?index=18'">예매</div>
+                    </div>
+                </div>
+			
+                <div class="lslide" style="width: 216px; margin-right: 30px;">
                     <div onclick="location.href ='moviedetail.do?index=22'">
-                    	<div><p>17</p></div>
-                        <img src="../images/poster/Z0iIuHw6o0cB6EdwSudJuGA0mRZ8KCHu_420.jpg">
-                        <img src="../images/icon/age_12.png">
+                    	<div><p>20</p></div>
+                        <img src="https://kumas.dev/images/poster/Z0iIuHw6o0cB6EdwSudJuGA0mRZ8KCHu_420.jpg">
+                        <img src="https://kumas.dev/rotte_cinema/images/icon/age_12.png">
                     </div>
                     <div>
                         <span>블라이스 스프릿</span>
@@ -431,7 +505,7 @@
                     <div>
                         <span>예매율 0.0%</span>
                         <span>|</span>
-                        <img src="../images/icon/post_infobox_icon.png">
+                        <img src="https://kumas.dev/rotte_cinema/images/icon/post_infobox_icon.png">
                         <span>0.0</span>
                     </div>
                     <div>
@@ -440,30 +514,10 @@
                 </div>
 			
                 <div class="lslide" style="width: 216px; margin-right: 30px;">
-                    <div onclick="location.href ='moviedetail.do?index=23'">
-                    	<div><p>18</p></div>
-                        <img src="../images/poster/8oW4b6TcvHySvWGnSYx0Wk7TUn7WH6af_420.jpg">
-                        <img src="../images/icon/age_12.png">
-                    </div>
-                    <div>
-                        <span>크레센도</span>
-                    </div>
-                    <div>
-                        <span>예매율 0.0%</span>
-                        <span>|</span>
-                        <img src="../images/icon/post_infobox_icon.png">
-                        <span>0.0</span>
-                    </div>
-                    <div>
-                        <div onclick="location.href ='ticketing.do?index=23'">예매</div>
-                    </div>
-                </div>
-			
-                <div class="lslide" style="width: 216px; margin-right: 30px;">
                     <div onclick="location.href ='moviedetail.do?index=24'">
-                    	<div><p>19</p></div>
-                        <img src="../images/poster/4BhaVtrxlNF8gpoN58EqW7TxHb0pKy2p_420.jpg">
-                        <img src="../images/icon/age_12.png">
+                    	<div><p>21</p></div>
+                        <img src="https://kumas.dev/images/poster/4BhaVtrxlNF8gpoN58EqW7TxHb0pKy2p_420.jpg">
+                        <img src="https://kumas.dev/rotte_cinema/images/icon/age_12.png">
                     </div>
                     <div>
                         <span>노매드랜드</span>
@@ -471,7 +525,7 @@
                     <div>
                         <span>예매율 0.0%</span>
                         <span>|</span>
-                        <img src="../images/icon/post_infobox_icon.png">
+                        <img src="https://kumas.dev/rotte_cinema/images/icon/post_infobox_icon.png">
                         <span>0.0</span>
                     </div>
                     <div>
@@ -481,9 +535,9 @@
 			
                 <div class="lslide" style="width: 216px; margin-right: 30px;">
                     <div onclick="location.href ='moviedetail.do?index=25'">
-                    	<div><p>20</p></div>
-                        <img src="../images/poster/7yI8u6docVgxwYIlHap9ncDuFlFjDEOV_420.jpg">
-                        <img src="../images/icon/age_0.png">
+                    	<div><p>22</p></div>
+                        <img src="https://kumas.dev/images/poster/7yI8u6docVgxwYIlHap9ncDuFlFjDEOV_420.jpg">
+                        <img src="https://kumas.dev/rotte_cinema/images/icon/age_0.png">
                     </div>
                     <div>
                         <span>흩어진밤</span>
@@ -491,7 +545,7 @@
                     <div>
                         <span>예매율 0.0%</span>
                         <span>|</span>
-                        <img src="../images/icon/post_infobox_icon.png">
+                        <img src="https://kumas.dev/rotte_cinema/images/icon/post_infobox_icon.png">
                         <span>0.0</span>
                     </div>
                     <div>
@@ -501,9 +555,9 @@
 			
                 <div class="lslide" style="width: 216px; margin-right: 30px;">
                     <div onclick="location.href ='moviedetail.do?index=26'">
-                    	<div><p>21</p></div>
-                        <img src="../images/poster/kxbZ6WY0SM1x4omDIJV9e9w0vuL2ejHe_420.jpg">
-                        <img src="../images/icon/age_12.png">
+                    	<div><p>23</p></div>
+                        <img src="https://kumas.dev/images/poster/kxbZ6WY0SM1x4omDIJV9e9w0vuL2ejHe_420.jpg">
+                        <img src="https://kumas.dev/rotte_cinema/images/icon/age_12.png">
                     </div>
                     <div>
                         <span>더 파더</span>
@@ -511,7 +565,7 @@
                     <div>
                         <span>예매율 0.0%</span>
                         <span>|</span>
-                        <img src="../images/icon/post_infobox_icon.png">
+                        <img src="https://kumas.dev/rotte_cinema/images/icon/post_infobox_icon.png">
                         <span>0.0</span>
                     </div>
                     <div>
@@ -521,9 +575,9 @@
 			
                 <div class="lslide" style="width: 216px; margin-right: 30px;">
                     <div onclick="location.href ='moviedetail.do?index=27'">
-                    	<div><p>22</p></div>
-                        <img src="../images/poster/5fVdq9oGQpNmzCdA4vcV5NmwT4T3tIzp_420.jpg">
-                        <img src="../images/icon/age_0.png">
+                    	<div><p>24</p></div>
+                        <img src="https://kumas.dev/images/poster/5fVdq9oGQpNmzCdA4vcV5NmwT4T3tIzp_420.jpg">
+                        <img src="https://kumas.dev/rotte_cinema/images/icon/age_0.png">
                     </div>
                     <div>
                         <span>식물카페, 온정</span>
@@ -531,11 +585,31 @@
                     <div>
                         <span>예매율 0.0%</span>
                         <span>|</span>
-                        <img src="../images/icon/post_infobox_icon.png">
+                        <img src="https://kumas.dev/rotte_cinema/images/icon/post_infobox_icon.png">
                         <span>0.0</span>
                     </div>
                     <div>
                         <div onclick="location.href ='ticketing.do?index=27'">예매</div>
+                    </div>
+                </div>
+			
+                <div class="lslide" style="width: 216px; margin-right: 30px;">
+                    <div onclick="location.href ='moviedetail.do?index=28'">
+                    	<div><p>25</p></div>
+                        <img src="https://kumas.dev/images/poster/wb0WDanD2YotcwWpCfpJw70RdGgSKNCY_420.jpg">
+                        <img src="https://kumas.dev/rotte_cinema/images/icon/age_18.png">
+                    </div>
+                    <div>
+                        <span>시카다 3301</span>
+                    </div>
+                    <div>
+                        <span>예매율 0.0%</span>
+                        <span>|</span>
+                        <img src="https://kumas.dev/rotte_cinema/images/icon/post_infobox_icon.png">
+                        <span>0.0</span>
+                    </div>
+                    <div>
+                        <div onclick="location.href ='ticketing.do?index=28'">예매</div>
                     </div>
                 </div>
 			
@@ -552,53 +626,53 @@
             <div class="qration_title">
                 <span class="title">큐레이션</span>
                 <span class="more">
-                    <span onclick="location.href ='movie.html?tab=2'">큐레이션 더보기</span>
-                    <img src="../images/icon/plus_icon.png">
+                    <span onclick="location.href ='movie.do?type=qration'">큐레이션 더보기</span>
+                    <img src="https://kumas.dev/rotte_cinema/images/icon/plus_icon.png">
                 </span>
             </div>
-            
+			
             <div class="qration_main">
                 <div>
-                    <img src="../images/poster/V1W8UlEDi3QS64EsqKtCfv57jCyjBRGv_420.jpg">
+                    <img src="https://kumas.dev/images/poster/eh5TBmhjdXo61Ek7Y1sV0hQfjCQ0udZd_420.jpg">
                 </div>       <!-- 큰 포스트 -->
                 <div>
-                <input type="button" onclick="location.href ='moviedetail.html?index=11'" value="상세정보">
-                <input type="button" onclick="location.href ='ticketing1.html?index=11'" value="예매">
+                <input type="button" onclick="location.href ='moviedetail.do?index=15'" value="상세정보">
+                <input type="button" onclick="location.href ='ticketing.do?index=15'" value="예매">
                 </div>
             </div>
             
             <div class="qration_sub_info">
-                <div class="tag">#빵원티켓+</div>      <!-- #adb4f8 -->
-                <div class="title">그 여름, 가장 차가웠던</div>
+                <div class="tag">#GV</div>      <!-- #adb4f8 -->
+                <div class="title">메이드 인 루프탑</div>
                 <div>
-                    3년 전 엄마가 살해된 후, 소녀 ‘자허’와 아빠의 삶은 엉망이다. <br> 친구들에게 왕따를 당하고, 아빠와도 마음 속 이야기를 하지 않게 된 소녀, <br> 그러던 어느 날 우연히 자신의 엄마를 죽인 소년 ‘유레이’와 마주치게 된다. <br> 예상보다 빨리 석방된 그를 보고 소녀는 분노에 휩싸이고, <br> 복수하고 싶은 마음으로 그에게 의도적으로 접근하게 되는데…
+                    “나도 쿨해질거야 이제!” <br>  <br> 3년 동안 지지고 볶은 남자친구 ‘정민’에게 가.짜. 이별 통보를 한 지 <br> 30분 만에 한 개의 캐리어와 함께 집에서 쫓겨난 밀.당.실.패 취준생 ‘하늘’. <br> 이별 1일차, 갈 곳 없어 무작정 쳐들어간 친구 ‘봉식’의 옥탑방에서 <br> 헤어진 연인과 쿨하게 밀당을 이어보는데… <br>  <br> “내가 하는 건 다 힙해!” <br>  <br> BJ를 하며 번 돈으로 플.렉.스.하며 원룸보다 작은 옥탑방을 명품샵으로 꾸미고 <br> ‘마흔 전에 죽기’를 목표로 세운 채 오늘만 사는 자.유.영.혼. 힙스터 ‘봉식’. <br> 썸 1일차, 연애 따윈 필요 없다고 다짐 또 다짐했건만 <br> 적극적으로 대시하는 썸남에게 자꾸만 눈이 가는데… <br>  <br> 쿨하고 힙한 청춘들의 하이텐션 썸머 로맨스가 시작된다!
                 </div>
             </div>
             
             <div class="qration_post">
             
-                <div onclick="location.href ='moviedetail.html?index=15'">
-                    <img class="icon" src="../images/icon/qration_c_icon.png">
-                    <img src="../images/poster/eh5TBmhjdXo61Ek7Y1sV0hQfjCQ0udZd_420.jpg">
-                    <div>메이드 인 루프탑</div>
-                </div>
-            
-                <div onclick="location.href ='moviedetail.html?index=23'">
-                    <img class="icon" src="../images/icon/qration_c_icon.png">
-                    <img src="../images/poster/8oW4b6TcvHySvWGnSYx0Wk7TUn7WH6af_420.jpg">
-                    <div>크레센도</div>
-                </div>
-            
-                <div onclick="location.href ='moviedetail.html?index=24'">
-                    <img class="icon" src="../images/icon/qration_c_icon.png">
-                    <img src="../images/poster/4BhaVtrxlNF8gpoN58EqW7TxHb0pKy2p_420.jpg">
+            	<div onclick="location.href ='moviedetail.do?index=24'">
+                    <img class="icon" src="https://kumas.dev/rotte_cinema/images/icon/qration_q_icon.png">
+                    <img src="https://kumas.dev/images/poster/4BhaVtrxlNF8gpoN58EqW7TxHb0pKy2p_420.jpg">
                     <div>노매드랜드</div>
                 </div>
             
-                <div onclick="location.href ='moviedetail.html?index=25'">
-                    <img class="icon" src="../images/icon/qration_c_icon.png">
-                    <img src="../images/poster/7yI8u6docVgxwYIlHap9ncDuFlFjDEOV_420.jpg">
+            	<div onclick="location.href ='moviedetail.do?index=25'">
+                    <img class="icon" src="https://kumas.dev/rotte_cinema/images/icon/qration_q_icon.png">
+                    <img src="https://kumas.dev/images/poster/7yI8u6docVgxwYIlHap9ncDuFlFjDEOV_420.jpg">
                     <div>흩어진밤</div>
+                </div>
+            
+            	<div onclick="location.href ='moviedetail.do?index=26'">
+                    <img class="icon" src="https://kumas.dev/rotte_cinema/images/icon/qration_q_icon.png">
+                    <img src="https://kumas.dev/images/poster/kxbZ6WY0SM1x4omDIJV9e9w0vuL2ejHe_420.jpg">
+                    <div>더 파더</div>
+                </div>
+            
+            	<div onclick="location.href ='moviedetail.do?index=27'">
+                    <img class="icon" src="https://kumas.dev/rotte_cinema/images/icon/qration_q_icon.png">
+                    <img src="https://kumas.dev/images/poster/5fVdq9oGQpNmzCdA4vcV5NmwT4T3tIzp_420.jpg">
+                    <div>식물카페, 온정</div>
                 </div>
             
             </div>
