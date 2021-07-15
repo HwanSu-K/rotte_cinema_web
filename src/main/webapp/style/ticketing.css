@@ -1,4 +1,4 @@
-.reserv > .reserv_tab {display: flex; width: 100%; justify-content: space-between; align-items: center;}
+.reserv > .reserv_tab {display: flex; width: 100%; justify-content: space-between; align-items: center; cursor: default;}
 .reserv > .reserv_tab > div {width: 33.3%; height: 65px; display: flex; justify-content: center; align-items: center; 
     border: 1px solid #e0e0e0; font-size: 13pt; flex-direction: column; color: #898989;}   /* 목록탭 버튼 */
 .reserv > .reserv_tab > div > span:first-child {font-size: 10pt; color: #a6a6a6;}

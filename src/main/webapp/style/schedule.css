@@ -1,11 +1,10 @@
 .reserv_choice {display: flex; justify-content: space-between; width: 100%; height: 305px; border: 3px solid #000000; 
     box-sizing: border-box; border-radius: 10px;} /* 영화 선택 */
 
-.reserv_choice > .reserv_type {flex-basis: 150px; box-sizing: border-box;}       /* 영화 타입 넓이 */
+.reserv_choice > .reserv_type {flex-basis: 150px; box-sizing: border-box; cursor: pointer;}       /* 영화 타입 넓이 */
 .reserv_choice > .reserv_type > div {margin-left: -1px; height: 50%; width: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; 
     border-right: 1px solid #000000; background-color: #ebebeb;}           /* 영화 타입 높이 */
 .reserv_choice > .reserv_type > div:first-child {border-radius: 5px 0 0 0;}
-.reserv_choice > .reserv_type > div:hover,
 .reserv_choice > .reserv_type > div.active {background-color: #07072b; color:#fff;}
 .reserv_choice > .reserv_type > div:last-child 
     {border-radius: 0 0 0 5px; border-top: 1px solid #000000; font-size: 13pt;}      /* 타입별 텍스트 */
@@ -15,9 +14,9 @@
     {width: 60px; height: 53px; background: url('../images/icon/sub2_choice1_movie.png'); background-repeat: no-repeat; margin-bottom: 20px;}
 .reserv_choice > .reserv_type > div:last-child > div:first-child
     {width: 60px; height: 53px; background: url('../images/icon/sub2_choice2_theater.png'); background-repeat: no-repeat; margin-bottom: 20px;}
-.reserv_choice > .reserv_type > div:hover:first-child > div:first-child,
+.reserv_choice > .reserv_type > div:first-child > div:first-child,
 .reserv_choice > .reserv_type > div.active:first-child > div:first-child {width: 60px; height: 53px;background: url('../images/icon/sub2_choice1_movie_wh.png'); background-repeat: no-repeat;}
-.reserv_choice > .reserv_type > div:hover:last-child > div:first-child,
+.reserv_choice > .reserv_type > div:last-child > div:first-child,
 .reserv_choice > .reserv_type > div.active:last-child > div:first-child {width: 60px; height: 53px;background: url('../images/icon/sub2_choice2_theater_wh.png'); background-repeat: no-repeat;}
 .reserv_choice > section ,
 .reserv_choice > section {display: none; width: 1000px; justify-content: space-between;}
@@ -27,8 +26,7 @@
 .reserv_choice > section > .reserv_content {flex-basis: 750px; height: 250px; display: flex; flex-direction: column; padding-top: 25px;}   /* 영화목록 전체크기 */
 .reserv_choice > section > .reserv_content > .reserv_content_title
     {margin-bottom: 20px; padding: 0 0 10px 0px; border-bottom: 1px solid #e6e7e8;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   }         /* 영화목록 타이틀 */
-.reserv_choice > section > .reserv_content > .reserv_content_title > span {padding:0 10px;}         /* 클릭시 underline : 2px #6e6e6e */
-.reserv_choice > section > .reserv_content > .reserv_content_title > span:hover,
+.reserv_choice > section > .reserv_content > .reserv_content_title > span {padding:0 10px; cursor: pointer;}         /* 클릭시 underline : 2px #6e6e6e */
 .reserv_choice > section > .reserv_content > .reserv_content_title > span.active {border-bottom: 3px solid #6e6e6e; padding-bottom: 9px;}
 .reserv_choice > section > .reserv_content > .reserv_content_list {display: flex; flex-wrap: wrap; overflow-y: scroll;}                           /* 영화목록 정렬방식 */
 
@@ -117,7 +115,8 @@
 .reserv_info > .reserv_list > .reserv_info_list > .reserv_info_list_theater > div > div {display: flex; margin: 30px 0;}
 .reserv_info > .reserv_list > .reserv_info_list > .reserv_info_list_theater > div > div > div 
     {display: flex; height: 100px; align-items: center; box-sizing: border-box; }
-.reserv_info > .reserv_list > .reserv_info_list > .reserv_info_list_theater > div > div > div.g {background-color:#ededed; cursor:default; color:#454545;}
+.reserv_info > .reserv_list > .reserv_info_list > .reserv_info_list_theater > div > div > div.g 
+    {background-color:#ededed; cursor:default; color:#454545; border: 1px solid #dadada;}
 .reserv_info > .reserv_list > .reserv_info_list > .reserv_info_list_theater > div > div > div.g > span {color:#454545;}
 .reserv_info > .reserv_list > .reserv_info_list > .reserv_info_list_theater > div > div > div > span {color: #0088b5;}
 .reserv_info > .reserv_list > .reserv_info_list > .reserv_info_list_theater > div > div:nth-child(1) {width: 250px; justify-content: space-between;}
