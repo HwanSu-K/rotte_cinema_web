@@ -2,64 +2,78 @@
 p {display: inline;}
 p::before{content: "|"; padding: 5px; font-size: 14px; vertical-align: middle;}
 
-.user {display: flex; justify-content: space-between; height: 190px; margin-bottom: 60px; border: 3px solid #252451; padding: 30px; border-radius: 5px;}
-.user > .profile {width: 400px; background-color: #f5f5f5; display: flex; flex-direction: column; justify-content: center; align-items: center;}
-.user > .profile > div {display: flex; justify-content: center; align-items: center; margin: 10px; width: 300px;}
-.user > .profile > div > img {width: 75px; margin-right: 30px;}
+.user {display: flex; justify-content: space-between; height: 190px; margin-bottom: 60px; 
+    padding: 30px; border-radius: 15px;}
+.user > .profile {width: 420px; background-color: #f8f8f8; display: flex; flex-direction: column; justify-content: center; align-items: center;}
+.user > .profile > div {display: flex; justify-content: center; align-items: center; margin: 20px; width: 350px;}
+.user > .profile > div > img {width: 75px; margin-right: 30px; cursor: pointer;}
 .user > .profile > div > div {display: flex; flex-direction: column; justify-content: space-around; color:#454545; height: 100%;}
-.user > .profile > div > div > .user_name {font-size: 16px;}
-.user > .profile > div > div > .user_name > i {margin-left:5px; cursor:pointer;}
-.user > .profile > div > div > .btn {font-size: 12px; display: flex; cursor:pointer;}
-.user > .profile > div > div > .btn > div {margin-right: 10px;}
-.user > .profile > div > div > .btn > div > i {margin-left: 7px;}
+.user > .profile > div > div > .user_name {font-size: 16pt; font-weight: bold; color: #2e2e2e;}
+.user > .profile > div > div > .user_name > i {margin-left: 15px; cursor:pointer;}
+.user > .profile > div > div > .btn {font-size: 12pt; display: flex; color: #999; cursor:pointer;}
+.user > .profile > div > div > .btn > div {margin-right: 15px; font-size: 11pt;}
+.user > .profile > div > div > .btn > div > i {margin-left: 7px; font-size: 11pt; color: #999;}
 .user > .profile > .user_point {display: flex;}
-.user > .profile > .user_point > div {display: flex; flex-direction: row; margin: 0 5px; font-size: 13px;}
+.user > .profile > .user_point > div {display: flex; flex-direction: row; margin: 0 10px; font-size: 12pt; color: #2e2e2e; cursor: pointer;}
+.user > .profile > .user_point > div:nth-child(2) {color: #dfdfdf;}
+.user > .profile > .user_point > div > div:first-child {font-weight: bold;}
 .user > .profile > .user_point > div > span {margin-left: 10px;}
-.user > .info {width: 600px; display: flex; flex-direction: column; justify-content: space-between;}
-.user > .info > .title {font-size: 16px; background-color: #f5f5f5; padding: 10px 20px; color: #454545;}
-.user > .info > .list {display: flex; justify-content: space-around; font-size: 14px; color: #454545;}
-.user > .info > .list > div {display: flex; align-items: center; justify-content: center;}
-.user > .info > .list > div > div:last-child {font-size: 16px; margin-left: 30px;}
+.user > .info {width: 550px; display: flex; flex-direction: column; justify-content: space-between;}
+.user > .info > .title {height: 35px; display: flex; align-items: center; font-size: 12pt; background-color: #f8f8f8; padding: 10px 20px; color: #2e2e2e;}
+.user > .info > .list {display: flex; justify-content: center; font-size: 11pt; color: #454545;}
+.user > .info > .list > div {display: flex; align-items: center; justify-content: center; border-right: 1px solid #dfdfdf; margin: 0 30px;}
+.user > .info > .list > div:last-child {border: none; margin: 0;}
+.user > .info > .list > div > div:last-child {font-size: 18pt; margin: 0 30px; font-weight: bold; color: #444;}
 .user > .info > .list > div > div {margin: 10px 0; display: flex; flex-direction: column; align-items: center;}
-.user > .info > .list > div > div > i {font-size: 24px; margin-bottom: 10px;}
+.user > .info > .list > div > div > i {font-size: 24px; margin-bottom: 25px; color: #d2d2d2;}
 .ticket {width: 1000px; margin: 0 auto 100px auto;}
 
-.ticket > .title {font-size: 16px;display: flex; justify-content: space-between; background-color: #ebebeb; padding: 10px 15px;}
-.ticket > .title > div {color: #454545;}
-.ticket > .title > div i {padding: 0 7px;}
+.ticket > .title {font-size: 16px;display: flex; justify-content: space-between; background-color: #f7f8f9; border: 1px solid #ededed; padding: 10px 15px;}
+.ticket > .title > div {color: #2e2e2e; cursor: pointer;}
+.ticket > .title > div:first-child {font-size: 14pt;}
+.ticket > .title > div i {padding: 0 7px; font-size: 10pt;}
 .ticket > .info {display: flex; flex-direction: column;}
-.ticket > .info > div {padding: 15px; display: flex; border-bottom: 2px solid #999999;}
+.ticket > .info > div {padding: 20px; display: flex; border-bottom: 2px solid #e0e0e0;}
 .ticket > .info > div.h {display: none;}
-.ticket > .info > div > img {width: 150px;}
+.ticket > .info > div > img {height: 200px;}
 .ticket > .info > div > div {flex-grow: 1; margin-left: 75px; display: flex; flex-direction: column; justify-content: space-around;}
-.ticket > .info > div > div > div {display: flex; justify-content: space-between;  padding: 30px;}
-.ticket > .info > div > div > div:first-child {border-bottom: 1px solid #000;}
-.ticket > .info > div > div > div > div {width: 300px;}
-.ticket > .info > div > div > div > div > div:first-child {font-size: 18px;}
-.ticket > .info > div > div > div > div > div:last-child {font-size: 16px; color: #999999; display: flex; margin-top: 10px;}
+.ticket > .info > div > div > div {display: flex; justify-content: space-between;  padding: 20px;}
+.ticket > .info > div > div > div:first-child {border-bottom: 1px solid #e0e0e0;}
+.ticket > .info > div > div > div > div {width: 300px; font-size: 13pt; }
+.ticket > .info > div > div > div > div > div:first-child {font-weight: bold; color: #2e2e2e;}
+.ticket > .info > div > div > div > div > div:last-child {font-size: 16px; color: #999; display: flex; margin-top: 10px;}
 .ticket > .info > div > div > div > div > div:last-child > span {width: 100px; display: block; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;}
 .ticket > .info > div > div > div > div > div:last-child > div {width: 200px; display: block; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;}
 
 #like_plus,#reserv_plus,#ticket_plus {cursor:pointer;}
 .reserv {width: 1000px; padding-bottom: 15px; margin: 0 auto;}
-.reserv > .title {padding: 15px 10px; display: flex; justify-content: space-between; color: #454545;}
-.reserv > .title > div > i {padding: 0 7px;}
-.reserv > table {width: 100%; border-collapse: collapse; border-bottom: 2px solid #999999; font-size: 14px;}
-.reserv > table tr {height: 40px;}
+.reserv > .title {padding: 20px 10px; display: flex; justify-content: space-between; color: #2e2e2e;}
+.reserv > .title > div:first-child {font-size: 14pt; }
+.reserv > .title > div:last-child {cursor: pointer;}
+.reserv > .title > div > i {padding: 0 7px; font-size: 10pt;}
+
+.reserv > table {width: 100%; border-collapse: collapse; border-bottom: 2px solid #e0e0e0; font-size: 14px; margin-bottom: 50px;}
+.reserv > table tr {height: 50px;}
 .reserv > table tr.h {display: none;}
 .reserv > table tr td:first-child{width: 50px;}
-.reserv > table tr:not(:first-child) {border-bottom: 1px solid #999999;}
+.reserv > table tr:not(:first-child) {border-bottom: 1px solid #f6f6f6;}
 .reserv > table td:nth-child(1) {width:5%}
 .reserv > table td:nth-child(2) {width:40%}
 .reserv > table td:nth-child(3) {width:40%}
 .reserv > table td:nth-child(4) {width:15%}
-.reserv > table tr td:first-child{text-align:center;}
-.reserv > table th {text-align: left; background-color: #f5f5f5; padding: 8px;}
+.reserv > table tr td:first-child{text-align: center; }
+.reserv > table tr:first-child {background-color: #f7f8f9; border: 1px solid #ededed; color: #2e2e2e;}
+.reserv > table th {text-align: left; padding: 8px;}  
+.reserv > table tr td {color: #494949;}
 .reserv > table tr td div {background-color: #f5f5f5; font-size: 12px; display: inline; padding: 5px 7px; border-radius: 3px; cursor:pointer;}
 .reserv > table tr td div.h {display: none; cursor:default;}
 .reserv > table tr td div.g {background-color: #454545; color:#fff; cursor:default;}
-.reserv.like {border-bottom: 2px solid #999999;}
-.reserv > .like {border-bottom: 2px solid #999999; margin-top: 60px;}
+
+
+.reserv.like {border-bottom: 2px solid #e0e0e0;}
+.reserv > .like {font-size: 16px; background-color: #f7f8f9; border: 1px solid #ededed; padding: 10px 15px;
+    margin-top: 60px; color: #2e2e2e;}
+.reserv > .like > div i {font-size: 10pt;}
 .reserv > .reserv_movie_list {display: flex; margin-top: 30px; flex-wrap: wrap;}   /* 영화 목록리스트 */
 .reserv > .reserv_movie_list > div {width: 15%; margin:20px 2.5%;}
 .reserv > .reserv_movie_list > div.h {display: none;}
