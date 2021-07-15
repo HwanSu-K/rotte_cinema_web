@@ -108,4 +108,39 @@ $(document).ready(function(){
             $(".video").css('visibility','hidden');
         });
     });
+    let sizeCheck = true;
+
+    function size() {
+        var windowWidth = $( window ).width();    
+        if(windowWidth < 1280 && sizeCheck === true) {
+            // 포스터 슬라이드
+            $(".reserv_list").lightSlider({
+                loop:false,
+                item: 2,
+                pager:false,
+                controls: false,
+                keyPress: false,
+                slideMargin:30
+
+            });
+            sizeCheck = false;
+        } else if(windowWidth >= 1280 && sizeCheck === false) {
+            // 포스터 슬라이드
+            $(".reserv_list").lightSlider({
+                loop:false,
+                item: 5,
+                pager:false,
+                controls: false,
+                keyPress: false,
+                slideMargin:30
+
+            });
+            sizeCheck = true;
+        }
+    }
+    size();
+
+    $( window ).resize(function() {
+        size();
+    });
 });
