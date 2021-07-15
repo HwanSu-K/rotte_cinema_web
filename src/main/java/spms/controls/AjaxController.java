@@ -230,6 +230,47 @@ public class AjaxController {
 		map.put("result", "fail");
 		return map;
 	}
+	
+	@RequestMapping(value = "/reviewdeleteobject.do", method = RequestMethod.POST)
+	@ResponseBody
+	public Object setReviewDeleteObject(HttpSession session, int index) throws Exception {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		Customer customer = (Customer) session.getAttribute("customer");
+		if (customer != null) {
+			HashMap<String, Object> paramMap = new HashMap<String, Object>();
+			paramMap.put("index",index);
+			paramMap.put("indexCustomer",customer.getIndex());
+
+			reviewDao.delete(paramMap);
+			map.put("result", "success");
+			return map;
+		}
+		map.put("result", "fail");
+		return map;
+	}
+	
+	@RequestMapping(value = "/reservdeleteobject.do", method = RequestMethod.POST)
+	@ResponseBody
+	public Object setReservDeleteObject(HttpSession session, int index) throws Exception {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		Customer customer = (Customer) session.getAttribute("customer");
+		if (customer != null) {
+			Pay pay = payDao.selectOne(index);
+			
+			if(pay.getCustomerIndex() == customer.getIndex()) {
+				reservDao.update(index);
+				payDao.update(index);
+				map.put("result", "success");
+			} else {
+				map.put("result", "fail");
+			}
+
+			
+			return map;
+		}
+		map.put("result", "fail");
+		return map;
+	}
 
 	@RequestMapping(value = "/theatersobject.do", method = RequestMethod.POST)
 	@ResponseBody

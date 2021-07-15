@@ -51,6 +51,18 @@ public class MySqlReviewDao implements ReviewDao {
 			sqlSession.close();
 		}
 	}
+	
+	@Override
+	public int delete(HashMap<String, Object> paramMap) throws Exception {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		try {
+			int count = sqlSession.insert("spms.dao.ReviewDao.delete", paramMap);
+			sqlSession.commit();
+			return count;
+		} finally {
+			sqlSession.close();
+		}
+	}
 
 	@Override
 	public int selectOneCount(HashMap<String, Object> paramMap) throws Exception {

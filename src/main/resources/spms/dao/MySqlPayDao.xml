@@ -12,18 +12,19 @@
 		<result column="PAY_CARD_NAME" property="cardName" />
 		<result column="PAY_CARD_NUMBER" property="cardNumber" />
 		<result column="CUSTOMER_INDEX" property="customerIndex" />
+		<result column="PAY_STATE" property="state" />
 		<result column="PAY_PUSH" property="push" />
 	</resultMap>
 	
 	<select id="selectList" parameterType="int" resultMap="ResultMap">
-		SELECT PAY_INDEX,PAY_DATE,PAY_AMOUNT,PAY_IMP_UID,PAY_CARD_NAME,PAY_CARD_NUMBER,CUSTOMER_INDEX,PAY_PUSH
+		SELECT PAY_INDEX,PAY_DATE,PAY_AMOUNT,PAY_IMP_UID,PAY_CARD_NAME,PAY_CARD_NUMBER,CUSTOMER_INDEX,PAY_PUSH,PAY_STATE
 		FROM PAY
-		WHERE CUSTOMER_INDEX=#{value} AND PAY_STATE = 1
+		WHERE CUSTOMER_INDEX=#{value}
 		ORDER BY PAY_INDEX DESC
 	</select>
 	
 	<select id="selectOne" parameterType="int" resultMap="ResultMap">
-		SELECT PAY_INDEX,PAY_DATE,PAY_AMOUNT,PAY_IMP_UID,PAY_CARD_NAME,PAY_CARD_NUMBER,CUSTOMER_INDEX,PAY_PUSH
+		SELECT PAY_INDEX,PAY_DATE,PAY_AMOUNT,PAY_IMP_UID,PAY_CARD_NAME,PAY_CARD_NUMBER,CUSTOMER_INDEX,PAY_PUSH,PAY_STATE
 		FROM PAY
 		WHERE PAY_INDEX=#{value} AND PAY_STATE = 1
 	</select>
@@ -35,4 +36,9 @@
         SELECT LAST_INSERT_ID()
     	</selectKey>
 	</insert>
+	
+ 	<update id="update" parameterType="int">
+ 		UPDATE PAY SET PAY_STATE = 0
+ 		WHERE PAY_INDEX = #{value}
+	</update>
 </mapper>

@@ -11,6 +11,7 @@ public class Pay {
 	protected String cardName;
 	protected String cardNumber;
 	protected String push;
+	protected int state;
 	
 	public int getIndex() {
 		return index;
@@ -59,5 +60,11 @@ public class Pay {
 	}
 	public void setPush(String push) {
 		this.push = push;
+	}
+	public int getState() {
+		return state;
+	}
+	public void setState(int state) {
+		this.state = state;
 	}
 }

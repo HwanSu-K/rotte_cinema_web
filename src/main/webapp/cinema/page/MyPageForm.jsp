@@ -145,12 +145,16 @@
                     <td>${reserv.movie }<p>${reserv.cinema } ${reserv.theater }</p></td>
                     <td>${reserv.datePay }</td>
                     <td>
-                    <c:if test="${reserv.cancel == true }">
-                    	<div>예매취소</div>
+                    <c:if test="${reserv.cancel == '0' }">
+                    	<div class="h"></div>
                    	</c:if>
                    	
-                   	<c:if test="${reserv.cancel == false }">
-                    	<div class="h">예매취소</div>
+                   	<c:if test="${reserv.cancel == '1' }">
+                    	<div data-pay-index=${reserv.indexPay } >예매취소</div>
+                   	</c:if>
+                   	
+                   	<c:if test="${reserv.cancel == '-1' }">
+                    	<div class="g">취소완료</div>
                    	</c:if>
                    	
                     </td>

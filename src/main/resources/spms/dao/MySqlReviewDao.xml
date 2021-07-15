@@ -45,4 +45,9 @@
 		INSERT INTO MOVIE_REVIEW (MOVIE_INDEX,CUSTOMER_INDEX,REVIEW_RATING,REVIEW_TEXT,REVIEW_DATE)
 		VALUES(#{indexMovie},#{indexCustomer},#{rating},#{text},#{date})
 	</insert>
+	
+	<insert id="delete" parameterType="map">
+		DELETE FROM MOVIE_REVIEW 
+		WHERE REVIEW_INDEX=#{index} AND CUSTOMER_INDEX=#{indexCustomer}
+	</insert>
 </mapper>

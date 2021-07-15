@@ -12,4 +12,6 @@ public interface ReservDao {
 	Reserv selectOne(Reserv reserv) throws Exception;
 	
 	int insert(Reserv reserv) throws Exception ;
+	
+	int update(int no) throws Exception ;
 }

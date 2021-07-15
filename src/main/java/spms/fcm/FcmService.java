@@ -37,6 +37,7 @@ public class FcmService {
 							.setNotification(AndroidNotification.builder()
 									.setTitle(title)
 									.setBody(body)
+									.setImage(image)
 									.build())
 							.build())
 					.setToken(targetToken)

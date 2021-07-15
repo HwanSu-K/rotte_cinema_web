@@ -11,4 +11,5 @@ public interface PayDao {
 	
 	int insert(Pay pay) throws Exception ;
 
+	int update(int no) throws Exception ;
 }

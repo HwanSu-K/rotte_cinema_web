@@ -13,4 +13,6 @@ public interface ReviewDao {
 	int selectOneCount(HashMap<String, Object> paramMap) throws Exception ;
 	
 	int insert(Review review) throws Exception ;
+	
+	int delete(HashMap<String, Object> paramMap) throws Exception ;
 }

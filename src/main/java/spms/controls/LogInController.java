@@ -109,7 +109,7 @@ public class LogInController {
 
 					break;
 				}
-
+				
 				List<Reserv> reservs = reservDao.selectListPay(pay.getIndex());
 				Reservation rev = reservationDao.selectOne(reservs.get(0).getShowingIndex());
 				DateFormat df = new SimpleDateFormat("yyyy-MM-ddHH:mm");
@@ -158,11 +158,16 @@ public class LogInController {
 								.setPoster(rev.getMoviePoster())
 								.setAge(Integer.toString(rev.getMovieLimitAge()))
 								.setDatePay(sdf.format(pay.getDate()))
-								.setCancel(false);
+								.setCancel(0)
+								.setIndexPay(pay.getIndex());
 				
-				if(date.compareTo(new Date()) > 0) {
-					onReservItems.add(temp);
-					temp.setCancel(true);
+				if(pay.getState() == 0) {
+					temp.setCancel(-1);
+				} else {
+					if (date.compareTo(new Date()) > 0) {
+						onReservItems.add(temp);
+						temp.setCancel(1);
+					}
 				}
 				
 				reservItems.add(temp);

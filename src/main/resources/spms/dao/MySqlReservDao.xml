@@ -24,7 +24,7 @@
 		resultMap="ResultMap">
 			SELECT RESERV_INDEX,SEAT_X,SEAT_Y,SHOWING_INDEX,PAY_INDEX,PAY_CATEGORY,RESERV_STATE 
 			FROM MOVIE_RESERV
-			WHERE PAY_INDEX = #{value} AND RESERV_STATE = 1
+			WHERE PAY_INDEX = #{value}
 	</select>
 	
 	<select id="selectOne" parameterType="map"
@@ -41,4 +41,9 @@
         SELECT LAST_INSERT_ID()
     	</selectKey>
 	</insert>
+	
+	<update id="update" parameterType="int">
+		UPDATE MOVIE_RESERV SET RESERV_STATE = 0
+		WHERE PAY_INDEX = #{value}
+	</update>
 </mapper>

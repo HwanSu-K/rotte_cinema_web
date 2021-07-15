@@ -13,7 +13,8 @@ public class ReservItem {
 	protected String week;
 	protected String time;
 	protected String datePay;
-	protected boolean cancel;
+	protected int cancel;
+	protected int indexPay;
 	
 	public int getIndexMovie() {
 		return indexMovie;
@@ -99,11 +100,18 @@ public class ReservItem {
 		this.datePay = datePay;
 		return this;
 	}
-	public boolean isCancel() {
+	public int getCancel() {
 		return cancel;
 	}
-	public ReservItem setCancel(boolean cancel) {
+	public ReservItem setCancel(int cancel) {
 		this.cancel = cancel;
+		return this;
+	}
+	public int getIndexPay() {
+		return indexPay;
+	}
+	public ReservItem setIndexPay(int indexPay) {
+		this.indexPay = indexPay;
 		return this;
 	}
 }

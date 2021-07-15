@@ -5,6 +5,7 @@ public class Push {
 	protected int indexCustomer;
 	protected String date;
 	protected String title;
+	protected String poster;
 	
 
 	public int getIndex() {
@@ -30,6 +31,12 @@ public class Push {
 	}
 	public void setTitle(String title) {
 		this.title = title;
+	}
+	public String getPoster() {
+		return poster;
+	}
+	public void setPoster(String poster) {
+		this.poster = poster;
 	}
 	
 }

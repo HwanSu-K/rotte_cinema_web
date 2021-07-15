@@ -64,4 +64,16 @@ public class MySqlReservDao implements ReservDao {
 			sqlSession.close();
 		}
 	}
+	
+	@Override
+	public int update(int no) throws Exception {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		try {
+			int count = sqlSession.insert("spms.dao.ReservDao.update", no);
+			sqlSession.commit();
+			return count;
+		} finally {
+			sqlSession.close();
+		}
+	}
 }

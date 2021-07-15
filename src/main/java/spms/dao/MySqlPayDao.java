@@ -52,4 +52,16 @@ public class MySqlPayDao implements PayDao {
 			sqlSession.close();
 		}
 	}
+	
+	@Override
+	public int update(int no) throws Exception {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		try {
+			int count = sqlSession.insert("spms.dao.PayDao.update", no);
+			sqlSession.commit();
+			return count;
+		} finally {
+			sqlSession.close();
+		}
+	}
 }

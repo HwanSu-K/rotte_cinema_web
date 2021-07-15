@@ -39,36 +39,35 @@ public class Scheduler {
     @Scheduled(cron="5 * * * * *")
     public void HofScheduler() {
     	
-//    	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm");
-//    	
-//    	try {
-//			List<Push> pushs = pushDao.selectList();
-//			
-//			for (Push push : pushs) {
-//				Calendar movieDateTime = Calendar.getInstance();
-//				movieDateTime.setTime(sdf.parse(push.getDate()));
-//
-//				Calendar now = Calendar.getInstance();
-//				movieDateTime.setTime(new Date());
-//				
-//				movieDateTime.add(Calendar.MINUTE, +30);
-//				
-//				if(movieDateTime.compareTo(now) > 0) {
-//					
-//					List<Token> tokens = customerDao.selectList(push.getIndexCustomer());
-//					
-//					for (Token token : tokens) {
-//						fcmService.sendTargetMessage(token.getValue(), "잠시후 영화가 시작됩니다", push.getTitle() + "/" + push.getDate(), "");
-//						System.out.println(token.getValue());
-//						System.out.println(push.getTitle());
-//						System.out.println(push.getDate());
-//					}
-//					
-//				}
-//			}
-//		} catch (Exception e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
+    	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm");
+    	
+    	try {
+			List<Push> pushs = pushDao.selectList();
+			
+			for (Push push : pushs) {
+				Calendar movieDateTime = Calendar.getInstance();
+				movieDateTime.setTime(sdf.parse(push.getDate()));
+
+				Calendar now = Calendar.getInstance();
+				movieDateTime.setTime(new Date());
+				
+				movieDateTime.add(Calendar.MINUTE, +30);
+				
+				if(movieDateTime.compareTo(now) > 0) {
+					
+					String imageUrl = "http://kumas.dev/images/poster/" + push.getPoster();
+					List<Token> tokens = customerDao.selectList(push.getIndexCustomer());
+					
+					for (Token token : tokens) {
+						fcmService.sendTargetMessage(token.getValue(), "잠시후 영화가 시작됩니다", push.getTitle() + " / " + push.getDate(), imageUrl);
+					}
+					System.out.println(imageUrl);
+					pushDao.update(push.getIndex());
+				}
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
 }

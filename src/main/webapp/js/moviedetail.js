@@ -70,7 +70,6 @@ $(document).ready(function() {
 		$('.tab_title > div:nth-child(2) > span:nth-child(2)').text(' (' + Object.keys(data.reviews).length + ')');
 		
 		$(data.reviews).each(function() {
-			console.log(this);
 			$('#reviewList').append($(
 				'<div>' +
 					'<div>' +
@@ -93,6 +92,37 @@ $(document).ready(function() {
 			));
 		});
 	}
+	
+	$(document).on('click','.fa-trash',function() {
+		var form = {
+			index: $(this).data('index')
+		}
+
+		$.ajax({
+			url: 'reviewdeleteobject.do',
+			type: 'POST',
+			data: form,
+			dataType: 'json',
+			beforeSend: function() {
+				$('#bg_mask').addClass('active');
+		    },
+		    complete: function() {
+				$('#bg_mask').removeClass('active');
+		    },
+			success: function(data) {
+				if(data.result === 'fail')
+				{
+					alert('오류가 발생했습니다.');
+					return false;
+				}
+				reviewLoad();
+					
+			},
+			error: function() {
+				
+			}
+		});
+	});
 	
 	// 초기 로딩시 리뷰를 호출하는 부분.
 	function reviewLoad() {
