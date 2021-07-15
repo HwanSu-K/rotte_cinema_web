@@ -36,7 +36,6 @@ $(document).ready(function() {
 					} else if (data.result == 'auth') {
 						location.href = 'loginwarning.do';
 					} else if (data.result == 'connect') {
-						alert(`${data.name}님 환영합니다.`);
 						location.href = 'main.do';
 					}
 					
