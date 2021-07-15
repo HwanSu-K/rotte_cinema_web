@@ -99,11 +99,13 @@
 .detail_tab > .review_box > .comment > .comment_title > div i {font-size: 0.4375rem; color:#ddd; margin-right : 8px;}
 .detail_tab > .review_box > .comment > .comment_title > div i.active {color: #FF7787;}
 
-
-.detail_tab > .review_box > .comment > .review_comment > div {display: flex; align-items: center;  height: 120px; border-bottom: 1px solid #ddd;}
-.detail_tab > .review_box > .comment > .review_comment > div > .cmt_icon {margin: 0 20px;}
-.detail_tab > .review_box > .comment > .review_comment > div > .cmt_info 
+.detail_tab > .review_box > .comment > .review_comment > div {display:flex; justify-content: space-between; align-items:center; border-bottom: 1px solid #ddd;}
+.detail_tab > .review_box > .comment > .review_comment > div > div {display: flex; align-items: center;  height: 120px;}
+.detail_tab > .review_box > .comment > .review_comment > div > i {margin: 0 20px; color:#555; display: none;}
+.detail_tab > .review_box > .comment > .review_comment > div > i.active {display: block;}
+.detail_tab > .review_box > .comment > .review_comment > div > div > .cmt_icon {margin: 0 20px;}
+.detail_tab > .review_box > .comment > .review_comment > div > div > .cmt_info 
     {display: flex; flex-direction: column; justify-content: space-evenly; font-size: 11pt;}
-    .detail_tab > .review_box > .comment > .review_comment > div > .cmt_info > div {display: flex; margin: 3px 0px;}
-.detail_tab > .review_box > .comment > .review_comment > div > .cmt_info > div > span {margin: 0 10px; color: #ddd;}
-.detail_tab > .review_box > .comment > .review_comment > div > .cmt_info > div > div > i {color: #ffa406; margin: 0 5px;}
+    .detail_tab > .review_box > .comment > .review_comment > div > div > .cmt_info > div {display: flex; margin: 3px 0px;}
+.detail_tab > .review_box > .comment > .review_comment > div > div > .cmt_info > div > span {margin: 0 10px; color: #ddd;}
+.detail_tab > .review_box > .comment > .review_comment > div > div > .cmt_info > div > div > i {color: #ffa406; margin: 0 5px;}

@@ -1,6 +1,5 @@
 $(document).ready(function() {
-	$('#date').val(new Date().toISOString().substring(0, 10));
-	
+	// 주소 변경시 카카오 API에서 좌표값 다시 요청. 
 	$('#addr').on('change',function(){
 		const APIKEY = 'afaccf592a85bcd0d22ac83f291a8c25';
 		const form = {
@@ -29,9 +28,6 @@ $(document).ready(function() {
 						$(`#localIndex > option:eq(${i})`).prop("selected", true);
 					}
 				}
-				
-				 //$("#localIndex").val(data.documents[0].address.region_1depth_name.trim()).attr("selected", "selected");
-				//$("#localIndex").val(data.documents[0].address.region_1depth_name).prop("selected", true);
 	    	},
 		    error : function(){
 		      
@@ -39,6 +35,10 @@ $(document).ready(function() {
 		  });
 	});
 
+	// 영화 등록시 오늘날짜 자동으로 입력되어 있도록.
+	$('#date').val(new Date().toISOString().substring(0, 10));
+	
+	// 날짜 변경시 해당 일자에 상영하는 영화 목록이 호출되도록. 
 	$('#date').on('change',function(){
 		$('#movie > option').remove();
 		
@@ -69,6 +69,7 @@ $(document).ready(function() {
 		});
 	});
 	
+	// 영화 등록시 비동기 요청으로 영화등록. 결과값 리턴.
 	$('#submitShowing').on('click',function() {
 		var form = $('#formShowing').serialize();
 		form += `&indexTheater=${$('#index').val()}`

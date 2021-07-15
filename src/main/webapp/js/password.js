@@ -47,6 +47,7 @@ $(document).ready(function () {
 		}
 	});
 
+	// 패스워드 변경.
 	$('#btn_reg').on('click', function (e) {
 		let input = true;
 		$('#reg > div > input,#reg > div > select').each(function () {

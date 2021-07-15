@@ -93,6 +93,7 @@ $(document).ready(function() {
 	
 	var map;
 	
+	// 카카오 지도 API 부분.
 	function mapCreate(data) {
 		
 		$('#map > div').remove();
@@ -142,6 +143,7 @@ $(document).ready(function() {
 		});
 	}
 	
+	// jquery 형식으로 이벤트 변경.
 	$('#zooIn').on('click',function() {
 		map.setLevel(map.getLevel() - 1);
 	});

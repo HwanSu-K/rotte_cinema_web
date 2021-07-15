@@ -10,11 +10,13 @@
 		<result column="REVIEW_TEXT" property="text" />
 		<result column="REVIEW_DATE" property="date" />
 		<result column="CUSTOMER_NAME" property="name"/>
+		<result column="MOVIE_INDEX" property="indexMovie" />
+		<result column="CUSTOMER_INDEX" property="indexCustomer" />
 	</resultMap>
 
 	<select id="selectList" parameterType="map"
 		resultMap="ResultMap">
-		SELECT A.REVIEW_INDEX,A.REVIEW_RATING,A.REVIEW_TEXT,A.REVIEW_DATE,B.CUSTOMER_NAME
+		SELECT A.REVIEW_INDEX,A.REVIEW_RATING,A.REVIEW_TEXT,A.REVIEW_DATE,A.MOVIE_INDEX,A.CUSTOMER_INDEX,B.CUSTOMER_NAME
 		FROM MOVIE_REVIEW A INNER JOIN CUSTOMER B ON A.CUSTOMER_INDEX = B.CUSTOMER_INDEX
 		WHERE A.MOVIE_INDEX = #{index}
 		ORDER BY 

@@ -12,6 +12,8 @@ public class ReservItem {
 	protected String age;
 	protected String week;
 	protected String time;
+	protected String datePay;
+	protected boolean cancel;
 	
 	public int getIndexMovie() {
 		return indexMovie;
@@ -88,6 +90,20 @@ public class ReservItem {
 	}
 	public ReservItem setTime(String time) {
 		this.time = time;
+		return this;
+	}
+	public String getDatePay() {
+		return datePay;
+	}
+	public ReservItem setDatePay(String datePay) {
+		this.datePay = datePay;
+		return this;
+	}
+	public boolean isCancel() {
+		return cancel;
+	}
+	public ReservItem setCancel(boolean cancel) {
+		this.cancel = cancel;
 		return this;
 	}
 }

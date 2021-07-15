@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 2. 동적 SQL 적용 -->
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="spms.dao.PushDao">
+	<resultMap type="push" id="ResultMap">
+		<id column="PAY_INDEX" property="index" />
+		<result column="CUSTOMER_INDEX" property="indexCustomer" />
+		<result column="PUSH_TIME" property="date" />
+		<result column="MOVIE_TITLE" property="title" />
+	</resultMap>
+
+	<select id="selectList" parameterType="map"
+		resultMap="ResultMap">
+		SELECT PAY_INDEX,CUSTOMER_INDEX,
+		(SELECT CONCAT(SHOW_DATE,' ',SHOW_STARTTIME) FROM MOVIE_RESERV B INNER JOIN MOVIE_SHOWING C ON B.SHOWING_INDEX = C.SHOWING_INDEX WHERE B.PAY_INDEX = A.PAY_INDEX LIMIT 1) AS 'PUSH_TIME',
+		(SELECT D.MOVIE_TITLE FROM MOVIE_RESERV B INNER JOIN MOVIE_SHOWING C ON B.SHOWING_INDEX = C.SHOWING_INDEX INNER JOIN MOVIE D ON C.MOVIE_INDEX = D.MOVIE_INDEX WHERE B.PAY_INDEX = A.PAY_INDEX LIMIT 1) AS 'MOVIE_TITLE'
+		FROM PAY A
+		WHERE PAY_PUSH = 0
+	</select>
+	
+	<update id="update" parameterType="int">
+		UPDATE PAY SET PAY_PUSH=1 WHERE PAY_INDEX=#{value};
+	</update>
+</mapper>

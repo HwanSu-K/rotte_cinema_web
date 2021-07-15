@@ -8,7 +8,7 @@ public class Review {
 	protected int indexMovie;
 	protected int indexCustomer;
 	protected String name;
-	protected int count;
+	protected boolean trash;
 	
 	public int getIndex() {
 		return index;
@@ -52,10 +52,10 @@ public class Review {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getCount() {
-		return count;
+	public boolean isTrash() {
+		return trash;
 	}
-	public void setCount(int count) {
-		this.count = count;
+	public void setTrash(boolean trash) {
+		this.trash = trash;
 	}
 }

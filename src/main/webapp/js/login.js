@@ -1,7 +1,7 @@
 $(document).ready(function() {
+	
+	// 로그인 실패, 성공 여부 확인을 위하여 비동기 요청으로 변경.
 	$('#loginBtn').on('click', function(e) {
-
-
 		let input = true;
 		$('#login > div > div > input').each(function() {
 			if ($(this).val() == "") {

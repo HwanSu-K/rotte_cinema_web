@@ -14,6 +14,8 @@ public interface MovieDao {
 	
 	List<Movie> selectListRank(int no) throws Exception;
 	
+	List<Movie> selectListLike(int no) throws Exception;
+	
 	int insert(Movie movie) throws Exception ;
 	
 	Movie selectOne(int no) throws Exception ;

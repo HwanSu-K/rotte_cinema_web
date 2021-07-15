@@ -12,8 +12,7 @@ $(document).ready(function() {
 		}
 	});
 
-//	var menus = $('nav > ul > li > div');
-
+	// 헤더 메뉴 클릭시 기존의 토글되어있는 메뉴 확인후 처리.
 	$('.header_menu').click(function(event) {
 		$('.nav_map').toggleClass('active')
 		$('.header_menu').toggleClass('active')
@@ -27,6 +26,7 @@ $(document).ready(function() {
 
 	});
 
+	// 헤더 메뉴 클릭시 기존의 토글되어있는 메뉴 확인후 처리.
 	$('.header_search').click(function(event) {
 		$('.nav_search').toggleClass('active')
 		$('.header_search').toggleClass('active')
@@ -37,10 +37,10 @@ $(document).ready(function() {
 				$('.header_menu').click();
 			}
 		}
-		
+		// 헤더가 선택되면 실시간 순위및 포스터 호출.		
 		if ($('.header_search').hasClass('active')) {
 			var form = {
-			type: 'default'
+				type: 'default'
 			}
 
 			$.ajax({
@@ -68,6 +68,7 @@ $(document).ready(function() {
 		}
 	});
 	
+	// 헤더 검색시 비동기요청으로 영화 표시.
 	$('#searchText').on('propertychange change keyup paste input', function(e){
 		var searchText = e.currentTarget.value.trim();
 		if(searchText != '') {

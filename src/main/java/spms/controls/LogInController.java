@@ -19,11 +19,14 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import spms.dao.CustomerDao;
 import spms.dao.LikeDao;
+import spms.dao.MovieDao;
 import spms.dao.PayDao;
 import spms.dao.ReservDao;
 import spms.dao.ReservationDao;
 import spms.dao.ReviewDao;
 import spms.vo.Customer;
+import spms.vo.Like;
+import spms.vo.Movie;
 import spms.vo.Pay;
 import spms.vo.Reserv;
 import spms.vo.ReservItem;
@@ -39,7 +42,8 @@ public class LogInController {
 	ReservationDao reservationDao;
 	LikeDao likeDao;
 	ReviewDao reviewDao;
-
+	MovieDao movieDao;
+	
 	@Autowired
 	public LogInController setCustomerDao(CustomerDao customerDao) {
 		this.customerDao = customerDao;
@@ -75,6 +79,12 @@ public class LogInController {
 		this.reviewDao = reviewDao;
 		return this;
 	}
+	
+	@Autowired
+	public LogInController setMovieDao(MovieDao movieDao) {
+		this.movieDao = movieDao;
+		return this;
+	}
 
 	@RequestMapping(value = "/login.do", method = RequestMethod.GET)
 	public String loginForm(@CookieValue(value = "email", required = false) String email, HttpSession session, Map<String, Object> model) throws Exception {
@@ -91,6 +101,7 @@ public class LogInController {
 
 
 			List<ReservItem> reservItems = new ArrayList<ReservItem>();
+			List<ReservItem> onReservItems = new ArrayList<ReservItem>();
 			List<Pay> pays = payDao.selectList(customer.getIndex());
 
 			for (Pay pay : pays) {
@@ -133,25 +144,35 @@ public class LogInController {
 				}
 
 
+				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm");
+				ReservItem temp = new ReservItem()
+								.setIndexMovie(rev.getIndexMovie())
+								.setMovie(rev.getMovieTitle())
+								.setDate(rev.getDate())
+								.setTime(rev.getStartTime() + "-" + rev.getEndTime())
+								.setWeek(rev.getWeek())
+								.setCinema(rev.getCinemaTitle())
+								.setTheater(rev.getTheaterTitle())
+								.setCustomer(reservPerson)
+								.setSeat(reservSeat)
+								.setPoster(rev.getMoviePoster())
+								.setAge(Integer.toString(rev.getMovieLimitAge()))
+								.setDatePay(sdf.format(pay.getDate()))
+								.setCancel(false);
 				
-
-				reservItems.add(new ReservItem()
-						.setIndexMovie(rev.getIndexMovie())
-						.setMovie(rev.getMovieTitle())
-						.setDate(rev.getDate())
-						.setTime(rev.getStartTime() + "-" + rev.getEndTime())
-						.setWeek(rev.getWeek())
-						.setCinema(rev.getCinemaTitle())
-						.setTheater(rev.getTheaterTitle())
-						.setCustomer(reservPerson)
-						.setSeat(reservSeat)
-						.setPoster(rev.getMoviePoster())
-						.setAge(Integer.toString(rev.getMovieLimitAge())));
+				if(date.compareTo(new Date()) > 0) {
+					onReservItems.add(temp);
+					temp.setCancel(true);
+				}
+				
+				reservItems.add(temp);
 			}
 
 			model.put("reservs", reservItems);
+			model.put("onReservs", onReservItems);
 			
-			
+	
+			model.put("movies", movieDao.selectListLike(customer.getIndex()));
 			model.put("likes", likeDao.selectList(customer.getIndex()));
 			model.put("reviews", reviewDao.selectList(customer.getIndex()));
 			return "/cinema/page/MyPageForm.jsp";

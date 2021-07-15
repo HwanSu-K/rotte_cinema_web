@@ -37,7 +37,7 @@ public class FinderController {
 		{
 			Customer customer = customerDao.selectOneKey(new Customer().setKey(key)); 
 			if(customer != null) {
-				return "/cinema/page/PasswordForm.jsp";
+				return "/cinema/page/PassForm.jsp";
 			}
 		}
 		return "redirect:/login.do";

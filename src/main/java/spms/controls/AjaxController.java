@@ -1,7 +1,6 @@
 package spms.controls;
 
 import java.io.FileInputStream;
-import java.io.InputStream;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -45,18 +44,17 @@ import spms.etc.Encrypt;
 import spms.etc.IamPay;
 import spms.etc.MailSend;
 import spms.etc.Rand;
-import spms.fcm.FcmService;
 import spms.vo.Cinema;
 import spms.vo.Customer;
 import spms.vo.Like;
 import spms.vo.Movie;
+import spms.vo.MovieImage;
 import spms.vo.Pay;
 import spms.vo.PayType;
 import spms.vo.Reserv;
 import spms.vo.ReservItem;
 import spms.vo.Reservation;
 import spms.vo.Review;
-import spms.vo.Token;
 
 @Controller
 public class AjaxController {
@@ -71,9 +69,6 @@ public class AjaxController {
 	ReservDao reservDao;
 	PayDao payDao;
 	ReservationDao reservationDao;
-
-	@Autowired
-	FcmService fcmService;
 
 	@Autowired
 	JavaMailSender mailSender;
@@ -185,11 +180,35 @@ public class AjaxController {
 			HashMap<String, Object> paramMap = new HashMap<String, Object>();
 			paramMap.put("index", index);
 			paramMap.put("order", order);
+			List<Review> reviews = reviewDao.selectList(paramMap);
 			
-			map.put("reviews", reviewDao.selectList(paramMap));
-			map.put("count", reviewDao.selectOneCount(paramMap));
+			if(customer != null) {
+				for (Review review : reviews) {
+					if(review.getIndexCustomer() == customer.getIndex()) {
+						review.setTrash(true);
+					} else {
+						review.setTrash(false);
+					}
+				}
+			}
+			
+			map.put("reviews", reviews);
 		} else if(customer != null) {
-			map.put("reviews", reviewDao.selectList(customer.getIndex()));
+			List<Review> reviews =reviewDao.selectList(customer.getIndex()); 
+			ArrayList<HashMap<String, Object>> list = new ArrayList<HashMap<String, Object>>();
+			for (Review review : reviews) {
+				Movie movie = movieDao.selectOne(review.getIndexMovie());
+
+				HashMap<String, Object> temp = new HashMap<String, Object>();
+
+				temp.put("review", review);
+				temp.put("movie", movie);
+
+				list.add(temp);
+			}
+			map.put("result", "success");
+			map.put("values", list);
+			
 		}
 		
 		return map;
@@ -334,14 +353,14 @@ public class AjaxController {
 		Customer customer = customerDao.exist(email);
 		if (customer != null) {
 			if (new Encrypt().isMatch(password, customer.getPassword())) {
-				if(customer.getState() == 0) {
+				if (customer.getState() == 0) {
 					map.put("result", "auth");
 					map.put("name", null);
-					return map;	
+					return map;
 				} else {
 					customer.setPassword("");
 					session.setAttribute("customer", customer);
-					if(token != null) {
+					if (token != null) {
 						customer.setToken(token);
 						Customer customerToken = customerDao.existToken(token);
 						if (customerToken == null) {
@@ -350,7 +369,7 @@ public class AjaxController {
 							customerDao.updateToken(customer);
 						}
 					}
-	
+
 					map.put("result", "connect");
 					map.put("name", customer.getName());
 					return map;
@@ -383,15 +402,9 @@ public class AjaxController {
 	@RequestMapping(value = "/test.do")
 	@ResponseBody
 	public Object setPushObject(int no, String title, String body) throws Exception {
-
-//		List<Token> tokens = customerDao.selectList(no);
-//		for (Token token : tokens) {
-//			fcmService.sendTargetMessage(token.getValue(), title, body, "");
-//		}
-		
 		try {
 			String URL = "https://www.kobis.or.kr/kobis/business/stat/boxs/findRealTicketList.do";
-			
+
 			Connection conn = Jsoup.connect(URL);
 			Document html = conn.get();
 			return html.toString();
@@ -435,16 +448,37 @@ public class AjaxController {
 	@RequestMapping(value = "/likesobject.do", method = RequestMethod.POST)
 	@ResponseBody
 	public Object getLikesObject(HttpServletRequest request, HttpSession session) throws Exception {
-		HashMap<String, Object> map = new HashMap<String, Object>();
 		Customer customer = (Customer) session.getAttribute("customer");
-
+		HashMap<String, Object> map = new HashMap<String, Object>();
 		if (customer == null) {
 			map.put("result", "fail");
 			return map;
 		}
-		
+
 		List<Like> likes = likeDao.selectList(customer.getIndex());
-		map.put("likes", likes);
+		ArrayList<HashMap<String, Object>> list = new ArrayList<HashMap<String, Object>>();
+		for (Like like : likes) {
+			Movie movie = movieDao.selectOne(like.getIndexMovie());
+
+			String pathPoster = path + "/poster/" + movie.getPoster();
+			String pathAge = request.getSession().getServletContext()
+					.getRealPath("/images/icon/age_" + movie.getLimitAge() + ".png");
+
+			byte[] imagePoster = IOUtils.toByteArray(new FileInputStream(pathPoster));
+			byte[] imageAge = IOUtils.toByteArray(new FileInputStream(pathAge));
+
+			MovieImage movieImage = new MovieImage().setPoster(new String(Base64.encodeBase64(imagePoster), "UTF-8"))
+					.setAge(new String(Base64.encodeBase64(imageAge), "UTF-8"));
+			HashMap<String, Object> temp = new HashMap<String, Object>();
+
+			temp.put("like", like);
+			temp.put("movie", movie);
+			temp.put("image", movieImage);
+
+			list.add(temp);
+		}
+		map.put("result", "success");
+		map.put("values", list);
 		return map;
 	}
 

@@ -1,9 +1,3 @@
-// // 원페이지 스크롤 호출
-// $(document).ready(function() {
-//     $('#content').fullpage({});
-// });
-
-
 // 자동 슬라이드 부분
 $(document).ready(function(){
     $('.banner').swipe({
@@ -106,6 +100,7 @@ $(document).ready(function(){
         });
     });
 
+	// 비디오 및 마스크 부분 클릭시 비디오 종료및 마스크 제거.
     $(".video").on("click",function(){
         $.each(banners,function(index, item){
             videos.get(index).load(); 

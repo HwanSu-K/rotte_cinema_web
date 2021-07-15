@@ -3,6 +3,7 @@ $(document).ready(function() {
 	let adultAmount;
 	let teenagerAmount;
 	
+	// 서버에서 등급별 가격 호출.
 	$.ajax({
 		url: 'paytypeobject.do',
 		type: 'POST',
@@ -27,6 +28,7 @@ $(document).ready(function() {
 		index:urlParams.get('index')
 	}
 	
+	// 서버에서 예약된 좌석 호출.
 	$.ajax({
 		url: 'reservobject.do',
 		type: 'POST',
@@ -48,6 +50,8 @@ $(document).ready(function() {
 		}
 	});
 
+
+	// 성인 버튼 선택시 버튼에 따른 이벤트.
 	$('#adult > div').on('click', (e) => {
 		const target = $(e.currentTarget).children('i');
 		if (target) {
@@ -65,7 +69,8 @@ $(document).ready(function() {
 			} amount();
 		}
 	});
-
+	
+	// 청소년 버튼 선택시 버튼에 따른 이벤트.
 	$('#teenager > div').on('click', (e) => {
 		const target = $(e.currentTarget).children('i');
 		if (target) {
@@ -86,6 +91,7 @@ $(document).ready(function() {
 		}
 	});
 
+	// 합계가격 표시.
 	function amount() {
 		const adult = parseInt($('#adult_count').text()) * adultAmount;
 		const teenager = parseInt($('#teenager_count').text()) * teenagerAmount;
@@ -101,6 +107,7 @@ $(document).ready(function() {
 		init();
 	}
 
+	// 시트 선택시 오른쪽 시트 항목에 표시.
 	$('.reserv_seat > div > div').on('click', (e) => {
 		const target = $(e.currentTarget);
 		const maxCount = parseInt($('#adult_count').text()) + parseInt($('#teenager_count').text());;
@@ -137,6 +144,7 @@ $(document).ready(function() {
 
 	});
 
+	// 결제 API 호출 부분.
 	IMP.init('imp42092045');
 	$('#pay').on('click', () => {
 		const maxCount = parseInt($('#adult_count').text()) + parseInt($('#teenager_count').text());;
@@ -195,7 +203,8 @@ $(document).ready(function() {
 						reservs.push(reserv);
 					}
 				});
-
+				
+				// json형식으로 배열을 담아 직렬화 하여 서버로 전송.
 				var jsonData = JSON.stringify(reservs);
 				$.ajax({
 					url: 'reservation.do',
@@ -209,6 +218,7 @@ $(document).ready(function() {
 						$('#bg_mask').removeClass('active');
 				    },
 					success: function(data) {
+						// 정상적으로 결제가 되었는지 체크하는 부분.
 						if (data === -1) {
 							alert('로그인이 필요한 서비스 입니다.');
 							return false;
@@ -232,6 +242,7 @@ $(document).ready(function() {
 		
 		});
 	}
+	// 초기화.
 	function init() {
 		const maxCount = parseInt($('#adult_count').text()) + parseInt($('#teenager_count').text());;
 		
@@ -253,6 +264,7 @@ $(document).ready(function() {
 		});
 	}
 
+	// 좌석수 카운트.
 	function checkCount() {
 		let count = 0;
 		$('.reserv_seat > div > div').each(function() {

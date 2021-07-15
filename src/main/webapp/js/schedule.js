@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	let aroundCheck = true;
+	// GPS사용부분.
 	let arounds = null;
 	if (navigator.geolocation) {
 	    navigator.geolocation.getCurrentPosition(
@@ -14,55 +14,50 @@ $(document).ready(function() {
 	    );
 	}
 
-	
+	// GPS 사용중이라면 탭항목 추가.
 	function around() {
-		if(aroundCheck === true) {
-			$('.reserv_theater .reserv_content_title').prepend($(
-			`<span class="locals" data-tab-type="around">내주변</span>`
-			));
-			
-			$('.reserv_info_local').prepend($(
-				`<div data-tab-type="around">내주변</div>`
-			));
-			
-			
-			var form = {
-				lat: sessionStorage.getItem('lat'),
-				lng: sessionStorage.getItem('lng')
-				
-			}
-	
-			$.ajax({
-				url: 'aroundobject.do',
-				type: 'POST',
-				data: form,
-				dataType: 'json',
-				beforeSend: function() {
-					$('#bg_mask').addClass('active');
-			    },
-			    complete: function() {
-					$('#bg_mask').removeClass('active');
-			    },
-				success: function(data) {
-					arounds = data.arounds;
-					
-					$(arounds).each(function() {
-						const cinema_index = this.indexCinema;
-						$('.reserv_theater .reserv_content_list > div').each(function() {
-							if($(this).data('cinema-index') === cinema_index) {
-								$(this).data('cinema-around','true');
-							}
-						});
-					});
-				},
-				error: function() {
-	
-				}
-			});
-			
-			aroundCheck = false;
-		}
+		$('.reserv_theater .reserv_content_title').prepend($(
+		`<span class="locals" data-tab-type="around">내주변</span>`
+		));
 		
+		$('.reserv_info_local').prepend($(
+			`<div data-tab-type="around">내주변</div>`
+		));
+		
+		
+		var form = {
+			lat: sessionStorage.getItem('lat'),
+			lng: sessionStorage.getItem('lng')
+			
+		}
+
+		$.ajax({
+			url: 'aroundobject.do',
+			type: 'POST',
+			data: form,
+			dataType: 'json',
+			beforeSend: function() {
+				$('#bg_mask').addClass('active');
+		    },
+		    complete: function() {
+				$('#bg_mask').removeClass('active');
+		    },
+			success: function(data) {
+				arounds = data.arounds;
+				// 주변 극장 호출후 해당극장의 데이터에 항목 추가.
+				$(arounds).each(function() {
+					const cinema_index = this.indexCinema;
+					$('.reserv_theater .reserv_content_list > div').each(function() {
+						if($(this).data('cinema-index') === cinema_index) {
+							$(this).data('cinema-around','true');
+						}
+					});
+				});
+			},
+			error: function() {
+
+			}
+		});
 	}
 	
 
@@ -218,200 +213,205 @@ $(document).ready(function() {
 
 	//선택된 영화의 영화관 목록을 호출.
 	function theaters() {
-		$.ajax({
-			url: 'theatersobject.do',
-			type: 'POST',
-			data: search,
-			dataType: 'json',
-			beforeSend: function() {
-				$('#bg_mask').addClass('active');
-		    },
-		    complete: function() {
-				$('#bg_mask').removeClass('active');
-		    },
-			success: function(data) {
-				var cinema = null;
-				var theater = null;
-
-				$('.reserv_list > div').remove();
-
-				$(data.theaters).each(function() {
-
-					if (cinema != this.indexCinema) {
-						$('.reserv_list').append($(
-							'<div class="reserv_info_list" data-cinema-index=' + this.indexCinema + ' data-local-class="' + this.localClass + '">' +
-								'<div>' +
-									'<div class="reserv_info_list_title">' + this.nameCinema + '</div>' +
+		if(search.movie != null) {
+			$.ajax({
+				url: 'theatersobject.do',
+				type: 'POST',
+				data: search,
+				dataType: 'json',
+				beforeSend: function() {
+					$('#bg_mask').addClass('active');
+			    },
+			    complete: function() {
+					$('#bg_mask').removeClass('active');
+			    },
+				success: function(data) {
+					var cinema = null;
+					var theater = null;
+	
+					$('.reserv_list > div').remove();
+	
+					$(data.theaters).each(function() {
+	
+						if (cinema != this.indexCinema) {
+							$('.reserv_list').append($(
+								'<div class="reserv_info_list" data-cinema-index=' + this.indexCinema + ' data-local-class="' + this.localClass + '">' +
+									'<div>' +
+										'<div class="reserv_info_list_title">' + this.nameCinema + '</div>' +
+										'</div>' +
+										'<div id="cinema-' + this.indexCinema + '" class="reserv_info_list_theater">' +
 									'</div>' +
-									'<div id="cinema-' + this.indexCinema + '" class="reserv_info_list_theater">' +
-								'</div>' +
-							'</div>'
-						));
-						cinema = this.indexCinema;
-					}
-
-					if (theater != this.index) {
-						$('#cinema-' + this.indexCinema + '').append($(
-							'<div>' +
+								'</div>'
+							));
+							cinema = this.indexCinema;
+						}
+	
+						if (theater != this.index) {
+							$('#cinema-' + this.indexCinema + '').append($(
 								'<div>' +
 									'<div>' +
-										'<div>' + this.name + '</div>' +
-											'<div>총 ' + (this.seatX * this.seatY) + '석</div>' +
-											'</div>' +
 										'<div>' +
-											'<div>2D(자막)</div>' +
+											'<div>' + this.name + '</div>' +
+												'<div>총 ' + (this.seatX * this.seatY) + '석</div>' +
+												'</div>' +
+											'<div>' +
+												'<div>2D(자막)</div>' +
+											'</div>' +
 										'</div>' +
+									'<div id="theater-' + this.index + '">' +
 									'</div>' +
-								'<div id="theater-' + this.index + '">' +
-								'</div>' +
+								'</div>'
+							));
+							theater = this.index;
+						}
+						
+						$('#theater-' + this.index + '').append($(
+							`<div class="reservation ${dateConvert(search.date + this.startTime) < new Date() ? 'g' : ''}" data-index="${this.indexShowing}">` +
+								'<div>' + this.startTime + '</div>' +
+								'<span>' + (this.seatX * this.seatY - this.seatCount) + '석</span>' +
 							'</div>'
 						));
-						theater = this.index;
-					}
-
-					$('#theater-' + this.index + '').append($(
-						`<div onclick="location.href='reservation.do?index=${this.indexShowing}'">` +
-							'<div>' + this.startTime + '</div>' +
-							'<span>' + (this.seatX * this.seatY - this.seatCount) + '석</span>' +
-						'</div>'
-					));
-
-				})
-
-				$('#dates > div').each(function() {
-					$(this).addClass('g');
-				});
-					
-				$(data.dates).each(function() {
-					const date = this.date;
+	
+					})
+	
 					$('#dates > div').each(function() {
-						if($(this).data('date-value') === date) {
-							$(this).removeClass('g');
+						$(this).addClass('g');
+					});
+						
+					$(data.dates).each(function() {
+						const date = this.date;
+						$('#dates > div').each(function() {
+							if($(this).data('date-value') === date) {
+								$(this).removeClass('g');
+								return false;
+							}
+						});	
+					})	
+					
+					$('#dates > div').each(function() {
+						if($(this).hasClass('active') && $(this).hasClass('g')) {
+							$(this).removeClass('active');
 							return false;
 						}
-					});	
-				})	
-				
-				$('#dates > div').each(function() {
-					if($(this).hasClass('active') && $(this).hasClass('g')) {
-						$(this).removeClass('active');
-						return false;
-					}
-				})			
-				
-				$(arounds).each(function() {
-					const cinema_index = this.indexCinema;
-					$('.reserv_list > div').each(function() {
-						if($(this).data('cinema-index') === cinema_index) {
-							$(this).data('cinema-around','true');
-						}
+					})			
+					
+					$(arounds).each(function() {
+						const cinema_index = this.indexCinema;
+						$('.reserv_list > div').each(function() {
+							if($(this).data('cinema-index') === cinema_index) {
+								$(this).data('cinema-around','true');
+							}
+						});
 					});
-				});
-				
-				$('.reserv_info_local > div:nth-child(1)').click();
-			},
-			error: function() {
-				
-			}
-		});
+					
+					$('.reserv_info_local > div:nth-child(1)').click();
+				},
+				error: function() {
+					
+				}
+			});	
+		}
 	}
 
+	// 선택된 극장의 영화 표시.
 	function movies() {
-		$.ajax({
-			url: 'theatersobject.do',
-			type: 'POST',
-			data: search,
-			dataType: 'json',
-			beforeSend: function() {
-				$('#bg_mask').addClass('active');
-		    },
-		    complete: function() {
-				$('#bg_mask').removeClass('active');
-		    },
-			success: function(data) {
-				var movie = null;
-				var theater = null;
-
-				$('.reserv_list > div').remove();
-
-				$(data.theaters).each(function() {
-
-					if (movie != this.indexMovie) {
-						$('.reserv_list').append($(
-							'<div class="reserv_info_list">' +
-								'<div>' +
-									'<div class="movie_info_list_title">' +
-										'<div>' +
-											'<img id="movieAge" src="./images/icon/age_' + this.limitAge + '.png">' +
-											'<span id="movieSubTitle">' + this.nameMovie + '</span>' +
-										'</div>' +
-										'<div>' +
-											'<div>상영중</div>' +
-											'<div>/</div>' +
-											'<div>' + this.runningTime + '분</div>' +
-										'</div>' +
-									'</div>' +
-								'</div>' +
-								'<div id="movie-' + this.indexMovie + '" class="reserv_info_list_theater">' +
-								'</div>' +
-							'</div>'
-						));
-						movie = this.indexMovie;
-					}
-
-					if (theater != this.index) {
-						$('#movie-' + this.indexMovie + '').append($(
-							'<div class="disabled">' +
-								'<div>' +
+		if(search.cinema != null) {
+			$.ajax({
+				url: 'theatersobject.do',
+				type: 'POST',
+				data: search,
+				dataType: 'json',
+				beforeSend: function() {
+					$('#bg_mask').addClass('active');
+			    },
+			    complete: function() {
+					$('#bg_mask').removeClass('active');
+			    },
+				success: function(data) {
+					var movie = null;
+					var theater = null;
+	
+					$('.reserv_list > div').remove();
+	
+					$(data.theaters).each(function() {
+	
+						if (movie != this.indexMovie) {
+							$('.reserv_list').append($(
+								'<div class="reserv_info_list">' +
 									'<div>' +
-										'<div>' + this.name + '</div>' +
-											'<div>총 ' + (this.seatX * this.seatY) + '석</div>' +
+										'<div class="movie_info_list_title">' +
+											'<div>' +
+												'<img id="movieAge" src="./images/icon/age_' + this.limitAge + '.png">' +
+												'<span id="movieSubTitle">' + this.nameMovie + '</span>' +
 											'</div>' +
-										'<div>' +
-									'<div>2D(자막)</div>' +
+											'<div>' +
+												'<div>상영중</div>' +
+												'<div>/</div>' +
+												'<div>' + this.runningTime + '분</div>' +
+											'</div>' +
+										'</div>' +
 									'</div>' +
-								'</div>' +
-								'<div id="theater-' + this.index + '">' +
-								'</div>' +
+									'<div id="movie-' + this.indexMovie + '" class="reserv_info_list_theater">' +
+									'</div>' +
+								'</div>'
+							));
+							movie = this.indexMovie;
+						}
+	
+						if (theater != this.index) {
+							$('#movie-' + this.indexMovie + '').append($(
+								'<div class="disabled">' +
+									'<div>' +
+										'<div>' +
+											'<div>' + this.name + '</div>' +
+												'<div>총 ' + (this.seatX * this.seatY) + '석</div>' +
+												'</div>' +
+											'<div>' +
+										'<div>2D(자막)</div>' +
+										'</div>' +
+									'</div>' +
+									'<div id="theater-' + this.index + '">' +
+									'</div>' +
+								'</div>'
+							));
+							theater = this.index;
+						}
+	
+						$('#theater-' + this.index + '').append($(
+							`<div class="reservation ${dateConvert(search.date + this.startTime) < new Date() ? 'g' : ''}" data-index="${this.indexShowing}">` +
+								'<div>' + this.startTime + '</div>' +
+								'<span>' + (this.seatX * this.seatY) + '석</span>' +
 							'</div>'
 						));
-						theater = this.index;
-					}
-
-					$('#theater-' + this.index + '').append($(
-						`<div onclick="location.href='reservation.do?index=${this.indexShowing}'">` +
-							'<div>' + this.startTime + '</div>' +
-							'<span>' + (this.seatX * this.seatY) + '석</span>' +
-						'</div>'
-					));
-				})
-				
-				$('#dates > div').each(function() {
-					$(this).addClass('g');
-				});
+					})
 					
-				$(data.dates).each(function() {
-					const date = this.date;
 					$('#dates > div').each(function() {
-						if($(this).data('date-value') === date) {
-							$(this).removeClass('g');
+						$(this).addClass('g');
+					});
+						
+					$(data.dates).each(function() {
+						const date = this.date;
+						$('#dates > div').each(function() {
+							if($(this).data('date-value') === date) {
+								$(this).removeClass('g');
+								return false;
+							}
+						});	
+					})	
+					
+					$('#dates > div').each(function() {
+						if($(this).hasClass('active') && $(this).hasClass('g')) {
+							$(this).removeClass('active');
 							return false;
 						}
-					});	
-				})	
-				
-				$('#dates > div').each(function() {
-					if($(this).hasClass('active') && $(this).hasClass('g')) {
-						$(this).removeClass('active');
-						return false;
-					}
-				})		
+					})		
+						
+				},
+				error: function() {
 					
-			},
-			error: function() {
-				
-			}
-		});
+				}
+			});	
+		}
 	}
 
 	// 영화별 선택.
@@ -441,7 +441,15 @@ $(document).ready(function() {
 		// 첫번째 탭 선택
 		$('.reserv_theater .reserv_content_title > span:nth-child(1)').click();
 	})
-
+	
+	// 상영 영화 선택시 해당 예약 페이지 이동.
+	$(document).on('click','.reservation',function() {	
+		if(!$(this).hasClass('g')) {
+			location.href=`reservation.do?index=${$(this).data('index')}`
+		}
+	});
+	
+	// 날짜 선택시 영화 재호출.
 	$('#dates > div').on('click', function(e) {
 		
 		if(!$(e.currentTarget).hasClass('g') || typeof e.originalEvent === 'undefined') {
@@ -458,14 +466,29 @@ $(document).ready(function() {
 			$(e.currentTarget).addClass('active');	
 		}
 	})
+	
+	// 날짜 변경.
+	function dateConvert(date) {
+		var dateString = date;
+		var reggie = /(\d{4})-(\d{2})-(\d{2})(\d{2}):(\d{2})/;
+		var dateArray = reggie.exec(dateString);
+		var dateObject = new Date(
+		    (+dateArray[1]),
+		    (+dateArray[2])-1, // Careful, month starts at 0!
+		    (+dateArray[3]),
+		    (+dateArray[4]),
+		    (+dateArray[5])
+		);
+		return dateObject;
+	}
 
 	// 페이지 로딩시 전체영화 버튼을 클릭함.
 	$('.reserv_movie .reserv_content_title > span:nth-child(1)').click();
 
 	// 페이지 로딩시 첫번쨰 날짜 클릭
 	$('#dates > div:nth-child(1)').click();
-
-	// 날짜 컨트롤 이베트
+	
+	// 날짜 컨트롤 이벤트
 	$('#next').on('click', function() {
 		//$('.dates').scrollLeft($('.dates').scrollLeft() - 70);
 		$('#dates').stop().animate({ scrollLeft: '-=70' })
@@ -480,9 +503,4 @@ $(document).ready(function() {
 		//$('.dates').scrollLeft(0);
 		$('#dates').stop().animate({ scrollLeft: '0' })
 	})
-	
-		
-	if(sessionStorage.getItem('lat')) {
-		around();
-	}
 });

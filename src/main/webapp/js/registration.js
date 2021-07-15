@@ -1,4 +1,5 @@
 $(document).ready(function () {
+	// 초기 날짜값 세팅.
 	var year = new Date().getFullYear();
 	for (var i = 0; i < 50; i++) {
 		var option = $(
@@ -17,6 +18,7 @@ $(document).ready(function () {
 		$('#day').append(option);
 	}
 
+	// 해당 년월의 일수를 계산.
 	function fn_DayOfMonth(year, month) {
 		//month 는 0 부터 시작해서..
 		return 32 - new Date(year, month - 1, 32).getDate();
@@ -107,7 +109,7 @@ $(document).ready(function () {
 		}
 	}
 
-	// 자리수 맞추
+	// 자리수 맞춤.
 	function numberPad(n) {
 		width = 2;
 		n = n + '';
@@ -115,6 +117,8 @@ $(document).ready(function () {
 			? n
 			: new Array(width - n.length + 1).join('0') + n;
 	}
+	
+	//이메일 중복 체크.
 	$('#email,#emailAddr,#emailSelect').on('blur', function () {
 		if ($('#email').val() === '' || $('#emailAddr').val() === '') {
 			// 내용을 입력해야 처리되도록.
@@ -157,6 +161,7 @@ $(document).ready(function () {
 		});
 	});
 
+	// 이메일 목록 선택시 작동.
 	$('#emailSelect').on('change', function (e) {
 		var idx = $('#emailSelect option').index($('#emailSelect option:selected'));
 
@@ -168,6 +173,8 @@ $(document).ready(function () {
 			$('#emailAddr').val(this.value);
 		}
 	});
+	
+	// 회원가입 비동기 요청.
 	$('#btn_reg').on('click', function (e) {
 		let input = true;
 		$('#reg > div > input,#reg > div > select').each(function () {

@@ -1,5 +1,6 @@
 $(document).ready(function() {
 
+	// 날짜 세팅 부분 
 	var year = new Date().getFullYear();
 	for (var i = 0; i < 50; i++) {
 		var option = $(
@@ -18,11 +19,13 @@ $(document).ready(function() {
 		$('#day').append(option);
 	}
 
+	// 해당월에 일수를 계산.
 	function fn_DayOfMonth(year, month) {
 		//month 는 0 부터 시작해서..
 		return 32 - new Date(year, month - 1, 32).getDate();
 	}
 
+	// 년,월 변경시 일수를 변경.
 	$('#year,#month').on('change', function () {
 		if (
 			$('#year option:selected').val() === '' ||
@@ -36,7 +39,6 @@ $(document).ready(function() {
 			$('#month option:selected').val()
 		);
 
-		// 년 월 선택시 해당 일수를 재 설정함.
 		$('#day > option').remove();
 		var option = $("<option value=''>일</option>");
 		$('#day').append(option);
@@ -49,7 +51,7 @@ $(document).ready(function() {
 		}
 	});
 	
-	// 자리수 맞추
+	// 자릿수 맞춤.
 	function numberPad(n) {
 		width = 2;
 		n = n + '';
@@ -58,6 +60,7 @@ $(document).ready(function() {
 			: new Array(width - n.length + 1).join('0') + n;
 	}
 	
+	// 아이디 검색 비동기 요청.
 	$('#btnId').on('click', function() {
 		let input = true;
 		$('#reg > div > input,#reg > div > select').each(function () {
@@ -109,6 +112,7 @@ $(document).ready(function() {
 		}
 	});
 
+	// 비밀번호 검색 비동기 요청.
 	$('#btnPass').on('click', function() {
 		let input = true;
 		$('#reg > div > input,#reg > div > select').each(function () {

@@ -1,7 +1,8 @@
 $(document).ready(function() {
 
+	// 좋아요 버튼 클릭시 서버에서 세션 확인후 리턴.
+	// 좋아요 여부, 좋아요 갯수를 리턴받아 항목 변경.
 	$('.movieLike').on('click', function(e) {
-		
 		var form = {
 			indexMovie: $(e.currentTarget).data('movie-index'),
 		}

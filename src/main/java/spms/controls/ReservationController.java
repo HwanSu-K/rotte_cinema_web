@@ -40,8 +40,12 @@ public class ReservationController {
 		cal.add(Calendar.MINUTE, rev.getMovieRunningTime());
 		rev.setEndTime(time.format(cal.getTime()));
 		rev.setDate(rev.getDate().replaceAll("-", "."));
-		
-		model.put("reservation", rev);	
-		return "/cinema/page/ReservationForm.jsp";
+
+		if(date.compareTo(new Date()) > 0) {
+			model.put("reservation", rev);	
+			return "/cinema/page/ReservationForm.jsp";
+		} else {
+			return "redirect:/main.do";
+		}
 	}
 }

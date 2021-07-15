@@ -64,6 +64,16 @@ public class MySqlMovieDao implements MovieDao {
 	}
 	
 	@Override
+	public List<Movie> selectListLike(int no) throws Exception {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		try {
+			return sqlSession.selectList("spms.dao.MovieDao.selectListLike", no);
+		} finally {
+			sqlSession.close();
+		}
+	}
+	
+	@Override
 	public int insert(Movie movie) throws Exception {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		try {
