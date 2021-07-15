@@ -5,6 +5,7 @@
 
 <header>
 <nav>
+    <i id="toggle" class="fas fa-bars"></i>
     <ul>
         <li>
             <div class="header_menu"></div>
