@@ -68,7 +68,7 @@
 .reserv_right > .movie_seat > div > .select_seat > div.enabled{background-color: #606060;}
 .reserv_right > .movie_seat > div > .select_seat > div.active{background-color: #252451;}
 .reserv_right > .movie_amount {flex-basis: auto; flex-grow: 1; display: flex; justify-content: space-between; align-items: flex-end; color:#fff}
-.reserv_right > .movie_amount > div > p {display: inline; font-size: 16pt; color:#e9e500; margin: 5px;}
+.reserv_right > .movie_amount > div > p {display: inline; font-size: 16pt; color:#ffd630; margin: 5px;}
 
 
 .reserv_pay {background-color: #999; border-radius: 0 0 8px 8px; height: 20px; display: flex; justify-content: center; align-items: center; color:#fff}
