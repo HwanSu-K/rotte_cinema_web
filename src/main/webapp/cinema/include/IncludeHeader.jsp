@@ -7,7 +7,7 @@
 <nav>
 	<i class="fas fa-search"></i>
     <i class="fas fa-bars"></i>
-    <ul>
+    <ul class="desk">
         <li>
             <div class="header_menu"></div>
             <div class="header_search"></div>
@@ -44,6 +44,32 @@
             <div onclick="location.href='${path }/login.do';" class="header_user"></div>
         </li>
         
+    </ul>
+    <ul class="mobile">
+        <li>영화
+            <ul>
+                <li><a href="${path }/movie.do">전체영화</a></li>
+                <li><a href="${path }/movie.do?type=qration">큐레이션</a></li>
+            </ul>
+        </li>
+        <li>예매
+            <ul>
+                <li><a href="${path }/ticketing.do">빠른예매</a></li>
+                <li><a href="${path }/schedule.do">상영시간표</a></li>
+            </ul>
+        </li>
+        <li>이벤트
+            <ul>
+            	<li><a href="${path }/event.do">전체이벤트</a></li>
+                <li><a href="${path }/event.do">진행이벤트</a></li>
+            </ul>
+        </li>
+        <li>시설안내
+            <ul>
+                <li><a href="${path }/about.do">시설안내</a></li>
+                <li><a href="${path }/location.do">극장안내</a></li>
+            </ul>
+        </li>
     </ul>
     <div class="nav_bg"></div>
     <div class="nav_map">

@@ -98,4 +98,63 @@ $(document).ready(function() {
 		}
 
 	});
+
+	$('.mobile > li').on('click',function(e) {
+		console.log(e.currentTarget);
+		$(e.currentTarget).toggleClass('active');
+	});
+
+	$('.fa-bars').on('click',function(event) {
+		$('.mobile').toggleClass('active');
+		$('nav').toggleClass('active')
+
+		if (typeof event.originalEvent != 'undefined') {
+			if ($('.nav_search').hasClass('active')) {
+				$('.nav_search').toggleClass('active')
+				$('nav').toggleClass('active')
+			}
+		}
+	})
+
+	$('.fa-search').on('click',function(event) {
+		$('.nav_search').toggleClass('active')
+		$('nav').toggleClass('active')
+		
+		if (typeof event.originalEvent != 'undefined') {
+			if ($('.mobile').hasClass('active')) {
+				$('.mobile').toggleClass('active');
+				$('nav').toggleClass('active')
+			}
+		}
+		
+		// 헤더가 선택되면 실시간 순위및 포스터 호출.		
+		if ($('.nav_search').hasClass('active')) {
+			var form = {
+				type: 'default'
+			}
+
+			$.ajax({
+				url: urlPath + '/moviesobject.do',
+				type: 'POST',
+				data: form,
+				dataType: 'json',
+				success: function(data) {
+	
+					$('.movie_List > div').remove();
+	
+					$('#headerPoster').attr('onclick', 'location.href =\'' + urlPath + '/moviedetail.do?index=' + data.movies[0].index + '\'');
+					$('#headerPoster > img').attr('src', '/images/poster/' + data.movies[0].poster);
+					$(data.movies).each(function(index, item) {
+						$('.movie_List').append($(
+							'<div onClick="location.href =\'' + urlPath + '/moviedetail.do?index=' + item.index + '\'">' +
+							'<span>' + (index + 1) + '</span><span>' + item.title + '</span></div>'));
+						if (index == 4) { return false; }
+					});
+				},
+				error: function() {
+					
+				}
+			});	
+		}
+	})
 });

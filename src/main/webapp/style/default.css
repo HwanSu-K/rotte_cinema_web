@@ -6,13 +6,18 @@
 	}	
 	html{font-size: 16px;}
 	header {height: 60px;}
-	nav > #toggle {display: none;}
+	nav > .fa-search {display: none;}
+	nav > .fa-bars {display: none;}
+	nav > .mobile {display: none;}
 	nav > ul {display: flex;}
 	body{
 		grid-template-rows: 60px auto 1fr 120px;
 	}
 	footer > .footer_info > div {
 		width: var(--default--width);
+	}
+	nav > .nav_search > div > div:nth-child(2) {
+		display: flex;
 	}
 }
 
@@ -23,10 +28,12 @@
 		--default--width: 90vw;
 	}
 	html{font-size: 32px;}
-	nav {display: flex; align-items: center; justify-content: flex-end;}
-	nav > #toggle {margin-right: 5%; font-size: 40pt;}
-	nav > ul {display: none;}
-	header {height: 130px;}
+	nav {display: flex; align-items: center; justify-content: space-between;}
+	nav > .fa-search {margin-left: 5%; font-size: 32pt; cursor: pointer;}
+	nav > .fa-bars {margin-right: 5%; font-size: 32pt; cursor: pointer;}
+	nav > .desk {display: none;}
+	nav > .nav_bg {display: none;}
+	header {height: 85px;}
 	body{
 		grid-template-rows: 60px auto 1fr 300px;
 	}
@@ -38,6 +45,10 @@
 	}
 	footer > .footer_link {display: none}
 	footer > .footer_info > div > div > img {width: 400px; margin-top: 30px}
+	nav > .nav_search > div > div:nth-child(2) {
+		display: none;
+	}
+	nav > .nav_search {top:85px;}
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
@@ -53,7 +64,7 @@ a {
 	text-decoration: none;
 	color: #ffffff;
 }
-
+#search {display: flex;}
 body {
 	display: grid;
 	grid-template-areas:
@@ -76,24 +87,61 @@ header {
 	z-index: 999;
 	color: #fff;
 }
+nav > .mobile.active {display: flex;}
+nav > .mobile {
+	position: fixed;
+	top:86px;
+	display: none;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	background-color: #2b3380;
+	padding-bottom: 30px;
+}
+nav > .mobile > li {
+	width: 100%; 
+	text-align: center;
+	margin-top: 30px;
+
+}
+nav > .mobile > li > ul {
+	display: none;
+	font-size: 0.7rem;
+	flex-direction: column;
+	margin: -10px;
+}
+nav > .mobile > li > ul > li {
+	margin-top: 20px;
+}
+nav > .mobile > li.active {
+	color: #ffd630;
+}
+
+nav > .mobile > li.active > ul {
+	display: flex;
+}
+
 nav {
 	width: 100%;
 	height: 100%;
 	border-bottom: 1px solid rgba(175, 175, 175, 1);
 }
-nav > ul {
+nav > .desk {
 	width: 100%;
 	height: 100%;
 	justify-content: center;
 }
-nav > ul > li {
+nav > .desk > li {
 	height: 100%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-basis: 130px;
 } /* 항목들의 넓이가 최소 100px은 유지 되도록 */
-nav > ul > li:hover {
+nav > .desk > li:hover,
+nav > .mobile > li:hover,
+nav > .mobile > li > ul > li:hover > a {
 	cursor: pointer;
 	color: #ffd630;
 }
@@ -103,12 +151,12 @@ nav > ul > li:hover {
 	height: 30px;
 	margin-left: 150px;
 }
-nav > ul > li:first-child {flex-basis: 150px; justify-self: center;}
-nav > ul > li:last-child {flex-basis: 150px;}
-nav > ul > li:nth-child(4) {
+nav > .desk > li:first-child {flex-basis: 150px; justify-self: center;}
+nav > .desk > li:last-child {flex-basis: 150px;}
+nav > .desk > li:nth-child(4) {
 	flex-basis: 450px;
 }
-nav > ul > li > div {
+nav > .desk > li > div {
 	cursor: pointer;
 }
 nav > ul > li > .header_menu {
@@ -330,7 +378,6 @@ nav > .nav_search > div > div:nth-child(1) > div > div > span:last-child {
 	font-size: 13pt;
 }
 nav > .nav_search > div > div:nth-child(2) {
-	display: flex;
 	flex-direction: column;
 	width: 350px;
 	margin-left: 100px;
