@@ -28,9 +28,41 @@
 
 ## 구현
 
-- 데이터 베이스 설계
+### 스토리 보드
 
-![ERD](https://user-images.githubusercontent.com/80761447/141538997-babe1476-4978-4f9d-bf64-3e2519e56f9b.png)
+- Adobe XD, PPT
+
+*작업 이전 스토리보드 작성으로 계획적으로 레이아웃을 구성할 수 있도록 설계*
+
+*대략적인 레이아웃 파악으로 실제 작업시간 단축*
+<div style="diplay:flex">
+<img src="https://user-images.githubusercontent.com/80761447/141539867-803acf8f-6a45-4bd8-b415-3ceb991471a2.png" width="30%" />
+<img src="https://user-images.githubusercontent.com/80761447/141539873-e1759c55-0e00-4e7e-ba01-cb47d7c11c48.png" width="30%" />
+<img src="https://user-images.githubusercontent.com/80761447/141539895-5c9f4022-f08a-42cb-b664-6ee7ea52eeb1.png" width="30%" />
+</div>
+  
+
+  
+### ERD
+
+- MySQL
+
+*데이터 베이스의 중복을 최소화하고, 유지 보수를 위해 외래 키를 이용하여 관계 설정*
+
+*자주 사용하는 컬럼에 대해 색인 설정*
+<img src="https://user-images.githubusercontent.com/80761447/141538997-babe1476-4978-4f9d-bf64-3e2519e56f9b.png" width="90%" />
+
+
+## 배포
+
+- Apache2 + Tomcat9
+
+*리눅스 서버 호스팅 WEB, WAS Database, HTTPS*
+
+<img src="https://user-images.githubusercontent.com/80761447/141540297-0a917f92-d8ae-4a00-b51b-446b5485f778.png" width="90%" />
+
+
+ 
 
 ## 시행착오 및 해결
 
